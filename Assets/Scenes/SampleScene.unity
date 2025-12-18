@@ -316,7 +316,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "La ciencia es muy importante en procesos de transferencia tecnol\xF3gica\n"
+  m_text: 'Descubrimiento de un nuevo microorganismo
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -379,7 +381,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 32.827686, w: 0}
+  m_margin: {x: -0.37205505, y: 0, z: 32.827686, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -699,6 +701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 776700952}
   - component: {fileID: 776700955}
+  - component: {fileID: 776700957}
   - component: {fileID: 776700954}
   - component: {fileID: 776700953}
   - component: {fileID: 776700956}
@@ -868,6 +871,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &776700957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776700951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7394a4a4386fd2b48b3f9dda8f9bc366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardType: 0
 --- !u!1 &1182307828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,6 +1194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1481200643}
   - component: {fileID: 1481200645}
+  - component: {fileID: 1481200646}
   - component: {fileID: 1481200644}
   m_Layer: 0
   m_Name: ChestCiencia
@@ -1298,6 +1315,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1481200646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481200642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99a68f8f2b1ff64a8b13be7789c93ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acceptedType: 0
 --- !u!1 &1579118619
 GameObject:
   m_ObjectHideFlags: 0
