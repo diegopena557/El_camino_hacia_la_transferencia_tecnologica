@@ -3,20 +3,14 @@ using UnityEngine;
 public class CardDrag : MonoBehaviour
 {
     public CardType cardType;
+    public Collider2D spawnArea;
 
     private Camera mainCamera;
     private bool isDragging;
 
-    private Vector3 spawnPosition;
-    private Vector3 lastValidPosition;
-
     void Start()
     {
         mainCamera = Camera.main;
-
-        // Posición inicial al aparecer
-        spawnPosition = transform.position;
-        lastValidPosition = transform.position;
     }
 
     void OnMouseDown()
@@ -48,20 +42,22 @@ public class CardDrag : MonoBehaviour
                 return;
             }
         }
-
-        // Si NO cayó en un cofre:
-        lastValidPosition = transform.position;
+        // Si no cayó en un cofre, se queda donde se soltó
     }
 
-    public void ResetPosition()
+    public void Respawn()
     {
-        // Solo se usa cuando el cofre es incorrecto
-        transform.position = lastValidPosition;
-    }
+        if (spawnArea == null)
+        {
+            Debug.LogWarning("SpawnArea no asignada");
+            return;
+        }
 
-    public void ResetToSpawn()
-    {
-        transform.position = spawnPosition;
-        lastValidPosition = spawnPosition;
+        Bounds bounds = spawnArea.bounds;
+
+        float x = Random.Range(bounds.min.x, bounds.max.x);
+        float y = bounds.max.y;
+
+        transform.position = new Vector2(x, y);
     }
 }

@@ -3,24 +3,19 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     public CardType acceptedType;
+    public ChestFeedback feedback;
 
     public void TryAcceptCard(CardDrag card)
     {
         if (card.cardType == acceptedType)
         {
-            CorrectCard(card);
+            feedback?.PlayCorrectFeedback();
+            Destroy(card.gameObject);
         }
         else
         {
-            
+            feedback?.PlayWrongFeedback();
+            card.Respawn();
         }
     }
-
-    void CorrectCard(CardDrag card)
-    {
-        Debug.Log("Tarjeta correcta");
-        Destroy(card.gameObject);
-    }
-
-
 }
