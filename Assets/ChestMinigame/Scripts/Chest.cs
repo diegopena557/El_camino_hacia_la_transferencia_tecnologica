@@ -11,11 +11,15 @@ public class Chest : MonoBehaviour
         {
             feedback?.PlayCorrectFeedback();
             Destroy(card.gameObject);
+            GameStatsManager.Instance.AddCorrect();
+
         }
         else
         {
             feedback?.PlayWrongFeedback();
             card.Respawn();
+            GameStatsManager.Instance.AddError();
+
         }
     }
 }
