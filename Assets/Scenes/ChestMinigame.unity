@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.1843, y: -0.056}
+  m_AnchoredPosition: {x: -0.24, y: 1.0207}
   m_SizeDelta: {x: 184.4239, y: 92.7872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8711602
@@ -179,8 +179,8 @@ MonoBehaviour:
   m_text: "Se desarrolla un dispositivo que registra estas variables y brinda compa\xF1\xEDa
     a los adultos mayores para apoyar su recuperaci\xF3n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.1456, y: 0.05633545}
+  m_AnchoredPosition: {x: -0.00000064075, y: 1.85}
   m_SizeDelta: {x: 181.6496, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &73799542
@@ -317,8 +317,8 @@ MonoBehaviour:
   m_text: "Se implementa un modelo matem\xE1tico en un sistema que simula distintos
     escenarios de contagio.\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -342,8 +342,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -429,8 +429,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2181, y: -0.5334}
-  m_SizeDelta: {x: 107.7743, y: 164.9738}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &116780339
 MonoBehaviour:
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -504,7 +504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.077271, y: 0.05633545}
+  m_AnchoredPosition: {x: 0.00000049174, y: 1.64}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &140758180
@@ -530,8 +530,8 @@ MonoBehaviour:
   m_text: "Autoridades usan el sistema que simula escenarios de contagio para planear
     estrategias de prevenci\xF3n y atenci\xF3n."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -647,7 +647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28.67001, y: -7.07}
+  m_AnchoredPosition: {x: -28.67, y: -15.96}
   m_SizeDelta: {x: 5.0142, y: 1.696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &231443687
@@ -770,7 +770,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.45730186, y: 1.0300324}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -780,7 +780,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.369469, y: 4.888352}
   m_EdgeRadius: 0
 --- !u!114 &231443690
 MonoBehaviour:
@@ -849,7 +849,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -17.16}
+  m_AnchoredPosition: {x: -0.00000059605, y: -27.4}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &232377621
@@ -972,7 +972,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.46458983, y: 1.0257521}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -982,7 +982,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.384045, y: 4.9345646}
   m_EdgeRadius: 0
 --- !u!114 &232377624
 MonoBehaviour:
@@ -1096,12 +1096,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236479438}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.6, y: -3.36, z: 0}
-  m_LocalScale: {x: 0.31235835, y: 0.31235835, z: 0.31235835}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.453, y: 0.096, z: 0.154}
+  m_LocalScale: {x: 1.4648058, y: 1.4254446, z: 1.4057637}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1481200643}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &263884612
 GameObject:
@@ -1142,7 +1142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1.5}
+  m_AnchoredPosition: {x: 0, y: -1.35}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &263884614
@@ -1265,7 +1265,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.4645784, y: 1.0113516}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1275,7 +1275,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.384022, y: 4.8680553}
   m_EdgeRadius: 0
 --- !u!114 &263884617
 MonoBehaviour:
@@ -1344,7 +1344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28.67001, y: -0.84800005}
+  m_AnchoredPosition: {x: -28.67, y: -5.01}
   m_SizeDelta: {x: 5.0142, y: 1.696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &268489073
@@ -1467,7 +1467,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.4573009, y: 0.9874364}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1477,7 +1477,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.3694673, y: 4.8883533}
   m_EdgeRadius: 0
 --- !u!114 &268489076
 MonoBehaviour:
@@ -1541,8 +1541,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.38323975, y: -0.3285}
-  m_SizeDelta: {x: 100, y: 140.0091}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &309775752
 MonoBehaviour:
@@ -1564,7 +1564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1616,8 +1616,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.38323975, y: 0.0723}
-  m_SizeDelta: {x: 100, y: 143.8107}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348834047
 MonoBehaviour:
@@ -1639,7 +1639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1696,7 +1696,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -4.47}
+  m_AnchoredPosition: {x: 0.00000061095, y: -6.57}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &352213775
@@ -1819,7 +1819,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.4716928, y: 1.0077932}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1829,7 +1829,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.398251, y: 4.946342}
   m_EdgeRadius: 0
 --- !u!114 &352213778
 MonoBehaviour:
@@ -1893,8 +1893,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.38323975, y: 0.0723}
-  m_SizeDelta: {x: 100, y: 143.8107}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &370426138
 MonoBehaviour:
@@ -1916,7 +1916,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1968,7 +1968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.077255, y: 0.05633545}
+  m_AnchoredPosition: {x: -0.00000024587, y: 2.05}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451273958
@@ -1995,8 +1995,8 @@ MonoBehaviour:
     comunicaci\xF3n influyen en la recuperaci\xF3n y el bienestar de los adultos
     mayores."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2179,7 +2179,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.31
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2244,8 +2244,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.07727051, y: 0.05633545}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.00000014901, y: 1.88}
+  m_SizeDelta: {x: 200, y: 53.9832}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &534197675
 MonoBehaviour:
@@ -2270,8 +2270,8 @@ MonoBehaviour:
   m_text: "Se estudian modelos matem\xE1ticos para entender c\xF3mo se propaga una
     enfermedad en una poblaci\xF3n."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2295,8 +2295,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2334,7 +2334,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.37205505, y: 0, z: 32.827686, w: 0}
+  m_margin: {x: -0.37205505, y: 0, z: 31.2985, w: -68.8645}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2387,7 +2387,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -7.7}
+  m_AnchoredPosition: {x: 0.0000014305, y: -11.7}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &549370786
@@ -2510,7 +2510,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.4716947, y: 1.0504954}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2520,7 +2520,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.398255, y: 4.846704}
   m_EdgeRadius: 0
 --- !u!114 &549370789
 MonoBehaviour:
@@ -2589,7 +2589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28.67001, y: -3.95}
+  m_AnchoredPosition: {x: -28.67, y: -10.36}
   m_SizeDelta: {x: 5.0142, y: 1.696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &569616746
@@ -2712,7 +2712,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.47150016, y: 1.0016348}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2722,7 +2722,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.397866, y: 4.888353}
   m_EdgeRadius: 0
 --- !u!114 &569616749
 MonoBehaviour:
@@ -2778,8 +2778,8 @@ Transform:
   m_GameObject: {fileID: 611634840}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.12, y: -0.18158597, z: -0.033193074}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.049, y: -0.0405, z: -0.033193074}
+  m_LocalScale: {x: 2.0595424, y: 2.0748281, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1662190850}
@@ -2833,12 +2833,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 7f652e67889fb234ab349309e1853cef, type: 3}
+  m_Sprite: {fileID: 3227293815268055470, guid: 1cb034aa8ac5a3d4e913cdb6af878b1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.81960785}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 20, y: 12.91}
+  m_Size: {x: 4, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2877,7 +2877,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.077255, y: 0.05633545}
+  m_AnchoredPosition: {x: -0.00000024587, y: 1.84}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &619177652
@@ -2903,8 +2903,8 @@ MonoBehaviour:
   m_text: "Se estudian las propiedades de nuevos materiales para almacenar energ\xEDa
     de forma segura."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2928,8 +2928,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3099,7 +3099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3292, y: -0.056}
+  m_AnchoredPosition: {x: -0.31, y: 1.15}
   m_SizeDelta: {x: 172.4962, y: 92.7872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &668817601
@@ -3125,8 +3125,8 @@ MonoBehaviour:
   m_text: "Se dise\xF1a una herramienta que propone nuevas rutas y usos del espacio
     urbano."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3150,8 +3150,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3242,7 +3242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.704, y: -2.38}
+  m_AnchoredPosition: {x: -22.704, y: -9.02}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &750408623
@@ -3365,17 +3365,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.46523643, y: 1.0624106}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 6}
+    newSize: {x: 4, y: 6}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.3853383, y: 4.822828}
   m_EdgeRadius: 0
 --- !u!114 &750408626
 MonoBehaviour:
@@ -3435,10 +3435,11 @@ Transform:
   m_GameObject: {fileID: 751388899}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.7599998, y: -3.33, z: -0.033193074}
-  m_LocalScale: {x: 0.18847439, y: 0.18847439, z: 0.18847439}
+  m_LocalPosition: {x: 8.79, y: -3.74, z: -0.033193074}
+  m_LocalScale: {x: 0.21619897, y: 0.21619897, z: 0.21619897}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1689310343}
   m_Father: {fileID: 1662190850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &751388901
@@ -3780,17 +3781,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.49217296, y: 1.0264964}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 6}
+    newSize: {x: 4, y: 6}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.4392114, y: 4.8587427}
   m_EdgeRadius: 0
 --- !u!114 &776700955
 MonoBehaviour:
@@ -3913,8 +3914,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2181, y: -0.381}
-  m_SizeDelta: {x: 107.7743, y: 146.4103}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &825701817
 MonoBehaviour:
@@ -3936,7 +3937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4030,7 +4031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.07727051, y: 0.05633545}
+  m_AnchoredPosition: {x: -0.15, y: 1.47}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853264851
@@ -4056,8 +4057,8 @@ MonoBehaviour:
   m_text: "Se investiga c\xF3mo ciertas pr\xE1cticas agr\xEDcolas afectan la calidad
     del suelo y el agua."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4081,8 +4082,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4120,7 +4121,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.37205505, y: 0, z: 32.827686, w: 0}
+  m_margin: {x: -0.37205505, y: 0, z: 29.558315, w: -30.514051}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4168,8 +4169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.38323975, y: -0.4283}
-  m_SizeDelta: {x: 100, y: 152.1657}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &872803649
 MonoBehaviour:
@@ -4191,7 +4192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4243,8 +4244,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3579, y: -0.6902}
-  m_SizeDelta: {x: 101.1933, y: 184.0694}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &921043652
 MonoBehaviour:
@@ -4266,7 +4267,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4318,8 +4319,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2181, y: -0.5334}
-  m_SizeDelta: {x: 107.7743, y: 164.9738}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &978685271
 MonoBehaviour:
@@ -4341,7 +4342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4393,7 +4394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.217, y: 0.05633545}
+  m_AnchoredPosition: {x: 0.00000093877, y: 1.67}
   m_SizeDelta: {x: 211.4995, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1002127299
@@ -4419,8 +4420,8 @@ MonoBehaviour:
   m_text: "El dispositivo es usado por adultos mayores y cuidadores para mejorar
     el bienestar y el seguimiento cotidiano de la recuperaci\xF3n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4483,7 +4484,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.37205505, y: 0, z: 32.827686, w: 0}
+  m_margin: {x: -0.37205505, y: 0, z: 37.376392, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4531,7 +4532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -404.03, y: -223.55}
+  m_AnchoredPosition: {x: -404.06, y: -222.76}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1093667958
@@ -4564,8 +4565,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4628,7 +4629,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -43.4963, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4668,7 +4669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.077255, y: 0.05633545}
+  m_AnchoredPosition: {x: -0.00000024587, y: 1.87}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165839201
@@ -4694,8 +4695,8 @@ MonoBehaviour:
   m_text: "Se analiza c\xF3mo los adultos mayores interact\xFAan con un objeto dise\xF1ado
     para brindar compa\xF1\xEDa y apoyo emocional"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4719,8 +4720,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4811,7 +4812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.704, y: -5.4}
+  m_AnchoredPosition: {x: -22.704, y: -14.59}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1170913830
@@ -4934,17 +4935,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.47997832, y: 1.0329282}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 6}
+    newSize: {x: 4, y: 6}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.414822, y: 4.8187404}
   m_EdgeRadius: 0
 --- !u!114 &1170913833
 MonoBehaviour:
@@ -5106,8 +5107,8 @@ Transform:
   m_GameObject: {fileID: 1182307828}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.24, y: -7.15, z: 0}
-  m_LocalScale: {x: 28.651115, y: 1, z: 1}
+  m_LocalPosition: {x: -1.1761, y: -12.78, z: 0}
+  m_LocalScale: {x: 35.97851, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1662190850}
@@ -5146,8 +5147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.38323975, y: 0.0723}
-  m_SizeDelta: {x: 100, y: 143.8107}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1199888164
 MonoBehaviour:
@@ -5169,7 +5170,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5263,7 +5264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.077255, y: 0.05633545}
+  m_AnchoredPosition: {x: -0.00000024587, y: 1.88}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1212439086
@@ -5289,8 +5290,8 @@ MonoBehaviour:
   m_text: "Se estudian grandes vol\xFAmenes de datos para identificar patrones de
     comportamiento humano."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5314,8 +5315,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5406,7 +5407,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.68}
+  m_AnchoredPosition: {x: 0, y: 4.08}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1227688846
@@ -5529,7 +5530,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.45746207, y: 1.0113516}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5539,7 +5540,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.3697896, y: 4.9249897}
   m_EdgeRadius: 0
 --- !u!114 &1227688849
 MonoBehaviour:
@@ -5603,7 +5604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3292, y: -0.056}
+  m_AnchoredPosition: {x: -0.3, y: 1.27}
   m_SizeDelta: {x: 172.4962, y: 92.7872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1239690345
@@ -5629,8 +5630,8 @@ MonoBehaviour:
   m_text: "Se desarrolla una metodolog\xEDa para reducir el impacto negativo en cultivos
     usando pr\xE1cticas sostenibles"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5654,8 +5655,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5746,7 +5747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -13.93}
+  m_AnchoredPosition: {x: 0.00000047684, y: -22.28}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1297798447
@@ -5869,7 +5870,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.4581182, y: 0.9804549}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5879,7 +5880,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.371102, y: 4.947509}
   m_EdgeRadius: 0
 --- !u!114 &1297798450
 MonoBehaviour:
@@ -5990,7 +5991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.704, y: 3.96}
+  m_AnchoredPosition: {x: -22.704, y: 1.76}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1326450577
@@ -6113,17 +6114,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.4203434, y: 0.9816029}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 6}
+    newSize: {x: 4, y: 6}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.618786, y: 4.7689567}
   m_EdgeRadius: 0
 --- !u!114 &1326450580
 MonoBehaviour:
@@ -6192,7 +6193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.704, y: -11.51}
+  m_AnchoredPosition: {x: -22.704, y: -25.22}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1327375131
@@ -6315,17 +6316,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.48538852, y: 1.0077}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 6}
+    newSize: {x: 4, y: 6}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.4256425, y: 5.0279922}
   m_EdgeRadius: 0
 --- !u!114 &1327375134
 MonoBehaviour:
@@ -6394,7 +6395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28.67, y: 5.97}
+  m_AnchoredPosition: {x: -28.67, y: 5.94}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1368287620
@@ -6517,7 +6518,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.45730186, y: 1.0087342}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6527,7 +6528,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.369469, y: 4.9309473}
   m_EdgeRadius: 0
 --- !u!114 &1368287623
 MonoBehaviour:
@@ -6591,8 +6592,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2866, y: -0.1129}
-  m_SizeDelta: {x: 104.5485, y: 166.3655}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1377381302
 MonoBehaviour:
@@ -6614,7 +6615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6666,8 +6667,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2181, y: -0.5334}
-  m_SizeDelta: {x: 107.7743, y: 164.9738}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1422741452
 MonoBehaviour:
@@ -6689,7 +6690,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6800,7 +6801,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -6847,8 +6848,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2866, y: -0.1129}
-  m_SizeDelta: {x: 104.5485, y: 166.3655}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444667326
 MonoBehaviour:
@@ -6870,7 +6871,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6986,10 +6987,11 @@ Transform:
   m_GameObject: {fileID: 1481200642}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.61, y: -3.33, z: -0.033193074}
-  m_LocalScale: {x: 0.18847439, y: 0.18847439, z: 0.18847439}
+  m_LocalPosition: {x: -7.03, y: -3.65, z: -0.033193074}
+  m_LocalScale: {x: 0.21619897, y: 0.21619897, z: 0.21619897}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 236479440}
   m_Father: {fileID: 1662190850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1481200644
@@ -7267,7 +7269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -10.85}
+  m_AnchoredPosition: {x: -0.00000047684, y: -17.03}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1487294550
@@ -7390,7 +7392,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.4716947, y: 1.0433781}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7400,7 +7402,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.398255, y: 4.8609376}
   m_EdgeRadius: 0
 --- !u!114 &1487294553
 MonoBehaviour:
@@ -7510,8 +7512,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.38323975, y: -0.278}
-  m_SizeDelta: {x: 100, y: 133.8596}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1513377019
 MonoBehaviour:
@@ -7533,7 +7535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7590,7 +7592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28.67, y: -10.11}
+  m_AnchoredPosition: {x: -28.67, y: -21.29}
   m_SizeDelta: {x: 5.0142, y: 1.696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1517811830
@@ -7713,7 +7715,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.464401, y: 1.0016351}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7723,7 +7725,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.3836675, y: 4.8883524}
   m_EdgeRadius: 0
 --- !u!114 &1517811833
 MonoBehaviour:
@@ -7787,8 +7789,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2181, y: -0.5334}
-  m_SizeDelta: {x: 107.7743, y: 164.9738}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1529562700
 MonoBehaviour:
@@ -7810,7 +7812,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7862,7 +7864,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.1005, y: 0.05633545}
+  m_AnchoredPosition: {x: -0.22, y: 1.68}
   m_SizeDelta: {x: 185.3646, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542459580
@@ -7888,8 +7890,8 @@ MonoBehaviour:
   m_text: "Productores adoptan una metodolog\xEDa para hacer m\xE1s sostenible su
     producci\xF3n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7913,8 +7915,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7952,7 +7954,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.37205505, y: 0, z: 32.827686, w: 0}
+  m_margin: {x: -0.37205505, y: 0, z: 25.436, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8000,7 +8002,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3292, y: -0.056}
+  m_AnchoredPosition: {x: -0.29, y: 1.0207}
   m_SizeDelta: {x: 172.4962, y: 92.7872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1544845102
@@ -8026,8 +8028,8 @@ MonoBehaviour:
   m_text: "Se desarrolla un dispositivo que usa materiales seguros para almacenar
     energ\xEDa."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8051,8 +8053,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8138,8 +8140,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.38323975, y: -0.4283}
-  m_SizeDelta: {x: 100, y: 152.1657}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1579118621
 MonoBehaviour:
@@ -8161,7 +8163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8213,7 +8215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.217, y: 0.05633545}
+  m_AnchoredPosition: {x: 0.14, y: 1.66}
   m_SizeDelta: {x: 211.4995, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580630898
@@ -8239,8 +8241,8 @@ MonoBehaviour:
   m_text: "La ciudad adopta la herramienta que propone nuevas rutas y usos del espacio
     urbano para mejorar la movilidad y el uso del espacio p\xFAblico."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8303,7 +8305,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.37205505, y: 0, z: 32.827686, w: 0}
+  m_margin: {x: -0.37205505, y: 0, z: 42.49372, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8351,7 +8353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3292, y: -0.056}
+  m_AnchoredPosition: {x: -0.25, y: 1.0207}
   m_SizeDelta: {x: 172.4962, y: 92.7872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1585789604
@@ -8377,8 +8379,8 @@ MonoBehaviour:
   m_text: Se crea un sistema que usa datos para identificar comportamientos humanos
     para apoyar la toma de decisiones.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8485,10 +8487,11 @@ Transform:
   m_GameObject: {fileID: 1652907359}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.029999733, y: -3.33, z: -0.033193074}
-  m_LocalScale: {x: 0.18847439, y: 0.18847439, z: 0.18847439}
+  m_LocalPosition: {x: 0.89, y: -4.6, z: -0.033193074}
+  m_LocalScale: {x: 0.21619897, y: 0.21619897, z: 0.21619897}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1922707491}
   m_Father: {fileID: 1662190850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1652907361
@@ -8631,7 +8634,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.7193699
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -8850,12 +8853,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689310341}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.715425, y: -3.3, z: 0}
-  m_LocalScale: {x: 0.38128, y: 0.38128, z: 0.38128}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.2365029, y: 0.15917267, z: 0.17611451}
+  m_LocalScale: {x: 2.0229805, y: 2.0229805, z: 2.0229805}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 751388900}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1691521885
 GameObject:
@@ -8891,7 +8894,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.217, y: 0.05633545}
+  m_AnchoredPosition: {x: 0.2, y: 1.9}
   m_SizeDelta: {x: 211.4995, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1691521887
@@ -8917,8 +8920,8 @@ MonoBehaviour:
   m_text: "El dispositivo es adoptado por adultos mayores y sus cuidadores como una
     herramienta cotidiana de compa\xF1\xEDa y apoyo\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8942,8 +8945,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8981,7 +8984,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.37205505, y: 0, z: 32.827686, w: 0}
+  m_margin: {x: -0.37205505, y: 0, z: 43.06235, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9029,8 +9032,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.38323975, y: -0.4283}
-  m_SizeDelta: {x: 100, y: 152.1657}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1733089226
 MonoBehaviour:
@@ -9052,7 +9055,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9104,8 +9107,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2181, y: -0.381}
-  m_SizeDelta: {x: 107.7743, y: 146.4103}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1779770841
 MonoBehaviour:
@@ -9127,7 +9130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9179,8 +9182,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2181, y: -0.5334}
-  m_SizeDelta: {x: 107.7743, y: 164.9738}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787046944
 MonoBehaviour:
@@ -9202,7 +9205,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9254,7 +9257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.217, y: 0.05633545}
+  m_AnchoredPosition: {x: 0.15, y: 1.81}
   m_SizeDelta: {x: 211.4995, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1811460515
@@ -9280,8 +9283,8 @@ MonoBehaviour:
   m_text: "Empresas incorporan un dispositivo que usa materiales seguros para almacenar
     energ\xEDa en sistemas reales de energ\xEDa."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9305,8 +9308,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9344,7 +9347,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.37205505, y: 0, z: 32.827686, w: 0}
+  m_margin: {x: -0.37205505, y: 0, z: 39.08227, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9392,8 +9395,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.38323975, y: -0.4283}
-  m_SizeDelta: {x: 100, y: 152.1657}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837837235
 MonoBehaviour:
@@ -9415,7 +9418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9473,8 +9476,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9537,7 +9540,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -47.957436, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9567,7 +9570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -404.06, y: -224.74}
+  m_AnchoredPosition: {x: -404.06, y: -224.02}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1862232529
@@ -9604,8 +9607,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.38323975, y: 0.0723}
-  m_SizeDelta: {x: 100, y: 143.8107}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1862232531
 MonoBehaviour:
@@ -9627,7 +9630,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9679,8 +9682,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.38323975, y: -0.4283}
-  m_SizeDelta: {x: 100, y: 152.1657}
+  m_AnchoredPosition: {x: -0.4506, y: 1.0207}
+  m_SizeDelta: {x: 103.1727, y: 295.8532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1879725522
 MonoBehaviour:
@@ -9702,7 +9705,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d2babc3f1243af42865b1de867a3a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9747,8 +9750,8 @@ Transform:
   m_GameObject: {fileID: 1894081297}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0265, y: 11.8067, z: 0}
-  m_LocalScale: {x: 14.5443535, y: 5.4131956, z: 1}
+  m_LocalPosition: {x: 0.1972, y: 15.1977, z: 0}
+  m_LocalScale: {x: 22.021746, y: 12.195388, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1662190850}
@@ -9897,7 +9900,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28.67, y: 2.36}
+  m_AnchoredPosition: {x: -28.67, y: 0.45}
   m_SizeDelta: {x: 5.0142, y: 1.696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1914315286
@@ -10020,7 +10023,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.47150016, y: 1.0087345}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10030,7 +10033,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.397866, y: 4.788962}
   m_EdgeRadius: 0
 --- !u!114 &1914315289
 MonoBehaviour:
@@ -10144,12 +10147,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922707489}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08, y: -3.24, z: 0}
-  m_LocalScale: {x: 0.33709, y: 0.33709, z: 0.33709}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5836323, y: 0.47751802, z: 0.17611451}
+  m_LocalScale: {x: 1.7885189, y: 1.7885189, z: 1.7885189}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1652907360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1935129255
 GameObject:
@@ -10197,6 +10200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardSpawner
   spawnArea: {fileID: 1894081299}
+  spawnDelay: 4
   cienciaCards:
   - {fileID: 776700951}
   - {fileID: 1326450575}
@@ -10258,7 +10262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.1843, y: -0.056}
+  m_AnchoredPosition: {x: -0.28, y: 1.0207}
   m_SizeDelta: {x: 184.4239, y: 92.7872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1968681413
@@ -10284,8 +10288,8 @@ MonoBehaviour:
   m_text: "Se dise\xF1a y construye un dispositivo que acompa\xF1a y monitorea a
     los adultos mayores, aplicando los hallazgos de una investigaci\xF3n previa"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10396,7 +10400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.077255, y: 0.05633545}
+  m_AnchoredPosition: {x: -0.00000024587, y: 1.56}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1984070079
@@ -10422,8 +10426,8 @@ MonoBehaviour:
   m_text: "Se analiza c\xF3mo se mueven las personas en una ciudad para entender
     problemas de movilidad."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10447,8 +10451,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10534,7 +10538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.217, y: 0.05633545}
+  m_AnchoredPosition: {x: 0.12, y: 1.89}
   m_SizeDelta: {x: 211.4995, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1984717771
@@ -10560,8 +10564,8 @@ MonoBehaviour:
   m_text: Organizaciones usan un sistema que apoya la toma de decisiones basadas
     en el comportamiento humano para mejorar procesos y servicios
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10624,7 +10628,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.37205505, y: 0, z: 32.827686, w: 0}
+  m_margin: {x: -0.37205505, y: 0, z: 37.376392, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -10677,7 +10681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.704, y: 1.02}
+  m_AnchoredPosition: {x: -22.704, y: -3.7}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1987862316
@@ -10800,17 +10804,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.46523643, y: 1.0175173}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 6}
+    newSize: {x: 4, y: 6}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.3853383, y: 4.8407855}
   m_EdgeRadius: 0
 --- !u!114 &1987862319
 MonoBehaviour:
@@ -10879,7 +10883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.704, y: -8.49}
+  m_AnchoredPosition: {x: -22.704, y: -19.91}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1996273923
@@ -11002,17 +11006,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.4962089, y: 1.0077004}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 6}
+    newSize: {x: 4, y: 6}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.4472833, y: 4.8764925}
   m_EdgeRadius: 0
 --- !u!114 &1996273926
 MonoBehaviour:
@@ -11081,7 +11085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28.67, y: -13.28}
+  m_AnchoredPosition: {x: -28.67, y: -26.59}
   m_SizeDelta: {x: 5.0142, y: 1.696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &2093946681
@@ -11204,7 +11208,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39340806, y: -0.041963458}
+  m_Offset: {x: -0.464401, y: 1.022933}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -11214,7 +11218,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.2416816, y: 1.6084716}
+  m_Size: {x: 4.3836675, y: 4.959345}
   m_EdgeRadius: 0
 --- !u!114 &2093946684
 MonoBehaviour:
@@ -11251,7 +11255,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1662190850}
-  - {fileID: 236479440}
-  - {fileID: 1922707491}
-  - {fileID: 1689310343}
   - {fileID: 1497520176}

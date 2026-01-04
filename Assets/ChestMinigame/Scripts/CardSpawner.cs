@@ -1,10 +1,15 @@
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class CardSpawner : MonoBehaviour
 {
     [Header("Spawn Area")]
     public Collider2D spawnArea;
+
+    [Header("Spawn Timing")]
+    public float spawnDelay = 2f;
+
 
     [Header("Cards por categoría (FÁCIL)")]
     public List<GameObject> cienciaCards;
@@ -28,29 +33,66 @@ public class CardSpawner : MonoBehaviour
     public void SpawnSet()
     {
         DespawnActiveCards();
-
-        SpawnFromPool(GetPool("Ciencia"), 2);
-        SpawnFromPool(GetPool("Tecnologia"), 2);
-        SpawnFromPool(GetPool("Innovacion"), 2);
+        StartCoroutine(SpawnSequence());
     }
 
-    void SpawnFromPool(List<GameObject> pool, int amount)
+    IEnumerator SpawnSequence()
     {
-        List<GameObject> tempPool = new List<GameObject>(pool);
+        List<GameObject> spawnList = new List<GameObject>();
 
-        for (int i = 0; i < amount; i++)
+        AddRandomFromPool(GetPool("Ciencia"), 2, spawnList);
+        AddRandomFromPool(GetPool("Tecnologia"), 2, spawnList);
+        AddRandomFromPool(GetPool("Innovacion"), 2, spawnList);
+
+        Shuffle(spawnList);
+
+        foreach (GameObject card in spawnList)
         {
-            if (tempPool.Count == 0) return;
+            // Espera ANTES de que aparezca la carta
+            yield return new WaitForSecondsRealtime(spawnDelay);
 
-            GameObject card = tempPool[Random.Range(0, tempPool.Count)];
-            tempPool.Remove(card);
-
-            card.SetActive(true);
             card.transform.position = GetRandomPosition();
+            card.SetActive(true);
+
+            Rigidbody2D rb = card.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.simulated = true;
+            }
 
             activeCards.Add(card);
         }
     }
+
+
+
+
+    void AddRandomFromPool(List<GameObject> pool, int amount, List<GameObject> result)
+    {
+        List<GameObject> temp = new List<GameObject>(pool);
+
+        for (int i = 0; i < amount; i++)
+        {
+            if (temp.Count == 0) return;
+
+            GameObject card = temp[Random.Range(0, temp.Count)];
+            temp.Remove(card);
+
+            result.Add(card);
+        }
+    }
+
+    void Shuffle(List<GameObject> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            GameObject temp = list[i];
+            int randomIndex = Random.Range(i, list.Count);
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
+        }
+    }
+
 
     Vector2 GetRandomPosition()
     {
