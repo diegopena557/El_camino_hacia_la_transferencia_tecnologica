@@ -5,6 +5,9 @@ public class CardDrag : MonoBehaviour
     public CardType cardType;
     public Collider2D spawnArea;
 
+    [Header("Retroalimentación Personalizada")]
+    public CardFeedbackData feedbackData;
+
     private Camera mainCamera;
     private bool isDragging;
 
