@@ -186,7 +186,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1906816494252530545, guid: 6f5b10b46423c4b47a3e797ab8a764b5, type: 3}
       propertyPath: m_Name
-      value: Sound X
+      value: Sound
       objectReference: {fileID: 0}
     - target: {fileID: 6683389402818280942, guid: 6f5b10b46423c4b47a3e797ab8a764b5, type: 3}
       propertyPath: m_LocalPosition.x
