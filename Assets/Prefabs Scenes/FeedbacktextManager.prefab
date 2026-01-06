@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6919350462967529384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3610417325166368018}
+  - component: {fileID: 9107425208751882978}
+  m_Layer: 0
+  m_Name: FeedbacktextManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3610417325166368018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919350462967529384}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9107425208751882978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919350462967529384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a274f170fbb18c54db73f4eb22dc88c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FeedbackTextManager
+  feedbackText: {fileID: 0}
+  feedbackCanvasGroup: {fileID: 0}
+  fadeDuration: 0.3
+  displayDuration: 2
+  moveUpDistance: 15
+  cienciaMessages:
+  - "\xA1Excelente conocimiento cient\xEDfico!"
+  - "\xA1La ciencia est\xE1 de tu lado!"
+  - "\xA1Descubrimiento correcto!"
+  - "\xA1Cient\xEDfico brillante!"
+  tecnologiaMessages:
+  - "\xA1Dominas la tecnolog\xEDa!"
+  - "\xA1Innovaci\xF3n tecnol\xF3gica correcta!"
+  - "\xA1Tech Master!"
+  - "\xA1El futuro es tuyo!"
+  innovacionMessages:
+  - "\xA1Mente innovadora!"
+  - "\xA1Creatividad en acci\xF3n!"
+  - "\xA1Innovaci\xF3n perfecta!"
+  - "\xA1Pensamiento disruptivo!"
+  generalMessages:
+  - "\xA1Muy bien!"
+  - "\xA1Correcto!"
+  - "\xA1Perfecto!"
+  - "\xA1Excelente!"
+  - "\xA1Incre\xEDble!"
+  - "\xA1Fant\xE1stico!"
