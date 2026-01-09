@@ -41,7 +41,7 @@ public class GameStatsManager : MonoBehaviour
 
     void UpdateUI()
     {
-        correctText.text = $"Correctas: {correctCount}";
+        correctText.text = $"Aciertos: {correctCount}";
         errorText.text = $"Errores: {errorCount}";
     }
 

@@ -70,10 +70,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &8469211943609296394
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -426,10 +429,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &4427361455768140690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -632,10 +638,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &4791025295119714370
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1615,10 +1624,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &5357808283074748832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2384,10 +2396,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &4809724563820274303
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2878,10 +2893,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &138615053056457162
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3292,10 +3310,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &3847334433327727510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3498,10 +3519,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &2043792893131564923
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4117,10 +4141,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &7620112755879895462
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4323,10 +4350,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &8246480137313237331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4529,10 +4559,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &3597937473960610975
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5536,10 +5569,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &7926167681756634504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6073,10 +6109,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &5554460901043208594
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6279,10 +6318,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &7245513559547570501
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6485,10 +6527,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &3922784213392880305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6829,10 +6874,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &4522347112641763851
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7454,10 +7502,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &7157272096305174727
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8539,11 +8590,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5180254705323710880}
+  - {fileID: 6146671831763121202}
   - {fileID: 7364258623364081460}
   - {fileID: 3367238978814125946}
   - {fileID: 2875201618100318432}
-  - {fileID: 5180254705323710880}
-  - {fileID: 6146671831763121202}
   - {fileID: 1036281298790933685}
   m_Father: {fileID: 7105538126916452157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8685,10 +8736,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &7181166982048830613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10379,10 +10433,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &4452909813497406419
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10585,10 +10642,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &1007026268337217948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11171,10 +11231,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &5844924415165712761
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -11,9 +11,13 @@ public class Chest : MonoBehaviour
         {
             feedback?.PlayCorrectFeedback();
 
-            // NUEVA LÍNEA: Mostrar retroalimentación de texto
+            // Mostrar retroalimentación de texto corta
             if (FeedbackTextManager.Instance != null)
                 FeedbackTextManager.Instance.ShowFeedback(card.cardType);
+
+            // Mostrar información detallada de la carta
+            if (CardInfoDisplay.Instance != null && card.cardInfo != null)
+                CardInfoDisplay.Instance.ShowCardInfo(card.cardInfo);
 
             Destroy(card.gameObject);
             GameStatsManager.Instance.AddCorrect();
