@@ -16,7 +16,12 @@ public class CardInfoDisplay : MonoBehaviour
     public float fadeDuration = 0.4f;
     public float displayDuration = 4f;
 
+    [Header("Error Feedback")]
+    public string errorPrefix = "Esta carta pertenece a: ";
+    public Color errorTitleColor = Color.red;
+
     private Coroutine displayCoroutine;
+    private Color originalTitleColor;
 
     void Awake()
     {
@@ -30,9 +35,13 @@ public class CardInfoDisplay : MonoBehaviour
 
         if (infoPanel != null)
             infoPanel.SetActive(false);
+
+        if (titleText != null)
+            originalTitleColor = titleText.color;
     }
 
-    public void ShowCardInfo(CardFeedbackData cardData)
+    // Mostrar información cuando hay un ERROR
+    public void ShowCardInfoOnError(CardFeedbackData cardData)
     {
         if (cardData == null || string.IsNullOrEmpty(cardData.feedbackMessage))
             return;
@@ -40,14 +49,17 @@ public class CardInfoDisplay : MonoBehaviour
         if (displayCoroutine != null)
             StopCoroutine(displayCoroutine);
 
-        displayCoroutine = StartCoroutine(DisplayInfoCoroutine(cardData));
+        displayCoroutine = StartCoroutine(DisplayErrorInfoCoroutine(cardData));
     }
 
-    IEnumerator DisplayInfoCoroutine(CardFeedbackData cardData)
+    IEnumerator DisplayErrorInfoCoroutine(CardFeedbackData cardData)
     {
-        // Configurar textos
+        // Configurar textos con estilo de error
         if (titleText != null)
-            titleText.text = cardData.cardTitle;
+        {
+            titleText.text = errorPrefix + cardData.cardTitle;
+            titleText.color = errorTitleColor;
+        }
 
         if (descriptionText != null)
             descriptionText.text = cardData.feedbackMessage;
@@ -78,6 +90,10 @@ public class CardInfoDisplay : MonoBehaviour
         canvasGroup.alpha = 0;
 
         infoPanel.SetActive(false);
+
+        // Restaurar color original del título
+        if (titleText != null)
+            titleText.color = originalTitleColor;
     }
 
     // Método opcional para cerrar manualmente
@@ -91,5 +107,8 @@ public class CardInfoDisplay : MonoBehaviour
 
         if (canvasGroup != null)
             canvasGroup.alpha = 0;
+
+        if (titleText != null)
+            titleText.color = originalTitleColor;
     }
 }

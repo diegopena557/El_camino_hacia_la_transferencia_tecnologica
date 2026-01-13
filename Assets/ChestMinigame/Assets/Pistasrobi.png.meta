@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 011fe5c6d5dddb44cab6f5b723ac1b5b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3965480281533368415
+    second: Pistasrobi_0
+  - first:
+      213: 1004503337833134150
+    second: Pistasrobi_1
+  - first:
+      213: -4211545692235131201
+    second: Pistasrobi_2
+  - first:
+      213: 8296037307126866625
+    second: Pistasrobi_3
+  - first:
+      213: -5993464973724953275
+    second: Pistasrobi_4
+  - first:
+      213: -7763453681062437121
+    second: Pistasrobi_5
+  - first:
+      213: -8511270311473800074
+    second: Pistasrobi_6
+  - first:
+      213: 653548268152770120
+    second: Pistasrobi_7
+  - first:
+      213: -7099395882703622940
+    second: Pistasrobi_8
+  - first:
+      213: -932840496920589090
+    second: Pistasrobi_9
+  - first:
+      213: 7673164542338317691
+    second: Pistasrobi_10
+  - first:
+      213: -7025658573601867272
+    second: Pistasrobi_11
+  - first:
+      213: -7778633963181706451
+    second: Pistasrobi_12
+  - first:
+      213: 233683700525912653
+    second: Pistasrobi_13
+  - first:
+      213: 5609196608796883421
+    second: Pistasrobi_14
+  - first:
+      213: -8164787894229699673
+    second: Pistasrobi_15
+  - first:
+      213: -4002934399658332366
+    second: Pistasrobi_16
+  - first:
+      213: 257705872774859556
+    second: Pistasrobi_17
+  - first:
+      213: 5772720999784877510
+    second: Pistasrobi_18
+  - first:
+      213: 5231121316559407823
+    second: Pistasrobi_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pistasrobi_0
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 786
+        width: 555
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a73367a1b8c7f8c0800000000000000
+      internalID: -3965480281533368415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_1
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 882
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 648fc33b676b0fd00800000000000000
+      internalID: 1004503337833134150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_2
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 1174
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb69ff2b1859d85c0800000000000000
+      internalID: -4211545692235131201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_3
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 1198
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c26faef9f1712370800000000000000
+      internalID: 8296037307126866625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_4
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 1045
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 545d0637c5fe2dca0800000000000000
+      internalID: -5993464973724953275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_5
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 782
+        width: 423
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe1316720ca24490800000000000000
+      internalID: -7763453681062437121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_6
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 1038
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67c96411fb4e1e980800000000000000
+      internalID: -8511270311473800074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_7
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 816
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e41deefaed11900800000000000000
+      internalID: 653548268152770120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_8
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 952
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec64931f01e97d90800000000000000
+      internalID: -7099395882703622940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_9
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 788
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edc03fca282ed03f0800000000000000
+      internalID: -932840496920589090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_10
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 1123
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7db2314f7e8c7a60800000000000000
+      internalID: 7673164542338317691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_11
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 1183
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9784730c8df7e90800000000000000
+      internalID: -7025658573601867272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_12
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1157
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d23f3ca9f9dbc0490800000000000000
+      internalID: -7778633963181706451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_13
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 873
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4255a766163e3300800000000000000
+      internalID: 233683700525912653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_14
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 860
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd9f9aec89ed7dd40800000000000000
+      internalID: 5609196608796883421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_15
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 792
+        width: 506
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a3770a4ba8d0be80800000000000000
+      internalID: -8164787894229699673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_16
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 1023
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23f6c293f58b278c0800000000000000
+      internalID: -4002934399658332366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_17
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 1217
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42b074b302e839300800000000000000
+      internalID: 257705872774859556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_18
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 977
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd8d930a23dc1050800000000000000
+      internalID: 5772720999784877510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistasrobi_19
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 179
+        width: 564
+        height: 835
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fca4f7a2f1da89840800000000000000
+      internalID: 5231121316559407823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pistasrobi_0: -3965480281533368415
+      Pistasrobi_1: 1004503337833134150
+      Pistasrobi_10: 7673164542338317691
+      Pistasrobi_11: -7025658573601867272
+      Pistasrobi_12: -7778633963181706451
+      Pistasrobi_13: 233683700525912653
+      Pistasrobi_14: 5609196608796883421
+      Pistasrobi_15: -8164787894229699673
+      Pistasrobi_16: -4002934399658332366
+      Pistasrobi_17: 257705872774859556
+      Pistasrobi_18: 5772720999784877510
+      Pistasrobi_19: 5231121316559407823
+      Pistasrobi_2: -4211545692235131201
+      Pistasrobi_3: 8296037307126866625
+      Pistasrobi_4: -5993464973724953275
+      Pistasrobi_5: -7763453681062437121
+      Pistasrobi_6: -8511270311473800074
+      Pistasrobi_7: 653548268152770120
+      Pistasrobi_8: -7099395882703622940
+      Pistasrobi_9: -932840496920589090
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
