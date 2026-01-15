@@ -170,7 +170,7 @@ AudioSource:
   m_GameObject: {fileID: 3429384321546808913}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 8580486939246484301, guid: 129676959ef9ce14f9af6649d086bd7d, type: 2}
+  OutputAudioMixerGroup: {fileID: 353199945512875418, guid: 129676959ef9ce14f9af6649d086bd7d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 0938ae46d93bbf345b6a69d5ef2de221, type: 3}
   m_PlayOnAwake: 0
@@ -302,7 +302,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4999060296931915787, guid: 129676959ef9ce14f9af6649d086bd7d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: a8731824f3ca8eb48bd8834581590d2d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -431,7 +431,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 8580486939246484301, guid: 129676959ef9ce14f9af6649d086bd7d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: b67fb411cfe4f994a9005a6ad7060d74, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -654,7 +654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3946673039420483334}
-  - component: {fileID: 994741650324216418}
+  - component: {fileID: 8936466041198039008}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -682,7 +682,7 @@ Transform:
   - {fileID: 2795577724336268429}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &994741650324216418
+--- !u!114 &8936466041198039008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -694,11 +694,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff48c05c8d568f488af4e798146e50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moment1: {fileID: 0}
-  moment2: {fileID: 0}
-  mixer: {fileID: 0}
-  moment1Param: Moment1Volume
-  moment2Param: Moment2Volume
+  moment1: {fileID: 6805022013088024502}
+  moment2: {fileID: 6594574581996337763}
+  ambientLoop: {fileID: 8536795872082566733}
+  mixer: {fileID: 24100000, guid: 129676959ef9ce14f9af6649d086bd7d, type: 2}
+  moment1Param: VolumeLead1
+  moment2Param: VolumeLead2
   bpm: 120
   beatsPerBar: 4
-  fadeDuration: 2
+  fadeOutDuration: 3
+  fadeInDuration: 0.5
+  spawner: {fileID: 0}

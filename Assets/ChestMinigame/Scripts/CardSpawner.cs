@@ -13,12 +13,12 @@ public class CardSpawner : MonoBehaviour
     [Header("Spawn Timing")]
     public float spawnDelay = 2f;
 
-    [Header("Cards por categorÌa (F¡CIL)")]
+    [Header("Cards por categor√≠a (F√°cil)")]
     public List<GameObject> cienciaCards;
     public List<GameObject> tecnologiaCards;
     public List<GameObject> innovacionCards;
 
-    [Header("Cards por categorÌa (DIFÕCIL)")]
+    [Header("Cards por categor√≠a (Dif√≠cil)")]
     public List<GameObject> cienciaDificil;
     public List<GameObject> tecnologiaDificil;
     public List<GameObject> innovacionDificil;
@@ -27,12 +27,15 @@ public class CardSpawner : MonoBehaviour
     public TextMeshProUGUI levelText;
     public GameObject hardModeNotification;
 
-    [Header("ConfiguraciÛn de Dificultad")]
+    [Header("Configuraci√≥n de Dificultad")]
     public float hardModeNotificationDuration = 2f;
 
     private List<GameObject> activeCards = new List<GameObject>();
     private bool hardMode = false;
     private int completedSets = 0;
+
+    // üîπ NUEVO: evento para notificar al MusicManager cuando se entra en modo dif√≠cil
+    public event System.Action OnHardModeEntered;
 
     void Awake()
     {
@@ -51,7 +54,7 @@ public class CardSpawner : MonoBehaviour
         SpawnSet();
     }
 
-    // CREA 6 CARTAS (2 POR CATEGORÕA)
+    // CREA 6 CARTAS (2 POR CATEGOR√çA)
     public void SpawnSet()
     {
         DespawnActiveCards();
@@ -62,7 +65,6 @@ public class CardSpawner : MonoBehaviour
     {
         List<GameObject> spawnList = new List<GameObject>();
 
-        // Siempre 2 cartas de cada categorÌa (f·cil o difÌcil seg˙n el modo)
         AddRandomFromPool(GetPool("Ciencia"), 2, spawnList);
         AddRandomFromPool(GetPool("Tecnologia"), 2, spawnList);
         AddRandomFromPool(GetPool("Innovacion"), 2, spawnList);
@@ -71,7 +73,6 @@ public class CardSpawner : MonoBehaviour
 
         foreach (GameObject card in spawnList)
         {
-            // Espera ANTES de que aparezca la carta
             yield return new WaitForSeconds(spawnDelay);
 
             card.transform.position = GetRandomPosition();
@@ -91,7 +92,7 @@ public class CardSpawner : MonoBehaviour
     {
         if (pool == null || pool.Count == 0)
         {
-            Debug.LogWarning($"Pool vacÌo o nulo. Aseg˙rate de asignar cartas en el Inspector.");
+            Debug.LogWarning($"Pool vac√≠o o nulo. Aseg√∫rate de asignar cartas en el Inspector.");
             return;
         }
 
@@ -144,7 +145,7 @@ public class CardSpawner : MonoBehaviour
         }
     }
 
-    // LL¡MALO CUANDO UNA CARTA SE COLOCA BIEN
+    // LLAMADO CUANDO UNA CARTA SE COLOCA BIEN
     public void OnCardCompleted(GameObject card)
     {
         if (activeCards.Contains(card))
@@ -152,27 +153,16 @@ public class CardSpawner : MonoBehaviour
             activeCards.Remove(card);
         }
 
-        // Cuando todas las cartas del set actual se completaron
         if (activeCards.Count == 0)
         {
             completedSets++;
 
-            // Activar modo difÌcil despuÈs del primer set - HOLA DAVID AQUÕ SE CAMBIA DE NIVEL Y FASE
-            //                                                                                          //
-            //                                                                                          //
-            //                                                                                          //
-            //                                                                                          //
-            //                                                                                          //
-            //                                                                                          //
-            //                                                                                          //
-            //                                                                                          //
             if (!hardMode)
             {
                 StartCoroutine(ActivateHardMode());
             }
             else
             {
-                // TerminÛ el nivel difÌcil - Mostrar resultados
                 ShowFinalResults();
             }
         }
@@ -194,7 +184,9 @@ public class CardSpawner : MonoBehaviour
         hardMode = true;
         UpdateLevelUI();
 
-        // Mostrar notificaciÛn de nivel difÌcil
+        // üîπ NUEVO: notificar al MusicManager que entramos en modo dif√≠cil
+        OnHardModeEntered?.Invoke();
+
         if (hardModeNotification != null)
         {
             hardModeNotification.SetActive(true);
@@ -206,7 +198,6 @@ public class CardSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        // Generar nuevo set con cartas difÌciles
         SpawnSet();
     }
 
@@ -214,7 +205,7 @@ public class CardSpawner : MonoBehaviour
     {
         if (levelText != null)
         {
-            levelText.text = hardMode ? "NIVEL: DIFÕCIL" : "NIVEL: F¡CIL";
+            levelText.text = hardMode ? "NIVEL: DIF√çCIL" : "NIVEL: F√ÅCIL";
         }
     }
 
@@ -229,7 +220,6 @@ public class CardSpawner : MonoBehaviour
         activeCards.Clear();
     }
 
-    // MÈtodos p˙blicos para informaciÛn
     public bool IsHardMode() => hardMode;
     public int GetCompletedSets() => completedSets;
 }
