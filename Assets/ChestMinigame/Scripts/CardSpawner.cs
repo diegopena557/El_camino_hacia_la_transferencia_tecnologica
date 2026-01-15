@@ -10,13 +10,12 @@ public class CardSpawner : MonoBehaviour
     [Header("Spawn Timing")]
     public float spawnDelay = 2f;
 
-
-    [Header("Cards por categorÌa (F¡CIL)")]
+    [Header("Cards por categor√≠a (F√°cil)")]
     public List<GameObject> cienciaCards;
     public List<GameObject> tecnologiaCards;
     public List<GameObject> innovacionCards;
 
-    [Header("Cards por categorÌa (DIFÕCIL)")]
+    [Header("Cards por categor√≠a (Dif√≠cil)")]
     public List<GameObject> cienciaDificil;
     public List<GameObject> tecnologiaDificil;
     public List<GameObject> innovacionDificil;
@@ -24,12 +23,16 @@ public class CardSpawner : MonoBehaviour
     private List<GameObject> activeCards = new List<GameObject>();
     private bool hardMode = false;
 
+    // NUEVO: evento p√∫blico que como MusicManager pueden escuchar
+    public event System.Action OnHardModeEntered;
+
+
     void Start()
     {
         SpawnSet();
     }
 
-    // CREA 6 CARTAS (2 POR CATEGORÕA)
+    // CREA 6 CARTAS (2 POR CATEGOR√çA)
     public void SpawnSet()
     {
         DespawnActiveCards();
@@ -48,7 +51,6 @@ public class CardSpawner : MonoBehaviour
 
         foreach (GameObject card in spawnList)
         {
-            // Espera ANTES de que aparezca la carta
             yield return new WaitForSecondsRealtime(spawnDelay);
 
             card.transform.position = GetRandomPosition();
@@ -63,9 +65,6 @@ public class CardSpawner : MonoBehaviour
             activeCards.Add(card);
         }
     }
-
-
-
 
     void AddRandomFromPool(List<GameObject> pool, int amount, List<GameObject> result)
     {
@@ -93,7 +92,6 @@ public class CardSpawner : MonoBehaviour
         }
     }
 
-
     Vector2 GetRandomPosition()
     {
         Bounds b = spawnArea.bounds;
@@ -119,7 +117,7 @@ public class CardSpawner : MonoBehaviour
         }
     }
 
-    // LL¡MALO CUANDO UNA CARTA SE COLOCA BIEN
+    // LLAMADO CUANDO UNA CARTA SE COLOCA BIEN
     public void OnCardCompleted(GameObject card)
     {
         if (activeCards.Contains(card))
@@ -131,7 +129,12 @@ public class CardSpawner : MonoBehaviour
         if (activeCards.Count == 0)
         {
             if (!hardMode)
+            {
                 hardMode = true;
+
+                // NUEVO: dispara el evento para avisar a MusicManager que entramos en modo dif√≠cil
+                OnHardModeEntered?.Invoke();
+            }
 
             SpawnSet();
         }

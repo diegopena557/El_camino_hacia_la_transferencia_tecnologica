@@ -481,6 +481,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1975673292520201734, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: spawnDelay
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3385374622120513758, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
       propertyPath: m_Camera
       value: 
