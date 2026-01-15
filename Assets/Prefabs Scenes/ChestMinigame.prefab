@@ -70,10 +70,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &8469211943609296394
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -426,10 +429,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &4427361455768140690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -632,10 +638,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &4791025295119714370
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1615,10 +1624,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &5357808283074748832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2384,10 +2396,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &4809724563820274303
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2878,10 +2893,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &138615053056457162
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3112,7 +3130,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3487902616795909048}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3124,11 +3142,11 @@ RectTransform:
   - {fileID: 9221891196179134717}
   - {fileID: 5739555659944006799}
   - {fileID: 1402449726900623494}
-  m_Father: {fileID: 8435444500410145822}
+  m_Father: {fileID: 2609086463441002849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -403.18, y: -222.755}
+  m_AnchoredPosition: {x: 23.650024, y: 0}
   m_SizeDelta: {x: 6.154236, y: 6.8719635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3642408167901355221
@@ -3292,10 +3310,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &3847334433327727510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3498,10 +3519,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &2043792893131564923
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3798,8 +3822,8 @@ Transform:
   m_GameObject: {fileID: 4037891966555286773}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1761, y: -12.78, z: 0}
-  m_LocalScale: {x: 35.97851, y: 1, z: 1}
+  m_LocalPosition: {x: 0.9576, y: -12.78, z: 0}
+  m_LocalScale: {x: 40.243904, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4805859397944731158}
@@ -4117,10 +4141,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &7620112755879895462
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4323,10 +4350,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &8246480137313237331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4529,10 +4559,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &3597937473960610975
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5536,10 +5569,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &7926167681756634504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5845,7 +5881,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5071525784475675478}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5857,12 +5893,50 @@ RectTransform:
   - {fileID: 8390944740961407029}
   - {fileID: 2972473664813747298}
   - {fileID: 5765331518677045189}
+  m_Father: {fileID: 2609086463441002849}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -24.21997, y: 1.0350037}
+  m_SizeDelta: {x: 5.014221, y: 4.34198}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &5147507976338301987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2609086463441002849}
+  m_Layer: 5
+  m_Name: INGENIERIA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2609086463441002849
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5147507976338301987}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7364258623364081460}
+  - {fileID: 3367238978814125946}
+  - {fileID: 2875201618100318432}
   m_Father: {fileID: 8435444500410145822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -451.05, y: -221.72}
-  m_SizeDelta: {x: 5.014221, y: 4.34198}
+  m_AnchoredPosition: {x: -426.83, y: -222.755}
+  m_SizeDelta: {x: 53.454224, y: 6.8719482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5156942115520563166
 GameObject:
@@ -6073,10 +6147,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &5554460901043208594
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6279,10 +6356,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &7245513559547570501
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6485,10 +6565,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &3922784213392880305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6829,10 +6912,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &4522347112641763851
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7454,10 +7540,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &7157272096305174727
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8441,11 +8530,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7364258623364081460}
-  - {fileID: 3367238978814125946}
-  - {fileID: 2875201618100318432}
   - {fileID: 5180254705323710880}
   - {fileID: 6146671831763121202}
+  - {fileID: 2609086463441002849}
   - {fileID: 1036281298790933685}
   m_Father: {fileID: 7105538126916452157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8587,10 +8674,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &7181166982048830613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10281,10 +10371,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &4452909813497406419
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10487,10 +10580,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &1007026268337217948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10984,7 +11080,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8939920706841479856}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10996,11 +11092,11 @@ RectTransform:
   - {fileID: 6386987397039517432}
   - {fileID: 7051054410237297048}
   - {fileID: 3886191168171628018}
-  m_Father: {fileID: 8435444500410145822}
+  m_Father: {fileID: 2609086463441002849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -414.45, y: -224.02}
+  m_AnchoredPosition: {x: 12.380005, y: -1.2649841}
   m_SizeDelta: {x: 5.014221, y: 1.6419678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9200679169836383791
@@ -11073,10 +11169,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   spawnArea: {fileID: 2689650769707255670}
-  feedbackData:
+  cardInfo:
     cardTitle: 
     feedbackMessage: 
     shortMessage: "\xA1Correcto!"
+  selectedScale: 1.2
+  selectedBrightness: 1.5
+  transitionSpeed: 8
 --- !u!61 &5844924415165712761
 BoxCollider2D:
   m_ObjectHideFlags: 0

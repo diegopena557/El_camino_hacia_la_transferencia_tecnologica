@@ -1,0 +1,1052 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &763508281673701339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3814431566231589965}
+  - component: {fileID: 8333497967031623071}
+  m_Layer: 5
+  m_Name: FeedbackLinked
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3814431566231589965
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763508281673701339}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1513739843008243079}
+  - {fileID: 215635285505522851}
+  - {fileID: 8007538034858889932}
+  m_Father: {fileID: 6723822557420277905}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &8333497967031623071
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763508281673701339}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!1 &3934375643292962859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8007538034858889932}
+  - component: {fileID: 5079338527903110102}
+  - component: {fileID: 2718252924729785643}
+  m_Layer: 5
+  m_Name: FeedbacktextLinked
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8007538034858889932
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934375643292962859}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.023996493, y: 0.023996493, z: 0.023996493}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3814431566231589965}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -413.47217, y: -227.01}
+  m_SizeDelta: {x: 195.9386, y: 48.9846}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5079338527903110102
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934375643292962859}
+  m_CullTransparentMesh: 1
+--- !u!114 &2718252924729785643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934375643292962859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 28.69
+  m_fontSizeBase: 28.69
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: -342.02267, w: -134.56773}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &4994980776884928342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1513739843008243079}
+  - component: {fileID: 3468294831126862168}
+  - component: {fileID: 8298688510714953284}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1513739843008243079
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994980776884928342}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.023996493, y: 0.023996493, z: 0.023996493}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3814431566231589965}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -409.29, y: -227.56958}
+  m_SizeDelta: {x: 579.4807, y: 325.3908}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3468294831126862168
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994980776884928342}
+  m_CullTransparentMesh: 1
+--- !u!114 &8298688510714953284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994980776884928342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.84132797, g: 0.8160377, b: 1, a: 0.7294118}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5802535907434747387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 215635285505522851}
+  - component: {fileID: 3748722039487237795}
+  - component: {fileID: 2874954661013236211}
+  m_Layer: 5
+  m_Name: FeedbacktextLinkedTitle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &215635285505522851
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5802535907434747387}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.031518348, y: 0.031518348, z: 0.031518348}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3814431566231589965}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -412.79, y: -224.8}
+  m_SizeDelta: {x: 195.9386, y: 48.9846}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3748722039487237795
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5802535907434747387}
+  m_CullTransparentMesh: 1
+--- !u!114 &2874954661013236211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5802535907434747387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 28
+  m_fontSizeBase: 28
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: -220.07327, w: -9.8767605}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1001 &2909159235628780687
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 187363928286722067, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: shakeDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 187363928286722067, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: correctColor.b
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 187363928286722067, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: correctColor.g
+      value: 0.85882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 187363928286722067, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: correctColor.r
+      value: 0.29803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 187363928286722067, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: shakeMagnitude
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 187363928286722067, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: highlightDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 191452538192618645, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 327030945825672757, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: "Computaci\xF3n y anal\xEDtica: "
+      objectReference: {fileID: 0}
+    - target: {fileID: 327030945825672757, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "La diferencia est\xE1 en que el sistema ya genera impacto real."
+      objectReference: {fileID: 0}
+    - target: {fileID: 420790029409572684, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: 'Sistemas naturales y sostenibilidad:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 420790029409572684, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "Piensa si el conocimiento ambiental ya se traduce en un m\xE9todo aplicable."
+      objectReference: {fileID: 0}
+    - target: {fileID: 429021223219059260, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: 'Sistemas naturales y sostenibilidad: '
+      objectReference: {fileID: 0}
+    - target: {fileID: 429021223219059260, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: selectedBrightness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 429021223219059260, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "Aqu\xED el objetivo es entender el impacto ambiental, no aplicar a\xFAn
+        una soluci\xF3n."
+      objectReference: {fileID: 0}
+    - target: {fileID: 535792125278408617, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 738312656033859134, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765697693764938316, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: 'Ciencia del cuidado y la vida:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765697693764938316, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: Observa si el conocimiento ya se aplica para apoyar el cuidado.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975673292520201734, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: spawnDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248085304503431361, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2579861802340763897, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2666620357100487024, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: 'Ciencias fundamentales: '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2666620357100487024, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "La innovaci\xF3n ocurre cuando la herramienta se adopta para tomar
+        decisiones reales"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835577848236114865, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Size.y
+      value: 20.146399
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835577848236114865, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.53802395
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835577848236114865, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 14.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835577848236114865, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 18.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849893229080566414, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: 'Ciencias fundamentales:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849893229080566414, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: selectedBrightness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849893229080566414, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: feedbackData.cardTitle
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849893229080566414, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "Aqu\xED se busca comprender un fen\xF3meno mediante modelos y relaciones,
+        no intervenir todav\xEDa en la realidad."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849893229080566414, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: feedbackData.feedbackMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015168384486627751, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: 'Ciencia del cuidado y la vida:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015168384486627751, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: selectedBrightness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015168384486627751, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "Aqu\xED se busca comprender procesos de salud y bienestar."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151251136262718092, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300528471032807535, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: 'Sistemas naturales y sostenibilidad: '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300528471032807535, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "La clave es que la soluci\xF3n ya se usa y genera impacto ambiental
+        y productivo."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331322666119209421, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7952394251513598945, guid: d7f002611fb104847a77356f8bea26e7, type: 3}
+    - target: {fileID: 3665615641663219645, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784765988916071223, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909377828048872384, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: "Dise\xF1o de productos y experiencias:"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909377828048872384, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "Piensa si el conocimiento ya se convirti\xF3 en una soluci\xF3n dise\xF1ada."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966260419446653486, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: "Dise\xF1o de productos y experiencias:"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966260419446653486, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: selectedBrightness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966260419446653486, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "Aqu\xED el objetivo es comprender la experiencia del usuario."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011950346140899360, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2697082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011950346140899360, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2697082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011950346140899360, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2697082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011950346140899360, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035506429242152360, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061334261654195209, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: "Industria, materiales y energ\xEDa: "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061334261654195209, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: Piensa si el conocimiento ya se aplica en un dispositivo funcional.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163025350554096919, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260170937564684770, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325820854592587226, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395722803821951771, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: 'Ciencia del cuidado y la vida:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395722803821951771, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "La innovaci\xF3n ocurre cuando la soluci\xF3n se integra al cuidado
+        real de las personas."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401150179576975122, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Name
+      value: ChestMinigame Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489479159458197758, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8360162848262583610, guid: 80d733e6763f6b841b31cfdb8188713d, type: 3}
+    - target: {fileID: 4493810214380114275, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Size.y
+      value: 19.944641
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493810214380114275, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.10087967
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493810214380114275, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 14.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493810214380114275, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 18.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544812411288401998, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: "Industria, materiales y energ\xEDa:"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544812411288401998, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: selectedBrightness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544812411288401998, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "Aqu\xED el foco est\xE1 en comprender las propiedades del material."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802269994930207480, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805859397944731158, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805859397944731158, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805859397944731158, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805859397944731158, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805859397944731158, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805859397944731158, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805859397944731158, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805859397944731158, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805859397944731158, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805859397944731158, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837769961930561684, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: "Computaci\xF3n y anal\xEDtica:"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837769961930561684, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: selectedBrightness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837769961930561684, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "Aqu\xED se busca entender los datos y sus relaciones."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865820011297682728, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: 'Ciencias fundamentales:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865820011297682728, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "Observa si el conocimiento ya se est\xE1 usando como una herramienta
+        funcional."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5110297838872912553, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2697082
+      objectReference: {fileID: 0}
+    - target: {fileID: 5110297838872912553, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2697082
+      objectReference: {fileID: 0}
+    - target: {fileID: 5110297838872912553, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2697082
+      objectReference: {fileID: 0}
+    - target: {fileID: 5110297838872912553, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5110297838872912553, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180254705323710880, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -399.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180254705323710880, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -221.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194046850054409083, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290331536460791229, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303336894853010347, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303336894853010347, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_margin.x
+      value: 28.269798
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303336894853010347, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_margin.z
+      value: 46.262726
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303336894853010347, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358407622606629615, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384125409743544667, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: shakeDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384125409743544667, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: correctColor.b
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384125409743544667, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: correctColor.g
+      value: 0.85882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384125409743544667, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: correctColor.r
+      value: 0.29803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384125409743544667, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: shakeMagnitude
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384125409743544667, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: highlightDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443981905895356782, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653981379901897558, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: shakeDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653981379901897558, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: correctColor.b
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653981379901897558, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: correctColor.g
+      value: 0.85882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653981379901897558, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: correctColor.r
+      value: 0.29803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653981379901897558, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: shakeMagnitude
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653981379901897558, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: highlightDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814274555338601628, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2697082
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814274555338601628, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2697082
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814274555338601628, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2697082
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814274555338601628, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814274555338601628, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980298907091468480, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7765702482008329940, guid: fa5723363e5a6dc4a87d17e21af4df23, type: 3}
+    - target: {fileID: 5980298907091468480, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980298907091468480, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980298907091468480, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146671831763121202, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -399.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146671831763121202, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -223.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362768917069213377, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089799323445920670, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_text
+      value: ACIERTOS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089799323445920670, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089799323445920670, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_margin.x
+      value: 22.806274
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089799323445920670, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_margin.y
+      value: 16.534567
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089799323445920670, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_margin.z
+      value: 49.43921
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089799323445920670, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089799323445920670, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107582097532414504, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: "Dise\xF1o de productos y experiencias: "
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107582097532414504, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "La innovaci\xF3n se da cuando el dise\xF1o es usado y valorado por
+        personas reales."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188824264531024835, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0241976
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188824264531024835, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0317992
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188824264531024835, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4972938
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358064343806630039, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: 'Territorios y ciudades:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358064343806630039, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "Observa si el an\xE1lisis ya se convierte en una soluci\xF3n concreta."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508270578996691572, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233722795905726579, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261247976366859314, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: 'Territorios y ciudades:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261247976366859314, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: selectedBrightness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261247976366859314, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "Aqu\xED se busca comprender patrones urbanos, no implementar a\xFAn
+        cambios."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402978268027033933, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: "Industria, materiales y energ\xEDa:  "
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402978268027033933, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "La innovaci\xF3n ocurre cuando la soluci\xF3n entra en uso industrial
+        o social."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529125186170330316, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: "Computaci\xF3n y anal\xEDtica:"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529125186170330316, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "Observa si el an\xE1lisis ya se transform\xF3 en una herramienta usable."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607964036696466816, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699514360149252058, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846098980527353018, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Size.y
+      value: 19.944643
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846098980527353018, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.033625603
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846098980527353018, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 14.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846098980527353018, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 18.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010969672116193762, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.cardTitle
+      value: 'Territorios y ciudades:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010969672116193762, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: cardInfo.feedbackMessage
+      value: "La innovaci\xF3n aparece cuando la soluci\xF3n se implementa en el
+        territorio."
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200679169836383791, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 3642408167901355221, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+    - {fileID: 6629541469363688941, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+    - {fileID: 7570414551060070539, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8435444500410145822, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3814431566231589965}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+--- !u!224 &6723822557420277905 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8435444500410145822, guid: 0ec667df803ea4b48bc1a97c1f5c4541, type: 3}
+  m_PrefabInstance: {fileID: 2909159235628780687}
+  m_PrefabAsset: {fileID: 0}

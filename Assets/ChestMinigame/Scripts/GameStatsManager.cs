@@ -41,11 +41,22 @@ public class GameStatsManager : MonoBehaviour
 
     void UpdateUI()
     {
-        correctText.text = $"Correctas: {correctCount}";
-        errorText.text = $"Errores: {errorCount}";
+        if (correctText != null)
+            correctText.text = $"Correctas: {correctCount}";
+
+        if (errorText != null)
+            errorText.text = $"Errores: {errorCount}";
     }
 
     //  ÚTIL PARA EL FUTURO (puntaje, resumen, etc.)
     public int GetCorrect() => correctCount;
     public int GetErrors() => errorCount;
+
+    // Resetear estadísticas (para jugar de nuevo)
+    public void ResetStats()
+    {
+        correctCount = 0;
+        errorCount = 0;
+        UpdateUI();
+    }
 }
