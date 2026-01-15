@@ -73,3 +73,13 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Ignore entire VS Code folder (safe default)
+.vscode/
+
+# Optional: keep workspace settings only
+.vscode/*
+!.vscode/settings.json
+
+# Ignore custom solution files (non-standard extension)
+Lumen Videojuego.slnx
