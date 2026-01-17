@@ -39,16 +39,41 @@ public class SchoolSelectionMenu : MonoBehaviour
 
     void Start()
     {
-        if (selectionPanel != null)
-            selectionPanel.SetActive(true);
-
         if (gameplayPanel != null)
             gameplayPanel.SetActive(false);
 
-        GenerateSchoolButtons();
-
         if (startGameButton != null)
             startGameButton.interactable = false;
+
+        // Verificar si hay IntroManager
+        bool hasIntroManager = IntroManager.Instance != null;
+
+        if (hasIntroManager)
+        {
+            // Si hay IntroManager, NO tocar el selectionPanel
+            // IntroManager ya lo tiene activo desde la jerarquía
+            Debug.Log("IntroManager detectado - esperando activación");
+        }
+        else
+        {
+            // Si NO hay IntroManager, activar directamente
+            if (selectionPanel != null)
+                selectionPanel.SetActive(true);
+
+            GenerateSchoolButtons();
+            Debug.Log("Sin IntroManager - activando SchoolSelection directamente");
+        }
+    }
+
+    // Llamado por IntroManager cuando se activa esta pantalla
+    public void OnScreenActivated()
+    {
+        if (selectionPanel != null)
+            selectionPanel.SetActive(true);
+
+        GenerateSchoolButtons();
+
+        Debug.Log("SchoolSelectionMenu activado por IntroManager");
     }
 
     void GenerateSchoolButtons()
@@ -180,22 +205,36 @@ public class SchoolSelectionMenu : MonoBehaviour
             return;
         }
 
-        // Configurar el spawner con la escuela seleccionada
-        if (CardSpawner.Instance != null)
+        // Notificar a IntroManager que se seleccionó la escuela
+        if (IntroManager.Instance != null)
         {
-            CardSpawner.Instance.SetupSchools(selectedSchool, cardManager);
+            IntroManager.Instance.OnSchoolSelected(selectedSchool);
+        }
+        else
+        {
+            // Fallback: Si no hay IntroManager, iniciar directamente
+            Debug.LogWarning("IntroManager no encontrado, iniciando juego directamente");
+            StartGameDirectly();
+        }
+    }
+
+    // Método de respaldo por si no se usa IntroManager
+    void StartGameDirectly()
+    {
+        if (cardManager != null)
+        {
+            CardSpawner.Instance?.SetupSchools(selectedSchool, cardManager);
         }
 
-        // Ocultar menú de selección y mostrar juego
         if (selectionPanel != null)
             selectionPanel.SetActive(false);
 
         if (gameplayPanel != null)
             gameplayPanel.SetActive(true);
 
-      
+        
 
-        Debug.Log($"Juego iniciado con escuela: {selectedSchool.schoolName}");
+        Debug.Log($"Juego iniciado directamente con escuela: {selectedSchool.schoolName}");
     }
 
     public SchoolData GetSelectedSchool() => selectedSchool;
