@@ -74,12 +74,16 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-# Ignore entire VS Code folder (safe default)
-.vscode/
-
-# Optional: keep workspace settings only
-.vscode/*
+### VisualStudioCode ###
+.vscode/*      # Maybe .vscode/**/* instead - see comments
 !.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### Visual Studio Code Patch ###
+# Ignore all local history of files
+**/.history
 
 # Ignore custom solution files (non-standard extension)
 Lumen Videojuego.slnx
