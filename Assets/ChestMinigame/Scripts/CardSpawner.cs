@@ -13,29 +13,23 @@ public class CardSpawner : MonoBehaviour
     [Header("Spawn Timing")]
     public float spawnDelay = 2f;
 
-    [Header("Cards por categor√≠a (F√°cil)")]
-    public List<GameObject> cienciaCards;
-    public List<GameObject> tecnologiaCards;
-    public List<GameObject> innovacionCards;
+    [Header("Sistema de Escuelas")]
+    public SchoolCardManager cardManager; // Cambiado de database
+    private SchoolData playerSchool;          // Escuela del jugador (nivel f·cil)
+    private CategoryCards easyPool;           // Pool nivel f·cil
+    private CategoryCards hardPool;           // Pool nivel difÌcil (otras escuelas)
 
-    [Header("Cards por categor√≠a (Dif√≠cil)")]
-    public List<GameObject> cienciaDificil;
-    public List<GameObject> tecnologiaDificil;
-    public List<GameObject> innovacionDificil;
-
-    [Header("UI de Nivel")]
+    [Header("UI de Nivel (Opcional)")]
     public TextMeshProUGUI levelText;
+    public TextMeshProUGUI schoolText;
     public GameObject hardModeNotification;
 
-    [Header("Configuraci√≥n de Dificultad")]
+    [Header("ConfiguraciÛn de Dificultad")]
     public float hardModeNotificationDuration = 2f;
 
     private List<GameObject> activeCards = new List<GameObject>();
     private bool hardMode = false;
     private int completedSets = 0;
-
-    // üîπ NUEVO: evento para notificar al MusicManager cuando se entra en modo dif√≠cil
-    public event System.Action OnHardModeEntered;
 
     void Awake()
     {
@@ -50,11 +44,52 @@ public class CardSpawner : MonoBehaviour
         if (hardModeNotification != null)
             hardModeNotification.SetActive(false);
 
-        UpdateLevelUI();
-        SpawnSet();
+        // No iniciar autom·ticamente - esperar selecciÛn de escuela
+        // SpawnSet();
     }
 
-    // CREA 6 CARTAS (2 POR CATEGOR√çA)
+    // 
+    //  CONFIGURACI”N DE ESCUELAS
+    //
+
+    /// <summary>
+    /// Configura las escuelas y pools de cartas seg˙n la selecciÛn del jugador
+    /// </summary>
+    public void SetupSchools(SchoolData selectedSchool, SchoolCardManager manager)
+    {
+        cardManager = manager;
+        playerSchool = selectedSchool;
+
+        // Pool F¡CIL: Solo cartas de la escuela del jugador
+        easyPool = new CategoryCards
+        {
+            cienciaCards = new List<GameObject>(playerSchool.cards.cienciaCards),
+            tecnologiaCards = new List<GameObject>(playerSchool.cards.tecnologiaCards),
+            innovacionCards = new List<GameObject>(playerSchool.cards.innovacionCards)
+        };
+
+        // Pool DIFÕCIL: Cartas de todas las otras escuelas
+        List<SchoolData> otherSchools = cardManager.GetOtherSchools(playerSchool.schoolName);
+        hardPool = cardManager.GetCombinedPool(otherSchools);
+
+        UpdateLevelUI();
+
+        // Iniciar el juego
+        SpawnSet();
+
+        Debug.Log($"Pools configurados:");
+        Debug.Log($"F·cil - Ciencia: {easyPool.cienciaCards.Count}, " +
+                  $"TecnologÌa: {easyPool.tecnologiaCards.Count}, " +
+                  $"InnovaciÛn: {easyPool.innovacionCards.Count}");
+        Debug.Log($"DifÌcil - Ciencia: {hardPool.cienciaCards.Count}, " +
+                  $"TecnologÌa: {hardPool.tecnologiaCards.Count}, " +
+                  $"InnovaciÛn: {hardPool.innovacionCards.Count}");
+    }
+
+    //
+    //  GENERACI”N DE CARTAS
+    // 
+
     public void SpawnSet()
     {
         DespawnActiveCards();
@@ -65,9 +100,12 @@ public class CardSpawner : MonoBehaviour
     {
         List<GameObject> spawnList = new List<GameObject>();
 
-        AddRandomFromPool(GetPool("Ciencia"), 2, spawnList);
-        AddRandomFromPool(GetPool("Tecnologia"), 2, spawnList);
-        AddRandomFromPool(GetPool("Innovacion"), 2, spawnList);
+        CategoryCards currentPool = hardMode ? hardPool : easyPool;
+
+        // Obtener 2 cartas de cada categorÌa
+        AddRandomFromPool(currentPool.cienciaCards, 2, spawnList);
+        AddRandomFromPool(currentPool.tecnologiaCards, 2, spawnList);
+        AddRandomFromPool(currentPool.innovacionCards, 2, spawnList);
 
         Shuffle(spawnList);
 
@@ -92,20 +130,28 @@ public class CardSpawner : MonoBehaviour
     {
         if (pool == null || pool.Count == 0)
         {
-            Debug.LogWarning($"Pool vac√≠o o nulo. Aseg√∫rate de asignar cartas en el Inspector.");
+            Debug.LogWarning($"Pool vacÌo. No se pueden agregar cartas.");
             return;
         }
 
+        // Si el pool tiene menos cartas de las solicitadas, ajustar
+        int actualAmount = Mathf.Min(amount, pool.Count);
+
         List<GameObject> temp = new List<GameObject>(pool);
 
-        for (int i = 0; i < amount; i++)
+        for (int i = 0; i < actualAmount; i++)
         {
-            if (temp.Count == 0) return;
+            if (temp.Count == 0) break;
 
             GameObject card = temp[Random.Range(0, temp.Count)];
             temp.Remove(card);
 
             result.Add(card);
+        }
+
+        if (actualAmount < amount)
+        {
+            Debug.LogWarning($"Pool insuficiente: se solicitaron {amount} cartas pero solo hay {pool.Count}");
         }
     }
 
@@ -129,23 +175,10 @@ public class CardSpawner : MonoBehaviour
         );
     }
 
-    List<GameObject> GetPool(string category)
-    {
-        if (!hardMode)
-        {
-            if (category == "Ciencia") return cienciaCards;
-            if (category == "Tecnologia") return tecnologiaCards;
-            return innovacionCards;
-        }
-        else
-        {
-            if (category == "Ciencia") return cienciaDificil;
-            if (category == "Tecnologia") return tecnologiaDificil;
-            return innovacionDificil;
-        }
-    }
+    // 
+    //  L”GICA DE PROGRESI”N
+    //
 
-    // LLAMADO CUANDO UNA CARTA SE COLOCA BIEN
     public void OnCardCompleted(GameObject card)
     {
         if (activeCards.Contains(card))
@@ -153,7 +186,7 @@ public class CardSpawner : MonoBehaviour
             activeCards.Remove(card);
         }
 
-        if (activeCards.Count > 0)
+        if (activeCards.Count == 0)
         {
             completedSets++;
 
@@ -168,24 +201,12 @@ public class CardSpawner : MonoBehaviour
         }
     }
 
-    void ShowFinalResults()
-    {
-        if (ResultsScreen.Instance != null && GameStatsManager.Instance != null)
-        {
-            int correct = GameStatsManager.Instance.GetCorrect();
-            int errors = GameStatsManager.Instance.GetErrors();
-
-            ResultsScreen.Instance.ShowResults(correct, errors);
-        }
-    }
-
     IEnumerator ActivateHardMode()
     {
         hardMode = true;
         UpdateLevelUI();
 
-        // üîπ NUEVO: notificar al MusicManager que entramos en modo dif√≠cil
-        OnHardModeEntered?.Invoke();
+       
 
         if (hardModeNotification != null)
         {
@@ -201,11 +222,30 @@ public class CardSpawner : MonoBehaviour
         SpawnSet();
     }
 
+    void ShowFinalResults()
+    {
+        if (ResultsScreen.Instance != null && GameStatsManager.Instance != null)
+        {
+            int correct = GameStatsManager.Instance.GetCorrect();
+            int errors = GameStatsManager.Instance.GetErrors();
+
+            ResultsScreen.Instance.ShowResults(correct, errors);
+        }
+    }
+
     void UpdateLevelUI()
     {
         if (levelText != null)
         {
-            levelText.text = hardMode ? "NIVEL: DIF√çCIL" : "NIVEL: F√ÅCIL";
+            levelText.text = hardMode ? "NIVEL: DIFÕCIL" : "NIVEL: F¡CIL";
+        }
+
+        if (schoolText != null && playerSchool != null)
+        {
+            if (hardMode)
+                schoolText.text = "Cartas: Otras Escuelas";
+            else
+                schoolText.text = $"Escuela: {playerSchool.schoolName}";
         }
     }
 
@@ -220,6 +260,24 @@ public class CardSpawner : MonoBehaviour
         activeCards.Clear();
     }
 
+    // 
+    // M…TODOS P⁄BLICOS
+    //
+
     public bool IsHardMode() => hardMode;
     public int GetCompletedSets() => completedSets;
+    public SchoolData GetPlayerSchool() => playerSchool;
+
+    public void SetHardMode(bool enabled)
+    {
+        hardMode = enabled;
+        UpdateLevelUI();
+    }
+
+    public void ResetLevelSystem()
+    {
+        hardMode = false;
+        completedSets = 0;
+        UpdateLevelUI();
+    }
 }
