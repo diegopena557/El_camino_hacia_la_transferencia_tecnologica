@@ -153,7 +153,7 @@ public class CardSpawner : MonoBehaviour
             activeCards.Remove(card);
         }
 
-        if (activeCards.Count == 0)
+        if (activeCards.Count > 0)
         {
             completedSets++;
 

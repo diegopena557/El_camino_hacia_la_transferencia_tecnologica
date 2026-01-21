@@ -745,6 +745,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2140886079988753775, guid: b771723e5ca9ed743bbcfee1140b7536, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3946673039420483334, guid: b771723e5ca9ed743bbcfee1140b7536, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.44
@@ -786,9 +790,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8936466041198039008, guid: b771723e5ca9ed743bbcfee1140b7536, type: 3}
+      propertyPath: moment3
+      value: 
+      objectReference: {fileID: 8656918260183219402}
+    - target: {fileID: 8936466041198039008, guid: b771723e5ca9ed743bbcfee1140b7536, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 338337508}
+    - target: {fileID: 8936466041198039008, guid: b771723e5ca9ed743bbcfee1140b7536, type: 3}
+      propertyPath: moment3Param
+      value: Volume3rdMoment
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936466041198039008, guid: b771723e5ca9ed743bbcfee1140b7536, type: 3}
+      propertyPath: drumFillSource
+      value: 
+      objectReference: {fileID: 8656918260183219401}
+    - target: {fileID: 8936466041198039008, guid: b771723e5ca9ed743bbcfee1140b7536, type: 3}
+      propertyPath: fadeInDuration23
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936466041198039008, guid: b771723e5ca9ed743bbcfee1140b7536, type: 3}
+      propertyPath: fadeOutDuration23
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9137814181349616550, guid: b771723e5ca9ed743bbcfee1140b7536, type: 3}
       propertyPath: m_Name
       value: MusicManager
@@ -798,6 +822,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b771723e5ca9ed743bbcfee1140b7536, type: 3}
+--- !u!82 &8656918260183219401 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2140886079988753775, guid: b771723e5ca9ed743bbcfee1140b7536, type: 3}
+  m_PrefabInstance: {fileID: 8656918260183219400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &8656918260183219402 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6483298336749988341, guid: b771723e5ca9ed743bbcfee1140b7536, type: 3}
+  m_PrefabInstance: {fileID: 8656918260183219400}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
