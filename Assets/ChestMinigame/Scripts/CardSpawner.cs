@@ -1,35 +1,95 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CardSpawner : MonoBehaviour
 {
+    public static CardSpawner Instance;
+
     [Header("Spawn Area")]
     public Collider2D spawnArea;
 
     [Header("Spawn Timing")]
     public float spawnDelay = 2f;
 
+    [Header("Sistema de Escuelas")]
+    public SchoolCardManager cardManager; // Cambiado de database
+    private SchoolData playerSchool;          // Escuela del jugador (nivel fácil)
+    private CategoryCards easyPool;           // Pool nivel fácil
+    private CategoryCards hardPool;           // Pool nivel difícil (otras escuelas)
 
-    [Header("Cards por categoría (FÁCIL)")]
-    public List<GameObject> cienciaCards;
-    public List<GameObject> tecnologiaCards;
-    public List<GameObject> innovacionCards;
+    [Header("UI de Nivel (Opcional)")]
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI schoolText;
+    public GameObject hardModeNotification;
 
-    [Header("Cards por categoría (DIFÍCIL)")]
-    public List<GameObject> cienciaDificil;
-    public List<GameObject> tecnologiaDificil;
-    public List<GameObject> innovacionDificil;
+    [Header("Configuración de Dificultad")]
+    public float hardModeNotificationDuration = 2f;
 
     private List<GameObject> activeCards = new List<GameObject>();
     private bool hardMode = false;
+    private int completedSets = 0;
+
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     void Start()
     {
-        SpawnSet();
+        if (hardModeNotification != null)
+            hardModeNotification.SetActive(false);
+
+        // No iniciar automáticamente - esperar selección de escuela
+        // SpawnSet();
     }
 
-    // CREA 6 CARTAS (2 POR CATEGORÍA)
+    // 
+    //  CONFIGURACIÓN DE ESCUELAS
+    //
+
+    /// <summary>
+    /// Configura las escuelas y pools de cartas según la selección del jugador
+    /// </summary>
+    public void SetupSchools(SchoolData selectedSchool, SchoolCardManager manager)
+    {
+        cardManager = manager;
+        playerSchool = selectedSchool;
+
+        // Pool FÁCIL: Solo cartas de la escuela del jugador
+        easyPool = new CategoryCards
+        {
+            cienciaCards = new List<GameObject>(playerSchool.cards.cienciaCards),
+            tecnologiaCards = new List<GameObject>(playerSchool.cards.tecnologiaCards),
+            innovacionCards = new List<GameObject>(playerSchool.cards.innovacionCards)
+        };
+
+        // Pool DIFÍCIL: Cartas de todas las otras escuelas
+        List<SchoolData> otherSchools = cardManager.GetOtherSchools(playerSchool.schoolName);
+        hardPool = cardManager.GetCombinedPool(otherSchools);
+
+        UpdateLevelUI();
+
+        // Iniciar el juego
+        SpawnSet();
+
+        Debug.Log($"Pools configurados:");
+        Debug.Log($"Fácil - Ciencia: {easyPool.cienciaCards.Count}, " +
+                  $"Tecnología: {easyPool.tecnologiaCards.Count}, " +
+                  $"Innovación: {easyPool.innovacionCards.Count}");
+        Debug.Log($"Difícil - Ciencia: {hardPool.cienciaCards.Count}, " +
+                  $"Tecnología: {hardPool.tecnologiaCards.Count}, " +
+                  $"Innovación: {hardPool.innovacionCards.Count}");
+    }
+
+    //
+    //  GENERACIÓN DE CARTAS
+    // 
+
     public void SpawnSet()
     {
         DespawnActiveCards();
@@ -40,16 +100,18 @@ public class CardSpawner : MonoBehaviour
     {
         List<GameObject> spawnList = new List<GameObject>();
 
-        AddRandomFromPool(GetPool("Ciencia"), 2, spawnList);
-        AddRandomFromPool(GetPool("Tecnologia"), 2, spawnList);
-        AddRandomFromPool(GetPool("Innovacion"), 2, spawnList);
+        CategoryCards currentPool = hardMode ? hardPool : easyPool;
+
+        // Obtener 2 cartas de cada categoría
+        AddRandomFromPool(currentPool.cienciaCards, 2, spawnList);
+        AddRandomFromPool(currentPool.tecnologiaCards, 2, spawnList);
+        AddRandomFromPool(currentPool.innovacionCards, 2, spawnList);
 
         Shuffle(spawnList);
 
         foreach (GameObject card in spawnList)
         {
-            // Espera ANTES de que aparezca la carta
-            yield return new WaitForSecondsRealtime(spawnDelay);
+            yield return new WaitForSeconds(spawnDelay);
 
             card.transform.position = GetRandomPosition();
             card.SetActive(true);
@@ -64,21 +126,32 @@ public class CardSpawner : MonoBehaviour
         }
     }
 
-
-
-
     void AddRandomFromPool(List<GameObject> pool, int amount, List<GameObject> result)
     {
+        if (pool == null || pool.Count == 0)
+        {
+            Debug.LogWarning($"Pool vacío. No se pueden agregar cartas.");
+            return;
+        }
+
+        // Si el pool tiene menos cartas de las solicitadas, ajustar
+        int actualAmount = Mathf.Min(amount, pool.Count);
+
         List<GameObject> temp = new List<GameObject>(pool);
 
-        for (int i = 0; i < amount; i++)
+        for (int i = 0; i < actualAmount; i++)
         {
-            if (temp.Count == 0) return;
+            if (temp.Count == 0) break;
 
             GameObject card = temp[Random.Range(0, temp.Count)];
             temp.Remove(card);
 
             result.Add(card);
+        }
+
+        if (actualAmount < amount)
+        {
+            Debug.LogWarning($"Pool insuficiente: se solicitaron {amount} cartas pero solo hay {pool.Count}");
         }
     }
 
@@ -93,7 +166,6 @@ public class CardSpawner : MonoBehaviour
         }
     }
 
-
     Vector2 GetRandomPosition()
     {
         Bounds b = spawnArea.bounds;
@@ -103,37 +175,77 @@ public class CardSpawner : MonoBehaviour
         );
     }
 
-    List<GameObject> GetPool(string category)
-    {
-        if (!hardMode)
-        {
-            if (category == "Ciencia") return cienciaCards;
-            if (category == "Tecnologia") return tecnologiaCards;
-            return innovacionCards;
-        }
-        else
-        {
-            if (category == "Ciencia") return cienciaDificil;
-            if (category == "Tecnologia") return tecnologiaDificil;
-            return innovacionDificil;
-        }
-    }
+    // 
+    //  LÓGICA DE PROGRESIÓN
+    //
 
-    // LLÁMALO CUANDO UNA CARTA SE COLOCA BIEN
     public void OnCardCompleted(GameObject card)
     {
         if (activeCards.Contains(card))
         {
             activeCards.Remove(card);
-            card.SetActive(false);
         }
 
         if (activeCards.Count == 0)
         {
-            if (!hardMode)
-                hardMode = true;
+            completedSets++;
 
-            SpawnSet();
+            if (!hardMode)
+            {
+                StartCoroutine(ActivateHardMode());
+            }
+            else
+            {
+                ShowFinalResults();
+            }
+        }
+    }
+
+    IEnumerator ActivateHardMode()
+    {
+        hardMode = true;
+        UpdateLevelUI();
+
+       
+
+        if (hardModeNotification != null)
+        {
+            hardModeNotification.SetActive(true);
+            yield return new WaitForSeconds(hardModeNotificationDuration);
+            hardModeNotification.SetActive(false);
+        }
+        else
+        {
+            yield return new WaitForSeconds(1f);
+        }
+
+        SpawnSet();
+    }
+
+    void ShowFinalResults()
+    {
+        if (ResultsScreen.Instance != null && GameStatsManager.Instance != null)
+        {
+            int correct = GameStatsManager.Instance.GetCorrect();
+            int errors = GameStatsManager.Instance.GetErrors();
+
+            ResultsScreen.Instance.ShowResults(correct, errors);
+        }
+    }
+
+    void UpdateLevelUI()
+    {
+        if (levelText != null)
+        {
+            levelText.text = hardMode ? "NIVEL: DIFÍCIL" : "NIVEL: FÁCIL";
+        }
+
+        if (schoolText != null && playerSchool != null)
+        {
+            if (hardMode)
+                schoolText.text = "Cartas: Otras Escuelas";
+            else
+                schoolText.text = $"Escuela: {playerSchool.schoolName}";
         }
     }
 
@@ -146,5 +258,26 @@ public class CardSpawner : MonoBehaviour
         }
 
         activeCards.Clear();
+    }
+
+    // 
+    // MÉTODOS PÚBLICOS
+    //
+
+    public bool IsHardMode() => hardMode;
+    public int GetCompletedSets() => completedSets;
+    public SchoolData GetPlayerSchool() => playerSchool;
+
+    public void SetHardMode(bool enabled)
+    {
+        hardMode = enabled;
+        UpdateLevelUI();
+    }
+
+    public void ResetLevelSystem()
+    {
+        hardMode = false;
+        completedSets = 0;
+        UpdateLevelUI();
     }
 }

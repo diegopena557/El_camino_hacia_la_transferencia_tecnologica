@@ -9,18 +9,31 @@ public class Chest : MonoBehaviour
     {
         if (card.cardType == acceptedType)
         {
+            //  ACIERTO
             feedback?.PlayCorrectFeedback();
 
-            // NUEVA LÍNEA: Mostrar retroalimentación de texto
+            // Mostrar solo retroalimentación de texto corta
             if (FeedbackTextManager.Instance != null)
                 FeedbackTextManager.Instance.ShowFeedback(card.cardType);
 
-            Destroy(card.gameObject);
+            // Notificar al spawner que una carta fue completada
+            GameObject cardObject = card.gameObject;
+
+            if (CardSpawner.Instance != null)
+                CardSpawner.Instance.OnCardCompleted(cardObject);
+
+            Destroy(cardObject);
             GameStatsManager.Instance.AddCorrect();
         }
         else
         {
+            //  ERROR
             feedback?.PlayWrongFeedback();
+
+            // Mostrar información detallada de la carta para educar al usuario
+            if (CardInfoDisplay.Instance != null && card.cardInfo != null)
+                CardInfoDisplay.Instance.ShowCardInfoOnError(card.cardInfo);
+
             card.Respawn();
             GameStatsManager.Instance.AddError();
         }
