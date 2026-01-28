@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: ea1593919d893d54b80364e3db60cee4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7766723297777049182
+    second: InsigniaInvBronce_0
+  - first:
+      213: -8231768899862610754
+    second: InsigniaInvBronce_1
+  - first:
+      213: -549139329322999725
+    second: InsigniaInvBronce_2
+  - first:
+      213: 2957971883716825185
+    second: InsigniaInvBronce_3
+  - first:
+      213: 1217963367530753669
+    second: InsigniaInvBronce_4
+  - first:
+      213: -4411658040692200598
+    second: InsigniaInvBronce_5
+  - first:
+      213: 4784971589568154884
+    second: InsigniaInvBronce_6
+  - first:
+      213: 90009752188589498
+    second: InsigniaInvBronce_7
+  - first:
+      213: -3884258950667565864
+    second: InsigniaInvBronce_8
+  - first:
+      213: 4923194376539165202
+    second: InsigniaInvBronce_9
+  - first:
+      213: -5629159104759254070
+    second: InsigniaInvBronce_10
+  - first:
+      213: 117031586683475398
+    second: InsigniaInvBronce_11
+  - first:
+      213: -4430129226264161256
+    second: InsigniaInvBronce_12
+  - first:
+      213: -3706536408437345820
+    second: InsigniaInvBronce_13
+  - first:
+      213: 6539937584482655436
+    second: InsigniaInvBronce_14
+  - first:
+      213: -2999889570347277098
+    second: InsigniaInvBronce_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: InsigniaInvBronce_0
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 1427
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e50c080b1f8cb60800000000000000
+      internalID: 7766723297777049182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_1
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 1434
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebcb492acc1e2cd80800000000000000
+      internalID: -8231768899862610754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_2
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 1405
+        width: 39
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 350a18f70b01168f0800000000000000
+      internalID: -549139329322999725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_3
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1410
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 160d88891c3dc0920800000000000000
+      internalID: 2957971883716825185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_4
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 1419
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58eeb1fca3317e010800000000000000
+      internalID: 1217963367530753669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_5
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 1422
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6bab0ec264a6c2c0800000000000000
+      internalID: -4411658040692200598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_6
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1391
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40dcb801f42a76240800000000000000
+      internalID: 4784971589568154884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_7
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 1400
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab595898467cf3100800000000000000
+      internalID: 90009752188589498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_8
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 1407
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d404d56017581ac0800000000000000
+      internalID: -3884258950667565864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_9
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 1387
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21251d58333b25440800000000000000
+      internalID: 4923194376539165202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_10
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 1391
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac33ba86e9531e1b0800000000000000
+      internalID: -5629159104759254070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_11
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 1408
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c5d4c7ab97cf9100800000000000000
+      internalID: 117031586683475398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_12
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 0
+        width: 1329
+        height: 1375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 814d277c0f40582c0800000000000000
+      internalID: -4430129226264161256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_13
+      rect:
+        serializedVersion: 2
+        x: 2179
+        y: 1265
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e13a0c46ccbf8cc0800000000000000
+      internalID: -3706536408437345820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_14
+      rect:
+        serializedVersion: 2
+        x: 2184
+        y: 1251
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccc9050459682ca50800000000000000
+      internalID: 6539937584482655436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsigniaInvBronce_15
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 1239
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d42d0274504e56d0800000000000000
+      internalID: -2999889570347277098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      InsigniaInvBronce_0: 7766723297777049182
+      InsigniaInvBronce_1: -8231768899862610754
+      InsigniaInvBronce_10: -5629159104759254070
+      InsigniaInvBronce_11: 117031586683475398
+      InsigniaInvBronce_12: -4430129226264161256
+      InsigniaInvBronce_13: -3706536408437345820
+      InsigniaInvBronce_14: 6539937584482655436
+      InsigniaInvBronce_15: -2999889570347277098
+      InsigniaInvBronce_2: -549139329322999725
+      InsigniaInvBronce_3: 2957971883716825185
+      InsigniaInvBronce_4: 1217963367530753669
+      InsigniaInvBronce_5: -4411658040692200598
+      InsigniaInvBronce_6: 4784971589568154884
+      InsigniaInvBronce_7: 90009752188589498
+      InsigniaInvBronce_8: -3884258950667565864
+      InsigniaInvBronce_9: 4923194376539165202
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

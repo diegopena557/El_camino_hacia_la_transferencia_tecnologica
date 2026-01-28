@@ -56,12 +56,9 @@ public class MusicManager : MonoBehaviour
         moment3.loop = true;
         ambientLoop.loop = true;
 
-        // Arrancar música (todo en silencio excepto menú)
+        // Arrancar música solo menú (todo en silencio excepto menú)
         menuMusic.Play();
-        moment1.Play();
-        moment2.Play();
-        moment3.Play();
-        ambientLoop.Play();
+        
 
 
         // Volúmenes iniciales
@@ -90,6 +87,12 @@ public class MusicManager : MonoBehaviour
     // 🔹 Fade out del menú + fade in de momento 1 y ambient loop
     private IEnumerator FadeOutMenu()
     {
+        // AArranca la música
+        moment1.Play();
+        moment2.Play();
+        moment3.Play();
+        ambientLoop.Play();
+
         float elapsed = 0f;
 
         // Estado inicial de cada pista
