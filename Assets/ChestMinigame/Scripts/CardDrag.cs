@@ -6,7 +6,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public CardType cardType;
     public Collider2D spawnArea;
 
-    [Header("Información de la Carta")]
+    [Header("Informaciï¿½n de la Carta")]
     public CardFeedbackData cardInfo;
 
     [Header("Efectos Visuales")]
@@ -29,11 +29,13 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private Transform originalParent;
     private int originalSiblingIndex;
     private Vector3 dragStartPosition;
+    private Rigidbody2D rb;
 
     void Start()
     {
         mainCamera = Camera.main;
         rectTransform = GetComponent<RectTransform>();
+        rb = GetComponent<Rigidbody2D>();
 
         // Buscar el Canvas padre
         parentCanvas = GetComponentInParent<Canvas>();
@@ -70,7 +72,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     void Update()
     {
-        // Suavizar la transición de escala y brillo
+        // Suavizar la transiciï¿½n de escala y brillo
         transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * transitionSpeed);
 
         if (spriteRenderer != null)
@@ -84,7 +86,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     }
 
     // ========================================
-    // IMPLEMENTACIÓN DE INTERFACES UI
+    // IMPLEMENTACIï¿½N DE INTERFACES UI
     // ========================================
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -92,7 +94,16 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         isDragging = true;
         dragStartPosition = transform.position;
 
-        // Hacer la carta más grande y brillante
+        // DESACTIVAR Fï¿½SICA mientras arrastra
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            rb.gravityScale = 0f; // Desactivar gravedad
+            rb.isKinematic = true; // Hacer kinematic para que no aplique fï¿½sica
+        }
+
+        // Hacer la carta mï¿½s grande y brillante
         targetScale = normalScale * selectedScale;
 
         if (spriteRenderer != null)
@@ -104,16 +115,16 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             targetColor = normalColor * selectedBrightness;
         }
 
-        // Mover al final de la jerarquía para renderizar encima
+        // Mover al final de la jerarquï¿½a para renderizar encima
         transform.SetAsLastSibling();
 
-        // Permitir que raycast pase a través durante drag
+        // Permitir que raycast pase a travï¿½s durante drag
         if (canvasGroup != null)
         {
             canvasGroup.blocksRaycasts = false;
         }
 
-        Debug.Log($"Comenzó a arrastrar: {gameObject.name} desde posición {dragStartPosition}");
+        Debug.Log($"Comenzï¿½ a arrastrar: {gameObject.name} desde posiciï¿½n {dragStartPosition}");
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -125,7 +136,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             // Para World Space Canvas
             if (parentCanvas.renderMode == RenderMode.WorldSpace)
             {
-                // Convertir posición del mouse a posición del mundo
+                // Convertir posiciï¿½n del mouse a posiciï¿½n del mundo
                 Vector3 worldPos;
                 if (RectTransformUtility.ScreenPointToWorldPointInRectangle(
                     parentCanvas.transform as RectTransform,
@@ -154,7 +165,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         }
         else
         {
-            // Fallback: usar posición de mouse directamente
+            // Fallback: usar posiciï¿½n de mouse directamente
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = Mathf.Abs(mainCamera.transform.position.z - transform.position.z);
             Vector3 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
@@ -167,7 +178,16 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         isDragging = false;
 
-        // Volver al tamaño y brillo normal
+        // REACTIVAR Fï¿½SICA y RESETEAR velocidad completamente
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;        // Resetear velocidad lineal
+            rb.angularVelocity = 0f;           // Resetear velocidad angular
+            rb.isKinematic = false;            // Volver a dynamic
+            rb.gravityScale = 0.5f;              // Restaurar gravedad
+        }
+
+        // Volver al tamaï¿½o y brillo normal
         targetScale = normalScale;
         targetColor = normalColor;
 
@@ -178,21 +198,21 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         }
 
         Debug.Log($"=== OnEndDrag: {gameObject.name} ===");
-        Debug.Log($"Posición inicial: {dragStartPosition}");
-        Debug.Log($"Posición final: {transform.position}");
+        Debug.Log($"Posiciï¿½n inicial: {dragStartPosition}");
+        Debug.Log($"Posiciï¿½n final: {transform.position}");
 
         // Calcular distancia movida
         float distanceMoved = Vector3.Distance(dragStartPosition, transform.position);
         Debug.Log($"Distancia movida: {distanceMoved}");
 
-        // Si NO se movió (click sin arrastrar), no hacer nada
+        // Si NO se moviï¿½ (click sin arrastrar), no hacer nada
         if (distanceMoved < 0.1f)
         {
-            Debug.Log("No se movió - ignorando");
+            Debug.Log("No se moviï¿½ - ignorando");
             return;
         }
 
-        // Verificar si cayó en un cofre usando Raycast desde la posición de la carta
+        // Verificar si cayï¿½ en un cofre usando Raycast desde la posiciï¿½n de la carta
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.zero, 0.1f);
 
         Debug.Log($"Raycast hits: {hits.Length}");
@@ -214,7 +234,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             if (chest != null)
             {
                 foundChest = chest;
-                Debug.Log($" Encontró cofre válido: {chest.gameObject.name}");
+                Debug.Log($" Encontrï¿½ cofre vï¿½lido: {chest.gameObject.name}");
                 break;
             }
         }
@@ -226,7 +246,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         }
         else
         {
-            Debug.Log("No cayó en ningún cofre - carta se queda en posición actual");
+            Debug.Log("No cayï¿½ en ningï¿½n cofre - carta se queda en posiciï¿½n actual");
         }
     }
 
@@ -269,6 +289,15 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         // Detener cualquier drag en progreso
         isDragging = false;
 
+        // Restablecer fï¿½sica
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            rb.isKinematic = false;
+            rb.gravityScale = 0.5f;
+        }
+
         // Restablecer escala y color
         targetScale = normalScale;
         transform.localScale = normalScale;
@@ -289,7 +318,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             canvasGroup.blocksRaycasts = true;
         }
 
-        // Volver a la posición original en jerarquía
+        // Volver a la posiciï¿½n original en jerarquï¿½a
         if (originalParent != null)
         {
             transform.SetParent(originalParent);
@@ -300,7 +329,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         float x = Random.Range(bounds.min.x, bounds.max.x);
         float y = bounds.max.y;
 
-        // Si el Canvas es World Space, usar posición directamente
+        // Si el Canvas es World Space, usar posiciï¿½n directamente
         if (parentCanvas != null && parentCanvas.renderMode == RenderMode.WorldSpace)
         {
             transform.position = new Vector2(x, y);
