@@ -55,4 +55,4 @@ MonoBehaviour:
   schoolSelectionCanvasGroup: {fileID: 0}
   instructionsCanvasGroup: {fileID: 0}
   audioSource: {fileID: 0}
-  buttonClickSound: {fileID: 0}
+  musicManager: {fileID: 0}
