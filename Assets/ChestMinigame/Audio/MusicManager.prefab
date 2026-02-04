@@ -47,7 +47,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -838,11 +838,12 @@ MonoBehaviour:
   ambientParam: VolumeBass
   bpm: 120
   beatsPerBar: 4
-  fadeOutDuration12: 3
-  fadeInDuration12: 0.5
-  fadeOutDuration23: 2
-  fadeInDuration23: 1
   fadeOutMenuDuration: 1
   fadeInMoment1Duration: 0.5
   fadeInAmbientDuration: 0.5
+  fadeOutDuration12: 3
+  fadeInDuration12: 0.5
+  fadeOutDuration23: 2
+  fadeInDuration23: 0.5
+  fadeOutAmbientDuration: 2
   spawner: {fileID: 0}
