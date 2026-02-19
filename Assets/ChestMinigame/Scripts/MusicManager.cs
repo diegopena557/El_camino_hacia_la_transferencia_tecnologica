@@ -6,18 +6,15 @@ public class MusicManager : MonoBehaviour
 {
     [Header("Audio Sources")]
     public AudioSource menuMusic;       // 🔹 Música de menú
-    public AudioSource moment1;         // 🔹 Primer momento de gameplay
+    public AudioSource moment1;         // 🔹 Primer momento
     public AudioSource moment2;         // 🔹 Segundo momento
-    public AudioSource moment3;         // 🔹 Tercer momento
     public AudioSource ambientLoop;     // 🔹 Ambient loop (bajo/fondo)
-    public AudioSource drumFillSource;  // 🔹 Drum fill para transición 2→3
 
     [Header("Mixer & Parameters")]
     public AudioMixer mixer;
     public string menuParam = "VolumeMenu";          // Param del menú
     public string moment1Param = "VolumeLead1";      // Param del momento 1
     public string moment2Param = "VolumeLead2";      // Param del momento 2
-    public string moment3Param = "VolumeLead3";      // Param del momento 3
     public string ambientParam = "VolumeBass";       // Param del ambient loop
 
     [Header("Music Settings")]
@@ -32,12 +29,6 @@ public class MusicManager : MonoBehaviour
     [Header("Fade Durations 1→2")]
     public float fadeOutDuration12 = 3f;   // Tiempo de salida de momento 1
     public float fadeInDuration12 = 0.5f;  // Tiempo de entrada de momento 2
-
-    [Header("Fade Durations 2→3")]
-    public float fadeOutDuration23 = 2f;   // Tiempo de salida de momento 2
-    public float fadeInDuration23 = 1f;    // Tiempo de entrada de momento 3
-    public float fadeOutAmbientDuration = 2f;       // Tiempo de salida de abmient loop
-   
 
     private double secPerBeat;
     private double secPerBar;
@@ -55,7 +46,6 @@ public class MusicManager : MonoBehaviour
         menuMusic.loop = true;
         moment1.loop = true;
         moment2.loop = true;
-        moment3.loop = true;
         ambientLoop.loop = true;
 
         // Arrancar música solo menú (todo en silencio excepto menú)
@@ -67,7 +57,6 @@ public class MusicManager : MonoBehaviour
         mixer.SetFloat(menuParam, 0f);          // menú activo
         mixer.SetFloat(moment1Param, -80f);     // momento 1 silenciado
         mixer.SetFloat(moment2Param, -80f);     // momento 2 silenciado
-        mixer.SetFloat(moment3Param, -80f);     // momento 3 silenciado
         mixer.SetFloat(ambientParam, -80f);     // ambient silenciado
 
         Debug.Log($"[MusicManager] Started playback. BPM={bpm}, BeatsPerBar={beatsPerBar}, SecPerBar={secPerBar:F3}");
@@ -92,7 +81,6 @@ public class MusicManager : MonoBehaviour
         // AArranca la música
         moment1.Play();
         moment2.Play();
-        moment3.Play();
         ambientLoop.Play();
 
         float elapsed = 0f;
@@ -210,102 +198,10 @@ private IEnumerator FadeRoutine12(string fadeOutParam, string fadeInParam)
     Debug.Log("[MusicManager] Crossfade 1→2 complete.");
 }
 
-
-
-
-    /// <summary>
-//////////////////////////////////////////////////// 🔹 Transición momento 2 → momento 3 ////////////////////////////////////////
-
-    public void TriggerTransition23()
-    {
-        // 1️⃣ Obtener tiempo DSP actual
-        double dspTime = AudioSettings.dspTime;
-
-        // 2️⃣ Calcular compás actual
-        int currentBar = Mathf.FloorToInt((float)(dspTime / secPerBar));
-
-        // 3️⃣ Próximo múltiplo de 4 (4, 8, 12…)
-        int targetBar = ((currentBar / 4) + 1) * 4;
-        double targetBarTime = targetBar * secPerBar;
-
-        // 4️⃣ Drum fill un compás antes
-        double drumFillTime = (targetBar - 1) * secPerBar;
-        Debug.Log($"[MusicManager] Scheduling drum fill at bar {targetBar - 1}");
-        drumFillSource.PlayScheduled(drumFillTime);
-
-        // 5️⃣ Programar crossfade en el compás objetivo
-        Debug.Log($"[MusicManager] Scheduling transition 2→3 at bar {targetBar}");
-        StartCoroutine(FadeRoutine23AtDSP(moment2Param, moment3Param, targetBarTime));
-    }
-
-    private IEnumerator FadeRoutine23AtDSP(string fadeOutParam, string fadeInParam, double targetDSPTime)
-    {
-        // Esperar hasta que el reloj DSP alcance el compás objetivo
-        while (AudioSettings.dspTime < targetDSPTime)
-            yield return null;
-
-        // Ahora sí arrancar el crossfade
-        StartCoroutine(FadeRoutine23(fadeOutParam, fadeInParam));
-    }
-
-    // 🔹 Corrutina de crossfade 2→3 con fade out del ambient
-    private IEnumerator FadeRoutine23(string fadeOutParam, string fadeInParam)
-    {
-        float elapsedOut = 0f;
-        float elapsedIn = 0f;
-        float elapsedAmbient = 0f;
-
-        mixer.SetFloat(fadeOutParam, 0f);      // momento 2 activo
-        mixer.SetFloat(fadeInParam, -80f);     // momento 3 silenciado
-        mixer.SetFloat(ambientParam, 0f);      // ambient activo
-
-        while (elapsedOut < fadeOutDuration23 || elapsedIn < fadeInDuration23 || elapsedAmbient < fadeOutAmbientDuration)
-        {
-            if (elapsedOut < fadeOutDuration23)
-            {
-                elapsedOut += Time.deltaTime;
-                float tOut = elapsedOut / fadeOutDuration23;
-                mixer.SetFloat(fadeOutParam, Mathf.Lerp(0f, -80f, tOut));
-            }
-
-            if (elapsedIn < fadeInDuration23)
-            {
-                elapsedIn += Time.deltaTime;
-                float tIn = elapsedIn / fadeInDuration23;
-                mixer.SetFloat(fadeInParam, Mathf.Lerp(-80f, 0f, tIn));
-            }
-
-            if (elapsedAmbient < fadeOutAmbientDuration)
-            {
-                elapsedAmbient += Time.deltaTime;
-                float tAmb = elapsedAmbient / fadeOutAmbientDuration;
-                mixer.SetFloat(ambientParam, Mathf.Lerp(0f, -80f, tAmb));
-            }
-            else
-            {
-                mixer.SetFloat(ambientParam, -80f);
-                if (ambientLoop.isPlaying) ambientLoop.Stop();
-            }
-
-            yield return null;
-        }
-
-        mixer.SetFloat(fadeOutParam, -80f);
-        mixer.SetFloat(fadeInParam, 0f);
-        mixer.SetFloat(ambientParam, -80f);
-
-        Debug.Log("[MusicManager] Crossfade 2→3 complete, ambient loop faded out.");
-    }
-
-    // 🔹 Update con botón 2 Y 3 para probar transiciones
+//////////////////////////////// 🔹 Update para probar transiciones ////////////////
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Debug.Log("[MusicManager] Botón 3 presionado → TriggerTransition23()");
-            TriggerTransition23();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKey(KeyCode.W))
         {
             Debug.Log("[MusicManager] Botón 2 presionado → TriggerTransition12()");
             TriggerTransition12();
