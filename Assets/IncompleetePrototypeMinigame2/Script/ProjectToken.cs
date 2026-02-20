@@ -13,9 +13,9 @@ public class ProjectToken : MonoBehaviour
     public TokenCategory tokenCategory;
 
     [Header("Valores de la Ficha")]
-    [Range(0, 10)]
+    [Range(0, 100)]
     public int esfuerzo = 5;
-    [Range(0, 10)]
+    [Range(0, 100)]
     public int incertidumbre = 5;
 
     [Header("Información del Token")]
@@ -23,10 +23,21 @@ public class ProjectToken : MonoBehaviour
     [TextArea(2, 4)]
     public string description = "";
 
+    [Header("Feedback Personalizado")]
+    [TextArea(3, 5)]
+    public string correctFeedback = "¡Correcto!\nEsta ficha pertenece aquí.";
+
+    [Space(10)]
+    [Header("Feedback Incorrecto - Modo 1")]
+    [TextArea(3, 5)]
+    public string wrongFeedbackMode1 = "Esta ficha no pertenece aquí.\nIntenta con otra categoría.";
+
+    [Header("Feedback Incorrecto - Modo 2")]
+    [TextArea(3, 5)]
+    public string wrongFeedbackMode2 = "Incorrecto.\n[Explicación más detallada para modo 2]";
+
     [Header("Visual Feedback")]
     public SpriteRenderer tokenRenderer;
-    public Color normalColor = Color.white;
-    public Color hoverColor = new Color(1f, 1f, 0.8f);
     public float hoverScale = 1.1f;
     public float hoverLiftHeight = 0.3f;
     public float hoverSpeed = 5f;
@@ -60,11 +71,7 @@ public class ProjectToken : MonoBehaviour
         targetPosition = originalPosition;
         targetScale = originalScale;
 
-        if (tokenRenderer != null)
-        {
-            normalColor = tokenRenderer.color;
-            targetColor = normalColor;
-        }
+
 
         mainCamera = Camera.main;
 
@@ -132,10 +139,7 @@ public class ProjectToken : MonoBehaviour
         // Efecto visual de arrastre (más grande y brillante)
         targetScale = originalScale * selectedScale;
 
-        if (tokenRenderer != null)
-        {
-            targetColor = normalColor * selectedBrightness;
-        }
+     
     }
 
     void OnMouseDrag()
@@ -155,7 +159,7 @@ public class ProjectToken : MonoBehaviour
 
         // Volver a escala y color normal
         targetScale = originalScale;
-        targetColor = normalColor;
+        
 
         Debug.Log($"[ProjectToken] '{tokenName}' soltado en posición: {transform.position}");
 
@@ -165,11 +169,12 @@ public class ProjectToken : MonoBehaviour
         Debug.Log($"[ProjectToken] Se detectaron {hits.Length} colliders en esta posición");
 
         TokenSlot foundSlot = null;
+        int slotPriority = -1;
 
         // Buscar el TokenSlot entre todos los colliders detectados
         foreach (Collider2D hit in hits)
         {
-            Debug.Log($"[ProjectToken] - Revisando: {hit.gameObject.name}");
+            Debug.Log($"[ProjectToken] - Revisando: {hit.gameObject.name} (Layer: {LayerMask.LayerToName(hit.gameObject.layer)})");
 
             // Ignorar el collider del propio token
             if (hit.gameObject == gameObject)
@@ -178,12 +183,31 @@ public class ProjectToken : MonoBehaviour
                 continue;
             }
 
+            // Ignorar otros tokens
+            ProjectToken otherToken = hit.GetComponent<ProjectToken>();
+            if (otherToken != null)
+            {
+                Debug.Log($"[ProjectToken]   (es otro token, ignorando)");
+                continue;
+            }
+
+            // Buscar TokenSlot
             TokenSlot slot = hit.GetComponent<TokenSlot>();
             if (slot != null)
             {
-                Debug.Log($"[ProjectToken]   Encontró TokenSlot!");
-                foundSlot = slot;
-                break;
+                Debug.Log($"[ProjectToken]    Encontró TokenSlot!");
+
+                // Priorizar slots que están como trigger
+                if (hit.isTrigger && slotPriority < 1)
+                {
+                    foundSlot = slot;
+                    slotPriority = 1;
+                }
+                else if (foundSlot == null)
+                {
+                    foundSlot = slot;
+                    slotPriority = 0;
+                }
             }
         }
 
@@ -194,16 +218,16 @@ public class ProjectToken : MonoBehaviour
             if (foundSlot.CanAcceptToken())
             {
                 // Remover del slot anterior si tenía uno
-                if (currentSlot != null)
+                if (currentSlot != null && currentSlot != foundSlot)
+                {
+                    Debug.Log($"[ProjectToken] Removiendo del slot anterior '{currentSlot.gameObject.name}'");
                     currentSlot.RemoveToken(this);
+                }
 
                 foundSlot.AddToken(this);
                 currentSlot = foundSlot;
 
-                // Posicionar en el slot
-                transform.position = foundSlot.transform.position;
-                originalPosition = foundSlot.transform.position;
-                targetPosition = originalPosition;
+                // NO establecer posición aquí - el slot lo hará
                 RemoveHoverEffect();
                 return;
             }
@@ -228,10 +252,7 @@ public class ProjectToken : MonoBehaviour
         // Efecto sutil de hover
         targetScale = originalScale * 1.05f;
 
-        if (tokenRenderer != null)
-        {
-            targetColor = normalColor * 1.2f;
-        }
+       
 
         // Levantar un poco la ficha
         targetPosition = originalPosition + Vector3.up * hoverLiftHeight;
@@ -240,7 +261,7 @@ public class ProjectToken : MonoBehaviour
     void RemoveHoverEffect()
     {
         targetScale = originalScale;
-        targetColor = normalColor;
+        
         targetPosition = originalPosition;
     }
 
@@ -273,4 +294,19 @@ public class ProjectToken : MonoBehaviour
     public string GetTokenName() => tokenName;
     public string GetDescription() => description;
     public TokenCategory GetCategory() => tokenCategory;
+    public string GetCorrectFeedback() => correctFeedback;
+
+    public string GetWrongFeedback()
+    {
+        // Obtener el feedback según el modo actual
+        if (GameModeManager.Instance != null)
+        {
+            return GameModeManager.Instance.GetCurrentMode() == 1
+                ? wrongFeedbackMode1
+                : wrongFeedbackMode2;
+        }
+
+        // Si no hay GameModeManager, usar modo 1 por defecto
+        return wrongFeedbackMode1;
+    }
 }
