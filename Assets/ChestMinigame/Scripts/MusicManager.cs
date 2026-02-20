@@ -201,7 +201,7 @@ private IEnumerator FadeRoutine12(string fadeOutParam, string fadeInParam)
 //////////////////////////////// 🔹 Update para probar transiciones ////////////////
     private void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.M))
         {
             Debug.Log("[MusicManager] Botón 2 presionado → TriggerTransition12()");
             TriggerTransition12();
