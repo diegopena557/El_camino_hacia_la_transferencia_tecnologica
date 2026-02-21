@@ -99,6 +99,15 @@ public class TokenSlot : MonoBehaviour
         // Verificar si la categoría es correcta para mostrar feedback apropiado
         bool isCorrectCategory = (token.GetCategory() == acceptedCategory);
 
+        // Registrar estadística
+        if (TokenStatsManager.Instance != null)
+        {
+            if (isCorrectCategory)
+                TokenStatsManager.Instance.AddCorrectToken();
+            else
+                TokenStatsManager.Instance.AddWrongToken();
+        }
+
         if (isCorrectCategory)
         {
             // Mostrar feedback personalizado de la ficha (correcto)

@@ -64,6 +64,12 @@ public class LevelManager : MonoBehaviour
 
         Debug.Log($"[LevelManager] Cargando {currentLevel.levelName}");
 
+        // Resetear estadísticas del nivel actual
+        if (TokenStatsManager.Instance != null)
+        {
+            TokenStatsManager.Instance.ResetCurrentLevel();
+        }
+
         // Actualizar UI si está conectada
         if (levelUI != null)
         {
@@ -205,12 +211,21 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log($"[LevelManager] ¡Nivel {currentLevelIndex + 1} completado!");
 
-        // Notificar a la pantalla de resultados (conteo de estadísticas)
+        // Obtener estadísticas del nivel actual
+        int levelCorrect = 0;
+        int levelWrong = 0;
+
+        if (TokenStatsManager.Instance != null)
+        {
+            levelCorrect = TokenStatsManager.Instance.GetCurrentLevelCorrect();
+            levelWrong = TokenStatsManager.Instance.GetCurrentLevelWrong();
+            Debug.Log($"[LevelManager] Estadísticas del nivel: {levelCorrect} correctas, {levelWrong} incorrectas");
+        }
+
+        // Notificar a la pantalla de resultados
         if (TokenResultsScreen.Instance != null)
         {
-            // Aquí puedes pasar las estadísticas del nivel
-            // Por ahora, asumimos que todas las fichas fueron correctas
-            TokenResultsScreen.Instance.OnLevelCompleted(3, 0);
+            TokenResultsScreen.Instance.OnLevelCompleted(levelCorrect, levelWrong);
         }
 
         if (currentLevelIndex + 1 < levels.Count)
