@@ -205,13 +205,37 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log($"[LevelManager] ¡Nivel {currentLevelIndex + 1} completado!");
 
+        // Notificar a la pantalla de resultados (conteo de estadísticas)
+        if (TokenResultsScreen.Instance != null)
+        {
+            // Aquí puedes pasar las estadísticas del nivel
+            // Por ahora, asumimos que todas las fichas fueron correctas
+            TokenResultsScreen.Instance.OnLevelCompleted(3, 0);
+        }
+
         if (currentLevelIndex + 1 < levels.Count)
         {
             StartCoroutine(LoadNextLevelWithDelay(2f));
         }
         else
         {
-            Debug.Log("[LevelManager] ¡Juego completado! No hay más niveles.");
+            Debug.Log("[LevelManager] ¡Juego completado! Mostrando resultados finales...");
+
+            // Mostrar pantalla de resultados final
+            if (TokenResultsScreen.Instance != null)
+            {
+                StartCoroutine(ShowResultsWithDelay(2f));
+            }
+        }
+    }
+
+    IEnumerator ShowResultsWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (TokenResultsScreen.Instance != null)
+        {
+            TokenResultsScreen.Instance.ShowFinalResults();
         }
     }
 
