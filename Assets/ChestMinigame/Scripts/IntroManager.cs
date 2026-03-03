@@ -8,24 +8,26 @@ public class IntroManager : MonoBehaviour
     public static IntroManager Instance;
 
     [Header("Pantallas")]
-    public GameObject schoolSelectionScreen;   // Pantalla de selecci�n de escuela (PRIMERO)
+    public GameObject schoolSelectionScreen;   // Pantalla de selección de escuela (PRIMERO)
     public GameObject instructionsScreen;      // Pantalla de instrucciones (SEGUNDO)
     public GameObject gameplayPanel;           // Panel de juego (TERCERO)
 
-    [Header("Im�genes de Fondo")]
+    [Header("Imágenes de Fondo")]
     public Image schoolSelectionBackground;
     public Sprite schoolSelectionBackgroundSprite;
     public Image instructionsBackground;
     public Sprite instructionsBackgroundSprite;
 
-    [Header("Animaci�n de Transici�n (Opcional)")]
+    [Header("Animación de Transición (Opcional)")]
     public float fadeDuration = 0.5f;
     public CanvasGroup schoolSelectionCanvasGroup;
     public CanvasGroup instructionsCanvasGroup;
 
-    [Header("Audio (Opcional)")]
-    public AudioSource audioSource;
-    public AudioClip buttonClickSound;
+    [Header("Audio")]
+    public AudioSource audioSource;   // 🔹 ahora solo el AudioSource
+
+    [Header("Managers")]
+    public MusicManager musicManager; // 🔹 referencia al MusicManager
 
     private SchoolData selectedSchool;
 
@@ -41,10 +43,10 @@ public class IntroManager : MonoBehaviour
     {
         Debug.Log("=== IntroManager.Start() ===");
 
-        // Configurar estado inicial: Mostrar selecci�n de escuela
+        // Configurar estado inicial: Mostrar selección de escuela
         ShowSchoolSelection();
 
-        // Configurar im�genes de fondo si est�n asignadas
+        // Configurar imágenes de fondo si están asignadas
         if (schoolSelectionBackground != null && schoolSelectionBackgroundSprite != null)
         {
             schoolSelectionBackground.sprite = schoolSelectionBackgroundSprite;
@@ -62,7 +64,7 @@ public class IntroManager : MonoBehaviour
     {
         Debug.Log("=== ShowSchoolSelection ===");
 
-        // Activar school selection (debe estar activo en jerarqu�a)
+        // Activar school selection (debe estar activo en jerarquía)
         if (schoolSelectionScreen != null)
         {
             schoolSelectionScreen.SetActive(true);
@@ -70,7 +72,7 @@ public class IntroManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("SchoolSelectionScreen no est� asignado en IntroManager!");
+            Debug.LogError("SchoolSelectionScreen no está asignado en IntroManager!");
         }
 
         if (instructionsScreen != null)
@@ -113,7 +115,7 @@ public class IntroManager : MonoBehaviour
 
     IEnumerator TransitionToInstructions()
     {
-        Debug.Log("Transici�n a instrucciones...");
+        Debug.Log("Transición a instrucciones...");
 
         // Fade out de school selection
         if (schoolSelectionCanvasGroup != null)
@@ -171,13 +173,19 @@ public class IntroManager : MonoBehaviour
         if (gameplayPanel != null)
             gameplayPanel.SetActive(true);
 
-        // Iniciar el juego con la escuela seleccionada
-        if (CardSpawner.Instance != null && selectedSchool != null && SchoolCardManager.Instance != null)
+        // 🔹 Señal al MusicManager
+        if (musicManager != null)
         {
-            CardSpawner.Instance.SetupSchools(selectedSchool, SchoolCardManager.Instance);
+            Debug.Log("[IntroManager] Señal enviada al MusicManager → StartGameplayMusic()");
+            musicManager.StartGameplayMusic();
         }
 
-       
+        // 🔹 Iniciar el juego con la escuela seleccionada
+        if (CardSpawner.Instance != null && selectedSchool != null && SchoolCardManager.Instance != null)
+        {
+            Debug.Log("[IntroManager] Llamando a CardSpawner.SetupSchools()");
+            CardSpawner.Instance.SetupSchools(selectedSchool, SchoolCardManager.Instance);
+        }
     }
 
     IEnumerator FadeOut(CanvasGroup canvasGroup)
@@ -210,15 +218,20 @@ public class IntroManager : MonoBehaviour
 
     void PlayButtonSound()
     {
-        if (audioSource != null && buttonClickSound != null)
+        if (audioSource != null)
         {
-            audioSource.PlayOneShot(buttonClickSound);
+            Debug.Log("[IntroManager] Reproduciendo sonido de botón");
+            audioSource.Play(); // 🔹 reproduce el clip asignado al AudioSource
+        }
+        else
+        {
+            Debug.LogWarning("[IntroManager] AudioSource no asignado, no se puede reproducir sonido");
         }
     }
 
     public SchoolData GetSelectedSchool() => selectedSchool;
 
-    // M�todo para saltar directamente al juego (�til para testing)
+    // Método para saltar directamente al juego (útil para testing)
     [ContextMenu("Skip to Gameplay")]
     public void SkipToGameplay()
     {
@@ -230,5 +243,12 @@ public class IntroManager : MonoBehaviour
 
         if (gameplayPanel != null)
             gameplayPanel.SetActive(true);
+
+        // 🔹 Señal al MusicManager también en skip
+        if (musicManager != null)
+        {
+            Debug.Log("[IntroManager] SkipToGameplay → señal enviada al MusicManager");
+            musicManager.StartGameplayMusic();
+        }
     }
 }
