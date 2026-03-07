@@ -69,6 +69,19 @@ public class TimerNode1 : MonoBehaviour
     public TypewriterTMP textNode1f_2;
     public TypewriterTMP textNode1f_3;
 
+    //////////////////// AUDIOS ////////////////////////
+    [Header("Audio Sources")]
+    public AudioSource DN1_11Orion;
+    public AudioSource DN1_12Lumen;
+    public AudioSource Dn1_21Orion;
+    public AudioSource Dn1_22Lumen;
+    public AudioSource Dn1_31Aria;
+    public AudioSource Dn1_32Orion;
+    public AudioSource Dn1_61Aria;
+    public AudioSource Dn1_62Orion;
+
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

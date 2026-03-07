@@ -40,20 +40,8 @@ public class TimerTextNode0 : MonoBehaviour
     public AudioSource DN0_1;
     public AudioSource DN0_2;
     public AudioSource DN0_3;
-    // MOVERLO AN TIMER DE NODO 1 //
-    public AudioSource DN1_1;
-    public AudioSource Dn1_2_1Lumen;
-    public AudioSource Dn1_2_2Orion;
-    public AudioSource Dn1_3_1Aria;
-    public AudioSource Dn1_3_2Orion;
-    public AudioSource Dn1_4;
-    public AudioSource Dn1_5;
-    public AudioSource Dn1_6_1Aria;
-    public AudioSource Dn1_6_2Orion;
+    public AudioSource Cinematic1;
     
-  
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -89,33 +77,35 @@ public class TimerTextNode0 : MonoBehaviour
         myText.gameObject.SetActive(true);
         DN0_0.Play();
         textInicio.StartTyping();
-        yield return new WaitForSeconds(12f);
+        yield return new WaitForSeconds(10.8f);
+        Cinematic1.Play(); //musica cinematica
+        yield return new WaitForSeconds(2.1f);
         //GO_CanvaNode0a.SetActive(false);
-        //GO_CanvaNode0b.SetActive(true);
-        
+        //GO_CanvaNode0b.SetActive(true)
+
+        canvasFader.FadeAToB();
         videoPlayerNode0b.Stop();
         videoPlayerNode0b.time = 0;        
         videoPlayerNode0b.frame = 0;
         
-        canvasFader.FadeAToB();
-        
-        yield return new WaitForSeconds(1f);
         videoPlayerNode0b.Play();
 
         yield return new WaitForSeconds(9f);
         myTextNode0_1.gameObject.SetActive(true);
         textNode0_1.StartTyping();
-        DN0_1.Play();
+        DN0_1.Play(); //dialogo
         yield return new WaitForSeconds(3f);
-        videoPlayerNode0b.playbackSpeed = 0.5f;
+        videoPlayerNode0b.playbackSpeed = 1f;
         myTextNode0_1.gameObject.SetActive(false);
         myTextNode0_2.gameObject.SetActive(true);
         textNode0_2.StartTyping();
-        yield return new WaitForSeconds(3f);
+        DN0_2.Play(); //dialogo
+        yield return new WaitForSeconds(5f);
         myTextNode0_2.gameObject.SetActive(false);
         myTextNode0_3.gameObject.SetActive(true);
         textNode0_3.StartTyping();
-        yield return new WaitForSeconds(4f);
+        DN0_3.Play(); //dialogo
+        yield return new WaitForSeconds(5f);
         myTextNode0_3.gameObject.SetActive(false);
         videoPlayerNode0b.playbackSpeed = 1.0f;
 
