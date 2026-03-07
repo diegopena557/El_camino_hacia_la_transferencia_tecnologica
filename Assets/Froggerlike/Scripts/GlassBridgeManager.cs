@@ -28,6 +28,7 @@ public class GlassBridgeManager : MonoBehaviour
     private bool isMoving = false;
     private bool gameOver = false;
     private bool isPaused = false;
+    private Vector3 initialPlayerPosition; // Guardar posición inicial del editor
 
     void Awake()
     {
@@ -39,6 +40,10 @@ public class GlassBridgeManager : MonoBehaviour
 
     void Start()
     {
+        // Guardar la posición inicial del jugador desde el editor
+        if (player)
+            initialPlayerPosition = player.position;
+
         ResetGame();
     }
 
@@ -55,6 +60,7 @@ public class GlassBridgeManager : MonoBehaviour
         if (platform != currentPair.leftPlatform && platform != currentPair.rightPlatform)
             return;
 
+        // Mostrar resultado visual
         platform.ShowResult();
 
         if (platform.isCorrect)
@@ -64,7 +70,7 @@ public class GlassBridgeManager : MonoBehaviour
         }
         else
         {
-            // Plataforma incorrecta - pausar y perder
+            // Plataforma incorrecta - pausar pero permitir reintentar
             StartCoroutine(HandleIncorrectChoice());
         }
     }
@@ -109,6 +115,18 @@ public class GlassBridgeManager : MonoBehaviour
         // Pausar por 1 segundo
         yield return new WaitForSeconds(pauseDuration);
 
+        // Resetear el color de las plataformas incorrectas del nivel actual
+        if (currentLevel < platformPairs.Count)
+        {
+            PlatformPair currentPair = platformPairs[currentLevel];
+
+            // Resetear colores pero mantener las plataformas activas
+            if (currentPair.leftPlatform && !currentPair.leftPlatform.isCorrect)
+                currentPair.leftPlatform.ResetColor();
+            if (currentPair.rightPlatform && !currentPair.rightPlatform.isCorrect)
+                currentPair.rightPlatform.ResetColor();
+        }
+
         // Después de la pausa, permitir que elija de nuevo
         isPaused = false;
     }
@@ -143,11 +161,10 @@ public class GlassBridgeManager : MonoBehaviour
         // Randomizar qué plataforma es correcta en cada par
         RandomizePlatforms();
 
-        // Posicionar jugador al inicio
-        if (player && platformPairs.Count > 0)
+        // Posicionar jugador en la posición inicial guardada del editor
+        if (player)
         {
-            Vector3 startPos = new Vector3(0, platformPairs[0].leftPlatform.transform.position.y - 2f, 0);
-            player.position = startPos;
+            player.position = initialPlayerPosition;
         }
 
         UpdateUI();
@@ -178,6 +195,11 @@ public class GlassBridgeManager : MonoBehaviour
     public bool IsGameOver()
     {
         return gameOver;
+    }
+
+    public bool IsMoving()
+    {
+        return isMoving || isPaused;
     }
 }
 

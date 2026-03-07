@@ -64,6 +64,12 @@ public class LevelManager : MonoBehaviour
 
         Debug.Log($"[LevelManager] Cargando {currentLevel.levelName}");
 
+        // Resetear estadísticas del nivel actual
+        if (TokenStatsManager.Instance != null)
+        {
+            TokenStatsManager.Instance.ResetCurrentLevel();
+        }
+
         // Actualizar UI si está conectada
         if (levelUI != null)
         {
@@ -205,13 +211,46 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log($"[LevelManager] ¡Nivel {currentLevelIndex + 1} completado!");
 
+        // Obtener estadísticas del nivel actual
+        int levelCorrect = 0;
+        int levelWrong = 0;
+
+        if (TokenStatsManager.Instance != null)
+        {
+            levelCorrect = TokenStatsManager.Instance.GetCurrentLevelCorrect();
+            levelWrong = TokenStatsManager.Instance.GetCurrentLevelWrong();
+            Debug.Log($"[LevelManager] Estadísticas del nivel: {levelCorrect} correctas, {levelWrong} incorrectas");
+        }
+
+        // Notificar a la pantalla de resultados
+        if (TokenResultsScreen.Instance != null)
+        {
+            TokenResultsScreen.Instance.OnLevelCompleted(levelCorrect, levelWrong);
+        }
+
         if (currentLevelIndex + 1 < levels.Count)
         {
             StartCoroutine(LoadNextLevelWithDelay(2f));
         }
         else
         {
-            Debug.Log("[LevelManager] ¡Juego completado! No hay más niveles.");
+            Debug.Log("[LevelManager] ¡Juego completado! Mostrando resultados finales...");
+
+            // Mostrar pantalla de resultados final
+            if (TokenResultsScreen.Instance != null)
+            {
+                StartCoroutine(ShowResultsWithDelay(2f));
+            }
+        }
+    }
+
+    IEnumerator ShowResultsWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (TokenResultsScreen.Instance != null)
+        {
+            TokenResultsScreen.Instance.ShowFinalResults();
         }
     }
 
