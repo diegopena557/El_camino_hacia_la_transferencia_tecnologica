@@ -2095,6 +2095,19 @@ MonoBehaviour:
   GO_Node0: {fileID: 6614765357889673082}
   GO_Node1: {fileID: 6149560627679086195}
   timerNode1: {fileID: 6423289862399963204}
+  DN0_0: {fileID: 0}
+  DN0_1: {fileID: 0}
+  DN0_2: {fileID: 0}
+  DN0_3: {fileID: 0}
+  DN1_1: {fileID: 0}
+  Dn1_2_1Lumen: {fileID: 0}
+  Dn1_2_2Orion: {fileID: 0}
+  Dn1_3_1Aria: {fileID: 0}
+  Dn1_3_2Orion: {fileID: 0}
+  Dn1_4: {fileID: 0}
+  Dn1_5: {fileID: 0}
+  Dn1_6_1Aria: {fileID: 0}
+  Dn1_6_2Orion: {fileID: 0}
 --- !u!114 &6701197226908399179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3782,6 +3795,8 @@ MonoBehaviour:
   textNode1f_1: {fileID: 7518709353679607336}
   textNode1f_2: {fileID: 1691095268630182915}
   textNode1f_3: {fileID: 3599602542265648749}
+  fadePanel: {fileID: 0}
+  fadeDuration: 2
 --- !u!1 &5094496153817795379
 GameObject:
   m_ObjectHideFlags: 0
