@@ -34,6 +34,25 @@ public class TimerTextNode0 : MonoBehaviour
 
     public TimerNode1 timerNode1;
 
+    //////////////////// AUDIOS ////////////////////////
+    [Header("Audio Sources")]
+    public AudioSource DN0_0;
+    public AudioSource DN0_1;
+    public AudioSource DN0_2;
+    public AudioSource DN0_3;
+    // MOVERLO AN TIMER DE NODO 1 //
+    public AudioSource DN1_1;
+    public AudioSource Dn1_2_1Lumen;
+    public AudioSource Dn1_2_2Orion;
+    public AudioSource Dn1_3_1Aria;
+    public AudioSource Dn1_3_2Orion;
+    public AudioSource Dn1_4;
+    public AudioSource Dn1_5;
+    public AudioSource Dn1_6_1Aria;
+    public AudioSource Dn1_6_2Orion;
+    
+  
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -68,8 +87,9 @@ public class TimerTextNode0 : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
         myText.gameObject.SetActive(true);
+        DN0_0.Play();
         textInicio.StartTyping();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(12f);
         //GO_CanvaNode0a.SetActive(false);
         //GO_CanvaNode0b.SetActive(true);
         
@@ -85,6 +105,7 @@ public class TimerTextNode0 : MonoBehaviour
         yield return new WaitForSeconds(9f);
         myTextNode0_1.gameObject.SetActive(true);
         textNode0_1.StartTyping();
+        DN0_1.Play();
         yield return new WaitForSeconds(3f);
         videoPlayerNode0b.playbackSpeed = 0.5f;
         myTextNode0_1.gameObject.SetActive(false);
