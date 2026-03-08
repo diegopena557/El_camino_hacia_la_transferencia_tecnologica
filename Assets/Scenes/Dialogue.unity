@@ -204,10 +204,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1386820987227925184, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6423289862399963204, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
       propertyPath: Dn1_31Aria
       value: 
@@ -217,11 +213,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9195152848386302805}
     - target: {fileID: 6423289862399963204, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: DN1_11Orion
+      propertyPath: Dn1_11Orion
       value: 
       objectReference: {fileID: 1580186078201646034}
     - target: {fileID: 6423289862399963204, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: DN1_12Lumen
+      propertyPath: Dn1_12Lumen
       value: 
       objectReference: {fileID: 6110417716179010479}
     - target: {fileID: 6423289862399963204, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
@@ -257,45 +253,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6437089505581453513}
     - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: DN1_1
-      value: 
-      objectReference: {fileID: 1580186078201646034}
-    - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: Dn1_4
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: Dn1_5
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
       propertyPath: Cinematic1
       value: 
       objectReference: {fileID: 1137070164}
-    - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: Dn1_3_1Aria
-      value: 
-      objectReference: {fileID: 4172854145537101352}
-    - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: Dn1_6_1Aria
-      value: 
-      objectReference: {fileID: 9195152848386302805}
-    - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: Dn1_2_1Lumen
-      value: 
-      objectReference: {fileID: 6110417716179010479}
-    - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: Dn1_2_2Orion
-      value: 
-      objectReference: {fileID: 3354427915852174994}
-    - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: Dn1_3_2Orion
-      value: 
-      objectReference: {fileID: 6825007681561905964}
-    - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: Dn1_6_2Orion
-      value: 
-      objectReference: {fileID: 4212007086124521726}
     - target: {fileID: 7717088770326471418, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
       propertyPath: m_Name
       value: ScnDialogue0_1
@@ -338,10 +298,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8184219978743005589, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9189497588008878146, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: m_Looping
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -392,14 +348,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7017283033030642365, guid: e684eab36fc6f4c4a89fbb61a8ba6ca5, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017283033030642365, guid: e684eab36fc6f4c4a89fbb61a8ba6ca5, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -4657993858586224476, guid: 34fbfc27ee653894ba50c1052b25ba3e, type: 2}
     - target: {fileID: 7537330115562349182, guid: e684eab36fc6f4c4a89fbb61a8ba6ca5, type: 3}
       propertyPath: m_Name
       value: Cinematic 1

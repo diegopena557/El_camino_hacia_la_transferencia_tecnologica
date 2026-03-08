@@ -71,8 +71,8 @@ public class TimerNode1 : MonoBehaviour
 
     //////////////////// AUDIOS ////////////////////////
     [Header("Audio Sources")]
-    public AudioSource DN1_11Orion;
-    public AudioSource DN1_12Lumen;
+    public AudioSource Dn1_11Orion;
+    public AudioSource Dn1_12Lumen;
     public AudioSource Dn1_21Orion;
     public AudioSource Dn1_22Lumen;
     public AudioSource Dn1_31Aria;
@@ -109,14 +109,16 @@ public class TimerNode1 : MonoBehaviour
 
         myTextNode1a_1.gameObject.SetActive(true);
         textNode1a_1.StartTyping();
+        Dn1_11Orion.Play(); //dialogo
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8.5f);
 
         myTextNode1a_1.gameObject.SetActive(false);
         myTextNode1a_2.gameObject.SetActive(true);
         textNode1a_2.StartTyping();
+        Dn1_12Lumen.Play(); //dialogo
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f);
 
         videoPlayerNode1a.Stop();
         GO_CanvaNode1a.SetActive(false);
@@ -129,20 +131,22 @@ public class TimerNode1 : MonoBehaviour
 
         myTextNode1b_1.gameObject.SetActive(true);
         textNode1b_1.StartTyping();
+        Dn1_21Orion.Play(); //dialogo
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2.5f);
 
         myTextNode1b_2.gameObject.SetActive(true);
         myTextNode1b_1.gameObject.SetActive(false);
         textNode1b_2.StartTyping();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(15.5f);
 
         myTextNode1b_3.gameObject.SetActive(true);
         myTextNode1b_2.gameObject.SetActive(false);
         textNode1b_3.StartTyping();
+        Dn1_22Lumen.Play(); //dialogo
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         videoPlayerNode1b.Stop();
         GO_CanvaNode1b.SetActive(false);
@@ -155,20 +159,22 @@ public class TimerNode1 : MonoBehaviour
 
         myTextNode1c_1.gameObject.SetActive(true);
         textNode1c_1.StartTyping();
+        Dn1_31Aria.Play(); //dialogo
 
         yield return new WaitForSeconds(5f);
 
         myTextNode1c_2.gameObject.SetActive(true);
         myTextNode1c_1.gameObject.SetActive(false);
         textNode1c_2.StartTyping();
+        Dn1_32Orion.Play(); //dialogo
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1.5f);
 
         myTextNode1c_3.gameObject.SetActive(true);
         myTextNode1c_2.gameObject.SetActive(false);
         textNode1c_3.StartTyping();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(17.7f);
 
         videoPlayerNode1c.Stop();
         GO_CanvaNode1d.SetActive(false);
@@ -182,25 +188,26 @@ public class TimerNode1 : MonoBehaviour
         myTextNode1d_1.gameObject.SetActive(true);
         textNode1d_1.StartTyping();
 
-        yield return new WaitForSeconds(5f);
+
+        yield return new WaitForSeconds(11.4f);
 
         myTextNode1d_2.gameObject.SetActive(true);
         myTextNode1d_1.gameObject.SetActive(false);
         textNode1d_2.StartTyping();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(12f);
 
         myTextNode1d_3.gameObject.SetActive(true);
         myTextNode1d_2.gameObject.SetActive(false);
         textNode1d_3.StartTyping();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(11.1f);
 
         myTextNode1d_4.gameObject.SetActive(true);
         myTextNode1d_3.gameObject.SetActive(false);
         textNode1d_4.StartTyping();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(16.3f);
 
         videoPlayerNode1d.Stop();
         GO_CanvaNode1e.SetActive(false);
@@ -214,19 +221,19 @@ public class TimerNode1 : MonoBehaviour
         myTextNode1e_1.gameObject.SetActive(true);
         textNode1e_1.StartTyping();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(12.3f);
 
         myTextNode1e_2.gameObject.SetActive(true);
         myTextNode1e_1.gameObject.SetActive(false);
         textNode1e_2.StartTyping();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(13.3f);
 
         myTextNode1e_3.gameObject.SetActive(true);
         myTextNode1e_2.gameObject.SetActive(false);
         textNode1e_3.StartTyping();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(16.4f);
 
         videoPlayerNode1e.Stop();
         GO_CanvaNode1f.SetActive(false);
@@ -239,14 +246,17 @@ public class TimerNode1 : MonoBehaviour
 
         myTextNode1f_1.gameObject.SetActive(true);
         textNode1f_1.StartTyping();
+        Dn1_61Aria.Play(); //dialogo
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
 
         myTextNode1f_2.gameObject.SetActive(true);
         myTextNode1f_1.gameObject.SetActive(false);
         textNode1f_2.StartTyping();
+        Dn1_62Orion.Play(); //dialogo
 
-        yield return new WaitForSeconds(5f);
+
+        yield return new WaitForSeconds(8f);
 
         myTextNode1f_3.gameObject.SetActive(true);
         myTextNode1f_2.gameObject.SetActive(false);

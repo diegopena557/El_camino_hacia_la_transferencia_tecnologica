@@ -1723,7 +1723,7 @@ VideoPlayer:
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 0
   m_SkipOnDrop: 1
-  m_Looping: 1
+  m_Looping: 0
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
@@ -2095,6 +2095,11 @@ MonoBehaviour:
   GO_Node0: {fileID: 6614765357889673082}
   GO_Node1: {fileID: 6149560627679086195}
   timerNode1: {fileID: 6423289862399963204}
+  DN0_0: {fileID: 0}
+  DN0_1: {fileID: 0}
+  DN0_2: {fileID: 0}
+  DN0_3: {fileID: 0}
+  Cinematic1: {fileID: 0}
 --- !u!114 &6701197226908399179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3782,6 +3787,14 @@ MonoBehaviour:
   textNode1f_1: {fileID: 7518709353679607336}
   textNode1f_2: {fileID: 1691095268630182915}
   textNode1f_3: {fileID: 3599602542265648749}
+  Dn1_11Orion: {fileID: 0}
+  Dn1_12Lumen: {fileID: 0}
+  Dn1_21Orion: {fileID: 0}
+  Dn1_22Lumen: {fileID: 0}
+  Dn1_31Aria: {fileID: 0}
+  Dn1_32Orion: {fileID: 0}
+  Dn1_61Aria: {fileID: 0}
+  Dn1_62Orion: {fileID: 0}
 --- !u!1 &5094496153817795379
 GameObject:
   m_ObjectHideFlags: 0
@@ -5226,7 +5239,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ori\xF3n:\nEsa es una forma de comenzar."
+  m_text: "Ori\xF3n:\nCiencia - Tecnolog\xEDa - innovaci\xF3n\r\nEsa es una forma
+    de comenzar. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64cc9d07a3a1485448c220971ac0741b, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
