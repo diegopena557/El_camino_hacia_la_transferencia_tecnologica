@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimerNode1 : MonoBehaviour
 {
@@ -69,6 +70,7 @@ public class TimerNode1 : MonoBehaviour
     public TypewriterTMP textNode1f_2;
     public TypewriterTMP textNode1f_3;
 
+<<<<<<< .merge_file_m0o5s5
     //////////////////// AUDIOS ////////////////////////
     [Header("Audio Sources")]
     public AudioSource Dn1_11Orion;
@@ -84,25 +86,37 @@ public class TimerNode1 : MonoBehaviour
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+=======
+    [Header("Fade Settings")]
+    public Image fadePanel; // Asigna un Image negro en un Canvas que cubra toda la pantalla
+    public float fadeDuration = 1f;
+
+>>>>>>> .merge_file_mGoHDE
     void Start()
     {
-        
+        if (fadePanel != null)
+        {
+            Color c = fadePanel.color;
+            c.a = 0f;
+            fadePanel.color = c;
+            fadePanel.gameObject.SetActive(false);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void StartTimerNode1(){
+    public void StartTimerNode1()
+    {
         StartCoroutine(AdvancingTimeNode1());
     }
 
     IEnumerator AdvancingTimeNode1()
     {
         videoPlayerNode1a.Stop();
-        videoPlayerNode1a.time = 0;        
+        videoPlayerNode1a.time = 0;
         videoPlayerNode1a.frame = 0;
         videoPlayerNode1a.Play();
         Music.Play(); // Inicio Música de Fondo 
@@ -126,7 +140,7 @@ public class TimerNode1 : MonoBehaviour
         GO_CanvaNode1a.SetActive(false);
         GO_CanvaNode1b.SetActive(true);
         videoPlayerNode1b.Stop();
-        videoPlayerNode1b.time = 0;        
+        videoPlayerNode1b.time = 0;
         videoPlayerNode1b.frame = 0;
         videoPlayerNode1b.Play();
         videoPlayerNode1b.playbackSpeed = 1f;
@@ -154,7 +168,7 @@ public class TimerNode1 : MonoBehaviour
         GO_CanvaNode1b.SetActive(false);
         GO_CanvaNode1c.SetActive(true);
         videoPlayerNode1c.Stop();
-        videoPlayerNode1c.time = 0;        
+        videoPlayerNode1c.time = 0;
         videoPlayerNode1c.frame = 0;
         videoPlayerNode1c.Play();
         videoPlayerNode1c.playbackSpeed = 1f;
@@ -182,7 +196,7 @@ public class TimerNode1 : MonoBehaviour
         GO_CanvaNode1d.SetActive(false);
         GO_CanvaNode1d.SetActive(true);
         videoPlayerNode1d.Stop();
-        videoPlayerNode1d.time = 0;        
+        videoPlayerNode1d.time = 0;
         videoPlayerNode1d.frame = 0;
         videoPlayerNode1d.Play();
         videoPlayerNode1d.playbackSpeed = 1f;
@@ -215,7 +229,7 @@ public class TimerNode1 : MonoBehaviour
         GO_CanvaNode1e.SetActive(false);
         GO_CanvaNode1e.SetActive(true);
         videoPlayerNode1e.Stop();
-        videoPlayerNode1e.time = 0;        
+        videoPlayerNode1e.time = 0;
         videoPlayerNode1e.frame = 0;
         videoPlayerNode1e.Play();
         videoPlayerNode1e.playbackSpeed = 1.0f;
@@ -241,7 +255,7 @@ public class TimerNode1 : MonoBehaviour
         GO_CanvaNode1f.SetActive(false);
         GO_CanvaNode1f.SetActive(true);
         videoPlayerNode1f.Stop();
-        videoPlayerNode1f.time = 0;        
+        videoPlayerNode1f.time = 0;
         videoPlayerNode1f.frame = 0;
         videoPlayerNode1f.Play();
         videoPlayerNode1f.playbackSpeed = 1f;
@@ -263,7 +277,43 @@ public class TimerNode1 : MonoBehaviour
         myTextNode1f_3.gameObject.SetActive(true);
         myTextNode1f_2.gameObject.SetActive(false);
         textNode1f_3.StartTyping();
+<<<<<<< .merge_file_m0o5s5
         yield return new WaitForSeconds(5f);
         Music.Stop(); // Fin música de Fondo Música de Fondo 
+=======
+
+        // --- FIN DE LA SECUENCIA ---
+        // Espera 3 segundos antes del fade
+        yield return new WaitForSeconds(3f);
+
+        // Fade out hacia negro
+        yield return StartCoroutine(FadeOut());
+
+        // Carga la escena del minijuego
+        SceneManager.LoadScene("ChestMinigameIngenieria");
+    }
+
+    IEnumerator FadeOut()
+    {
+        if (fadePanel == null) yield break;
+
+        fadePanel.gameObject.SetActive(true);
+
+        float elapsed = 0f;
+        Color c = fadePanel.color;
+        c.a = 0f;
+        fadePanel.color = c;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            c.a = Mathf.Clamp01(elapsed / fadeDuration);
+            fadePanel.color = c;
+            yield return null;
+        }
+
+        c.a = 1f;
+        fadePanel.color = c;
+>>>>>>> .merge_file_mGoHDE
     }
 }

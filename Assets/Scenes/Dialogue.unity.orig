@@ -119,6 +119,9 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
+--- !u!82 &563517467 stripped
+=======
 --- !u!114 &1006140311 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2900963886648311484, guid: 0d0d2c9d6a00694468464da1a9e5e0c0, type: 3}
@@ -130,7 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
---- !u!82 &563517467 stripped
+--- !u!82 &126242455548462916 stripped
+>>>>>>> main
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1738338919176624498, guid: 6ee456db334b25149a4001c85c68bdd1, type: 3}
   m_PrefabInstance: {fileID: 519347421436416145}
@@ -221,10 +225,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6423289862399963204, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
-      propertyPath: fadePanel
-      value: 
-      objectReference: {fileID: 1006140311}
-    - target: {fileID: 6423289862399963204, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
+<<<<<<< HEAD
       propertyPath: Music
       value: 
       objectReference: {fileID: 2035656602}
@@ -260,6 +261,11 @@ PrefabInstance:
       propertyPath: Dn1_62Orion
       value: 
       objectReference: {fileID: 4212007086124521726}
+=======
+      propertyPath: fadePanel
+      value: 
+      objectReference: {fileID: 1006140311}
+>>>>>>> main
     - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
       propertyPath: DN0_0
       value: 
@@ -538,5 +544,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 3686380697075722205}
   - {fileID: 519347421436416145}
-  - {fileID: 3776961454321359788}
+<<<<<<< HEAD
   - {fileID: 7315298204592439856}
+=======
+  - {fileID: 3776961454321359788}
+>>>>>>> main
