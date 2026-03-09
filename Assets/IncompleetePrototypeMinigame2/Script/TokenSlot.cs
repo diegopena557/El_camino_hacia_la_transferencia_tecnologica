@@ -1,9 +1,10 @@
-using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
 
 public class TokenSlot : MonoBehaviour
 {
-    [Header("Categoría Aceptada")]
+    [Header("Categora Aceptada")]
     public TokenCategory acceptedCategory;
     public bool validateCategory = true;
 
@@ -18,9 +19,24 @@ public class TokenSlot : MonoBehaviour
     public SpriteRenderer esfuerzoBar;
     public SpriteRenderer incertidumbreBar;
 
+    [Header("Indicador de Capacidad")]
+    public SpriteRenderer capacityIndicator;
+    public Sprite[] capacitySprites = new Sprite[4]; // ndices 0, 1, 2, 3 fichas
+    public TextMeshProUGUI capacityText; // Alternativa con texto
+    public bool showCapacityIndicator = true;
+    public bool useTextIndicator = true; // Usar texto en lugar de sprites
+
     [Header("Sprites de las Barras (0-6)")]
     public Sprite[] esfuerzoSprites = new Sprite[7];
     public Sprite[] incertidumbreSprites = new Sprite[7];
+
+    [Header("Efectos de Feedback de Barras")]
+    public float barShakeDuration = 0.3f;
+    public float barShakeMagnitude = 0.15f;
+    public float barScalePulse = 1.15f;
+    public bool enableBarFeedback = true;
+    [Tooltip("Escala base de las barras (debe coincidir con la escala en el editor)")]
+    public float barBaseScale = 0.77019f;
 
     [Header("Valores Totales")]
     [SerializeField] private int totalEsfuerzo = 0;
@@ -28,15 +44,27 @@ public class TokenSlot : MonoBehaviour
 
     private List<ProjectToken> placedTokens = new List<ProjectToken>();
 
+    // Para el shake de las barras
+    private Vector3 esfuerzoBarOriginalPos;
+    private Vector3 incertidumbreBarOriginalPos;
+    private Vector3 esfuerzoBarOriginalScale;
+    private Vector3 incertidumbreBarOriginalScale;
+    private Coroutine esfuerzoShakeCoroutine;
+    private Coroutine incertidumbreShakeCoroutine;
+
+    // Para detectar cambios
+    private int previousEsfuerzo = 0;
+    private int previousIncertidumbre = 100;
+
     void Start()
     {
         UpdateBars();
 
-        // Verificar configuración
+        // Verificar configuracin
         Collider2D col = GetComponent<Collider2D>();
         if (col == null)
         {
-            Debug.LogError($"[TokenSlot] {gameObject.name} NO TIENE COLLIDER2D! Agrégalo para que funcione.", gameObject);
+            Debug.LogError($"[TokenSlot] {gameObject.name} NO TIENE COLLIDER2D! Agrgalo para que funcione.", gameObject);
         }
         else if (!col.isTrigger)
         {
@@ -44,24 +72,24 @@ public class TokenSlot : MonoBehaviour
         }
         else
         {
-            Debug.Log($"[TokenSlot] {gameObject.name} configurado correctamente. Categoría aceptada: {acceptedCategory}", gameObject);
+            Debug.Log($"[TokenSlot] {gameObject.name} configurado correctamente. Categora aceptada: {acceptedCategory}", gameObject);
         }
     }
 
-    // Método para cambiar la categoría del slot (llamado por LevelManager)
+    // Mtodo para cambiar la categora del slot (llamado por LevelManager)
     public void SetCategory(TokenCategory newCategory)
     {
         acceptedCategory = newCategory;
-        Debug.Log($"[TokenSlot] Categoría cambiada a: {acceptedCategory}");
+        Debug.Log($"[TokenSlot] Categora cambiada a: {acceptedCategory}");
     }
 
-    // Método para resetear el slot al inicio de un nivel
+    // Mtodo para resetear el slot al inicio de un nivel
     public void ResetSlot()
     {
         ClearAllTokens();
         totalEsfuerzo = 0;
         totalIncertidumbre = 100; // Resetear a 100
-        UpdateBars();
+        UpdateBars(false); // NO hacer shake al resetear
         Debug.Log($"[TokenSlot] Slot reseteado. Incertidumbre: {totalIncertidumbre}, Esfuerzo: {totalEsfuerzo}");
     }
 
@@ -72,11 +100,11 @@ public class TokenSlot : MonoBehaviour
 
     public void AddToken(ProjectToken token)
     {
-        Debug.Log($"[TokenSlot] Intentando añadir token '{token.GetTokenName()}' al slot '{gameObject.name}'");
+        Debug.Log($"[TokenSlot] Intentando aadir token '{token.GetTokenName()}' al slot '{gameObject.name}'");
 
         if (!CanAcceptToken())
         {
-            Debug.LogWarning($"[TokenSlot] {gameObject.name} está lleno ({placedTokens.Count}/{maxTokens})");
+            Debug.LogWarning($"[TokenSlot] {gameObject.name} est lleno ({placedTokens.Count}/{maxTokens})");
 
             // Mostrar feedback UI de slot lleno
             if (TokenFeedbackUI.Instance != null)
@@ -92,14 +120,14 @@ public class TokenSlot : MonoBehaviour
 
         if (placedTokens.Contains(token))
         {
-            Debug.LogWarning($"[TokenSlot] Esta ficha ya está en el slot");
+            Debug.LogWarning($"[TokenSlot] Esta ficha ya est en el slot");
             return;
         }
 
-        // Verificar si la categoría es correcta para mostrar feedback apropiado
+        // Verificar si la categora es correcta para mostrar feedback apropiado
         bool isCorrectCategory = (token.GetCategory() == acceptedCategory);
 
-        // Registrar estadística
+        // Registrar estadstica
         if (TokenStatsManager.Instance != null)
         {
             if (isCorrectCategory)
@@ -114,7 +142,7 @@ public class TokenSlot : MonoBehaviour
             if (TokenFeedbackUI.Instance != null)
             {
                 string customMessage = token.GetCorrectFeedback();
-                TokenFeedbackUI.Instance.ShowCustomFeedback(customMessage, TokenFeedbackUI.Instance.correctColor);
+                TokenFeedbackUI.Instance.ShowCorrectCustomFeedback(customMessage);
             }
         }
         else
@@ -123,12 +151,12 @@ public class TokenSlot : MonoBehaviour
             if (TokenFeedbackUI.Instance != null)
             {
                 string customMessage = token.GetWrongFeedback();
-                TokenFeedbackUI.Instance.ShowCustomFeedback(customMessage, TokenFeedbackUI.Instance.wrongColor);
+                TokenFeedbackUI.Instance.ShowWrongCustomFeedback(customMessage);
             }
         }
 
-        // SIEMPRE añadir el token (sin validar categoría para permitir balance)
-        Debug.Log($"[TokenSlot]  Token '{token.GetTokenName()}' añadido! Categoría: {token.GetCategory()}");
+        // SIEMPRE aadir el token (sin validar categora para permitir balance)
+        Debug.Log($"[TokenSlot] Token '{token.GetTokenName()}' aadido! Categora: {token.GetCategory()}");
 
         placedTokens.Add(token);
         token.SetPlaced(true);
@@ -142,6 +170,9 @@ public class TokenSlot : MonoBehaviour
             else
                 feedback2.PlayWrongFeedback();
         }
+
+        // Reproducir sonido de slot en el propio token
+        token.PlaySlotSound(isCorrectCategory);
 
         // IMPORTANTE: Actualizar totales ANTES de posicionar
         RecalculateTotals();
@@ -163,18 +194,18 @@ public class TokenSlot : MonoBehaviour
 
         Debug.Log($"[TokenSlot] Total en slot: Esfuerzo={totalEsfuerzo}, Incertidumbre={totalIncertidumbre}");
 
-        // VERIFICAR SI EL SLOT ESTÁ LLENO Y COMPLETAR NIVEL
+        // VERIFICAR SI EL SLOT EST LLENO Y COMPLETAR NIVEL
         CheckLevelCompletion();
     }
 
     void CheckLevelCompletion()
     {
-        // Solo verificar si el slot está lleno
+        // Solo verificar si el slot est lleno
         if (placedTokens.Count >= maxTokens)
         {
-            Debug.Log($"[TokenSlot] Slot lleno! Verificando composición de fichas...");
+            Debug.Log($"[TokenSlot] Slot lleno! Verificando composicin de fichas...");
 
-            // Contar cuántas fichas hay de cada categoría
+            // Contar cuntas fichas hay de cada categora
             int countEntender = 0;
             int countImaginar = 0;
             int countProbar = 0;
@@ -195,9 +226,9 @@ public class TokenSlot : MonoBehaviour
                 }
             }
 
-            Debug.Log($"[TokenSlot] Composición - Entender: {countEntender}, Imaginar: {countImaginar}, Probar: {countProbar}");
+            Debug.Log($"[TokenSlot] Composicin - Entender: {countEntender}, Imaginar: {countImaginar}, Probar: {countProbar}");
 
-            // Verificar si TODAS las fichas son de la categoría correcta
+            // Verificar si TODAS las fichas son de la categora correcta
             bool allCorrect = true;
             foreach (ProjectToken token in placedTokens)
             {
@@ -211,7 +242,7 @@ public class TokenSlot : MonoBehaviour
 
             if (allCorrect)
             {
-                Debug.Log($"[TokenSlot]  ¡Nivel completado! Las 3 fichas son de {acceptedCategory}");
+                Debug.Log($"[TokenSlot] Nivel completado! Las 3 fichas son de {acceptedCategory}");
 
                 // Notificar al LevelManager
                 if (LevelManager.Instance != null)
@@ -220,7 +251,7 @@ public class TokenSlot : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("[TokenSlot] No se encontró LevelManager en la escena");
+                    Debug.LogWarning("[TokenSlot] No se encontr LevelManager en la escena");
                 }
             }
             else
@@ -258,7 +289,7 @@ public class TokenSlot : MonoBehaviour
 
         placedTokens.Clear();
         RecalculateTotals();
-        UpdateBars();
+        UpdateBars(false); // NO hacer shake al limpiar
     }
 
     void RecalculateTotals()
@@ -271,7 +302,7 @@ public class TokenSlot : MonoBehaviour
             totalEsfuerzo += token.GetEsfuerzo();
         }
 
-        // Limitar esfuerzo a 100 máximo
+        // Limitar esfuerzo a 100 mximo
         totalEsfuerzo = Mathf.Clamp(totalEsfuerzo, 0, 100);
 
         // Incertidumbre: inicia en 100 y RESTA los valores de las fichas
@@ -286,9 +317,13 @@ public class TokenSlot : MonoBehaviour
         totalIncertidumbre = Mathf.Clamp(totalIncertidumbre, 0, 100);
     }
 
-    void UpdateBars()
+    void UpdateBars(bool doShake = true)
     {
-        // Normalizar de 0-100 a 0-6 para el índice del sprite (7 sprites totales)
+        // Detectar si hubo cambios
+        bool esfuerzoChanged = totalEsfuerzo != previousEsfuerzo;
+        bool incertidumbreChanged = totalIncertidumbre != previousIncertidumbre;
+
+        // Normalizar de 0-100 a 0-6 para el ndice del sprite (7 sprites totales)
         int esfuerzoIndex = Mathf.RoundToInt((totalEsfuerzo / 100f) * 6f);
         int incertidumbreIndex = Mathf.RoundToInt((totalIncertidumbre / 100f) * 6f);
 
@@ -298,14 +333,101 @@ public class TokenSlot : MonoBehaviour
         if (esfuerzoBar != null && esfuerzoSprites.Length > esfuerzoIndex)
         {
             esfuerzoBar.sprite = esfuerzoSprites[esfuerzoIndex];
+
+            // Aplicar shake solo si est habilitado Y se pidi hacer shake Y cambi el valor
+            if (enableBarFeedback && doShake && esfuerzoChanged)
+            {
+                if (esfuerzoShakeCoroutine != null)
+                    StopCoroutine(esfuerzoShakeCoroutine);
+                esfuerzoShakeCoroutine = StartCoroutine(ShakeBar(esfuerzoBar, esfuerzoBarOriginalPos, esfuerzoBarOriginalScale));
+            }
         }
 
         if (incertidumbreBar != null && incertidumbreSprites.Length > incertidumbreIndex)
         {
             incertidumbreBar.sprite = incertidumbreSprites[incertidumbreIndex];
+
+            // Aplicar shake solo si est habilitado Y se pidi hacer shake Y cambi el valor
+            if (enableBarFeedback && doShake && incertidumbreChanged)
+            {
+                if (incertidumbreShakeCoroutine != null)
+                    StopCoroutine(incertidumbreShakeCoroutine);
+                incertidumbreShakeCoroutine = StartCoroutine(ShakeBar(incertidumbreBar, incertidumbreBarOriginalPos, incertidumbreBarOriginalScale));
+            }
         }
 
+        // Actualizar valores previos
+        previousEsfuerzo = totalEsfuerzo;
+        previousIncertidumbre = totalIncertidumbre;
+
         Debug.Log($"[TokenSlot] Barras actualizadas - Esfuerzo: {totalEsfuerzo}/100 (sprite {esfuerzoIndex}/6), Incertidumbre: {totalIncertidumbre}/100 (sprite {incertidumbreIndex}/6)");
+
+        // Actualizar indicador de capacidad
+        UpdateCapacityIndicator();
+    }
+
+    void UpdateCapacityIndicator()
+    {
+        if (!showCapacityIndicator)
+            return;
+
+        int tokenCount = placedTokens.Count;
+
+        // Opcin 1: Usar texto (TextMeshPro)
+        if (useTextIndicator && capacityText != null)
+        {
+            capacityText.text = $"{tokenCount}/{maxTokens}";
+
+
+
+            Debug.Log($"[TokenSlot] Indicador de capacidad (texto): {tokenCount}/{maxTokens}");
+        }
+        // Opcin 2: Usar sprites
+        else if (!useTextIndicator && capacityIndicator != null)
+        {
+            tokenCount = Mathf.Clamp(tokenCount, 0, capacitySprites.Length - 1);
+
+            if (capacitySprites.Length > tokenCount && capacitySprites[tokenCount] != null)
+            {
+                capacityIndicator.sprite = capacitySprites[tokenCount];
+                Debug.Log($"[TokenSlot] Indicador de capacidad (sprite): {tokenCount}/{maxTokens}");
+            }
+        }
+    }
+
+    System.Collections.IEnumerator ShakeBar(SpriteRenderer bar, Vector3 originalPos, Vector3 originalScale)
+    {
+        if (bar == null)
+        {
+            Debug.LogWarning("[TokenSlot] Barra es null, no se puede hacer shake");
+            yield break;
+        }
+
+        // Usar la escala configurada como respaldo
+        Vector3 safeScale = originalScale.magnitude < 0.01f ? Vector3.one * barBaseScale : originalScale;
+
+        Debug.Log($"[TokenSlot] Iniciando shake con escala: {safeScale}");
+
+        // SOLO HACER PULSE (escala), NO mover la posicin
+        float elapsed = 0f;
+        float pulseDuration = barShakeDuration;
+
+        while (elapsed < pulseDuration)
+        {
+            float t = elapsed / pulseDuration;
+            // Ping-pong: agranda y luego vuelve a normal
+            float scaleFactor = Mathf.Lerp(1f, barScalePulse, Mathf.Sin(t * Mathf.PI));
+            Vector3 targetScale = safeScale * scaleFactor;
+
+            bar.transform.localScale = targetScale;
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Asegurar que vuelve a la escala original
+        bar.transform.localScale = safeScale;
+        Debug.Log($"[TokenSlot] Shake completado. Escala final: {bar.transform.localScale}");
     }
 
     Vector3 GetTokenPosition(int index)
@@ -316,7 +438,7 @@ public class TokenSlot : MonoBehaviour
             return transform.position;
         }
 
-        // Calcular posición distribuida
+        // Calcular posicin distribuida
         float totalWidth = (maxTokens - 1) * tokenSpacing.x;
         float totalHeight = (maxTokens - 1) * tokenSpacing.y;
 
@@ -344,7 +466,7 @@ public class TokenSlot : MonoBehaviour
         }
     }
 
-    // Getters públicos
+    // Getters pblicos
     public int GetTotalEsfuerzo() => totalEsfuerzo;
     public int GetTotalIncertidumbre() => totalIncertidumbre;
     public int GetTokenCount() => placedTokens.Count;

@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.14, y: 1.59}
+  m_AnchoredPosition: {x: 0.14, y: 1.79}
   m_SizeDelta: {x: 211.4995, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4638189122492471464
@@ -65,8 +65,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Entidades financieras implementan productos de cr\xE9dito y ahorro dise\xF1ados
-    para reducir el riesgo en periodos de inestabilidad econ\xF3mica."
+  m_text: "Entidades financieras adoptan productos dise\xF1ados para reducir el riesgo
+    en periodos de inestabilidad econ\xF3mica."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6387,6 +6387,143 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &5604209151873648313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5983933573258411457}
+  - component: {fileID: 979364817920778713}
+  - component: {fileID: 7471563826605448564}
+  m_Layer: 5
+  m_Name: FeedbacktextTitle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5983933573258411457
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604209151873648313}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.023996493, y: 0.023996493, z: 0.023996493}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5462617725028161345}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -399.79, y: -226.56}
+  m_SizeDelta: {x: 195.9386, y: 48.9846}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &979364817920778713
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604209151873648313}
+  m_CullTransparentMesh: 1
+--- !u!114 &7471563826605448564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604209151873648313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967039
+  m_fontColor: {r: 0.99864644, g: 0.995283, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 16
+  m_fontSizeBase: 16
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: -9.407564, z: 27.757652, w: 6.2445526}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5611993467600886927
 GameObject:
   m_ObjectHideFlags: 0
@@ -7335,8 +7472,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Se analizan datos para entender c\xF3mo programas p\xFAblicos influyen
-    en el desarrollo econ\xF3mico de regiones espec\xEDficas."
+  m_text: Se estudian patrones de comportamiento de consumidores frente a productos
+    y servicios digitales.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
@@ -7363,8 +7500,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14.6
-  m_fontSizeBase: 14.6
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8128,7 +8265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.15, y: 1.79}
+  m_AnchoredPosition: {x: -0.1, y: 1.79}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4384348333375106262
@@ -8159,7 +8296,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Se estudian patrones de comportamiento de los consumidores frente a productos
+  m_text: Se estudian patrones de comportamiento de consumidores frente a productos
     y servicios digitales.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
@@ -9186,7 +9323,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3, y: 1.38}
+  m_AnchoredPosition: {x: -0.3, y: 1.52}
   m_SizeDelta: {x: 172.4962, y: 92.7872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7221622270068726416
@@ -9218,7 +9355,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Se dise\xF1a un instrumento que apoya a los gobiernos en la formulaci\xF3n
-    de pol\xEDticas basadas en evidencia territorial."
+    de pol\xEDticas seg\xFAn evidencia territorial. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
@@ -9245,8 +9382,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15.4
-  m_fontSizeBase: 15.4
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9894,7 +10031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000049174, y: 1.64}
+  m_AnchoredPosition: {x: 0.00000049174, y: 1.72}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7539084921918632037
@@ -9953,8 +10090,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12544,7 +12681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.14, y: 1.85}
+  m_AnchoredPosition: {x: -0.14, y: 1.9}
   m_SizeDelta: {x: 181.6496, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4281436659972779483
@@ -13661,6 +13798,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1284058239761371944, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284058239761371944, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1513739843008243079, guid: d706e64ae470da846b2411da48b7519d, type: 3}
       propertyPath: m_SizeDelta.x
       value: 240.4383
@@ -13877,6 +14022,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3157323042971252047, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.03
+      objectReference: {fileID: 0}
     - target: {fileID: 3689688949696483977, guid: d706e64ae470da846b2411da48b7519d, type: 3}
       propertyPath: levelText
       value: 
@@ -14025,6 +14174,27 @@ PrefabInstance:
       propertyPath: 'tecnologiaDificil.Array.data[9]'
       value: 
       objectReference: {fileID: 6458248328635145145, guid: 602138cee03895749bf38be851e15dc9, type: 3}
+    - target: {fileID: 3754703147256694630, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3957891274355832150, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5322738234118484502, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_text
+      value: "Se estudia c\xF3mo factores como la soledad, actividad y comunicaci\xF3n
+        influyen en el bienestar de los adultos mayores."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5322738234118484502, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5322738234118484502, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 5348989939591663377, guid: d706e64ae470da846b2411da48b7519d, type: 3}
       propertyPath: m_fontSize
       value: 16
@@ -14040,6 +14210,27 @@ PrefabInstance:
     - target: {fileID: 5590978682883193352, guid: d706e64ae470da846b2411da48b7519d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764371492040739605, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_text
+      value: Se crea un sistema de datos para identificar comportamientos humanos
+        que apoyen la toma de decisiones.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764371492040739605, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764371492040739605, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_margin.z
+      value: 15.212116
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764371492040739605, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802535907434747387, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5952844799092744245, guid: d706e64ae470da846b2411da48b7519d, type: 3}
       propertyPath: m_Size.x
@@ -14072,6 +14263,27 @@ PrefabInstance:
     - target: {fileID: 6492897273772274940, guid: d706e64ae470da846b2411da48b7519d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696640216868523580, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_text
+      value: "El dispositivo es usado por adultos mayores y cuidadores para mejorar
+        el bienestar y seguimiento cotidiano de la recuperaci\xF3n "
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696640216868523580, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696640216868523580, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_margin.z
+      value: 39.713467
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696640216868523580, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777564426483397322, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 6857514686788806927, guid: d706e64ae470da846b2411da48b7519d, type: 3}
       propertyPath: m_IsActive
@@ -14133,6 +14345,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7847251892983234453, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_text
+      value: "La ciudad adopta una herramienta de nuevas rutas y usos del espacio
+        p\xFAblico para mejorar la movilidad."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847251892983234453, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847251892983234453, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7977005402388966950, guid: d706e64ae470da846b2411da48b7519d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.48331687
@@ -14189,6 +14414,32 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8493530153009463250, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_text
+      value: "Organizaciones usan un sistema que apoya la toma de decisiones seg\xFAn
+        el comportamiento humano para mejorar procesos y servicios "
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493530153009463250, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493530153009463250, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_margin.z
+      value: 48.386753
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493530153009463250, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603824060740123342, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_text
+      value: "Se desarrolla un dispositivo que registra variables como la comunicaci\xF3n
+        y soledad, para apoyar la recuperaci\xF3n en adultos mayores."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603824060740123342, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      propertyPath: m_margin.z
+      value: 13.310024
+      objectReference: {fileID: 0}
     - target: {fileID: 8714213552191174675, guid: d706e64ae470da846b2411da48b7519d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.48331687
@@ -14242,6 +14493,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3814431566231589965, guid: d706e64ae470da846b2411da48b7519d, type: 3}
       insertIndex: 0
       addedObject: {fileID: 3250762463838037193}
+    - targetCorrespondingSourceObject: {fileID: 3814431566231589965, guid: d706e64ae470da846b2411da48b7519d, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 5983933573258411457}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8979378155716770950, guid: d706e64ae470da846b2411da48b7519d, type: 3}
       insertIndex: -1
