@@ -70,7 +70,7 @@ public class TimerNode1 : MonoBehaviour
     public TypewriterTMP textNode1f_2;
     public TypewriterTMP textNode1f_3;
 
-<<<<<<< .merge_file_m0o5s5
+
     //////////////////// AUDIOS ////////////////////////
     [Header("Audio Sources")]
     public AudioSource Dn1_11Orion;
@@ -86,12 +86,11 @@ public class TimerNode1 : MonoBehaviour
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-=======
     [Header("Fade Settings")]
     public Image fadePanel; // Asigna un Image negro en un Canvas que cubra toda la pantalla
     public float fadeDuration = 1f;
 
->>>>>>> .merge_file_mGoHDE
+
     void Start()
     {
         if (fadePanel != null)
@@ -277,10 +276,9 @@ public class TimerNode1 : MonoBehaviour
         myTextNode1f_3.gameObject.SetActive(true);
         myTextNode1f_2.gameObject.SetActive(false);
         textNode1f_3.StartTyping();
-<<<<<<< .merge_file_m0o5s5
+
         yield return new WaitForSeconds(5f);
         Music.Stop(); // Fin música de Fondo Música de Fondo 
-=======
 
         // --- FIN DE LA SECUENCIA ---
         // Espera 3 segundos antes del fade
@@ -314,6 +312,6 @@ public class TimerNode1 : MonoBehaviour
 
         c.a = 1f;
         fadePanel.color = c;
->>>>>>> .merge_file_mGoHDE
+
     }
 }
