@@ -836,8 +836,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ori\xF3n:\nA veces existen para comprender. Otras, para aplicarse.\nY otras,
-    para transformar el mundo fuera de aqu\xED.\n"
+  m_text: "Ori\xF3n:\nA veces existen para comprender. Otras, para aplicarse.\nY
+    otras, para transformar el mundo fuera de aqu\xED.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64cc9d07a3a1485448c220971ac0741b, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1455,9 +1455,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ori\xF3n:\nY la innovaci\xF3n aparece cuando esas soluciones salen de aqu\xED\u2026
-    cuando generan un cambio real, cuando transforman la forma en que las personas
-    viven, trabajan o se relacionan."
+  m_text: "Ori\xF3n:\nY la innovaci\xF3n aparece cuando esas soluciones salen de
+    aqu\xED\u2026 cuando generan un cambio real, cuando transforman la forma en que
+    las personas viven, trabajan o se relacionan."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64cc9d07a3a1485448c220971ac0741b, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2099,6 +2099,9 @@ MonoBehaviour:
   DN0_1: {fileID: 0}
   DN0_2: {fileID: 0}
   DN0_3: {fileID: 0}
+<<<<<<< HEAD
+  Cinematic1: {fileID: 0}
+=======
   DN1_1: {fileID: 0}
   Dn1_2_1Lumen: {fileID: 0}
   Dn1_2_2Orion: {fileID: 0}
@@ -2108,7 +2111,7 @@ MonoBehaviour:
   Dn1_5: {fileID: 0}
   Dn1_6_1Aria: {fileID: 0}
   Dn1_6_2Orion: {fileID: 0}
-  Cinematic1: {fileID: 0}
+>>>>>>> main
 --- !u!114 &6701197226908399179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3796,8 +3799,7 @@ MonoBehaviour:
   textNode1f_1: {fileID: 7518709353679607336}
   textNode1f_2: {fileID: 1691095268630182915}
   textNode1f_3: {fileID: 3599602542265648749}
-  fadePanel: {fileID: 0}
-  fadeDuration: 2
+<<<<<<< HEAD
   Dn1_11Orion: {fileID: 0}
   Dn1_12Lumen: {fileID: 0}
   Dn1_21Orion: {fileID: 0}
@@ -3806,6 +3808,10 @@ MonoBehaviour:
   Dn1_32Orion: {fileID: 0}
   Dn1_61Aria: {fileID: 0}
   Dn1_62Orion: {fileID: 0}
+=======
+  fadePanel: {fileID: 0}
+  fadeDuration: 2
+>>>>>>> main
 --- !u!1 &5094496153817795379
 GameObject:
   m_ObjectHideFlags: 0
@@ -6232,8 +6238,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Orion:
 
-    Este taller es solo un lugar para que nazcan ideas, pero luego deben marcharse
-    lo antes posible. Si no lo hacen, corren el peligro de apagarse y desaparecer.
+    Este taller es solo un lugar para que nazcan ideas, pero luego
+    deben marcharse lo antes posible. Si no lo hacen, corren el peligro de apagarse
+    y desaparecer.
 
 '
   m_isRightToLeft: 0
@@ -6503,8 +6510,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ori\xF3n:\nA eso llamamos ciencia, tecnolog\xEDa e innovaci\xF3n.\nNo son
-    palabras distintas para lo mismo.\n"
+  m_text: "Ori\xF3n:\nA eso llamamos ciencia, tecnolog\xEDa e innovaci\xF3n.\nNo
+    son palabras distintas para lo mismo.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64cc9d07a3a1485448c220971ac0741b, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
