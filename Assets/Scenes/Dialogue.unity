@@ -129,6 +129,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 7017283033030642365, guid: e684eab36fc6f4c4a89fbb61a8ba6ca5, type: 3}
   m_PrefabInstance: {fileID: 7315298204592439856}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &2035656602 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4634076307088550621, guid: 6ee456db334b25149a4001c85c68bdd1, type: 3}
+  m_PrefabInstance: {fileID: 519347421436416145}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &519347421436416145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,6 +210,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6423289862399963204, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
+      propertyPath: Music
+      value: 
+      objectReference: {fileID: 2035656602}
+    - target: {fileID: 6423289862399963204, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
       propertyPath: Dn1_31Aria
       value: 
       objectReference: {fileID: 4172854145537101352}
@@ -252,6 +261,10 @@ PrefabInstance:
       propertyPath: DN0_3
       value: 
       objectReference: {fileID: 6437089505581453513}
+    - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
+      propertyPath: Music
+      value: 
+      objectReference: {fileID: 2035656602}
     - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
       propertyPath: Cinematic1
       value: 

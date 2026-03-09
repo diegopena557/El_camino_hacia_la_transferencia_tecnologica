@@ -79,6 +79,7 @@ public class TimerNode1 : MonoBehaviour
     public AudioSource Dn1_32Orion;
     public AudioSource Dn1_61Aria;
     public AudioSource Dn1_62Orion;
+    public AudioSource Music;
 
     
 
@@ -104,6 +105,7 @@ public class TimerNode1 : MonoBehaviour
         videoPlayerNode1a.time = 0;        
         videoPlayerNode1a.frame = 0;
         videoPlayerNode1a.Play();
+        Music.Play(); // Inicio Música de Fondo 
 
         videoPlayerNode1a.playbackSpeed = 1f;
 
@@ -261,5 +263,7 @@ public class TimerNode1 : MonoBehaviour
         myTextNode1f_3.gameObject.SetActive(true);
         myTextNode1f_2.gameObject.SetActive(false);
         textNode1f_3.StartTyping();
+        yield return new WaitForSeconds(5f);
+        Music.Stop(); // Fin música de Fondo Música de Fondo 
     }
 }

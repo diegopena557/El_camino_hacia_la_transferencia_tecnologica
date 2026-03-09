@@ -41,6 +41,7 @@ public class TimerTextNode0 : MonoBehaviour
     public AudioSource DN0_2;
     public AudioSource DN0_3;
     public AudioSource Cinematic1;
+    public AudioSource Music;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -72,6 +73,7 @@ public class TimerTextNode0 : MonoBehaviour
         videoPlayerNode0a.time = 0;        
         videoPlayerNode0a.frame = 0;
         videoPlayerNode0a.Play();
+        Music.Play(); // Inicio Música de Fondo 
 
         yield return new WaitForSeconds(4f);
         myText.gameObject.SetActive(true);
@@ -88,6 +90,7 @@ public class TimerTextNode0 : MonoBehaviour
         videoPlayerNode0b.time = 0;        
         videoPlayerNode0b.frame = 0;
         
+        Music.Stop(); // Fin música de Fondo Música de Fondo 
         videoPlayerNode0b.Play();
 
         yield return new WaitForSeconds(9f);
