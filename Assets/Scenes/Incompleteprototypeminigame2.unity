@@ -468,6 +468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Instructionscanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 989145416256619899, guid: 279cef5154c74934a991b0f3cb39143b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1409835618824469560, guid: 279cef5154c74934a991b0f3cb39143b, type: 3}
       propertyPath: audioSource
       value: 
@@ -685,6 +689,27 @@ PrefabInstance:
       propertyPath: levelUI
       value: 
       objectReference: {fileID: 1823861339}
+    - target: {fileID: 6126194440746097761, guid: aa3fb00fd24e61f498cbfa8f3005f7fd, type: 3}
+      propertyPath: levels.Array.data[0].levelDescription
+      value: "En esta fase buscamos comprender los principios que explican c\xF3mo
+        funciona una idea.\nA\xFAn no construimos soluciones: observamos y analizamos
+        el fen\xF3meno que hace posible la tecnolog\xEDa.\n\nUtiliza las fichas que
+        te ayuden a comprender el problema."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6126194440746097761, guid: aa3fb00fd24e61f498cbfa8f3005f7fd, type: 3}
+      propertyPath: levels.Array.data[1].levelDescription
+      value: "Ahora que entendemos el fen\xF3meno, podemos empezar a imaginar c\xF3mo
+        convertirlo en una tecnolog\xEDa.\nEn esta fase se formulan conceptos, posibles
+        aplicaciones y primeras ideas de soluci\xF3n.\n\nUtiliza las fichas que te
+        permitan proponer c\xF3mo podr\xEDa funcionar la tecnolog\xEDa."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6126194440746097761, guid: aa3fb00fd24e61f498cbfa8f3005f7fd, type: 3}
+      propertyPath: levels.Array.data[2].levelDescription
+      value: "En esta fase la idea deja de ser solo un concepto y comienza a ponerse
+        a prueba.\nSe realizan experimentos iniciales para comprobar si el principio
+        funciona en la pr\xE1ctica.\n\nUtiliza las fichas que te ayuden a poner a
+        prueba la idea y observar sus resultados."
+      objectReference: {fileID: 0}
     - target: {fileID: 6637735141933939293, guid: aa3fb00fd24e61f498cbfa8f3005f7fd, type: 3}
       propertyPath: audioSource
       value: 
@@ -802,6 +827,30 @@ PrefabInstance:
     - target: {fileID: 270196590935807780, guid: 4f1b20abec0d03040a264ee6a87da224, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245542039241494145, guid: 4f1b20abec0d03040a264ee6a87da224, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -191
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613807429213582830, guid: 4f1b20abec0d03040a264ee6a87da224, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613807429213582830, guid: 4f1b20abec0d03040a264ee6a87da224, type: 3}
+      propertyPath: m_margin.w
+      value: -173.62572
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613807429213582830, guid: 4f1b20abec0d03040a264ee6a87da224, type: 3}
+      propertyPath: m_margin.z
+      value: -92.195404
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613807429213582830, guid: 4f1b20abec0d03040a264ee6a87da224, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613807429213582830, guid: 4f1b20abec0d03040a264ee6a87da224, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7794761430928812245, guid: 4f1b20abec0d03040a264ee6a87da224, type: 3}
       propertyPath: m_Name
