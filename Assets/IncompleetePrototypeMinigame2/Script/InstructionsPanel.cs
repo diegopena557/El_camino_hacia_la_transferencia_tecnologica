@@ -1,189 +1,285 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using System.Collections;
+using System;
 
+// Maneja tanto el panel de instrucciones inicial como los paneles de introduccion
+// de cada nivel (Entender, Imaginar, Probar). Todos usan la misma logica de fade.
 public class InstructionsPanel : MonoBehaviour
 {
-    [Header("Referencias")]
-    public CanvasGroup canvasGroup;
-    public Button continueButton;
-    public GameObject instructionsPanel;
+    public static InstructionsPanel Instance;
 
-    [Header("Configuración de Fade")]
-    public float fadeDuration = 1f;
-    public bool pauseGameDuringInstructions = true;
+    [Header("Panel de Instrucciones Inicial")]
+    public CanvasGroup instructionsCanvasGroup;
+    public GameObject instructionsPanel;
+    public Button instructionsContinueButton;
+
+    [Header("Panel de Intro de Nivel")]
+    public GameObject levelIntroPanel;
+    public CanvasGroup levelIntroCanvasGroup;
+    public Button levelIntroContinueButton;
+
+    [Header("Textos del Panel de Nivel")]
+    public TextMeshProUGUI levelNumberText;
+    public TextMeshProUGUI levelNameText;
+    public TextMeshProUGUI levelDescriptionText;
+    public TextMeshProUGUI categoryText;
+    public TextMeshProUGUI levelIntroContinueButtonText;
+
+    [Header("Colores por Categoria")]
+    public Color entenderColor = new Color(0.2f, 0.6f, 1f);
+    public Color imaginarColor = new Color(1f, 0.6f, 0.2f);
+    public Color probarColor = new Color(0.4f, 1f, 0.4f);
+
+    [Header("Configuracion de Fade")]
+    public float fadeDuration = 0.5f;
 
     [Header("Audio (Opcional)")]
     public AudioSource audioSource;
     public AudioClip buttonClickSound;
 
     private bool isFading = false;
+    private Action onLevelIntroComplete;
+    private Action onInstructionsClosedCallback;
+    private bool isShowingInstructions = true; // true hasta que el jugador cierre las instrucciones iniciales
+
+
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     void Start()
     {
-        // Asegurar que el panel esté visible al inicio
+        // Panel de instrucciones inicial 
         if (instructionsPanel != null)
-        {
             instructionsPanel.SetActive(true);
+
+        if (instructionsCanvasGroup == null && instructionsPanel != null)
+        {
+            instructionsCanvasGroup = instructionsPanel.GetComponent<CanvasGroup>();
+            if (instructionsCanvasGroup == null)
+                instructionsCanvasGroup = instructionsPanel.AddComponent<CanvasGroup>();
         }
 
-        if (canvasGroup == null)
+        if (instructionsCanvasGroup != null)
         {
-            canvasGroup = GetComponent<CanvasGroup>();
-            if (canvasGroup == null)
-            {
-                canvasGroup = gameObject.AddComponent<CanvasGroup>();
-            }
+            instructionsCanvasGroup.alpha = 1f;
+            instructionsCanvasGroup.interactable = true;
+            instructionsCanvasGroup.blocksRaycasts = true;
         }
 
-        // Asegurar que esté completamente visible
-        canvasGroup.alpha = 1f;
-        canvasGroup.interactable = true;
-        canvasGroup.blocksRaycasts = true;
+        if (instructionsContinueButton != null)
+            instructionsContinueButton.onClick.AddListener(OnInstructionsContinueClicked);
 
-        // Pausar el juego si está configurado
-        if (pauseGameDuringInstructions)
+        // Panel de intro de nivel 
+        if (levelIntroPanel != null)
+            levelIntroPanel.SetActive(false);
+
+        if (levelIntroCanvasGroup == null && levelIntroPanel != null)
         {
-            Time.timeScale = 0f;
-            Debug.Log("[InstructionsPanel] Juego pausado durante instrucciones");
+            levelIntroCanvasGroup = levelIntroPanel.GetComponent<CanvasGroup>();
+            if (levelIntroCanvasGroup == null)
+                levelIntroCanvasGroup = levelIntroPanel.AddComponent<CanvasGroup>();
         }
 
-        // Conectar el botón
-        if (continueButton != null)
+        if (levelIntroCanvasGroup != null)
         {
-            continueButton.onClick.AddListener(OnContinueClicked);
-            Debug.Log("[InstructionsPanel] Botón de continuar conectado");
+            levelIntroCanvasGroup.alpha = 0f;
+            levelIntroCanvasGroup.interactable = false;
+            levelIntroCanvasGroup.blocksRaycasts = false;
         }
-        else
-        {
-            Debug.LogWarning("[InstructionsPanel] No hay botón de continuar asignado!");
-        }
+
+        if (levelIntroContinueButton != null)
+            levelIntroContinueButton.onClick.AddListener(OnLevelIntroContinueClicked);
+
+        // Pausar mientras se muestran instrucciones iniciales
+        Time.timeScale = 0f;
+        Debug.Log("[InstructionsPanel] Instrucciones iniciales visibles. Juego pausado.");
     }
 
-    public void OnContinueClicked()
+
+
+    void OnInstructionsContinueClicked()
     {
         if (isFading) return;
-
-        Debug.Log("[InstructionsPanel] Botón continuar presionado");
-
-        // Reproducir sonido si hay
-        if (audioSource != null && buttonClickSound != null)
-        {
-            audioSource.PlayOneShot(buttonClickSound);
-        }
-
-        StartCoroutine(FadeOutAndClose());
+        PlayClickSound();
+        StartCoroutine(FadeOutPanel(instructionsCanvasGroup, instructionsPanel, OnInstructionsClosed));
     }
 
-    IEnumerator FadeOutAndClose()
+    void OnInstructionsClosed()
+    {
+        Debug.Log("[InstructionsPanel] Instrucciones cerradas.");
+        isShowingInstructions = false;
+        Time.timeScale = 1f;
+
+        // Avisar al LevelManager que ya puede cargar el nivel
+        onInstructionsClosedCallback?.Invoke();
+        onInstructionsClosedCallback = null;
+    }
+
+   
+
+    public void ShowLevelIntro(LevelData levelData, Action onComplete)
+    {
+        if (levelIntroPanel == null)
+        {
+            Debug.LogWarning("[InstructionsPanel] levelIntroPanel no asignado. Ejecutando callback.");
+            onComplete?.Invoke();
+            return;
+        }
+
+        onLevelIntroComplete = onComplete;
+
+        // Rellenar textos
+        if (levelNumberText != null)
+            levelNumberText.text = "Nivel " + levelData.levelNumber;
+
+        if (levelNameText != null)
+            levelNameText.text = levelData.levelName;
+
+        if (levelDescriptionText != null)
+            levelDescriptionText.text = levelData.levelDescription;
+
+        if (categoryText != null)
+        {
+            categoryText.text = GetCategoryName(levelData.focusCategory);
+            categoryText.color = GetCategoryColor(levelData.focusCategory);
+        }
+
+        if (levelIntroContinueButton != null)
+            levelIntroContinueButton.interactable = false;
+
+        // Pausar juego durante el popup de nivel
+        Time.timeScale = 0f;
+
+        StartCoroutine(FadeInPanel(levelIntroCanvasGroup, levelIntroPanel, () =>
+        {
+            if (levelIntroContinueButton != null)
+                levelIntroContinueButton.interactable = true;
+        }));
+
+        Debug.Log($"[InstructionsPanel] Mostrando intro nivel: {levelData.levelName}");
+    }
+
+    void OnLevelIntroContinueClicked()
+    {
+        if (isFading) return;
+        PlayClickSound();
+
+        if (levelIntroContinueButton != null)
+            levelIntroContinueButton.interactable = false;
+
+        StartCoroutine(FadeOutPanel(levelIntroCanvasGroup, levelIntroPanel, () =>
+        {
+            Time.timeScale = 1f;
+            Debug.Log("[InstructionsPanel] Intro de nivel cerrada. Iniciando nivel.");
+            onLevelIntroComplete?.Invoke();
+            onLevelIntroComplete = null;
+        }));
+    }
+
+  
+
+    IEnumerator FadeInPanel(CanvasGroup cg, GameObject panel, Action onComplete = null)
     {
         isFading = true;
 
-        // Deshabilitar interacción inmediatamente
-        canvasGroup.interactable = false;
-        if (continueButton != null)
-        {
-            continueButton.interactable = false;
-        }
+        panel.SetActive(true);
+        cg.alpha = 0f;
+        cg.interactable = false;
+        cg.blocksRaycasts = false;
 
-        Debug.Log("[InstructionsPanel] Iniciando fade out...");
+        yield return null; // frame para que Unity procese el SetActive
 
         float elapsed = 0f;
-
         while (elapsed < fadeDuration)
         {
-            // Usar unscaledDeltaTime porque el juego podría estar en pausa
             elapsed += Time.unscaledDeltaTime;
-            float t = elapsed / fadeDuration;
-
-            // Fade out suave
-            canvasGroup.alpha = Mathf.Lerp(1f, 0f, t);
-
+            cg.alpha = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / fadeDuration));
             yield return null;
         }
 
-        // Asegurar que esté completamente transparente
-        canvasGroup.alpha = 0f;
-        canvasGroup.blocksRaycasts = false;
-
-        Debug.Log("[InstructionsPanel] Fade out completado");
-
-        // Desactivar el panel
-        if (instructionsPanel != null)
-        {
-            instructionsPanel.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-
-        // Reanudar el juego si estaba pausado
-        if (pauseGameDuringInstructions)
-        {
-            Time.timeScale = 1f;
-            Debug.Log("[InstructionsPanel] Juego reanudado");
-        }
+        cg.alpha = 1f;
+        cg.interactable = true;
+        cg.blocksRaycasts = true;
 
         isFading = false;
+        onComplete?.Invoke();
     }
 
-    // Método público para cerrar las instrucciones desde otro script
-    public void CloseInstructions()
+    IEnumerator FadeOutPanel(CanvasGroup cg, GameObject panel, Action onComplete = null)
     {
-        if (!isFading)
+        isFading = true;
+
+        cg.interactable = false;
+        cg.blocksRaycasts = false;
+
+        float elapsed = 0f;
+        while (elapsed < fadeDuration)
         {
-            StartCoroutine(FadeOutAndClose());
+            elapsed += Time.unscaledDeltaTime;
+            cg.alpha = Mathf.Lerp(1f, 0f, Mathf.Clamp01(elapsed / fadeDuration));
+            yield return null;
         }
+
+        cg.alpha = 0f;
+        panel.SetActive(false);
+
+        isFading = false;
+        onComplete?.Invoke();
     }
 
-    // Método para mostrar las instrucciones de nuevo (útil para debug o menú)
-    public void ShowInstructions()
+  
+    // LevelManager llama esto para saber si debe esperar antes de cargar el nivel
+    public bool IsShowingInstructions() => isShowingInstructions;
+
+    // LevelManager registra aqui el callback que se ejecuta al cerrar instrucciones
+    public void SetOnInstructionsClosed(Action callback)
     {
-        if (isFading)
-        {
-            StopAllCoroutines();
-            isFading = false;
-        }
+        onInstructionsClosedCallback = callback;
+    }
 
-        if (instructionsPanel != null)
-        {
-            instructionsPanel.SetActive(true);
-        }
-        else
-        {
-            gameObject.SetActive(true);
-        }
+  
 
-        canvasGroup.alpha = 1f;
-        canvasGroup.interactable = true;
-        canvasGroup.blocksRaycasts = true;
+    void PlayClickSound()
+    {
+        if (audioSource != null && buttonClickSound != null)
+            audioSource.PlayOneShot(buttonClickSound);
+    }
 
-        if (continueButton != null)
+    string GetCategoryName(TokenCategory category)
+    {
+        return category switch
         {
-            continueButton.interactable = true;
-        }
+            TokenCategory.Entender => "Entender",
+            TokenCategory.Imaginar => "Imaginar",
+            TokenCategory.Probar => "Probar",
+            _ => ""
+        };
+    }
 
-        if (pauseGameDuringInstructions)
+    Color GetCategoryColor(TokenCategory category)
+    {
+        return category switch
         {
-            Time.timeScale = 0f;
-        }
-
-        Debug.Log("[InstructionsPanel] Instrucciones mostradas");
+            TokenCategory.Entender => entenderColor,
+            TokenCategory.Imaginar => imaginarColor,
+            TokenCategory.Probar => probarColor,
+            _ => Color.white
+        };
     }
 
     void OnDestroy()
     {
-        // Asegurar que el juego se reanude si se destruye el objeto
-        if (pauseGameDuringInstructions && Time.timeScale == 0f)
-        {
+        if (Time.timeScale == 0f)
             Time.timeScale = 1f;
-        }
-
-        // Desconectar el botón
-        if (continueButton != null)
-        {
-            continueButton.onClick.RemoveListener(OnContinueClicked);
-        }
     }
 }
