@@ -9,7 +9,7 @@ public class GlassPlatform : MonoBehaviour
     [Header("Platform Text")]
     [TextArea(3, 6)]
     public string platformText = "Texto de la plataforma";
-    public TextMeshProUGUI textDisplay;
+    public TextMeshProUGUI textDisplayUI; // Para UI (Canvas)
     public int normalFontSize = 18;
     public int expandedFontSize = 24;
 
@@ -42,22 +42,27 @@ public class GlassPlatform : MonoBehaviour
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Asegurar que el color inicial sea visible (blanco por defecto)
-        if (spriteRenderer.color == Color.clear || spriteRenderer.color.a < 0.1f)
-        {
-            spriteRenderer.color = defaultColor;
-        }
-
         originalColor = spriteRenderer.color;
+
+        // INICIAR INVISIBLE - El manager hará el fade in
+        Color startColor = spriteRenderer.color;
+        startColor.a = 0f;
+        spriteRenderer.color = startColor;
+
         originalScale = transform.localScale;
         targetScale = originalScale * normalScale;
 
-        // Configurar el texto
-        if (textDisplay != null)
+        // Configurar el texto UI
+        if (textDisplayUI != null)
         {
-            textDisplay.text = platformText;
-            textDisplay.fontSize = normalFontSize;
+            textDisplayUI.text = platformText;
+            textDisplayUI.fontSize = normalFontSize;
+            textDisplayUI.gameObject.SetActive(false); // OCULTAR por defecto
         }
+
+        // Desactivar collider al inicio (se activa con el fade in)
+        if (GetComponent<Collider2D>())
+            GetComponent<Collider2D>().enabled = false;
     }
 
     void Update()
@@ -79,13 +84,16 @@ public class GlassPlatform : MonoBehaviour
         // Cambiar color a hover si no ha sido clickeada
         if (!hasBeenClicked)
         {
-            spriteRenderer.color = hoverColor;
+            Color hoverColorWithAlpha = hoverColor;
+            hoverColorWithAlpha.a = spriteRenderer.color.a; // Mantener el alpha actual
+            spriteRenderer.color = hoverColorWithAlpha;
         }
 
-        // Expandir texto
-        if (textDisplay != null)
+        // MOSTRAR y expandir texto UI
+        if (textDisplayUI != null)
         {
-            textDisplay.fontSize = expandedFontSize;
+            textDisplayUI.gameObject.SetActive(true); // MOSTRAR texto
+            textDisplayUI.fontSize = expandedFontSize;
         }
     }
 
@@ -99,20 +107,26 @@ public class GlassPlatform : MonoBehaviour
         // Restaurar color si no ha sido clickeada
         if (!hasBeenClicked)
         {
+            Color restoredColor;
             if (originalColor == Color.black || originalColor == Color.clear || originalColor.a < 0.1f)
             {
-                spriteRenderer.color = Color.white;
+                restoredColor = Color.white;
             }
             else
             {
-                spriteRenderer.color = originalColor;
+                restoredColor = originalColor;
             }
+
+            // Mantener el alpha actual
+            restoredColor.a = spriteRenderer.color.a;
+            spriteRenderer.color = restoredColor;
         }
 
-        // Reducir texto
-        if (textDisplay != null)
+        // OCULTAR texto UI
+        if (textDisplayUI != null)
         {
-            textDisplay.fontSize = normalFontSize;
+            textDisplayUI.gameObject.SetActive(false); // OCULTAR texto
+            textDisplayUI.fontSize = normalFontSize;
         }
     }
 
@@ -170,29 +184,57 @@ public class GlassPlatform : MonoBehaviour
         }
     }
 
+    public void SetAlpha(float alpha)
+    {
+        // Cambiar solo el alpha, manteniendo el color actual
+        Color currentColor = spriteRenderer.color;
+        currentColor.a = alpha;
+        spriteRenderer.color = currentColor;
+
+        // También ajustar alpha del texto UI si existe
+        if (textDisplayUI != null)
+        {
+            Color textColor = textDisplayUI.color;
+            textColor.a = alpha;
+            textDisplayUI.color = textColor;
+        }
+
+        // Desactivar/activar collider según visibilidad
+        if (GetComponent<Collider2D>())
+        {
+            GetComponent<Collider2D>().enabled = alpha > 0.1f;
+        }
+    }
+
     public void ResetPlatform()
     {
         hasBeenClicked = false;
 
-        // Resetear a blanco si el color original era negro/transparente
+        // Resetear a color original pero mantener alpha en 0
+        Color resetColor;
         if (originalColor == Color.black || originalColor == Color.clear || originalColor.a < 0.1f)
         {
-            spriteRenderer.color = Color.white;
+            resetColor = Color.white;
         }
         else
         {
-            spriteRenderer.color = originalColor;
+            resetColor = originalColor;
         }
+        resetColor.a = 0f; // Empezar invisible
+        spriteRenderer.color = resetColor;
 
         spriteRenderer.enabled = true;
-        if (GetComponent<Collider2D>())
-            GetComponent<Collider2D>().enabled = true;
 
-        // Resetear escala y texto
+        // Desactivar collider (se activará con el fade in)
+        if (GetComponent<Collider2D>())
+            GetComponent<Collider2D>().enabled = false;
+
+        // Resetear escala y ocultar texto UI
         targetScale = originalScale * normalScale;
-        if (textDisplay != null)
+        if (textDisplayUI != null)
         {
-            textDisplay.fontSize = normalFontSize;
+            textDisplayUI.gameObject.SetActive(false); // OCULTAR texto
+            textDisplayUI.fontSize = normalFontSize;
         }
     }
 }
