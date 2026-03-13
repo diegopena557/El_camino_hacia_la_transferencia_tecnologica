@@ -29,10 +29,17 @@ public class GameFadeIn : MonoBehaviour
             return;
         }
 
+        // IMPORTANTE: Asegurar que este GameObject siempre esté activo
+        gameObject.SetActive(true);
+
         // Configurar la imagen de fade
         if (fadeImage != null)
         {
             fadeImage.color = fadeColor;
+
+            // El GameObject de la imagen SIEMPRE debe estar activo
+            fadeImage.gameObject.SetActive(true);
+
             canvasGroup = fadeImage.GetComponent<CanvasGroup>();
 
             if (canvasGroup == null)
@@ -42,7 +49,7 @@ public class GameFadeIn : MonoBehaviour
 
             // Empezar completamente opaco
             canvasGroup.alpha = 1f;
-            fadeImage.gameObject.SetActive(true);
+            fadeImage.enabled = true; // Activar el componente Image
         }
     }
 
@@ -79,10 +86,10 @@ public class GameFadeIn : MonoBehaviour
             canvasGroup.alpha = 0f;
         }
 
-        // Desactivar la imagen para que no bloquee raycast
+        // SOLO desactivar la IMAGEN, NO el GameObject padre
         if (fadeImage != null)
         {
-            fadeImage.gameObject.SetActive(false);
+            fadeImage.enabled = false; // Desactivar el componente Image, no el GameObject
         }
     }
 
@@ -92,19 +99,21 @@ public class GameFadeIn : MonoBehaviour
         if (duration < 0)
             duration = fadeInDuration;
 
+        StopAllCoroutines(); // Detener cualquier fade en progreso
         StartCoroutine(FadeInManual(duration));
     }
 
     IEnumerator FadeInManual(float duration)
     {
+        // ACTIVAR el componente Image
         if (fadeImage != null)
         {
-            fadeImage.gameObject.SetActive(true);
+            fadeImage.enabled = true;
+        }
 
-            if (canvasGroup != null)
-            {
-                canvasGroup.alpha = 1f;
-            }
+        if (canvasGroup != null)
+        {
+            canvasGroup.alpha = 1f;
         }
 
         float elapsed = 0f;
@@ -116,7 +125,7 @@ public class GameFadeIn : MonoBehaviour
                 canvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsed / duration);
             }
 
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime; // Usar unscaledDeltaTime
             yield return null;
         }
 
@@ -127,7 +136,7 @@ public class GameFadeIn : MonoBehaviour
 
         if (fadeImage != null)
         {
-            fadeImage.gameObject.SetActive(false);
+            fadeImage.enabled = false; // Desactivar componente, no GameObject
         }
     }
 
@@ -137,19 +146,21 @@ public class GameFadeIn : MonoBehaviour
         if (duration < 0)
             duration = fadeInDuration;
 
+        StopAllCoroutines(); // Detener cualquier fade en progreso
         StartCoroutine(FadeOutManual(duration));
     }
 
     IEnumerator FadeOutManual(float duration)
     {
+        // ACTIVAR el componente Image
         if (fadeImage != null)
         {
-            fadeImage.gameObject.SetActive(true);
+            fadeImage.enabled = true;
+        }
 
-            if (canvasGroup != null)
-            {
-                canvasGroup.alpha = 0f;
-            }
+        if (canvasGroup != null)
+        {
+            canvasGroup.alpha = 0f;
         }
 
         float elapsed = 0f;
@@ -161,7 +172,7 @@ public class GameFadeIn : MonoBehaviour
                 canvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsed / duration);
             }
 
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime; // Usar unscaledDeltaTime por si Time.timeScale está pausado
             yield return null;
         }
 
