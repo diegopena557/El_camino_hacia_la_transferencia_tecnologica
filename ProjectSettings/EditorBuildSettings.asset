@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dialogue.unity
     guid: 02defb8142a29dd438896b8675f64027
+  - enabled: 1
+    path: Assets/Scenes/Dialogue2al5.unity
+    guid: b740a9a2b2852494b9df8f30d4a5b51e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -196,6 +196,33 @@ public class ResultsScreen : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
         );
     }
+
+    // Nuevo método para continuar a la siguiente escena
+    public void ContinueToNextScene()
+    {
+        StartCoroutine(ContinueToNextSceneCoroutine());
+    }
+
+    IEnumerator ContinueToNextSceneCoroutine()
+    {
+        // Reanudar el tiempo
+        Time.timeScale = 1f;
+
+        // Fade out
+        if (GameFadeIn.Instance != null)
+        {
+            GameFadeIn.Instance.DoFadeOut(1.0f);
+            yield return new WaitForSeconds(1.0f);
+        }
+        else
+        {
+            // Si no hay GameFadeIn, esperar un poco
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        // Cargar la siguiente escena
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Dialogue2al5");
+    }
 }
 
 public enum MedalType

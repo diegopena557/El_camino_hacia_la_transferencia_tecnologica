@@ -474,6 +474,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1579299935063376304, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2274571648821764208, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_Name
       value: ScnDialogue2al5

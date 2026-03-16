@@ -10,10 +10,11 @@ public class LevelManager : MonoBehaviour
     public List<LevelData> levels = new List<LevelData>();
 
     [Header("Referencias")]
-    public TokenSlot mainTokenSlot; // Referencia al slot que cambiará de categoría
+    public TokenSlot mainTokenSlot; // Referencia al slot que cambiar de categora
     public LevelUIDisplay levelUI; // Referencia al UI display (opcional)
+    // InstructionsPanel maneja tanto las instrucciones iniciales como los popups de nivel
 
-    [Header("Configuración de Spawn")]
+    [Header("Configuracin de Spawn")]
     public Transform spawnContainer;
     public Vector2 spawnAreaMin = new Vector2(-5f, 3f);
     public Vector2 spawnAreaMax = new Vector2(5f, 5f);
@@ -35,13 +36,23 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        if (levels.Count > 0)
+        if (levels.Count == 0)
         {
-            LoadLevel(0);
+            Debug.LogError("[LevelManager] No hay niveles configurados!");
+            return;
+        }
+
+        // Si hay InstructionsPanel visible, esperar a que el jugador lo cierre.
+        // InstructionsPanel llamara LoadLevel(0) cuando este listo.
+        // Si no hay InstructionsPanel, arrancar directamente.
+        if (InstructionsPanel.Instance != null && InstructionsPanel.Instance.IsShowingInstructions())
+        {
+            InstructionsPanel.Instance.SetOnInstructionsClosed(() => LoadLevel(0));
+            Debug.Log("[LevelManager] Esperando a que se cierren las instrucciones...");
         }
         else
         {
-            Debug.LogError("[LevelManager] No hay niveles configurados!");
+            LoadLevel(0);
         }
     }
 
@@ -49,7 +60,7 @@ public class LevelManager : MonoBehaviour
     {
         if (levelIndex < 0 || levelIndex >= levels.Count)
         {
-            Debug.LogError($"[LevelManager] Índice de nivel inválido: {levelIndex}");
+            Debug.LogError($"[LevelManager] ndice de nivel invlido: {levelIndex}");
             return;
         }
 
@@ -58,25 +69,39 @@ public class LevelManager : MonoBehaviour
 
         if (!currentLevel.IsValid())
         {
-            Debug.LogError($"[LevelManager] El nivel {levelIndex} no es válido!");
+            Debug.LogError($"[LevelManager] El nivel {levelIndex} no es vlido!");
             return;
         }
 
         Debug.Log($"[LevelManager] Cargando {currentLevel.levelName}");
 
-        // Resetear estadísticas del nivel actual
+        // Limpiar tokens anteriores ya (antes del popup, para que no se vean)
+        ClearSpawnedTokens();
+
+        // Mostrar intro del nivel via InstructionsPanel
+        if (InstructionsPanel.Instance != null)
+        {
+            InstructionsPanel.Instance.ShowLevelIntro(currentLevel, StartLevel);
+        }
+        else
+        {
+            // Si no hay InstructionsPanel, arrancar directamente
+            StartLevel();
+        }
+    }
+
+    // Llamado por el popup (o directamente si no hay popup) para arrancar el nivel
+    void StartLevel()
+    {
+        // Resetear estadisticas
         if (TokenStatsManager.Instance != null)
-        {
             TokenStatsManager.Instance.ResetCurrentLevel();
-        }
 
-        // Actualizar UI si está conectada
+        // Actualizar UI
         if (levelUI != null)
-        {
             levelUI.UpdateDisplay();
-        }
 
-        // Cambiar la categoría del slot principal
+        // Configurar slot principal
         if (mainTokenSlot != null)
         {
             mainTokenSlot.SetCategory(currentLevel.focusCategory);
@@ -87,10 +112,7 @@ public class LevelManager : MonoBehaviour
             Debug.LogWarning("[LevelManager] No hay TokenSlot asignado en 'Main Token Slot'");
         }
 
-        // Limpiar tokens anteriores
-        ClearSpawnedTokens();
-
-        // Spawn nuevos tokens
+        // Spawn tokens
         StartCoroutine(SpawnLevelTokens());
     }
 
@@ -98,7 +120,7 @@ public class LevelManager : MonoBehaviour
     {
         List<GameObject> tokensToSpawn = new List<GameObject>();
 
-        // 1. Agregar todos los tokens de la categoría principal
+        // 1. Agregar todos los tokens de la categora principal
         List<GameObject> focusTokens = currentLevel.tokenPool.GetRandomTokens(
             currentLevel.focusCategory,
             currentLevel.focusTokenCount
@@ -107,7 +129,7 @@ public class LevelManager : MonoBehaviour
 
         Debug.Log($"[LevelManager] Agregados {focusTokens.Count} tokens de {currentLevel.focusCategory}");
 
-        // 2. Agregar tokens aleatorios de las otras 2 categorías
+        // 2. Agregar tokens aleatorios de las otras 2 categoras
         List<TokenCategory> otherCategories = GetOtherCategories(currentLevel.focusCategory);
 
         int tokensPerOtherCategory = currentLevel.otherTokensCount / 2;
@@ -152,7 +174,7 @@ public class LevelManager : MonoBehaviour
 
             spawnedTokens.Add(spawnedToken);
 
-            // Log para verificación
+            // Log para verificacin
             ProjectToken tokenScript = spawnedToken.GetComponent<ProjectToken>();
             if (tokenScript != null)
             {
@@ -209,9 +231,9 @@ public class LevelManager : MonoBehaviour
     // Llamar cuando el jugador complete el nivel
     public void CompleteLevel()
     {
-        Debug.Log($"[LevelManager] ¡Nivel {currentLevelIndex + 1} completado!");
+        Debug.Log($"[LevelManager] Nivel {currentLevelIndex + 1} completado!");
 
-        // Obtener estadísticas del nivel actual
+        // Obtener estadsticas del nivel actual
         int levelCorrect = 0;
         int levelWrong = 0;
 
@@ -219,7 +241,7 @@ public class LevelManager : MonoBehaviour
         {
             levelCorrect = TokenStatsManager.Instance.GetCurrentLevelCorrect();
             levelWrong = TokenStatsManager.Instance.GetCurrentLevelWrong();
-            Debug.Log($"[LevelManager] Estadísticas del nivel: {levelCorrect} correctas, {levelWrong} incorrectas");
+            Debug.Log($"[LevelManager] Estadsticas del nivel: {levelCorrect} correctas, {levelWrong} incorrectas");
         }
 
         // Notificar a la pantalla de resultados
@@ -234,7 +256,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("[LevelManager] ¡Juego completado! Mostrando resultados finales...");
+            Debug.Log("[LevelManager] Juego completado! Mostrando resultados finales...");
 
             // Mostrar pantalla de resultados final
             if (TokenResultsScreen.Instance != null)
@@ -265,7 +287,7 @@ public class LevelManager : MonoBehaviour
     public int GetCurrentLevelIndex() => currentLevelIndex;
     public int GetTotalLevels() => levels.Count;
 
-    // Debug: Visualizar área de spawn
+    // Debug: Visualizar rea de spawn
     void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(0f, 1f, 0f, 0.3f);
