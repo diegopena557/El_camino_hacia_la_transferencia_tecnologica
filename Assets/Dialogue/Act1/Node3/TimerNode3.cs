@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using System.Collections.Generic; //Necesario para los audios
 
 public class TimerNode3 : MonoBehaviour
 {
@@ -148,6 +149,44 @@ public class TimerNode3 : MonoBehaviour
     public TypewriterTMP textNode3j_3;
 
     public bool flagOneTime;
+
+    //////////////////// AUDIOS ////////////////////////
+    [Header("Audio Sources")]
+    public AudioSource[] sources;
+
+    private Dictionary<string, AudioSource> audioDict;
+
+    void Awake()
+    {
+        audioDict = new Dictionary<string, AudioSource>();
+        foreach (AudioSource src in sources)
+        {
+            if (src != null)
+            {
+                audioDict[src.gameObject.name] = src;
+            }
+        }
+    }
+
+    public void PlayByName(string name)
+    {
+        if (audioDict.ContainsKey(name))
+        {
+            audioDict[name].Play();
+        }
+        else
+        {
+            Debug.LogWarning("No AudioSource found with name: " + name);
+        }
+    }
+
+    public void StopByName(string name)
+    {
+        if (audioDict.ContainsKey(name))
+        {
+            audioDict[name].Stop();
+        }
+    }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -179,7 +218,7 @@ public class TimerNode3 : MonoBehaviour
         videoPlayerNode3_0.frame = 0;
         videoPlayerNode3_0.Play();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.8f);
 
         GO_CanvaNode3_0.SetActive(false);
         GO_CanvaNode3a.SetActive(true);
@@ -190,23 +229,26 @@ public class TimerNode3 : MonoBehaviour
         videoPlayerNode3a.Play();
 
         videoPlayerNode3a.playbackSpeed = 1f;
+        PlayByName("3a_1");
 
         myTextNode3a_1.gameObject.SetActive(true);
         textNode3a_1.StartTyping();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         myTextNode3a_1.gameObject.SetActive(false);
         myTextNode3a_2.gameObject.SetActive(true);
         textNode3a_2.StartTyping();
+        PlayByName("3a_2");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
         myTextNode3a_2.gameObject.SetActive(false);
         myTextNode3a_3.gameObject.SetActive(true);
         textNode3a_3.StartTyping();
+        PlayByName("3a_3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
 
         GO_CanvaNode3a.SetActive(false);
         GO_CanvaNode3b.SetActive(true);
@@ -220,20 +262,23 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3b_1.gameObject.SetActive(true);
         textNode3b_1.StartTyping();
+        PlayByName("3b_1");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7.5f);
 
         myTextNode3b_1.gameObject.SetActive(false);
         myTextNode3b_2.gameObject.SetActive(true);
         textNode3b_2.StartTyping();
+        PlayByName("3b_2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
 
         myTextNode3b_2.gameObject.SetActive(false);
         myTextNode3b_3.gameObject.SetActive(true);
         textNode3b_3.StartTyping();
+        PlayByName("3b_3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
 
         GO_CanvaNode3b.SetActive(false);
         GO_CanvaNode3c.SetActive(true);
@@ -247,26 +292,30 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3c_1.gameObject.SetActive(true);
         textNode3c_1.StartTyping();
+        PlayByName("3c_1");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6.4f);
 
         myTextNode3c_1.gameObject.SetActive(false);
         myTextNode3c_2.gameObject.SetActive(true);
         textNode3c_2.StartTyping();
+        PlayByName("3c_2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7f);
 
         myTextNode3c_2.gameObject.SetActive(false);
         myTextNode3c_3.gameObject.SetActive(true);
         textNode3c_3.StartTyping();
+        PlayByName("3c_3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.4f);
 
         myTextNode3c_3.gameObject.SetActive(false);
         myTextNode3c_4.gameObject.SetActive(true);
         textNode3c_4.StartTyping();
+        PlayByName("3c_4");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f);
 
         GO_CanvaNode3c.SetActive(false);
         GO_CanvaNode3D1.SetActive(true);
@@ -300,20 +349,23 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3d_1.gameObject.SetActive(true);
         textNode3d_1.StartTyping();
+        PlayByName("3d_1");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
 
         myTextNode3d_1.gameObject.SetActive(false);
         myTextNode3d_2.gameObject.SetActive(true);
         textNode3d_2.StartTyping();
+        PlayByName("3d_2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6.4f);
 
         myTextNode3d_2.gameObject.SetActive(false);
         myTextNode3d_3.gameObject.SetActive(true);
         textNode3d_3.StartTyping();
+        PlayByName("3d_3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         myTextNode3d_3.gameObject.SetActive(false);
 
         GO_PanelPreguntaCiencia.SetActive(true);
@@ -349,20 +401,23 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3d_I1.gameObject.SetActive(true);
         textNode3d_I1.StartTyping();
+        PlayByName("3d_I1");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f);
 
         myTextNode3d_I1.gameObject.SetActive(false);
         myTextNode3d_I2.gameObject.SetActive(true);
         textNode3d_I2.StartTyping();
+        PlayByName("3d_I2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5.5f);
 
         myTextNode3d_I2.gameObject.SetActive(false);
         myTextNode3d_I3.gameObject.SetActive(true);
         textNode3d_I3.StartTyping();
+        PlayByName("3d_I3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6f);
 
         myTextNode3d_I3.gameObject.SetActive(false);
 
@@ -383,20 +438,23 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3d_C1.gameObject.SetActive(true);
         textNode3d_C1.StartTyping();
+        PlayByName("3d_C1");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7.5f);
 
         myTextNode3d_C1.gameObject.SetActive(false);
         myTextNode3d_C2.gameObject.SetActive(true);
         textNode3d_C2.StartTyping();
+        PlayByName("3d_C2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(9.5f);
 
         myTextNode3d_C2.gameObject.SetActive(false);
         myTextNode3d_C3.gameObject.SetActive(true);
         textNode3d_C3.StartTyping();
+        PlayByName("3d_C3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5.5f);
 
         GO_CanvaNode3d.SetActive(false);
         GO_CanvaNode3e.SetActive(true);
@@ -410,20 +468,23 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3e_1.gameObject.SetActive(true);
         textNode3e_1.StartTyping();
+        PlayByName("3e_1");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2.5f);
 
         myTextNode3e_1.gameObject.SetActive(false);
         myTextNode3e_2.gameObject.SetActive(true);
         textNode3e_2.StartTyping();
+        PlayByName("3e_2");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6.3f);
 
         myTextNode3e_2.gameObject.SetActive(false);
         myTextNode3e_3.gameObject.SetActive(true);
         textNode3e_3.StartTyping();
+        PlayByName("3e_3");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5.4f);
 
         myTextNode3e_3.gameObject.SetActive(false);
     }
@@ -458,14 +519,16 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3f_1.gameObject.SetActive(true);
         textNode3f_1.StartTyping();
+        PlayByName("3f_1");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6.9f);
 
         myTextNode3f_1.gameObject.SetActive(false);
         myTextNode3f_2.gameObject.SetActive(true);
         textNode3f_2.StartTyping();
+        PlayByName("3f_2");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4.3f);
 
         myTextNode3f_2.gameObject.SetActive(false);
 
@@ -486,20 +549,23 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3f_I1.gameObject.SetActive(true);
         textNode3f_I1.StartTyping();
+        PlayByName("3f_I1");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
 
         myTextNode3f_I1.gameObject.SetActive(false);
         myTextNode3f_I2.gameObject.SetActive(true);
         textNode3f_I2.StartTyping();
+        PlayByName("3f_I2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(12.5f);
 
         myTextNode3f_I2.gameObject.SetActive(false);
         myTextNode3f_I3.gameObject.SetActive(true);
         textNode3f_I3.StartTyping();
+        PlayByName("3f_I3");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(7.2f);
 
         myTextNode3f_I3.gameObject.SetActive(false);
 
@@ -520,20 +586,23 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3f_C1.gameObject.SetActive(true);
         textNode3f_C1.StartTyping();
+        PlayByName("3f_C1");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6.8f);
 
         myTextNode3f_C1.gameObject.SetActive(false);
         myTextNode3f_C2.gameObject.SetActive(true);
         textNode3f_C2.StartTyping();
+        PlayByName("3f_C2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7.8f);
 
         myTextNode3f_C2.gameObject.SetActive(false);
         myTextNode3f_C3.gameObject.SetActive(true);
         textNode3f_C3.StartTyping();
+        PlayByName("3f_C3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6.8f);
 
         GO_CanvaNode3f.SetActive(false);
         GO_CanvaNode3g.SetActive(true);
@@ -547,20 +616,23 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3g_1.gameObject.SetActive(true);
         textNode3g_1.StartTyping();
+        PlayByName("3g_1");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         myTextNode3g_1.gameObject.SetActive(false);
         myTextNode3g_2.gameObject.SetActive(true);
         textNode3g_2.StartTyping();
+        PlayByName("3g_2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
 
         myTextNode3g_2.gameObject.SetActive(false);
         myTextNode3g_3.gameObject.SetActive(true);
         textNode3g_3.StartTyping();
+        PlayByName("3g_3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
 
         myTextNode3g_3.gameObject.SetActive(false);
     }
@@ -592,14 +664,16 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3h_1.gameObject.SetActive(true);
         textNode3h_1.StartTyping();
+        PlayByName("3h_1");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7.7f);
 
         myTextNode3h_1.gameObject.SetActive(false);
         myTextNode3h_2.gameObject.SetActive(true);
         textNode3h_2.StartTyping();
+        PlayByName("3h_2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5.5f);
 
         GO_CanvaNode3h.SetActive(false);
         GO_CanvaNode3i.SetActive(true);
@@ -613,20 +687,23 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3i_1.gameObject.SetActive(true);
         textNode3i_1.StartTyping();
+        PlayByName("3i_1");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2.4f);
 
         myTextNode3i_1.gameObject.SetActive(false);
         myTextNode3i_2.gameObject.SetActive(true);
         textNode3i_2.StartTyping();
+        PlayByName("3i_2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8.4f);
 
         myTextNode3i_2.gameObject.SetActive(false);
         myTextNode3i_3.gameObject.SetActive(true);
         textNode3i_3.StartTyping();
+        PlayByName("3i_3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.4f);
 
         GO_CanvaNode3i.SetActive(false);
         GO_CanvaNode3j.SetActive(true);
@@ -640,18 +717,21 @@ public class TimerNode3 : MonoBehaviour
 
         myTextNode3j_1.gameObject.SetActive(true);
         textNode3j_1.StartTyping();
+        PlayByName("3j_1");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6f);
 
         myTextNode3j_1.gameObject.SetActive(false);
         myTextNode3j_2.gameObject.SetActive(true);
         textNode3j_2.StartTyping();
+        PlayByName("3j_2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7.6f);
 
         myTextNode3j_2.gameObject.SetActive(false);
         myTextNode3j_3.gameObject.SetActive(true);
         textNode3j_3.StartTyping();
+        PlayByName("3j_3");
 
     }
 }

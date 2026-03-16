@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using System.Collections.Generic; //Necesario para los audios
 
 public class TimerNode5 : MonoBehaviour
 {
@@ -38,6 +39,44 @@ public class TimerNode5 : MonoBehaviour
 
     public int OptionTecnology{ set; get;}
 
+    //////////////////// AUDIOS ////////////////////////
+    [Header("Audio Sources")]
+    public AudioSource[] sources;
+
+    private Dictionary<string, AudioSource> audioDict;
+
+    void Awake()
+    {
+        audioDict = new Dictionary<string, AudioSource>();
+        foreach (AudioSource src in sources)
+        {
+            if (src != null)
+            {
+                audioDict[src.gameObject.name] = src;
+            }
+        }
+    }
+
+    public void PlayByName(string name)
+    {
+        if (audioDict.ContainsKey(name))
+        {
+            audioDict[name].Play();
+        }
+        else
+        {
+            Debug.LogWarning("No AudioSource found with name: " + name);
+        }
+    }
+
+    public void StopByName(string name)
+    {
+        if (audioDict.ContainsKey(name))
+        {
+            audioDict[name].Stop();
+        }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -72,44 +111,51 @@ public class TimerNode5 : MonoBehaviour
 
         myTextNode5a_1.gameObject.SetActive(true);
         textNode5a_1.StartTyping();
+        PlayByName("5a_1");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.5f);
 
         myTextNode5a_1.gameObject.SetActive(false);
         myTextNode5a_2.gameObject.SetActive(true);
         textNode5a_2.StartTyping();
+        PlayByName("5a_2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10.2f);
 
         myTextNode5a_2.gameObject.SetActive(false);
         myTextNode5a_3.gameObject.SetActive(true);
         textNode5a_3.StartTyping();
+        PlayByName("5a_3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7f);
 
         myTextNode5a_3.gameObject.SetActive(false);
         myTextNode5a_4.gameObject.SetActive(true);
         textNode5a_4.StartTyping();
+        PlayByName("5a_4");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
 
         myTextNode5a_4.gameObject.SetActive(false);
         myTextNode5a_5.gameObject.SetActive(true);
         textNode5a_5.StartTyping();
+        PlayByName("5a_5");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6f);
 
         myTextNode5a_5.gameObject.SetActive(false);
         myTextNode5a_6.gameObject.SetActive(true);
         textNode5a_6.StartTyping();
+        PlayByName("5a_6");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7f);
 
         myTextNode5a_6.gameObject.SetActive(false);
         myTextNode5a_7.gameObject.SetActive(true);
         textNode5a_7.StartTyping();
+        PlayByName("5a_7");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5.5f);
 
         GO_CanvaNode5a.SetActive(false);
         GO_CanvaNode5D1.SetActive(true);
@@ -141,6 +187,7 @@ public class TimerNode5 : MonoBehaviour
 
         myTextNode5b_1.gameObject.SetActive(true);
         textNode5b_1.StartTyping();
+        PlayByName("5b");
 
         yield return new WaitForSeconds(5f);
     }
