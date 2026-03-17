@@ -148,6 +148,8 @@ public class TimerNode3 : MonoBehaviour
     public TypewriterTMP textNode3j_2;
     public TypewriterTMP textNode3j_3;
 
+    public TimerNode4 timerNode4;
+
     public bool flagOneTime;
 
     //////////////////// AUDIOS ////////////////////////
@@ -733,5 +735,8 @@ public class TimerNode3 : MonoBehaviour
         textNode3j_3.StartTyping();
         PlayByName("3j_3");
 
+        yield return new WaitForSeconds(6f);
+
+        timerNode4.StartTimerNode4();
     }
 }
