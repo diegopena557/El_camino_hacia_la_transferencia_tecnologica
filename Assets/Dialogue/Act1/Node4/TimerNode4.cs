@@ -31,6 +31,10 @@ public class TimerNode4 : MonoBehaviour
 
     public bool flagOneTime;
 
+    public GameObject GO_Node5;
+    public TimerNode5 timerNode5;
+    public GameObject GO_Node4;
+
     //////////////////// AUDIOS ////////////////////////
     [Header("Audio Sources")]
     public AudioSource[] sources;
@@ -158,5 +162,9 @@ public class TimerNode4 : MonoBehaviour
         PlayByName("4a_7");
 
         yield return new WaitForSeconds(7.5f);
+
+        GO_Node5.SetActive(true);
+        timerNode5.StartTimerNode5();
+        GO_Node4.SetActive(false);
     }
 }

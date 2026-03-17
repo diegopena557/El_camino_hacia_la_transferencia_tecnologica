@@ -149,7 +149,8 @@ public class TimerNode3 : MonoBehaviour
     public TypewriterTMP textNode3j_3;
 
     public TimerNode4 timerNode4;
-    public GameObject GO_node4;
+    public GameObject GO_Node4;
+    public GameObject GO_Node3;
 
     public bool flagOneTime;
 
@@ -738,7 +739,8 @@ public class TimerNode3 : MonoBehaviour
 
         yield return new WaitForSeconds(6f);
 
-        GO_node4.SetActive(true);
+        GO_Node4.SetActive(true);
         timerNode4.StartTimerNode4();
+        GO_Node3.SetActive(false);
     }
 }

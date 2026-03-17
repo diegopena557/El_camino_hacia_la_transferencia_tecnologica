@@ -530,6 +530,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 472448029}
     - target: {fileID: 4312014889639557231, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: GO_Node3
+      value: 
+      objectReference: {fileID: 1925582498237313192}
+    - target: {fileID: 4312014889639557231, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: GO_Node4
+      value: 
+      objectReference: {fileID: 1925582498237313189}
+    - target: {fileID: 4312014889639557231, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: GO_node4
       value: 
       objectReference: {fileID: 1925582498237313189}
@@ -714,6 +722,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1020710791}
     - target: {fileID: 6020844433401919917, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: GO_Node4
+      value: 
+      objectReference: {fileID: 1925582498237313189}
+    - target: {fileID: 6020844433401919917, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: GO_Node5
+      value: 
+      objectReference: {fileID: 1925582498237313191}
+    - target: {fileID: 6020844433401919917, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: timerNode5
+      value: 
+      objectReference: {fileID: 1925582498237313190}
+    - target: {fileID: 6020844433401919917, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: 'sources.Array.data[0]'
       value: 
       objectReference: {fileID: 555533866}
@@ -793,6 +813,27 @@ PrefabInstance:
 --- !u!1 &1925582498237313189 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5074867114120057529, guid: d07c624138de64bc681949579f9e5665, type: 3}
+  m_PrefabInstance: {fileID: 1925582498237313188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1925582498237313190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2505127330729744874, guid: d07c624138de64bc681949579f9e5665, type: 3}
+  m_PrefabInstance: {fileID: 1925582498237313188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc64d615466ea42a1a1f1571c13ec65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimerNode5
+--- !u!1 &1925582498237313191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5030643120786880457, guid: d07c624138de64bc681949579f9e5665, type: 3}
+  m_PrefabInstance: {fileID: 1925582498237313188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1925582498237313192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2162143278950335180, guid: d07c624138de64bc681949579f9e5665, type: 3}
   m_PrefabInstance: {fileID: 1925582498237313188}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2635145642159962289
