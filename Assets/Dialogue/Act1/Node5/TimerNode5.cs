@@ -86,12 +86,12 @@ public class TimerNode5 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(flagOneTime == false){
+        /*if(flagOneTime == false){
 
             StartTimerNode5();
 
             flagOneTime = true;
-        }
+        }*/
     }
 
     public void StartTimerNode5(){
@@ -188,6 +188,11 @@ public class TimerNode5 : MonoBehaviour
         myTextNode5b_1.gameObject.SetActive(true);
         textNode5b_1.StartTyping();
         PlayByName("5b");
+        yield return new WaitForSeconds(10f);
+        myTextNode5b_1.gameObject.SetActive(false);
+        myTextNode5b_2.gameObject.SetActive(true);
+        textNode5b_2.StartTyping();
+        
 
         yield return new WaitForSeconds(5f);
     }

@@ -82,12 +82,12 @@ public class TimerNode4 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(flagOneTime == false){
+        /*if(flagOneTime == false){
 
-            StartTimerNode4();
+            //StartTimerNode4();
 
             flagOneTime = true;
-        }
+        }*/
     }
 
     public void StartTimerNode4(){
