@@ -3,7 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Video;
 using UnityEngine.UI;
-using System.Collections.Generic; //Necesario para los audios
+using System.Collections.Generic;
 
 public class TimerNode7 : MonoBehaviour
 {
@@ -23,11 +23,22 @@ public class TimerNode7 : MonoBehaviour
     public TypewriterTMP textNode7a_3;
     public TypewriterTMP textNode7a_4;
 
+    [Header("Panel Final")]
+    public GameObject endPanel;
+    public TextMeshProUGUI endPanelText;
+    public float fadeDuration = 1f;
+
+    //////////////////// FADE IN ////////////////////////
+    [Header("Fade In Settings")]
+    public Image fadePanel;          // Panel negro (Image) que cubre toda la pantalla
+    public float fadeInDuration = 1.5f;
+
     //////////////////// AUDIOS ////////////////////////
     [Header("Audio Sources")]
     public AudioSource[] sources;
 
     private Dictionary<string, AudioSource> audioDict;
+    private CanvasGroup endPanelCanvasGroup;
 
     void Awake()
     {
@@ -35,42 +46,52 @@ public class TimerNode7 : MonoBehaviour
         foreach (AudioSource src in sources)
         {
             if (src != null)
-            {
                 audioDict[src.gameObject.name] = src;
-            }
+        }
+
+        // Prepara el CanvasGroup para el fade del panel final
+        if (endPanel != null)
+        {
+            endPanelCanvasGroup = endPanel.GetComponent<CanvasGroup>();
+            if (endPanelCanvasGroup == null)
+                endPanelCanvasGroup = endPanel.AddComponent<CanvasGroup>();
+
+            endPanelCanvasGroup.alpha = 0f;
+            endPanelCanvasGroup.interactable = false;
+            endPanelCanvasGroup.blocksRaycasts = false;
+            endPanel.SetActive(false);
+        }
+
+        // El panel de fade in empieza completamente opaco (negro)
+        if (fadePanel != null)
+        {
+            Color c = fadePanel.color;
+            c.a = 1f;
+            fadePanel.color = c;
+            fadePanel.gameObject.SetActive(true);
         }
     }
 
     public void PlayByName(string name)
     {
         if (audioDict.ContainsKey(name))
-        {
             audioDict[name].Play();
-        }
         else
-        {
             Debug.LogWarning("No AudioSource found with name: " + name);
-        }
     }
 
     public void StopByName(string name)
     {
         if (audioDict.ContainsKey(name))
-        {
             audioDict[name].Stop();
-        }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    void Start() { }
 
-    // Update is called once per frame
     void Update()
     {
-        if(flagJustOneTime == false){
+        if (flagJustOneTime == false)
+        {
             StartCoroutine(AdvancingTimerNode7());
             flagJustOneTime = true;
         }
@@ -78,12 +99,16 @@ public class TimerNode7 : MonoBehaviour
 
     IEnumerator AdvancingTimerNode7()
     {
+        // Inicia el video antes del fade para que ya esté corriendo debajo
         videoPlayerNode7a.Stop();
-        videoPlayerNode7a.time = 0;        
+        videoPlayerNode7a.time = 0;
         videoPlayerNode7a.frame = 0;
         videoPlayerNode7a.Play();
-
         videoPlayerNode7a.playbackSpeed = 1f;
+
+        // Fade in: el panel pasa de opaco a transparente
+        if (fadePanel != null)
+            yield return StartCoroutine(FadeInEntrance());
 
         myTextNode7a_1.gameObject.SetActive(true);
         textNode7a_1.StartTyping();
@@ -111,5 +136,58 @@ public class TimerNode7 : MonoBehaviour
         PlayByName("7a_4");
 
         yield return new WaitForSeconds(6f);
+
+        myTextNode7a_4.gameObject.SetActive(false);
+
+        if (endPanel != null)
+            StartCoroutine(FadeInPanel());
+    }
+
+    // Fade in de entrada: negro  transparente
+    IEnumerator FadeInEntrance()
+    {
+        float elapsed = 0f;
+        Color c = fadePanel.color;
+
+        while (elapsed < fadeInDuration)
+        {
+            elapsed += Time.deltaTime;
+            c.a = Mathf.Lerp(1f, 0f, elapsed / fadeInDuration);
+            fadePanel.color = c;
+            yield return null;
+        }
+
+        c.a = 0f;
+        fadePanel.color = c;
+        fadePanel.gameObject.SetActive(false);
+    }
+
+    // Fade in del panel final al terminar el último diálogo
+    IEnumerator FadeInPanel()
+    {
+        endPanel.SetActive(true);
+        endPanelCanvasGroup.alpha = 0f;
+
+        float elapsed = 0f;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            endPanelCanvasGroup.alpha = Mathf.Clamp01(elapsed / fadeDuration);
+            yield return null;
+        }
+
+        endPanelCanvasGroup.alpha = 1f;
+        endPanelCanvasGroup.interactable = true;
+        endPanelCanvasGroup.blocksRaycasts = true;
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

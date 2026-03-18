@@ -58,10 +58,7 @@ public class InstructionsPanel : MonoBehaviour
 
     void Start()
     {
-        // Panel de instrucciones inicial 
-        if (instructionsPanel != null)
-            instructionsPanel.SetActive(true);
-
+        // -- Panel de instrucciones inicial --
         if (instructionsCanvasGroup == null && instructionsPanel != null)
         {
             instructionsCanvasGroup = instructionsPanel.GetComponent<CanvasGroup>();
@@ -69,17 +66,21 @@ public class InstructionsPanel : MonoBehaviour
                 instructionsCanvasGroup = instructionsPanel.AddComponent<CanvasGroup>();
         }
 
+        // Empieza oculto; FadeInPanel lo activara
         if (instructionsCanvasGroup != null)
         {
-            instructionsCanvasGroup.alpha = 1f;
-            instructionsCanvasGroup.interactable = true;
-            instructionsCanvasGroup.blocksRaycasts = true;
+            instructionsCanvasGroup.alpha = 0f;
+            instructionsCanvasGroup.interactable = false;
+            instructionsCanvasGroup.blocksRaycasts = false;
         }
 
         if (instructionsContinueButton != null)
+        {
+            instructionsContinueButton.interactable = false;
             instructionsContinueButton.onClick.AddListener(OnInstructionsContinueClicked);
+        }
 
-        // Panel de intro de nivel 
+        // -- Panel de intro de nivel --
         if (levelIntroPanel != null)
             levelIntroPanel.SetActive(false);
 
@@ -100,9 +101,21 @@ public class InstructionsPanel : MonoBehaviour
         if (levelIntroContinueButton != null)
             levelIntroContinueButton.onClick.AddListener(OnLevelIntroContinueClicked);
 
-        // Pausar mientras se muestran instrucciones iniciales
+        // Pausar juego mientras se muestran instrucciones
         Time.timeScale = 0f;
-        Debug.Log("[InstructionsPanel] Instrucciones iniciales visibles. Juego pausado.");
+        // Mostrar instrucciones directamente, sin fade in
+        if (instructionsPanel != null)
+            instructionsPanel.SetActive(true);
+
+        if (instructionsCanvasGroup != null)
+        {
+            instructionsCanvasGroup.alpha = 1f;
+            instructionsCanvasGroup.interactable = true;
+            instructionsCanvasGroup.blocksRaycasts = true;
+        }
+
+        if (instructionsContinueButton != null)
+            instructionsContinueButton.interactable = true;
     }
 
 
@@ -125,7 +138,7 @@ public class InstructionsPanel : MonoBehaviour
         onInstructionsClosedCallback = null;
     }
 
-   
+
 
     public void ShowLevelIntro(LevelData levelData, Action onComplete)
     {
@@ -186,7 +199,8 @@ public class InstructionsPanel : MonoBehaviour
         }));
     }
 
-  
+
+
 
     IEnumerator FadeInPanel(CanvasGroup cg, GameObject panel, Action onComplete = null)
     {
@@ -237,7 +251,7 @@ public class InstructionsPanel : MonoBehaviour
         onComplete?.Invoke();
     }
 
-  
+
     // LevelManager llama esto para saber si debe esperar antes de cargar el nivel
     public bool IsShowingInstructions() => isShowingInstructions;
 
@@ -247,7 +261,7 @@ public class InstructionsPanel : MonoBehaviour
         onInstructionsClosedCallback = callback;
     }
 
-  
+
 
     void PlayClickSound()
     {

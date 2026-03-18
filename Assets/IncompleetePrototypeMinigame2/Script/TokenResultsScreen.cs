@@ -21,11 +21,11 @@ public class TokenResultsScreen : MonoBehaviour
     public GameObject silverMedal;
     public GameObject bronzeMedal;
 
-    [Header("Umbrales de Medallas (% de precisión)")]
+    [Header("Umbrales de Medallas (% de precisin)")]
     public float goldThreshold = 90f;
     public float silverThreshold = 70f;
 
-    [Header("Animación")]
+    [Header("Animacin")]
     public float fadeDuration = 0.5f;
     public float medalDelay = 0.8f;
     public float medalScaleAnimation = 1.2f;
@@ -33,7 +33,7 @@ public class TokenResultsScreen : MonoBehaviour
 
     [Header("Botones")]
     public Button restartButton;
-    public Button continueButton; // Botón para continuar a Dialogue7
+    public Button continueButton; // Botn para continuar a Dialogue7
 
     [Header("Audio (Opcional)")]
     public AudioSource audioSource;
@@ -66,7 +66,7 @@ public class TokenResultsScreen : MonoBehaviour
             continueButton.onClick.AddListener(ContinueToDialogue7);
     }
 
-    // Llamar este método cuando se complete un nivel
+    // Llamar este mtodo cuando se complete un nivel
     public void OnLevelCompleted(int correctInLevel, int wrongInLevel)
     {
         levelsCompleted++;
@@ -85,7 +85,7 @@ public class TokenResultsScreen : MonoBehaviour
         StartCoroutine(ShowResultsCoroutine());
     }
 
-    // Método alternativo con parámetros directos
+    // Mtodo alternativo con parmetros directos
     public void ShowResults(int correct, int wrong, int levels)
     {
         totalCorrect = correct;
@@ -105,7 +105,7 @@ public class TokenResultsScreen : MonoBehaviour
 
         Debug.Log($"[TokenResultsScreen] Mostrando resultados: {totalCorrect} correctas, {totalWrong} incorrectas, {levelsCompleted} niveles");
 
-        // Calcular estadísticas
+        // Calcular estadsticas
         int total = totalCorrect + totalWrong;
         float accuracy = total > 0 ? (totalCorrect / (float)total) * 100f : 0f;
 
@@ -165,15 +165,15 @@ public class TokenResultsScreen : MonoBehaviour
         {
             case MedalType.Gold:
                 medalObject = goldMedal;
-                medalTitle = "¡MEDALLA DE ORO!";
+                medalTitle = "MEDALLA DE ORO!";
                 break;
             case MedalType.Silver:
                 medalObject = silverMedal;
-                medalTitle = "¡MEDALLA DE PLATA!";
+                medalTitle = "MEDALLA DE PLATA!";
                 break;
             case MedalType.Bronze:
                 medalObject = bronzeMedal;
-                medalTitle = "¡MEDALLA DE BRONCE!";
+                medalTitle = "MEDALLA DE BRONCE!";
                 break;
         }
 
@@ -190,7 +190,7 @@ public class TokenResultsScreen : MonoBehaviour
                 audioSource.PlayOneShot(medalSound);
             }
 
-            // Animación de escala (rebote)
+            // Animacin de escala (rebote)
             Vector3 originalScale = medalObject.transform.localScale;
             Vector3 targetScale = originalScale * medalScaleAnimation;
 
@@ -220,7 +220,7 @@ public class TokenResultsScreen : MonoBehaviour
         if (bronzeMedal != null) bronzeMedal.SetActive(false);
     }
 
-    // NUEVO: Método para continuar a Dialogue7 con fade
+    // NUEVO: Mtodo para continuar a Dialogue7 con fade
     public void ContinueToDialogue7()
     {
         StartCoroutine(ContinueToDialogue7Coroutine());
@@ -230,30 +230,27 @@ public class TokenResultsScreen : MonoBehaviour
     {
         Debug.Log("[TokenResultsScreen] Continuando a Dialogue7...");
 
-        // Reanudar el tiempo
         Time.timeScale = 1f;
 
-        // Fade out
-        if (GameFadeIn.Instance != null)
+        if (SceneFadeIn.Instance != null)
         {
-            GameFadeIn.Instance.DoFadeOut(1.0f);
-            yield return new WaitForSecondsRealtime(1.0f);
+            // FadeOutAndLoadScene hace el fade y carga la escena automaticamente
+            SceneFadeIn.Instance.FadeOutAndLoadScene("Dialogue7");
         }
         else
         {
-            Debug.LogWarning("[TokenResultsScreen] GameFadeIn no encontrado, continuando sin fade");
-            yield return new WaitForSeconds(0.5f);
+            Debug.LogWarning("[TokenResultsScreen] SceneFadeIn no encontrado, cargando sin fade.");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Dialogue7");
         }
 
-        // Cargar la escena Dialogue7
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Dialogue7");
+        yield break;
     }
 
     public void RestartGame()
     {
         Debug.Log("[TokenResultsScreen] Reiniciando juego...");
 
-        // Resetear estadísticas
+        // Resetear estadsticas
         totalCorrect = 0;
         totalWrong = 0;
         levelsCompleted = 0;
@@ -267,16 +264,16 @@ public class TokenResultsScreen : MonoBehaviour
         );
     }
 
-    // Método para resetear estadísticas sin reiniciar escena
+    // Mtodo para resetear estadsticas sin reiniciar escena
     public void ResetStats()
     {
         totalCorrect = 0;
         totalWrong = 0;
         levelsCompleted = 0;
-        Debug.Log("[TokenResultsScreen] Estadísticas reseteadas");
+        Debug.Log("[TokenResultsScreen] Estadsticas reseteadas");
     }
 
-    // Getters para consultar estadísticas
+    // Getters para consultar estadsticas
     public int GetTotalCorrect() => totalCorrect;
     public int GetTotalWrong() => totalWrong;
     public int GetLevelsCompleted() => levelsCompleted;
