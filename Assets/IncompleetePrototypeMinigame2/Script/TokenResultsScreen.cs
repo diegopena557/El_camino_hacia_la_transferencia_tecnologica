@@ -33,7 +33,7 @@ public class TokenResultsScreen : MonoBehaviour
 
     [Header("Botones")]
     public Button restartButton;
-    public Button closeButton;
+    public Button continueButton; // Botón para continuar a Dialogue7
 
     [Header("Audio (Opcional)")]
     public AudioSource audioSource;
@@ -62,8 +62,8 @@ public class TokenResultsScreen : MonoBehaviour
         if (restartButton != null)
             restartButton.onClick.AddListener(RestartGame);
 
-        if (closeButton != null)
-            closeButton.onClick.AddListener(CloseResults);
+        if (continueButton != null)
+            continueButton.onClick.AddListener(ContinueToDialogue7);
     }
 
     // Llamar este método cuando se complete un nivel
@@ -220,33 +220,33 @@ public class TokenResultsScreen : MonoBehaviour
         if (bronzeMedal != null) bronzeMedal.SetActive(false);
     }
 
-    public void CloseResults()
+    // NUEVO: Método para continuar a Dialogue7 con fade
+    public void ContinueToDialogue7()
     {
-        StartCoroutine(CloseResultsCoroutine());
+        StartCoroutine(ContinueToDialogue7Coroutine());
     }
 
-    IEnumerator CloseResultsCoroutine()
+    IEnumerator ContinueToDialogue7Coroutine()
     {
-        // Fade Out
-        float elapsed = 0f;
-        while (elapsed < fadeDuration)
-        {
-            if (canvasGroup != null)
-                canvasGroup.alpha = Mathf.Lerp(1, 0, elapsed / fadeDuration);
-            elapsed += Time.unscaledDeltaTime;
-            yield return null;
-        }
+        Debug.Log("[TokenResultsScreen] Continuando a Dialogue7...");
 
-        if (canvasGroup != null)
-            canvasGroup.alpha = 0;
-
-        if (resultsPanel != null)
-            resultsPanel.SetActive(false);
-
-        // Reanudar el juego
+        // Reanudar el tiempo
         Time.timeScale = 1f;
 
-        Debug.Log("[TokenResultsScreen] Pantalla de resultados cerrada");
+        // Fade out
+        if (GameFadeIn.Instance != null)
+        {
+            GameFadeIn.Instance.DoFadeOut(1.0f);
+            yield return new WaitForSecondsRealtime(1.0f);
+        }
+        else
+        {
+            Debug.LogWarning("[TokenResultsScreen] GameFadeIn no encontrado, continuando sin fade");
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        // Cargar la escena Dialogue7
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Dialogue7");
     }
 
     public void RestartGame()
@@ -298,7 +298,7 @@ public class TokenResultsScreen : MonoBehaviour
         if (restartButton != null)
             restartButton.onClick.RemoveListener(RestartGame);
 
-        if (closeButton != null)
-            closeButton.onClick.RemoveListener(CloseResults);
+        if (continueButton != null)
+            continueButton.onClick.RemoveListener(ContinueToDialogue7);
     }
 }
