@@ -168,7 +168,7 @@ public class TimerNode5 : MonoBehaviour
         {
             OptionTecnology = 0;
             // Opción 0  Modo 1
-            PlayerPrefs.SetInt(GAME_MODE_KEY, 1);
+            PlayerPrefs.SetInt(GAME_MODE_KEY, 2);
             PlayerPrefs.Save();
             StartCoroutine(AdvancingTimerNode5_2());
         }
@@ -176,7 +176,7 @@ public class TimerNode5 : MonoBehaviour
         {
             OptionTecnology = 1;
             // Opción 1  Modo 2
-            PlayerPrefs.SetInt(GAME_MODE_KEY, 2);
+            PlayerPrefs.SetInt(GAME_MODE_KEY, 1);
             PlayerPrefs.Save();
             StartCoroutine(AdvancingTimerNode5_2());
         }
