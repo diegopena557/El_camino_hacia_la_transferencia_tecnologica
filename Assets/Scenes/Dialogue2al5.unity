@@ -606,6 +606,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
     - target: {fileID: 528171064604273369, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_text
+      value: "Ori\xF3n:\nHace falta que alguien la use y la haga parte de su realidad."
+      objectReference: {fileID: 0}
+    - target: {fileID: 528171064604273369, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
@@ -620,6 +624,14 @@ PrefabInstance:
     - target: {fileID: 583782028651698076, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontSize
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 583782028651698076, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_margin.y
+      value: -95.40052
+      objectReference: {fileID: 0}
+    - target: {fileID: 583782028651698076, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_margin.z
+      value: 19.738174
       objectReference: {fileID: 0}
     - target: {fileID: 583782028651698076, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
@@ -655,7 +667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 583782028651698076, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_HorizontalAlignment
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 583782028651698076, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -699,7 +711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 887454036798971940, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 428
+      value: 419
       objectReference: {fileID: 0}
     - target: {fileID: 887454036798971940, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -724,6 +736,14 @@ PrefabInstance:
     - target: {fileID: 1439452243915680701, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontSize
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439452243915680701, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_margin.y
+      value: 47.151978
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439452243915680701, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_margin.z
+      value: 21.93126
       objectReference: {fileID: 0}
     - target: {fileID: 1439452243915680701, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
@@ -758,8 +778,12 @@ PrefabInstance:
       value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 1439452243915680701, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_wordWrappingRatios
+      value: 0.426
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439452243915680701, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_HorizontalAlignment
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1439452243915680701, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -782,9 +806,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
     - target: {fileID: 2062647629883951112, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_text
+      value: "Ori\xF3n:\nNo, funcionar es un paso importante\u2026 pero no el \xFAltimo."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2062647629883951112, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
+    - target: {fileID: 2150025581511419875, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.3584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150025581511419875, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.3584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150025581511419875, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.3584906
+      objectReference: {fileID: 0}
     - target: {fileID: 2162143278950335180, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -842,6 +882,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
     - target: {fileID: 2578419683485869258, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_text
+      value: "Orion: \nSin ciencia no hay base. Sin tecnolog\xEDa, el conocimiento
+        no toma forma."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2578419683485869258, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
@@ -860,6 +905,10 @@ PrefabInstance:
     - target: {fileID: 2664025964138974065, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_ReferenceResolution.y
       value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676515212736938679, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_text
+      value: "Lumen:\nEntonces\u2026 no basta con que funcione."
       objectReference: {fileID: 0}
     - target: {fileID: 2676515212736938679, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
@@ -906,9 +955,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
     - target: {fileID: 3995668161699914245, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_text
+      value: "Orion: \nMientras no exista uso, en un contexto real, lo que tienes
+        es una soluci\xF3n t\xE9cnica\u2026 no un cambio en el mundo."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3995668161699914245, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
+    - target: {fileID: 3997116167177545633, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_text
+      value: "Orion: \nPero si esa forma no sale de aqu\xED\u2026si no tiene uso
+        real\u2026 se queda encerrada."
+      objectReference: {fileID: 0}
     - target: {fileID: 3997116167177545633, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -937,6 +996,10 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 0.009433985
       objectReference: {fileID: 0}
+    - target: {fileID: 4228411416152477893, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6813058039446217884, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
     - target: {fileID: 4228411416152477893, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278321666
@@ -1147,11 +1210,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4333074225145773301, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -404
+      value: -353
       objectReference: {fileID: 0}
     - target: {fileID: 4333074225145773301, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421881495841120282, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_text
+      value: "Ori\xF3n:\nEres una tecnolog\xEDa con intenci\xF3n de salir al mundo
+        real.\nUna tecnolog\xEDa que no quiere quedarse aqu\xED adentro.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4421881495841120282, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
@@ -1173,14 +1241,6 @@ PrefabInstance:
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
-    - target: {fileID: 4908880901685645641, guid: d07c624138de64bc681949579f9e5665, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
-    - target: {fileID: 4908880901685645641, guid: d07c624138de64bc681949579f9e5665, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4921811606708686636, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1200,6 +1260,18 @@ PrefabInstance:
     - target: {fileID: 5149860003638873830, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224594569015607551, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.3679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224594569015607551, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.3679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224594569015607551, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.3679245
       objectReference: {fileID: 0}
     - target: {fileID: 5277781640306889828, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
@@ -1391,11 +1463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7649496929652887638, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -393
+      value: -339
       objectReference: {fileID: 0}
     - target: {fileID: 7649496929652887638, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 225
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7737780178164211005, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
@@ -1438,6 +1510,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
     - target: {fileID: 8339922164806857609, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 375.8757
+      objectReference: {fileID: 0}
+    - target: {fileID: 8339922164806857609, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.7867
       objectReference: {fileID: 0}
@@ -1451,11 +1527,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8339922164806857609, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 428.65
+      value: 456
       objectReference: {fileID: 0}
     - target: {fileID: 8339922164806857609, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 92
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 8425492613821743789, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
@@ -1465,6 +1541,10 @@ PrefabInstance:
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
+    - target: {fileID: 8443270695004450260, guid: d07c624138de64bc681949579f9e5665, type: 3}
+      propertyPath: m_text
+      value: "Ori\xF3n:\nAhora dime Lumen: \xBFQu\xE9 tipo de tecnolog\xEDa eres?\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 8443270695004450260, guid: d07c624138de64bc681949579f9e5665, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1517,6 +1597,10 @@ PrefabInstance:
     - target: {fileID: 844104253432569143, guid: 7da7e630634d85f48ae4acdad6fee221, type: 3}
       propertyPath: m_Name
       value: Fadein
+      objectReference: {fileID: 0}
+    - target: {fileID: 844104253432569143, guid: 7da7e630634d85f48ae4acdad6fee221, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4563280541567710575, guid: 7da7e630634d85f48ae4acdad6fee221, type: 3}
       propertyPath: m_Pivot.x
@@ -1611,6 +1695,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 187154937331917411, guid: bc5b2294cbb6f0845a7e5b19d720bb5d, type: 3}
+      propertyPath: m_Name
+      value: 3g_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 966918054677077424, guid: bc5b2294cbb6f0845a7e5b19d720bb5d, type: 3}
+      propertyPath: m_Name
+      value: 3g_2
+      objectReference: {fileID: 0}
     - target: {fileID: 3113289650715810965, guid: bc5b2294cbb6f0845a7e5b19d720bb5d, type: 3}
       propertyPath: m_Name
       value: Nodo 3
@@ -1654,6 +1746,10 @@ PrefabInstance:
     - target: {fileID: 7655275226975954116, guid: bc5b2294cbb6f0845a7e5b19d720bb5d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770745016606347133, guid: bc5b2294cbb6f0845a7e5b19d720bb5d, type: 3}
+      propertyPath: m_Name
+      value: 3g_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -236,6 +236,18 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1978024310217013302, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.3490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978024310217013302, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.3490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978024310217013302, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.3490566
+      objectReference: {fileID: 0}
     - target: {fileID: 2985721664439948872, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -377,6 +389,14 @@ PrefabInstance:
       propertyPath: Cinematic1
       value: 
       objectReference: {fileID: 1137070164}
+    - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
+      propertyPath: buttonClickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 65809e0be8dcef246b06b77c137dcd5d, type: 3}
+    - target: {fileID: 7413954587169839777, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
+      propertyPath: buttonAudioSource
+      value: 
+      objectReference: {fileID: 2035656602}
     - target: {fileID: 7505971536023337412, guid: cdf1964c1da154240a1eba286ee83abb, type: 3}
       propertyPath: m_fontAsset
       value: 
