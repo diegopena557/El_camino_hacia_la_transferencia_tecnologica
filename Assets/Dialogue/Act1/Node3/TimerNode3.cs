@@ -154,6 +154,14 @@ public class TimerNode3 : MonoBehaviour
 
     public bool flagOneTime;
 
+    public bool flagRepeticionCiencia;
+    public bool flagRepeticionCienciaCorrecta;
+    public bool flagRepeticionCienciaIncorrecta1;
+
+    public bool flagRepeticionTecnologia;
+    public bool flagRepeticionTecnologiaCorrecta;
+    public bool flagRepeticionTecnologiaIncorrecta1;
+
     //////////////////// AUDIOS ////////////////////////
     [Header("Audio Sources")]
     public AudioSource[] sources;
@@ -170,6 +178,14 @@ public class TimerNode3 : MonoBehaviour
                 audioDict[src.gameObject.name] = src;
             }
         }
+
+        flagRepeticionCiencia = false;
+        flagRepeticionCienciaCorrecta = false;
+        flagRepeticionCienciaIncorrecta1 = false;
+
+        flagRepeticionTecnologia = false;
+        flagRepeticionTecnologiaCorrecta = false;
+        flagRepeticionTecnologiaIncorrecta1 = false;
     }
 
     public void PlayByName(string name)
@@ -191,17 +207,18 @@ public class TimerNode3 : MonoBehaviour
             audioDict[name].Stop();
         }
     }
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(flagOneTime == false){
+        if (flagOneTime == false)
+        {
 
             StartTimerNode3();
 
@@ -209,7 +226,8 @@ public class TimerNode3 : MonoBehaviour
         }
     }
 
-    public void StartTimerNode3(){
+    public void StartTimerNode3()
+    {
         StartCoroutine(AdvancingTimerNode3());
     }
 
@@ -218,7 +236,7 @@ public class TimerNode3 : MonoBehaviour
         GO_CanvaNode3_0.SetActive(true);
 
         videoPlayerNode3_0.Stop();
-        videoPlayerNode3_0.time = 0;        
+        videoPlayerNode3_0.time = 0;
         videoPlayerNode3_0.frame = 0;
         videoPlayerNode3_0.Play();
 
@@ -228,7 +246,7 @@ public class TimerNode3 : MonoBehaviour
         GO_CanvaNode3a.SetActive(true);
 
         videoPlayerNode3a.Stop();
-        videoPlayerNode3a.time = 0;        
+        videoPlayerNode3a.time = 0;
         videoPlayerNode3a.frame = 0;
         videoPlayerNode3a.Play();
 
@@ -258,7 +276,7 @@ public class TimerNode3 : MonoBehaviour
         GO_CanvaNode3b.SetActive(true);
 
         videoPlayerNode3b.Stop();
-        videoPlayerNode3b.time = 0;        
+        videoPlayerNode3b.time = 0;
         videoPlayerNode3b.frame = 0;
         videoPlayerNode3b.Play();
 
@@ -288,7 +306,7 @@ public class TimerNode3 : MonoBehaviour
         GO_CanvaNode3c.SetActive(true);
 
         videoPlayerNode3c.Stop();
-        videoPlayerNode3c.time = 0;        
+        videoPlayerNode3c.time = 0;
         videoPlayerNode3c.frame = 0;
         videoPlayerNode3c.Play();
 
@@ -326,14 +344,22 @@ public class TimerNode3 : MonoBehaviour
     }
 
     //0 Ciencia 1 Tecnologia 2 Innovacion
-    public void ElegirOpcion(int intOption){
-        if(intOption == 0){
+    public void ElegirOpcion(int intOption)
+    {
+        if (intOption == 0)
+        {
             StartCoroutine(AdvancingTimerCiencia());
-        }else if(intOption == 1){
+        }
+        else if (intOption == 1)
+        {
             StartCoroutine(AdvancingTimerTecnologia());
-        }else if(intOption == 2){
+        }
+        else if (intOption == 2)
+        {
             StartCoroutine(AdvancingTimerInnovacion());
-        }else{
+        }
+        else
+        {
             Debug.Log("Esta opción no existe");
         }
 
@@ -341,11 +367,18 @@ public class TimerNode3 : MonoBehaviour
 
     IEnumerator AdvancingTimerCiencia()
     {
+        if (flagRepeticionCiencia == true)
+        {
+            textNode3d_1.RestartText();
+            textNode3d_2.RestartText();
+            textNode3d_3.RestartText();
+        }
+
         GO_CanvaNode3D1.SetActive(false);
         GO_CanvaNode3d.SetActive(true);
 
         videoPlayerNode3d.Stop();
-        videoPlayerNode3d.time = 0;        
+        videoPlayerNode3d.time = 0;
         videoPlayerNode3d.frame = 0;
         videoPlayerNode3d.Play();
 
@@ -357,15 +390,15 @@ public class TimerNode3 : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        myTextNode3d_1.gameObject.SetActive(false);
         myTextNode3d_2.gameObject.SetActive(true);
+        myTextNode3d_1.gameObject.SetActive(false);
         textNode3d_2.StartTyping();
         PlayByName("3d_2");
 
         yield return new WaitForSeconds(6.4f);
 
-        myTextNode3d_2.gameObject.SetActive(false);
         myTextNode3d_3.gameObject.SetActive(true);
+        myTextNode3d_2.gameObject.SetActive(false);
         textNode3d_3.StartTyping();
         PlayByName("3d_3");
 
@@ -373,31 +406,48 @@ public class TimerNode3 : MonoBehaviour
         myTextNode3d_3.gameObject.SetActive(false);
 
         GO_PanelPreguntaCiencia.SetActive(true);
+
+        flagRepeticionCiencia = true;
     }
 
     //Opcion 1 - Correcta
     //Opcion 2 - Incorrecta
     //Opcion 3 - Incorrecta
-    public void ElegirPreguntaCiencia(int intCiencia){
-        if(intCiencia == 0){
+    public void ElegirPreguntaCiencia(int intCiencia)
+    {
+        if (intCiencia == 0)
+        {
             StartCoroutine(AdvancingTimerOpcionCorrecta1());
-        }else if(intCiencia == 1){
+        }
+        else if (intCiencia == 1)
+        {
             StartCoroutine(AdvancingTimerOpcionIncorrecta1());
-        }else if(intCiencia == 2){
+        }
+        else if (intCiencia == 2)
+        {
             StartCoroutine(AdvancingTimerOpcionIncorrecta1());
-        }else{
+        }
+        else
+        {
             Debug.Log("Esta opción no existe");
         }
     }
 
     IEnumerator AdvancingTimerOpcionIncorrecta1()
     {
+        if (flagRepeticionCienciaIncorrecta1 == true)
+        {
+            textNode3d_I1.RestartText();
+            textNode3d_I2.RestartText();
+            textNode3d_I3.RestartText();
+        }
+
         GO_PanelPreguntaCiencia.SetActive(false);
-        
+
         GO_CanvaNode3d.SetActive(true);
 
         videoPlayerNode3d.Stop();
-        videoPlayerNode3d.time = 0;        
+        videoPlayerNode3d.time = 0;
         videoPlayerNode3d.frame = 0;
         videoPlayerNode3d.Play();
 
@@ -426,15 +476,27 @@ public class TimerNode3 : MonoBehaviour
         myTextNode3d_I3.gameObject.SetActive(false);
 
         GO_PanelPreguntaCiencia.SetActive(true);
+
+        flagRepeticionCienciaIncorrecta1 = true;
     }
 
     IEnumerator AdvancingTimerOpcionCorrecta1()
     {
+        if (flagRepeticionCienciaCorrecta == true)
+        {
+            textNode3d_C1.RestartText();
+            textNode3d_C2.RestartText();
+            textNode3d_C3.RestartText();
+            textNode3e_1.RestartText();
+            textNode3e_2.RestartText();
+            textNode3e_3.RestartText();
+        }
+
         GO_PanelPreguntaCiencia.SetActive(false);
         GO_CanvaNode3d.SetActive(true);
 
         videoPlayerNode3d.Stop();
-        videoPlayerNode3d.time = 0;        
+        videoPlayerNode3d.time = 0;
         videoPlayerNode3d.frame = 0;
         videoPlayerNode3d.Play();
 
@@ -460,11 +522,12 @@ public class TimerNode3 : MonoBehaviour
 
         yield return new WaitForSeconds(5.5f);
 
+        myTextNode3d_C3.gameObject.SetActive(false);
         GO_CanvaNode3d.SetActive(false);
         GO_CanvaNode3e.SetActive(true);
 
         videoPlayerNode3e.Stop();
-        videoPlayerNode3e.time = 0;        
+        videoPlayerNode3e.time = 0;
         videoPlayerNode3e.frame = 0;
         videoPlayerNode3e.Play();
 
@@ -491,31 +554,49 @@ public class TimerNode3 : MonoBehaviour
         yield return new WaitForSeconds(5.4f);
 
         myTextNode3e_3.gameObject.SetActive(false);
+        GO_CanvaNode3D1.SetActive(true);
+        GO_CanvaNode3e.SetActive(false);
+
+        flagRepeticionCienciaCorrecta = true;
     }
 
 
     //Opcion 1 - Incorrecta
     //Opcion 2 - Correcta
     //Opcion 3 - Incorrecta
-    public void ElegirPreguntaTecnologia(int intTecnologia){
-        if(intTecnologia == 0){
+    public void ElegirPreguntaTecnologia(int intTecnologia)
+    {
+        if (intTecnologia == 0)
+        {
             StartCoroutine(AdvancingTimerOpcionIncorrecta2());
-        }else if(intTecnologia == 1){
+        }
+        else if (intTecnologia == 1)
+        {
             StartCoroutine(AdvancingTimerOpcionCorrecta2());
-        }else if(intTecnologia == 2){
+        }
+        else if (intTecnologia == 2)
+        {
             StartCoroutine(AdvancingTimerOpcionIncorrecta2());
-        }else{
+        }
+        else
+        {
             Debug.Log("Esta opción no existe");
         }
     }
 
     IEnumerator AdvancingTimerTecnologia()
     {
-        GO_CanvaNode3D1.SetActive(false);
+        if (flagRepeticionTecnologia == true)
+        {
+            textNode3f_1.RestartText();
+            textNode3f_2.RestartText();
+        }
+
         GO_CanvaNode3f.SetActive(true);
+        GO_CanvaNode3D1.SetActive(false);
 
         videoPlayerNode3f.Stop();
-        videoPlayerNode3f.time = 0;        
+        videoPlayerNode3f.time = 0;
         videoPlayerNode3f.frame = 0;
         videoPlayerNode3f.Play();
 
@@ -537,15 +618,24 @@ public class TimerNode3 : MonoBehaviour
         myTextNode3f_2.gameObject.SetActive(false);
 
         GO_PanelPreguntaTecnologia.SetActive(true);
+
+        flagRepeticionTecnologia = true;
     }
 
     IEnumerator AdvancingTimerOpcionIncorrecta2()
     {
-        GO_PanelPreguntaTecnologia.SetActive(false);
+        if (flagRepeticionTecnologiaIncorrecta1 == true)
+        {
+            textNode3f_I1.RestartText();
+            textNode3f_I2.RestartText();
+            textNode3f_I3.RestartText();
+        }
+
         GO_CanvaNode3f.SetActive(true);
+        GO_PanelPreguntaTecnologia.SetActive(false);
 
         videoPlayerNode3f.Stop();
-        videoPlayerNode3f.time = 0;        
+        videoPlayerNode3f.time = 0;
         videoPlayerNode3f.frame = 0;
         videoPlayerNode3f.Play();
 
@@ -574,15 +664,27 @@ public class TimerNode3 : MonoBehaviour
         myTextNode3f_I3.gameObject.SetActive(false);
 
         GO_PanelPreguntaTecnologia.SetActive(true);
+
+        flagRepeticionTecnologiaIncorrecta1 = true;
     }
 
     IEnumerator AdvancingTimerOpcionCorrecta2()
     {
-        GO_PanelPreguntaTecnologia.SetActive(false);
+        if (flagRepeticionTecnologiaCorrecta == true)
+        {
+            textNode3f_C1.RestartText();
+            textNode3f_C2.RestartText();
+            textNode3f_C3.RestartText();
+            textNode3g_1.RestartText();
+            textNode3g_2.RestartText();
+            textNode3g_3.RestartText();
+        }
+
         GO_CanvaNode3f.SetActive(true);
+        GO_PanelPreguntaTecnologia.SetActive(false);
 
         videoPlayerNode3f.Stop();
-        videoPlayerNode3f.time = 0;        
+        videoPlayerNode3f.time = 0;
         videoPlayerNode3f.frame = 0;
         videoPlayerNode3f.Play();
 
@@ -607,12 +709,13 @@ public class TimerNode3 : MonoBehaviour
         PlayByName("3f_C3");
 
         yield return new WaitForSeconds(6.8f);
+        myTextNode3f_C3.gameObject.SetActive(false);
 
-        GO_CanvaNode3f.SetActive(false);
         GO_CanvaNode3g.SetActive(true);
+        GO_CanvaNode3f.SetActive(false);
 
         videoPlayerNode3g.Stop();
-        videoPlayerNode3g.time = 0;        
+        videoPlayerNode3g.time = 0;
         videoPlayerNode3g.frame = 0;
         videoPlayerNode3g.Play();
 
@@ -639,16 +742,20 @@ public class TimerNode3 : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         myTextNode3g_3.gameObject.SetActive(false);
+        GO_CanvaNode3D1.SetActive(true);
+        GO_CanvaNode3g.SetActive(false);
+
+        flagRepeticionTecnologiaCorrecta = true;
     }
 
 
     IEnumerator AdvancingTimerInnovacion()
     {
-        GO_CanvaNode3D1.SetActive(false);
         GO_CanvaNode3h0.SetActive(true);
+        GO_CanvaNode3D1.SetActive(false);
 
         videoPlayerNode3h0.Stop();
-        videoPlayerNode3h0.time = 0;        
+        videoPlayerNode3h0.time = 0;
         videoPlayerNode3h0.frame = 0;
         videoPlayerNode3h0.Play();
 
@@ -656,11 +763,11 @@ public class TimerNode3 : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
 
-        GO_CanvaNode3h0.SetActive(false);
         GO_CanvaNode3h.SetActive(true);
+        GO_CanvaNode3h0.SetActive(false);
 
         videoPlayerNode3h.Stop();
-        videoPlayerNode3h.time = 0;        
+        videoPlayerNode3h.time = 0;
         videoPlayerNode3h.frame = 0;
         videoPlayerNode3h.Play();
 
@@ -679,11 +786,11 @@ public class TimerNode3 : MonoBehaviour
 
         yield return new WaitForSeconds(5.5f);
 
-        GO_CanvaNode3h.SetActive(false);
         GO_CanvaNode3i.SetActive(true);
+        GO_CanvaNode3h.SetActive(false);
 
         videoPlayerNode3i.Stop();
-        videoPlayerNode3i.time = 0;        
+        videoPlayerNode3i.time = 0;
         videoPlayerNode3i.frame = 0;
         videoPlayerNode3i.Play();
 
@@ -709,11 +816,11 @@ public class TimerNode3 : MonoBehaviour
 
         yield return new WaitForSeconds(4.4f);
 
-        GO_CanvaNode3i.SetActive(false);
         GO_CanvaNode3j.SetActive(true);
+        GO_CanvaNode3i.SetActive(false);
 
         videoPlayerNode3j.Stop();
-        videoPlayerNode3j.time = 0;        
+        videoPlayerNode3j.time = 0;
         videoPlayerNode3j.frame = 0;
         videoPlayerNode3j.Play();
 
