@@ -543,18 +543,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4831707205471396277, guid: af24e3efab25f4b25b4009abcc4b08e4, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
-    - target: {fileID: 5156165153900565088, guid: af24e3efab25f4b25b4009abcc4b08e4, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
-    - target: {fileID: 5559244360226107860, guid: af24e3efab25f4b25b4009abcc4b08e4, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
     - target: {fileID: 5842099265221770420, guid: af24e3efab25f4b25b4009abcc4b08e4, type: 3}
       propertyPath: m_Name
       value: ScnDialogue7
@@ -595,10 +583,6 @@ PrefabInstance:
       propertyPath: 'sources.Array.data[3]'
       value: 
       objectReference: {fileID: 2609568029930058780}
-    - target: {fileID: 8054877814621594824, guid: af24e3efab25f4b25b4009abcc4b08e4, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
     - target: {fileID: 8488675879245802019, guid: af24e3efab25f4b25b4009abcc4b08e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1077.0369

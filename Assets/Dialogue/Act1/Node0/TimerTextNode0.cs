@@ -42,11 +42,8 @@ public class TimerTextNode0 : MonoBehaviour
     public AudioSource DN0_3;
     public AudioSource Cinematic1;
     public AudioSource Music;
-
-    [Header("Button Feedback")]
-    public AudioSource buttonAudioSource;
-    public AudioClip buttonClickSound;
-
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         /*videoPlayerNode0a.Stop();
@@ -55,20 +52,16 @@ public class TimerTextNode0 : MonoBehaviour
         videoPlayerNode0a.Play();*/
     }
 
+    // Update is called once per frame
     void Update()
     {
-        if (flagJustOneTime == false)
-        {
+        if(flagJustOneTime == false){
             StartCoroutine(AdvancingTimerNode0());
             flagJustOneTime = true;
         }
     }
 
-    public void ChangeNode0To1()
-    {
-        if (buttonAudioSource != null && buttonClickSound != null)
-            buttonAudioSource.PlayOneShot(buttonClickSound);
-
+    public void ChangeNode0To1(){
         GO_Node0.SetActive(false);
         GO_Node1.SetActive(true);
         timerNode1.StartTimerNode1();
@@ -77,7 +70,7 @@ public class TimerTextNode0 : MonoBehaviour
     IEnumerator AdvancingTimerNode0()
     {
         videoPlayerNode0a.Stop();
-        videoPlayerNode0a.time = 0;
+        videoPlayerNode0a.time = 0;        
         videoPlayerNode0a.frame = 0;
         videoPlayerNode0a.Play();
         Music.Play(); // Inicio Música de Fondo 
@@ -94,9 +87,9 @@ public class TimerTextNode0 : MonoBehaviour
 
         canvasFader.FadeAToB();
         videoPlayerNode0b.Stop();
-        videoPlayerNode0b.time = 0;
+        videoPlayerNode0b.time = 0;        
         videoPlayerNode0b.frame = 0;
-
+        
         Music.Stop(); // Fin música de Fondo Música de Fondo 
         videoPlayerNode0b.Play();
 
