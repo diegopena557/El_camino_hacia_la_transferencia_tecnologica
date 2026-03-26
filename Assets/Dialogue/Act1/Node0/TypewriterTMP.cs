@@ -20,11 +20,6 @@ public class TypewriterTMP : MonoBehaviour
         StartCoroutine(TypeText());
     }
 
-    public void RestartText(){
-        fullText = textUI.text;
-        textUI.text = "";
-    }
-
     IEnumerator TypeText()
     {
         foreach (char c in fullText)
