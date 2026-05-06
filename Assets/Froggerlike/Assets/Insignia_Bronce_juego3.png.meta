@@ -1,0 +1,317 @@
+fileFormatVersion: 2
+guid: 4631e24eb6b9d754590e1ec777cd7357
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1909372932373494216
+    second: Insignia_Bronce_juego3_0
+  - first:
+      213: 3980226040610486748
+    second: Insignia_Bronce_juego3_1
+  - first:
+      213: -1998057253759020754
+    second: Insignia_Bronce_juego3_2
+  - first:
+      213: -66824376459012250
+    second: Insignia_Bronce_juego3_3
+  - first:
+      213: -2994231563374154611
+    second: Insignia_Bronce_juego3_4
+  - first:
+      213: -3714606016406467375
+    second: Insignia_Bronce_juego3_5
+  - first:
+      213: -2678055618946278969
+    second: Insignia_Bronce_juego3_6
+  - first:
+      213: 2433574685549861741
+    second: Insignia_Bronce_juego3_7
+  - first:
+      213: 2979335744355635044
+    second: Insignia_Bronce_juego3_8
+  - first:
+      213: -4499883822767231951
+    second: Insignia_Bronce_juego3_9
+  - first:
+      213: 2479043548935968637
+    second: Insignia_Bronce_juego3_10
+  - first:
+      213: 2531654495987521582
+    second: Insignia_Bronce_juego3_11
+  - first:
+      213: -574210090757012380
+    second: Insignia_Bronce_juego3_12
+  - first:
+      213: -1908988524113532813
+    second: Insignia_Bronce_juego3_13
+  - first:
+      213: -6230273584246585954
+    second: Insignia_Bronce_juego3_14
+  - first:
+      213: -5647758916996678600
+    second: Insignia_Bronce_juego3_15
+  - first:
+      213: -7508771399249050440
+    second: Insignia_Bronce_juego3_16
+  - first:
+      213: -2476983315772564735
+    second: Insignia_Bronce_juego3_17
+  - first:
+      213: 4621942073916417959
+    second: Insignia_Bronce_juego3_18
+  - first:
+      213: -5155206702146247538
+    second: Insignia_Bronce_juego3_19
+  - first:
+      213: 1987784935222077273
+    second: Insignia_Bronce_juego3_20
+  - first:
+      213: -7508674774505247403
+    second: Insignia_Bronce_juego3_21
+  - first:
+      213: 4277059699628876368
+    second: Insignia_Bronce_juego3_22
+  - first:
+      213: 5669907418669236800
+    second: Insignia_Bronce_juego3_23
+  - first:
+      213: -8171234653029902687
+    second: Insignia_Bronce_juego3_24
+  - first:
+      213: -6640047598788649485
+    second: Insignia_Bronce_juego3_25
+  - first:
+      213: -5472187550707495839
+    second: Insignia_Bronce_juego3_26
+  - first:
+      213: 9019666804848734002
+    second: Insignia_Bronce_juego3_27
+  - first:
+      213: 1530070934861131237
+    second: Insignia_Bronce_juego3_28
+  - first:
+      213: 5924499540134578160
+    second: Insignia_Bronce_juego3_29
+  - first:
+      213: 2183444978989110737
+    second: Insignia_Bronce_juego3_30
+  - first:
+      213: 1233069549674519187
+    second: Insignia_Bronce_juego3_31
+  - first:
+      213: -4014193709887553370
+    second: Insignia_Bronce_juego3_32
+  - first:
+      213: 7133069017097133720
+    second: Insignia_Bronce_juego3_33
+  - first:
+      213: -3769684044415811878
+    second: Insignia_Bronce_juego3_34
+  - first:
+      213: -8843879359116019113
+    second: Insignia_Bronce_juego3_35
+  - first:
+      213: 3346064845598795005
+    second: Insignia_Bronce_juego3_36
+  - first:
+      213: 8086794405237981523
+    second: Insignia_Bronce_juego3_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Insignia_Bronce_juego3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 631
+        width: 1440
+        height: 1363
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c93ed1d0947f7a10800000000000000
+      internalID: 1909372932373494216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4e68773b04ff4c6408f31be723da2511
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Insignia_Bronce_juego3_0: 1909372932373494216
+      Insignia_Bronce_juego3_1: 3980226040610486748
+      Insignia_Bronce_juego3_10: 2479043548935968637
+      Insignia_Bronce_juego3_11: 2531654495987521582
+      Insignia_Bronce_juego3_12: -574210090757012380
+      Insignia_Bronce_juego3_13: -1908988524113532813
+      Insignia_Bronce_juego3_14: -6230273584246585954
+      Insignia_Bronce_juego3_15: -5647758916996678600
+      Insignia_Bronce_juego3_16: -7508771399249050440
+      Insignia_Bronce_juego3_17: -2476983315772564735
+      Insignia_Bronce_juego3_18: 4621942073916417959
+      Insignia_Bronce_juego3_19: -5155206702146247538
+      Insignia_Bronce_juego3_2: -1998057253759020754
+      Insignia_Bronce_juego3_20: 1987784935222077273
+      Insignia_Bronce_juego3_21: -7508674774505247403
+      Insignia_Bronce_juego3_22: 4277059699628876368
+      Insignia_Bronce_juego3_23: 5669907418669236800
+      Insignia_Bronce_juego3_24: -8171234653029902687
+      Insignia_Bronce_juego3_25: -6640047598788649485
+      Insignia_Bronce_juego3_26: -5472187550707495839
+      Insignia_Bronce_juego3_27: 9019666804848734002
+      Insignia_Bronce_juego3_28: 1530070934861131237
+      Insignia_Bronce_juego3_29: 5924499540134578160
+      Insignia_Bronce_juego3_3: -66824376459012250
+      Insignia_Bronce_juego3_30: 2183444978989110737
+      Insignia_Bronce_juego3_31: 1233069549674519187
+      Insignia_Bronce_juego3_32: -4014193709887553370
+      Insignia_Bronce_juego3_33: 7133069017097133720
+      Insignia_Bronce_juego3_34: -3769684044415811878
+      Insignia_Bronce_juego3_35: -8843879359116019113
+      Insignia_Bronce_juego3_36: 3346064845598795005
+      Insignia_Bronce_juego3_37: 8086794405237981523
+      Insignia_Bronce_juego3_4: -2994231563374154611
+      Insignia_Bronce_juego3_5: -3714606016406467375
+      Insignia_Bronce_juego3_6: -2678055618946278969
+      Insignia_Bronce_juego3_7: 2433574685549861741
+      Insignia_Bronce_juego3_8: 2979335744355635044
+      Insignia_Bronce_juego3_9: -4499883822767231951
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
