@@ -17,16 +17,22 @@ MonoBehaviour:
   options:
   - text: Integrar subsistemas
     isCorrect: 1
+    feedbackText: 
   - text: Validar en entorno simulado
     isCorrect: 1
+    feedbackText: 
   - text: "Documentar resultados t\xE9cnicos"
     isCorrect: 1
+    feedbackText: 
   - text: "Buscar inversi\xF3n"
     isCorrect: 0
+    feedbackText: 
   - text: Validar con usuarios reales
     isCorrect: 0
-  feedbackCorrectPerfect: Perfecto!
-  feedbackCorrectEarly: Correcto, pero muy temprano
-  feedbackCorrectLate: Correcto, pero muy tarde
-  feedbackWrong: Respuesta incorrecta
+    feedbackText: 
+  perfectZoneStart: 0.33
+  perfectZoneEnd: 0.66
+  feedbackTimingPerfect: en el momento justo!
+  feedbackTimingEarly: muy temprano.
+  feedbackTimingLate: muy tarde.
   feedbackNoAnswer: Sin respuesta

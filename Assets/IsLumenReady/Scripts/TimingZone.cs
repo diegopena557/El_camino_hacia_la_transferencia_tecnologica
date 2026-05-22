@@ -7,6 +7,8 @@ using UnityEngine;
 // 4. Asigna el segmentIndex correcto (0 = primer tramo).
 // 5. El personaje necesita el tag "Player".
 public class TimingZone : MonoBehaviour
+
+
 {
     [Tooltip("Indice del segmento al que pertenece esta zona (0 = primer tramo)")]
     public int segmentIndex;
@@ -19,6 +21,7 @@ public class TimingZone : MonoBehaviour
         if (other.CompareTag("Player"))
             OnPlayerEnter?.Invoke(segmentIndex);
     }
+
 
     void OnTriggerExit2D(Collider2D other)
     {

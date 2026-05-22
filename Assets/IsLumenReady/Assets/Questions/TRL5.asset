@@ -17,16 +17,22 @@ MonoBehaviour:
   options:
   - text: "Ejecutar pruebas t\xE9cnicas"
     isCorrect: 1
+    feedbackText: 
   - text: "Ajustar dise\xF1o t\xE9cnico"
     isCorrect: 1
+    feedbackText: 
   - text: Validar componentes en entorno relevante
     isCorrect: 1
+    feedbackText: 
   - text: Lanzar piloto comercial
     isCorrect: 0
+    feedbackText: 
   - text: "Escalar producci\xF3n"
     isCorrect: 0
-  feedbackCorrectPerfect: Perfecto!
-  feedbackCorrectEarly: Correcto, pero muy temprano
-  feedbackCorrectLate: Correcto, pero muy tarde
-  feedbackWrong: Respuesta incorrecta
+    feedbackText: 
+  perfectZoneStart: 0.4
+  perfectZoneEnd: 0.7
+  feedbackTimingPerfect: en el momento justo!
+  feedbackTimingEarly: muy temprano.
+  feedbackTimingLate: muy tarde.
   feedbackNoAnswer: Sin respuesta

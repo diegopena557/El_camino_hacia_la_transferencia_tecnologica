@@ -7,9 +7,11 @@ using UnityEngine.Splines;
 // 3. Asigna los 8 SegmentData (uno por tramo) al array segmentData.
 //    segmentData[0] = tramo entre stopPoints[0] y stopPoints[1], etc.
 //
-// El segmento activo se determina automaticamente comparando la posicion
-// del personaje con los pares de stopPoints adyacentes, sin necesidad
-// de knots ni indices manuales.
+// El timing se evalua con SegmentProgress: un float [0..1] que representa
+// que tan lejos esta el personaje dentro del tramo actual.
+// 0 = acaba de salir del stop anterior, 1 = llego al siguiente stop.
+// QuestionManager lo lee en el momento que el jugador responde y lo
+// compara contra perfectZoneStart / perfectZoneEnd del SegmentData.
 [RequireComponent(typeof(Animator))]
 public class WaypointMover : MonoBehaviour
 {
@@ -28,8 +30,10 @@ public class WaypointMover : MonoBehaviour
 
     // -- Estado ----------------------------------------------------------------
     private int currentStopIndex = 0;
+    private int currentSegment = -1;
     private float currentT = 0f;
-    private float targetT = 0f;
+    private float segmentStartT = 0f;   // spline-t at the start of this segment
+    private float segmentEndT = 0f;   // spline-t at the end of this segment
     private bool isMoving = false;
     private float splineLength;
 
@@ -66,7 +70,7 @@ public class WaypointMover : MonoBehaviour
         if (!isMoving) return;
 
         float step = (speed / splineLength) * Time.deltaTime;
-        currentT = Mathf.MoveTowards(currentT, targetT, step);
+        currentT = Mathf.MoveTowards(currentT, segmentEndT, step);
 
         Vector3 pos = splineContainer.EvaluatePosition(currentT);
         pos.z = transform.position.z;
@@ -74,7 +78,7 @@ public class WaypointMover : MonoBehaviour
         FaceDirection(pos - transform.position);
         transform.position = pos;
 
-        if (Mathf.Abs(currentT - targetT) < 0.0005f)
+        if (Mathf.Abs(currentT - segmentEndT) < 0.0005f)
             ArriveAtStop();
     }
 
@@ -93,8 +97,6 @@ public class WaypointMover : MonoBehaviour
 
     // -- Public API ------------------------------------------------------------
 
-    // Called by QuestionManager after the question for the current segment
-    // has been resolved (correctly or not).
     public void AdvanceToNextStop()
     {
         int next = currentStopIndex + 1;
@@ -106,8 +108,13 @@ public class WaypointMover : MonoBehaviour
             return;
         }
 
+        currentSegment = next - 1;
         currentStopIndex = next;
-        targetT = GetClosestT(stopPoints[currentStopIndex].position);
+
+        // Record the spline-t range of this segment so SegmentProgress is accurate
+        segmentStartT = GetClosestT(stopPoints[currentStopIndex - 1].position);
+        segmentEndT = GetClosestT(stopPoints[currentStopIndex].position);
+
         isMoving = true;
         SetWalking(true);
     }
@@ -117,61 +124,43 @@ public class WaypointMover : MonoBehaviour
         speed = baseSpeed * multiplier;
     }
 
-    // -- Segment detection -----------------------------------------------------
+    // -- Segment info ----------------------------------------------------------
 
-    // Returns the index of the segment the character is currently travelling.
-    // Segment N = path from stopPoints[N] to stopPoints[N+1].
-    // Detected by finding which consecutive pair of stop-point t-values
-    // brackets the current currentT.
-    public int CurrentSegmentIndex
+    // How far along the current segment the character is, 0 = just left the
+    // previous stop, 1 = arrived at the next stop.
+    // QuestionManager reads this when the player answers to evaluate timing.
+    public float SegmentProgress
     {
         get
         {
-            // Cache t values for each stop point at runtime
-            int count = stopPoints.Length;
-            if (count < 2) return 0;
-
-            for (int i = 0; i < count - 1; i++)
-            {
-                float tA = GetClosestT(stopPoints[i].position);
-                float tB = GetClosestT(stopPoints[i + 1].position);
-
-                float lo = Mathf.Min(tA, tB);
-                float hi = Mathf.Max(tA, tB);
-
-                if (currentT >= lo && currentT <= hi)
-                    return i;
-            }
-
-            // Fallback: last segment
-            return count - 2;
+            float range = segmentEndT - segmentStartT;
+            if (Mathf.Abs(range) < 0.0001f) return 0f;
+            return Mathf.Clamp01((currentT - segmentStartT) / range);
         }
+    }
+
+    public int CurrentSegmentIndex => currentSegment;
+
+    // Converts a segment-local progress value [0..1] back to raw spline-t.
+    // Used by QuestionManager to compare against AnswerZone's cached t values.
+    public float GetRawT(float segmentProgress)
+    {
+        return segmentStartT + segmentProgress * (segmentEndT - segmentStartT);
     }
 
     public SegmentData CurrentSegmentData
     {
         get
         {
-            int idx = CurrentSegmentIndex;
-            if (segmentData == null || idx >= segmentData.Length) return null;
-            return segmentData[idx];
+            if (segmentData == null || currentSegment < 0 || currentSegment >= segmentData.Length)
+                return null;
+            return segmentData[currentSegment];
         }
     }
 
     // -- Helpers ---------------------------------------------------------------
 
-    // Caches t per stop to avoid redundant calls in CurrentSegmentIndex.
-    // Call once after Start if the spline is static for better performance.
-    float[] cachedStopT;
-
-    public void CacheStopTs()
-    {
-        cachedStopT = new float[stopPoints.Length];
-        for (int i = 0; i < stopPoints.Length; i++)
-            cachedStopT[i] = GetClosestT(stopPoints[i].position);
-    }
-
-    float GetClosestT(Vector3 worldPos)
+    public float GetClosestT(Vector3 worldPos)
     {
         SplineUtility.GetNearestPoint(
             splineContainer.Spline,

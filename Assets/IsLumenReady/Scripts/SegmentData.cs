@@ -13,21 +13,29 @@ public class SegmentData : ScriptableObject
     public string question = "Escribe la pregunta aqui";
 
     [Header("Opciones de respuesta")]
-    [Tooltip("Agrega todas las opciones. Marca cuales son correctas con el bool.")]
+    [Tooltip("Agrega hasta 5 opciones. Marca cuales son correctas con isCorrect.\n" +
+             "feedbackText se muestra al jugador cuando presiona ese boton,\n" +
+             "independientemente del timing (correcto/incorrecto).")]
     public AnswerOption[] options;
 
-    [Header("Feedback por timing")]
-    [TextArea(1, 2)] public string feedbackCorrectPerfect = "Perfecto!";
-    [TextArea(1, 2)] public string feedbackCorrectEarly = "Correcto, pero muy temprano";
-    [TextArea(1, 2)] public string feedbackCorrectLate = "Correcto, pero muy tarde";
-    [TextArea(1, 2)] public string feedbackWrong = "Respuesta incorrecta";
-    [TextArea(1, 2)] public string feedbackNoAnswer = "Sin respuesta";
+    [Header("Feedback por timing (se combina con el feedback de la opcion)")]
+    [TextArea(1, 2)] public string feedbackTimingPerfect = "en el momento justo!";
+    [TextArea(1, 2)] public string feedbackTimingEarly = "muy temprano.";
+    [TextArea(1, 2)] public string feedbackTimingLate = "muy tarde.";
+    [TextArea(1, 2)] public string feedbackNoAnswer = "Sin respuesta.";
 
     [System.Serializable]
     public struct AnswerOption
     {
         [TextArea(1, 2)]
         public string text;
+
+        [Tooltip("Si es true, esta opcion se considera una respuesta valida")]
         public bool isCorrect;
+
+        [Tooltip("Texto que aparece cuando el jugador presiona este boton.\n" +
+                 "El feedback de timing se agrega automaticamente a continuacion.")]
+        [TextArea(1, 3)]
+        public string feedbackText;
     }
 }
