@@ -17,16 +17,20 @@ MonoBehaviour:
   options:
   - text: "Producci\xF3n piloto"
     isCorrect: 1
+    feedbackText: "La producci\xF3n controlada valida la viabilidad"
   - text: Optimizar procesos productivos
     isCorrect: 1
+    feedbackText: Optimizar mejora eficiencia y estabilidad
   - text: "Validar operaci\xF3n continua"
     isCorrect: 1
+    feedbackText: La estabilidad operativa permite avanzar
   - text: Expandir a nuevos mercados
     isCorrect: 0
+    feedbackText: Sin estabilidad consolidada, expandir es riesgoso
   - text: "Escalar producci\xF3n masiva"
     isCorrect: 0
-  feedbackCorrectPerfect: Perfecto!
-  feedbackCorrectEarly: Correcto, pero muy temprano
-  feedbackCorrectLate: Correcto, pero muy tarde
-  feedbackWrong: Respuesta incorrecta
+    feedbackText: Escalar sin control compromete calidad
+  feedbackTimingPerfect: en el momento justo!
+  feedbackTimingEarly: muy temprano.
+  feedbackTimingLate: muy tarde.
   feedbackNoAnswer: Sin respuesta

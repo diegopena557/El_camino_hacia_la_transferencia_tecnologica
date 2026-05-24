@@ -1,24 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
-// SETUP UI:
-//   questionUI       -> root panel of the question UI (disabled by default)
-//   questionText     -> TMP_Text showing the question
-//   answerButtons[5] -> the 5 Button references assigned in the Inspector
-//                       each Button must have a TMP_Text child for the label
-//   feedbackText     -> TMP_Text for timing/result feedback
-//   feedbackDuration -> seconds to show feedback before hiding
-//
-// TIMING:
-//   Each segment has an AnswerZone in the scene with two GameObjects (zoneStart,
-//   zoneEnd) placed visually on the spline. When the player answers, the current
-//   spline-t is compared against the cached t values of that zone.
-//   No colliders, no percentage sliders.
-//
-// FEEDBACK:
-//   Each option has its own feedbackText. For correct answers it is combined
-//   with the timing suffix. Example: "Correcto! en el momento justo!"
 public class QuestionManager : MonoBehaviour
 {
     [Header("UI References")]
@@ -27,6 +9,8 @@ public class QuestionManager : MonoBehaviour
     [Tooltip("Assign the 5 answer Button GameObjects here in order")]
     public Button[] answerButtons = new Button[5];
     public TMP_Text feedbackText;
+    [Tooltip("TMP_Text separado que muestra solo el resultado del timing (Perfecto / Temprano / Tarde)")]
+    public TMP_Text timingText;
     public float feedbackDuration = 1.8f;
 
     [Header("Feedback colors")]
@@ -105,9 +89,12 @@ public class QuestionManager : MonoBehaviour
             TMP_Text lbl = answerButtons[i].GetComponentInChildren<TMP_Text>();
             if (lbl != null) lbl.text = data.options[i].text;
 
+            // Remove ALL listeners including any persistent ones set in the Inspector
             answerButtons[i].onClick.RemoveAllListeners();
-            int capturedIndex = i;
-            answerButtons[i].onClick.AddListener(() => OnButtonClicked(capturedIndex));
+
+            // Store index in a local copy so the lambda captures the right value
+            int idx = i;
+            answerButtons[i].onClick.AddListener(delegate { OnButtonClicked(idx); });
         }
 
         questionUI.SetActive(true);
@@ -142,18 +129,21 @@ public class QuestionManager : MonoBehaviour
     {
         questionActive = false;
 
+        // Capture everything BEFORE HideQuestion nulls activeSegmentData
         SegmentData data = activeSegmentData;
-        float currentT = mover.SegmentProgress;   // [0..1] within segment
-
-        // Find the AnswerZone for the current segment
+        float rawT = mover.CurrentRawT;
         int segIdx = mover.CurrentSegmentIndex;
         AnswerZone zone = FindZone(segIdx);
 
         HideQuestion();
 
-        float speedMult;
-        string msg;
-        Color col;
+        float speedMult = 0.65f;
+        string msg = "";
+        Color col = colorWrong;
+
+        string timingSuffix = "";
+        string optionFeedback = "";
+        bool isCorrect = false;
 
         if (autoFail)
         {
@@ -163,55 +153,52 @@ public class QuestionManager : MonoBehaviour
         }
         else
         {
-            string optionFeedback = "";
-            bool isCorrect = false;
-
             if (data != null && optionIndex >= 0 && optionIndex < data.options.Length)
             {
                 optionFeedback = data.options[optionIndex].feedbackText;
                 isCorrect = data.options[optionIndex].isCorrect;
             }
 
-            if (!isCorrect)
-            {
-                speedMult = 0.65f;
-                msg = optionFeedback;
-                col = colorWrong;
-            }
-            else
-            {
-                // Evaluate timing using AnswerZone if available,
-                // otherwise fall back to SegmentProgress midpoint
-                int timing = EvaluateTiming(zone, currentT);
 
-                string timingSuffix;
-                if (timing < 0)
-                {
-                    speedMult = 0.85f;
+            // Evaluate timing for ALL answers (correct or not)
+            // Returns: -1 Early, 0 Perfect, 1 Late, 2 past lateEnd (no answer window)
+            int timing = EvaluateTiming(zone, rawT);
+
+            switch (timing)
+            {
+                case -1:  // Early
                     timingSuffix = data != null ? data.feedbackTimingEarly : "muy temprano.";
-                    col = colorEarly;
-                }
-                else if (timing == 0)
-                {
-                    speedMult = 1.4f;
+                    col = isCorrect ? colorEarly : colorWrong;
+                    speedMult = isCorrect ? 0.85f : 0.65f;
+                    break;
+                case 0:   // Perfect
                     timingSuffix = data != null ? data.feedbackTimingPerfect : "en el momento justo!";
-                    col = colorPerfect;
-                }
-                else
-                {
-                    speedMult = 0.75f;
+                    col = isCorrect ? colorPerfect : colorWrong;
+                    speedMult = isCorrect ? 1.4f : 0.65f;
+                    break;
+                case 1:   // Late
                     timingSuffix = data != null ? data.feedbackTimingLate : "muy tarde.";
-                    col = colorLate;
-                }
-
-                msg = string.IsNullOrWhiteSpace(optionFeedback)
-                    ? timingSuffix
-                    : optionFeedback + " " + timingSuffix;
+                    col = isCorrect ? colorLate : colorWrong;
+                    speedMult = isCorrect ? 0.75f : 0.65f;
+                    break;
+                default:  // Past lateEnd - treat as no answer
+                    timingSuffix = data != null ? data.feedbackNoAnswer : "sin respuesta.";
+                    col = colorWrong;
+                    speedMult = 0.55f;
+                    break;
             }
+
+            msg = optionFeedback;
         }
 
         mover.ModifySpeed(speedMult);
+
+        // feedbackText -> option-specific text ("La integracion permite...")
         ShowFeedback(msg, col);
+
+        // timingText -> timing result ("en el momento justo!" / "muy temprano." / "muy tarde.")
+        if (!autoFail)
+            ShowTimingFeedback(timingSuffix ?? "", col);
     }
 
     // -- Timing helpers --------------------------------------------------------
@@ -226,23 +213,22 @@ public class QuestionManager : MonoBehaviour
     }
 
     // Evaluate timing: -1 Early, 0 Perfect, 1 Late
-    // Uses the AnswerZone's cached spline-t values directly.
-    // currentT here is WaypointMover.SegmentProgress [0..1], but AnswerZone
-    // uses raw spline-t, so we convert back using the segment's t range.
-    int EvaluateTiming(AnswerZone zone, float segmentProgress)
+    // rawT is mover.CurrentRawT - the raw spline-t with no conversion.
+    // AnswerZone.cachedStartT / cachedEndT are also raw spline-t values,
+    // so the comparison is direct and accurate.
+    int EvaluateTiming(AnswerZone zone, float rawT)
     {
         if (zone == null)
         {
-            // No zone assigned: use simple thirds as fallback
-            if (segmentProgress < 0.4f) return -1;
-            if (segmentProgress < 0.7f) return 0;
-            return 1;
+            // No AnswerZone in scene for this segment: fallback to segment thirds
+            float progress = mover.SegmentProgress;
+            if (progress < 0.33f) return -1;  // Early
+            if (progress < 0.66f) return 0;  // Perfect
+            if (progress < 1.0f) return 1;  // Late
+            return 2;                          // Past end
         }
 
-        // Convert segment progress [0..1] back to raw spline-t for comparison
-        // SegmentProgress = (currentT - segmentStartT) / (segmentEndT - segmentStartT)
-        // We need to pass raw spline-t to zone.EvaluateTiming
-        float rawT = mover.GetRawT(segmentProgress);
+        // rawT is the raw spline-t value - passed directly, no conversion needed
         return zone.EvaluateTiming(rawT);
     }
 
@@ -258,6 +244,19 @@ public class QuestionManager : MonoBehaviour
         Invoke(nameof(HideFeedback), feedbackDuration);
     }
 
-    void HideFeedback() { SetFeedbackVisible(false); }
+    void HideFeedback()
+    {
+        SetFeedbackVisible(false);
+        if (timingText != null) timingText.gameObject.SetActive(false);
+    }
+
+    void ShowTimingFeedback(string msg, Color col)
+    {
+        if (timingText == null || string.IsNullOrWhiteSpace(msg)) return;
+        timingText.text = msg;
+        timingText.color = col;
+        timingText.gameObject.SetActive(true);
+    }
+
     void SetFeedbackVisible(bool v) { if (feedbackText != null) feedbackText.gameObject.SetActive(v); }
 }

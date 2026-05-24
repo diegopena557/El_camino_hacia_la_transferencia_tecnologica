@@ -17,16 +17,20 @@ MonoBehaviour:
   options:
   - text: Realizar piloto en entorno real
     isCorrect: 1
+    feedbackText: El entorno real confirma la viabilidad del sistema
   - text: "Recoger datos de desempe\xF1o"
     isCorrect: 1
+    feedbackText: Los datos permiten mejorar la estabilidad
   - text: "Iniciar evaluaci\xF3n regulatoria"
     isCorrect: 1
+    feedbackText: "Anticipar regulaci\xF3n reduce fricciones futuras"
   - text: Escalar comercialmente
     isCorrect: 0
+    feedbackText: "El mercado exige evidencia m\xE1s s\xF3lida"
   - text: Expandir mercado
     isCorrect: 0
-  feedbackCorrectPerfect: Perfecto!
-  feedbackCorrectEarly: Correcto, pero muy temprano
-  feedbackCorrectLate: Correcto, pero muy tarde
-  feedbackWrong: Respuesta incorrecta
+    feedbackText: "A\xFAn no hay validaci\xF3n suficiente para expandir"
+  feedbackTimingPerfect: en el momento justo!
+  feedbackTimingEarly: muy temprano.
+  feedbackTimingLate: muy tarde.
   feedbackNoAnswer: Sin respuesta

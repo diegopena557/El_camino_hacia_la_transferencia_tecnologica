@@ -17,16 +17,20 @@ MonoBehaviour:
   options:
   - text: Identificar cliente objetivo
     isCorrect: 1
+    feedbackText: "Reconocer a qui\xE9n sirve activa el valor de la tecnolog\xEDa"
   - text: Validar problema real
     isCorrect: 1
+    feedbackText: "Sin problema claro, no hay adopci\xF3n"
   - text: Explorar propuesta de valor
     isCorrect: 1
+    feedbackText: Definir valor permite conectar con el entorno
   - text: "Escalar producci\xF3n"
     isCorrect: 0
+    feedbackText: "Sin validaci\xF3n de mercado, escalar es prematuro"
   - text: Expandir mercado
     isCorrect: 0
-  feedbackCorrectPerfect: Perfecto!
-  feedbackCorrectEarly: Correcto, pero muy temprano
-  feedbackCorrectLate: Correcto, pero muy tarde
-  feedbackWrong: Respuesta incorrecta
+    feedbackText: "A\xFAn no hay evidencia de uso sostenido"
+  feedbackTimingPerfect: en el momento justo!
+  feedbackTimingEarly: muy temprano.
+  feedbackTimingLate: muy tarde.
   feedbackNoAnswer: Sin respuesta

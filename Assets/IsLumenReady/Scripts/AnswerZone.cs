@@ -1,21 +1,6 @@
 using UnityEngine;
 using UnityEngine.Splines;
 
-// SETUP EN ESCENA:
-// 1. Crea un GameObject por segmento, ej: "AnswerZone_0", "AnswerZone_1"...
-// 2. Agrega este componente.
-// 3. Asigna el segmentIndex (0 = primer tramo, 1 = segundo, etc.)
-// 4. Crea dos GameObjects vacios hijos: "ZoneStart" y "ZoneEnd".
-//    Colocalos visualmente sobre el spline donde quieres que empiece
-//    y termine la zona de respuesta perfecta.
-// 5. Arrastra esos GameObjects a los campos zoneStart y zoneEnd.
-//
-// En el Editor veras dos esferas de colores sobre el spline que puedes
-// mover libremente. No hay colliders ni fisica involucrada.
-//
-// El componente cachea los valores t del spline en Start() para que
-// la evaluacion en runtime sea instantanea.
-
 [ExecuteInEditMode]
 public class AnswerZone : MonoBehaviour
 {
@@ -23,65 +8,51 @@ public class AnswerZone : MonoBehaviour
     [Tooltip("0 = tramo entre stopPoints[0] y stopPoints[1], etc.")]
     public int segmentIndex = 0;
 
-    [Header("Marcadores visuales (GameObjects sobre el spline)")]
-    [Tooltip("Inicio de la zona perfecta - muevelo sobre el spline")]
-    public Transform zoneStart;
-    [Tooltip("Final de la zona perfecta - muevelo sobre el spline")]
-    public Transform zoneEnd;
+    [Header("Marcadores de zona (GameObjects sobre el spline)")]
+    [Tooltip("Fin de zona temprana - respuestas antes de este punto son Early")]
+    public Transform earlyEnd;
+    [Tooltip("Fin de zona perfecta - respuestas entre earlyEnd y aqui son Perfect")]
+    public Transform perfectEnd;
+    [Tooltip("Fin de zona tardia - respuestas entre perfectEnd y aqui son Late")]
+    public Transform lateEnd;
 
     [Header("Spline de referencia (mismo que usa WaypointMover)")]
     public SplineContainer splineContainer;
 
-    // Cached t values computed once at Start
-    [HideInInspector] public float cachedStartT = 0f;
-    [HideInInspector] public float cachedEndT = 1f;
+    // Cached raw spline-t values
+    [HideInInspector] public float cachedEarlyEndT = 0.33f;
+    [HideInInspector] public float cachedPerfectEndT = 0.66f;
+    [HideInInspector] public float cachedLateEndT = 1f;
 
     private bool cached = false;
 
     // -- Unity -----------------------------------------------------------------
 
-    void Start()
-    {
-        CacheValues();
-    }
-
-    // Also cache in editor when the component is enabled or values change
-    void OnEnable()
-    {
-        CacheValues();
-    }
+    void Start() { CacheValues(); }
+    void OnEnable() { CacheValues(); }
 
     // -- Public API ------------------------------------------------------------
 
-    // Call this at runtime to refresh cached t values (e.g. if zone markers moved)
     public void CacheValues()
     {
-        if (splineContainer == null || zoneStart == null || zoneEnd == null) return;
+        if (splineContainer == null) return;
 
-        cachedStartT = GetT(zoneStart.position);
-        cachedEndT = GetT(zoneEnd.position);
+        if (earlyEnd != null) cachedEarlyEndT = GetT(earlyEnd.position);
+        if (perfectEnd != null) cachedPerfectEndT = GetT(perfectEnd.position);
+        if (lateEnd != null) cachedLateEndT = GetT(lateEnd.position);
+
         cached = true;
     }
 
-    // Returns true if the given spline-t falls inside the perfect zone
-    public bool IsInZone(float t)
+    // Returns: -1 = Early, 0 = Perfect, 1 = Late, 2 = No answer (past lateEnd)
+    public int EvaluateTiming(float rawT)
     {
         if (!cached) CacheValues();
-        float lo = Mathf.Min(cachedStartT, cachedEndT);
-        float hi = Mathf.Max(cachedStartT, cachedEndT);
-        return t >= lo && t <= hi;
-    }
 
-    // Returns Early (-1), Perfect (0), or Late (1) for a given spline-t
-    public int EvaluateTiming(float t)
-    {
-        if (!cached) CacheValues();
-        float lo = Mathf.Min(cachedStartT, cachedEndT);
-        float hi = Mathf.Max(cachedStartT, cachedEndT);
-
-        if (t < lo) return -1;  // Early
-        if (t > hi) return 1;  // Late
-        return 0;                // Perfect
+        if (rawT <= cachedEarlyEndT) return -1;
+        if (rawT <= cachedPerfectEndT) return 0;
+        if (rawT <= cachedLateEndT) return 1;
+        return 2;   // past lateEnd - treated as no answer
     }
 
     // -- Helpers ---------------------------------------------------------------
@@ -103,32 +74,49 @@ public class AnswerZone : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        if (zoneStart != null)
+        float radius = 0.18f;
+
+        if (earlyEnd != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(earlyEnd.position, radius);
+            Gizmos.DrawLine(earlyEnd.position, earlyEnd.position + Vector3.up * 0.5f);
+        }
+
+        if (perfectEnd != null)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawSphere(zoneStart.position, 0.18f);
-            Gizmos.DrawLine(zoneStart.position, zoneStart.position + Vector3.up * 0.4f);
+            Gizmos.DrawSphere(perfectEnd.position, radius);
+            Gizmos.DrawLine(perfectEnd.position, perfectEnd.position + Vector3.up * 0.5f);
         }
 
-        if (zoneEnd != null)
+        if (lateEnd != null)
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(zoneEnd.position, 0.18f);
-            Gizmos.DrawLine(zoneEnd.position, zoneEnd.position + Vector3.up * 0.4f);
+            Gizmos.color = new Color(1f, 0.5f, 0f);
+            Gizmos.DrawSphere(lateEnd.position, radius);
+            Gizmos.DrawLine(lateEnd.position, lateEnd.position + Vector3.up * 0.5f);
         }
 
-        if (zoneStart != null && zoneEnd != null)
+        // Draw zone bands between markers
+        if (earlyEnd != null && perfectEnd != null)
         {
-            Gizmos.color = new Color(0f, 1f, 0f, 0.25f);
-            Gizmos.DrawLine(zoneStart.position, zoneEnd.position);
+            Gizmos.color = new Color(0f, 1f, 0f, 0.2f);
+            Gizmos.DrawLine(earlyEnd.position, perfectEnd.position);
+        }
+
+        if (perfectEnd != null && lateEnd != null)
+        {
+            Gizmos.color = new Color(1f, 0.5f, 0f, 0.2f);
+            Gizmos.DrawLine(perfectEnd.position, lateEnd.position);
+        }
 
 #if UNITY_EDITOR
-            UnityEditor.Handles.color = new Color(0f, 1f, 0f, 0.15f);
-            UnityEditor.Handles.Label(
-                (zoneStart.position + zoneEnd.position) * 0.5f + Vector3.up * 0.5f,
-                "Zone " + segmentIndex
-            );
+        if (earlyEnd != null)
+            UnityEditor.Handles.Label(earlyEnd.position + Vector3.up * 0.6f, "Early " + segmentIndex);
+        if (perfectEnd != null)
+            UnityEditor.Handles.Label(perfectEnd.position + Vector3.up * 0.6f, "Perfect " + segmentIndex);
+        if (lateEnd != null)
+            UnityEditor.Handles.Label(lateEnd.position + Vector3.up * 0.6f, "Late " + segmentIndex);
 #endif
-        }
     }
 }

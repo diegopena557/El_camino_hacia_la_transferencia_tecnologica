@@ -17,21 +17,19 @@ MonoBehaviour:
   options:
   - text: Integrar subsistemas
     isCorrect: 1
-    feedbackText: 
+    feedbackText: "La integraci\xF3n permite construir una base t\xE9cnica s\xF3lida"
   - text: Validar en entorno simulado
     isCorrect: 1
-    feedbackText: 
+    feedbackText: "Validar aqu\xED reduce riesgos antes de avanzar"
   - text: "Documentar resultados t\xE9cnicos"
     isCorrect: 1
-    feedbackText: 
+    feedbackText: "Registrar evidencia fortalece la comprensi\xF3n del sistema."
   - text: "Buscar inversi\xF3n"
     isCorrect: 0
-    feedbackText: 
+    feedbackText: "Sin validaci\xF3n suficiente, el inter\xE9s externo se debilita"
   - text: Validar con usuarios reales
     isCorrect: 0
-    feedbackText: 
-  perfectZoneStart: 0.33
-  perfectZoneEnd: 0.66
+    feedbackText: "A\xFAn no est\xE1s listo para interacci\xF3n con usuarios"
   feedbackTimingPerfect: en el momento justo!
   feedbackTimingEarly: muy temprano.
   feedbackTimingLate: muy tarde.

@@ -17,16 +17,20 @@ MonoBehaviour:
   options:
   - text: "Consolidar adopci\xF3n"
     isCorrect: 1
+    feedbackText: El uso sostenido confirma la madurez del mercado
   - text: Optimizar modelo de negocio
     isCorrect: 1
+    feedbackText: La estabilidad permite crecimiento controlado
   - text: "Estabilizar operaci\xF3n"
     isCorrect: 1
+    feedbackText: La consistencia permite escalar con seguridad
   - text: "Expandir sin adopci\xF3n validada"
     isCorrect: 0
+    feedbackText: "Sin retenci\xF3n, expandir aumenta la incertidumbre"
   - text: Escalar sin modelo replicable
     isCorrect: 0
-  feedbackCorrectPerfect: Perfecto!
-  feedbackCorrectEarly: Correcto, pero muy temprano
-  feedbackCorrectLate: Correcto, pero muy tarde
-  feedbackWrong: Respuesta incorrecta
+    feedbackText: Sin repetibilidad, el crecimiento no se sostiene
+  feedbackTimingPerfect: en el momento justo!
+  feedbackTimingEarly: muy temprano.
+  feedbackTimingLate: muy tarde.
   feedbackNoAnswer: Sin respuesta

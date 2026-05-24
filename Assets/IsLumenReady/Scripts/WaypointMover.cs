@@ -139,6 +139,10 @@ public class WaypointMover : MonoBehaviour
         }
     }
 
+    // Raw spline-t at the character's current position.
+    // Pass this directly to AnswerZone.EvaluateTiming - no conversion needed.
+    public float CurrentRawT => currentT;
+
     public int CurrentSegmentIndex => currentSegment;
 
     // Converts a segment-local progress value [0..1] back to raw spline-t.

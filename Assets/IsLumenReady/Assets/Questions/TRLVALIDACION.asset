@@ -17,16 +17,20 @@ MonoBehaviour:
   options:
   - text: Lanzar piloto comercial
     isCorrect: 1
+    feedbackText: El mercado permite validar el valor en uso
   - text: "Recoger retroalimentaci\xF3n"
     isCorrect: 1
+    feedbackText: "La retroalimentaci\xF3n mejora la adopci\xF3n"
   - text: Ajustar modelo de negocio
     isCorrect: 1
+    feedbackText: Ajustar mejora coherencia entre valor y uso
   - text: Expandir a nuevos mercados
     isCorrect: 0
+    feedbackText: "Sin validaci\xF3n consistente, expandir diluye recursos"
   - text: "Escalar operaci\xF3n masiva"
     isCorrect: 0
-  feedbackCorrectPerfect: Perfecto!
-  feedbackCorrectEarly: Correcto, pero muy temprano
-  feedbackCorrectLate: Correcto, pero muy tarde
-  feedbackWrong: Respuesta incorrecta
+    feedbackText: Escalar sin evidencia sostenida genera riesgo
+  feedbackTimingPerfect: en el momento justo!
+  feedbackTimingEarly: muy temprano.
+  feedbackTimingLate: muy tarde.
   feedbackNoAnswer: Sin respuesta

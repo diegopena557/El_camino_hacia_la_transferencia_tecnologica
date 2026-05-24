@@ -17,21 +17,19 @@ MonoBehaviour:
   options:
   - text: "Ejecutar pruebas t\xE9cnicas"
     isCorrect: 1
-    feedbackText: 
+    feedbackText: Las pruebas fortalecen la confianza en el sistema
   - text: "Ajustar dise\xF1o t\xE9cnico"
     isCorrect: 1
-    feedbackText: 
+    feedbackText: Refinar ahora evita errores futuros
   - text: Validar componentes en entorno relevante
     isCorrect: 1
-    feedbackText: 
+    feedbackText: Validar componentes mejora la coherencia del sistema
   - text: Lanzar piloto comercial
     isCorrect: 0
-    feedbackText: 
+    feedbackText: "Sin estabilidad t\xE9cnica, el mercado percibe riesgo"
   - text: "Escalar producci\xF3n"
     isCorrect: 0
-    feedbackText: 
-  perfectZoneStart: 0.4
-  perfectZoneEnd: 0.7
+    feedbackText: "Escalar sin validaci\xF3n genera fallos estructurales"
   feedbackTimingPerfect: en el momento justo!
   feedbackTimingEarly: muy temprano.
   feedbackTimingLate: muy tarde.

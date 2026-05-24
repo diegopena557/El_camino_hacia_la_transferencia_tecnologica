@@ -17,16 +17,20 @@ MonoBehaviour:
   options:
   - text: Cumplir requisitos regulatorios
     isCorrect: 1
+    feedbackText: "Cumplir est\xE1ndares permite operar en contextos reales"
   - text: "Validar est\xE1ndares de calidad"
     isCorrect: 1
+    feedbackText: La calidad asegura consistencia del sistema
   - text: "Preparar salida a operaci\xF3n real"
     isCorrect: 1
+    feedbackText: "La tecnolog\xEDa est\xE1 lista para salir del entorno controlado"
   - text: Escalar comercialmente agresivo
     isCorrect: 0
+    feedbackText: "Sin validaci\xF3n en uso real, el crecimiento es prematuro"
   - text: "Expandir a m\xFAltiples mercados"
     isCorrect: 0
-  feedbackCorrectPerfect: Perfecto!
-  feedbackCorrectEarly: Correcto, pero muy temprano
-  feedbackCorrectLate: Correcto, pero muy tarde
-  feedbackWrong: Respuesta incorrecta
+    feedbackText: "A\xFAn no hay evidencia suficiente para sostener expansi\xF3n"
+  feedbackTimingPerfect: en el momento justo!
+  feedbackTimingEarly: muy temprano.
+  feedbackTimingLate: muy tarde.
   feedbackNoAnswer: Sin respuesta
