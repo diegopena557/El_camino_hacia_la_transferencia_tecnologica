@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using System.Collections.Generic; //Necesario para los audios
 
 public class TimerTextNode11 : MonoBehaviour
 {
@@ -43,6 +44,49 @@ public class TimerTextNode11 : MonoBehaviour
     public TypewriterTMP textNode11_5_3;
     public TypewriterTMP textNode11_5_4;
     public TypewriterTMP textNode11_5_5;
+
+    //////////////////// AUDIOS ////////////////////////
+    /// SFX Anim Sec ///
+    //[Header("SFX Anim Sec")]
+    //public AudioSource Anim1;
+    //public AudioSource Anim2;
+    /// Dialogos ///
+    [Header("Audio Sources")]
+    public AudioSource[] sources;
+
+    private Dictionary<string, AudioSource> audioDict;
+
+    void Awake()
+    {
+        audioDict = new Dictionary<string, AudioSource>();
+        foreach (AudioSource src in sources)
+        {
+            if (src != null)
+            {
+                audioDict[src.gameObject.name] = src;
+            }
+        }
+    }
+
+    public void PlayByName(string name)
+    {
+        if (audioDict.ContainsKey(name))
+        {
+            audioDict[name].Play();
+        }
+        else
+        {
+            Debug.LogWarning("No AudioSource found with name: " + name);
+        }
+    }
+
+    public void StopByName(string name)
+    {
+        if (audioDict.ContainsKey(name))
+        {
+            audioDict[name].Stop();
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -91,28 +135,33 @@ public class TimerTextNode11 : MonoBehaviour
         yield return new WaitForSeconds(1f);
         myTextNode11_3_1.gameObject.SetActive(true);
         textNode11_3_1.StartTyping();
+        PlayByName("11_3_1");
         
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(7.68f);
         myTextNode11_3_1.gameObject.SetActive(false);
         myTextNode11_3_2.gameObject.SetActive(true);
         textNode11_3_2.StartTyping();
+        PlayByName("11_3_2");
         
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.52f);
         myTextNode11_3_2.gameObject.SetActive(false);
         myTextNode11_3_3.gameObject.SetActive(true);
         textNode11_3_3.StartTyping();
+        PlayByName("11_3_3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5.96f);
         myTextNode11_3_3.gameObject.SetActive(false);
         myTextNode11_3_4.gameObject.SetActive(true);
         textNode11_3_4.StartTyping();
+        PlayByName("11_3_4");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5.172f);
         myTextNode11_3_4.gameObject.SetActive(false);
         myTextNode11_3_5.gameObject.SetActive(true);
         textNode11_3_5.StartTyping();
+        PlayByName("11_3_5");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6.713f);
         StartCoroutine(AdvancingTimerNode11_5());
     }
 
@@ -134,27 +183,32 @@ public class TimerTextNode11 : MonoBehaviour
         yield return new WaitForSeconds(1f);
         myTextNode11_5_1.gameObject.SetActive(true);
         textNode11_5_1.StartTyping();
+        PlayByName("11_5_1");
         
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(4.885f);
         myTextNode11_5_1.gameObject.SetActive(false);
         myTextNode11_5_2.gameObject.SetActive(true);
         textNode11_5_2.StartTyping();
+        PlayByName("11_5_2");
         
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3.19f);
         myTextNode11_5_2.gameObject.SetActive(false);
         myTextNode11_5_3.gameObject.SetActive(true);
         textNode11_5_3.StartTyping();
+        PlayByName("11_5_3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2.612f);
         myTextNode11_5_3.gameObject.SetActive(false);
         myTextNode11_5_4.gameObject.SetActive(true);
         textNode11_5_4.StartTyping();
+        PlayByName("11_5_4");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.65f);
         myTextNode11_5_4.gameObject.SetActive(false);
         myTextNode11_5_5.gameObject.SetActive(true);
         textNode11_5_5.StartTyping();
+        PlayByName("11_5_5");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5.695f);
     }
 }

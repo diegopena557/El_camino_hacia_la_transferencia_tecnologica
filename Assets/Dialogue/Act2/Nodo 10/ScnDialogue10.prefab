@@ -98,6 +98,15 @@ MonoBehaviour:
   textNode10_1_6: {fileID: 1550343915801815535}
   textNode10_1_7: {fileID: 3894273377794458912}
   textNode10_1_8: {fileID: 6562542709327107320}
+  sources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5462774218912932947
 GameObject:
   m_ObjectHideFlags: 0

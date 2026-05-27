@@ -2224,7 +2224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7620603144511644624
 Transform:
   m_ObjectHideFlags: 0
@@ -2263,6 +2263,11 @@ MonoBehaviour:
   textNode14_1_2: {fileID: 4586057964475093060}
   textNode14_1_3: {fileID: 8249185631976721145}
   textNode14_1_4: {fileID: 4083853917528140236}
+  sources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &4911293678480283938
 GameObject:
   m_ObjectHideFlags: 0

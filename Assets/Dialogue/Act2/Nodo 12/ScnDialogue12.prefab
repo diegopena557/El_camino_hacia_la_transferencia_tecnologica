@@ -330,6 +330,26 @@ MonoBehaviour:
   textNode12_6_1: {fileID: 2054917123050378262}
   textNode12_6_2: {fileID: 3768908825711025136}
   textNode12_6_3: {fileID: 5996087021606377881}
+  sources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &502452578414893248
 GameObject:
   m_ObjectHideFlags: 0

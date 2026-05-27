@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "El_camino_hacia_la_transferencia_tecnologica.slnx"
+    "dotnet.defaultSolution": "Lumen Videojuego.slnx"
 }
