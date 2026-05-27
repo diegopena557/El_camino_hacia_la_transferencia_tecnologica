@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c6d04dec173ca45bcf545fc44a9a28, type: 3}
+  m_Name: TRL8
+  m_EditorClassIdentifier: Assembly-CSharp::SegmentData
+  segmentLabel: TRL8
+  question: TRL8
+  options:
+  - text: Cumplir requisitos regulatorios
+    isCorrect: 1
+    feedbackText: "Cumplir est\xE1ndares permite operar en contextos reales"
+  - text: "Validar est\xE1ndares de calidad"
+    isCorrect: 1
+    feedbackText: La calidad asegura consistencia del sistema
+  - text: "Preparar salida a operaci\xF3n real"
+    isCorrect: 1
+    feedbackText: "La tecnolog\xEDa est\xE1 lista para salir del entorno controlado"
+  - text: Escalar comercialmente agresivo
+    isCorrect: 0
+    feedbackText: "Sin validaci\xF3n en uso real, el crecimiento es prematuro"
+  - text: "Expandir a m\xFAltiples mercados"
+    isCorrect: 0
+    feedbackText: "A\xFAn no hay evidencia suficiente para sostener expansi\xF3n"
+  feedbackTimingPerfect: en el momento justo!
+  feedbackTimingEarly: muy temprano.
+  feedbackTimingLate: muy tarde.
+  feedbackNoAnswer: Sin respuesta

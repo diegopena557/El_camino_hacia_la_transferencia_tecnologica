@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c6d04dec173ca45bcf545fc44a9a28, type: 3}
+  m_Name: TRL9
+  m_EditorClassIdentifier: Assembly-CSharp::SegmentData
+  segmentLabel: "TRL9 + CRL Exploraci\xF3n"
+  question: TRL9
+  options:
+  - text: Identificar cliente objetivo
+    isCorrect: 1
+    feedbackText: "Reconocer a qui\xE9n sirve activa el valor de la tecnolog\xEDa"
+  - text: Validar problema real
+    isCorrect: 1
+    feedbackText: "Sin problema claro, no hay adopci\xF3n"
+  - text: Explorar propuesta de valor
+    isCorrect: 1
+    feedbackText: Definir valor permite conectar con el entorno
+  - text: "Escalar producci\xF3n"
+    isCorrect: 0
+    feedbackText: "Sin validaci\xF3n de mercado, escalar es prematuro"
+  - text: Expandir mercado
+    isCorrect: 0
+    feedbackText: "A\xFAn no hay evidencia de uso sostenido"
+  feedbackTimingPerfect: en el momento justo!
+  feedbackTimingEarly: muy temprano.
+  feedbackTimingLate: muy tarde.
+  feedbackNoAnswer: Sin respuesta

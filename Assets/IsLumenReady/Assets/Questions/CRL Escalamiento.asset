@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c6d04dec173ca45bcf545fc44a9a28, type: 3}
+  m_Name: CRL Escalamiento
+  m_EditorClassIdentifier: Assembly-CSharp::SegmentData
+  segmentLabel: CRL Escalamiento
+  question: CRL Escalamiento
+  options:
+  - text: "Consolidar adopci\xF3n"
+    isCorrect: 1
+    feedbackText: El uso sostenido confirma la madurez del mercado
+  - text: Optimizar modelo de negocio
+    isCorrect: 1
+    feedbackText: La estabilidad permite crecimiento controlado
+  - text: "Estabilizar operaci\xF3n"
+    isCorrect: 1
+    feedbackText: La consistencia permite escalar con seguridad
+  - text: "Expandir sin adopci\xF3n validada"
+    isCorrect: 0
+    feedbackText: "Sin retenci\xF3n, expandir aumenta la incertidumbre"
+  - text: Escalar sin modelo replicable
+    isCorrect: 0
+    feedbackText: Sin repetibilidad, el crecimiento no se sostiene
+  feedbackTimingPerfect: en el momento justo!
+  feedbackTimingEarly: muy temprano.
+  feedbackTimingLate: muy tarde.
+  feedbackNoAnswer: Sin respuesta

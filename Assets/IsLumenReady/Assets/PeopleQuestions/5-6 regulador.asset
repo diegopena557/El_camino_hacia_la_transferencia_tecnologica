@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6daffa88cf1fc4d9bfca90cd336aa2, type: 3}
+  m_Name: 5-6 regulador
+  m_EditorClassIdentifier: Assembly-CSharp::StopQuestionData
+  questionLabel: Trl5-6 regulador
+  characterSprite: {fileID: -2508444514209004832, guid: 12e601cac0f9a1b4fac12f9c2b1c5541, type: 3}
+  questionText: "Regulador:\n\n\xBFCumple con requisitos m\xEDnimos?"
+  optionA:
+    buttonLabel: Correcto
+    isCorrect: 0
+    feedbackText: Intentar certificar temprano retrasa el proceso
+  optionB:
+    buttonLabel: Incorrecto
+    isCorrect: 1
+    feedbackText: "Reconoces que a\xFAn falta validaci\xF3n t\xE9cnica"

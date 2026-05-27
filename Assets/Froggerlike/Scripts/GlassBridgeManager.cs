@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 
 public class GlassBridgeManager : MonoBehaviour
 {
@@ -9,27 +10,49 @@ public class GlassBridgeManager : MonoBehaviour
 
     [Header("Player")]
     public Transform player;
+    public Animator playerAnimator;
     public float moveSpeed = 2f;
-    public float pauseDuration = 1f; // Pausa cuando falla
 
     [Header("Platforms")]
-    public List<PlatformLevel> platformLevels; // Lista de niveles con 4 plataformas cada uno
+    public List<PlatformLevel> platformLevels;
 
     [Header("Game Settings")]
-    public int totalLevels = 10; // Número de pares a cruzar
-    public float fadeInDuration = 0.5f; // Duración del fade in de nuevas plataformas
+    public int totalLevels = 10;
+    public float fadeInDuration = 0.5f;
 
     [Header("UI")]
     public TextMeshProUGUI levelText;
-    public TextMeshProUGUI errorText; // Mostrar errores cometidos
     public GameObject winPanel;
 
+    [Header("Victory UI")]
+    public TextMeshProUGUI correctText;
+    public TextMeshProUGUI errorText;
+    public TextMeshProUGUI percentageText;
+    public TextMeshProUGUI medalTitleText;
+
+    public Image medalImage;
+    public Sprite bronzeMedal;
+    public Sprite silverMedal;
+    public Sprite goldMedal;
+
+    [Header("Stats")]
+    public int correctCount = 0;
+    public int errorCount = 0;
+
     private int currentLevel = 0;
-    private int errorCount = 0; // Contador de errores
     private bool isMoving = false;
     private bool gameOver = false;
-    private bool isPaused = false;
-    private Vector3 initialPlayerPosition; // Guardar posición inicial del editor
+    private bool gameStarted = false; 
+    private Vector3 initialPlayerPosition;
+
+    [Header("End Game")]
+    public Transform endPoint;
+
+    private Vector3 correctScale;
+    private Vector3 errorScale;
+    private Vector3 percentageScale;
+    private Vector3 medalTitleScale;
+    private Vector3 medalImageScale;
 
     void Awake()
     {
@@ -41,45 +64,105 @@ public class GlassBridgeManager : MonoBehaviour
 
     void Start()
     {
-        // Guardar la posición inicial del jugador desde el editor
         if (player)
             initialPlayerPosition = player.position;
 
-        // Las plataformas ya inician ocultas desde su propio Start()
-        // No necesitamos ocultarlas aquí
+        correctScale = correctText.transform.localScale;
+        errorScale = errorText.transform.localScale;
+        percentageScale = percentageText.transform.localScale;
+        medalTitleScale = medalTitleText.transform.localScale;
+        medalImageScale = medalImage.transform.localScale;
 
-        ResetGame();
+        // NO iniciar el juego automáticamente
+        // El panel de instrucciones llamará a StartGame() cuando el jugador esté listo
     }
+
+    void RandomizeLevel(PlatformLevel level)
+    {
+        List<GlassPlatform> platforms = level.GetPlatforms();
+
+        // Recopilar datos originales
+        List<string> texts = new List<string>();
+        List<bool> corrects = new List<bool>();
+        List<string> feedbackTexts = new List<string>();
+
+        foreach (GlassPlatform p in platforms)
+        {
+            texts.Add(p.platformText);
+            corrects.Add(p.isCorrect);
+            feedbackTexts.Add(p.feedbackText);
+        }
+
+        // Fisher-Yates shuffle — todos los datos se mueven juntos
+        for (int i = texts.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+
+            string tmpText = texts[i];
+            texts[i] = texts[j];
+            texts[j] = tmpText;
+
+            bool tmpCorrect = corrects[i];
+            corrects[i] = corrects[j];
+            corrects[j] = tmpCorrect;
+
+            string tmpFeedback = feedbackTexts[i];
+            feedbackTexts[i] = feedbackTexts[j];
+            feedbackTexts[j] = tmpFeedback;
+        }
+
+        // Reasignar datos a cada plataforma (posición en escena no cambia)
+        for (int i = 0; i < platforms.Count; i++)
+        {
+            platforms[i].platformText = texts[i];
+            platforms[i].isCorrect = corrects[i];
+            platforms[i].feedbackText = feedbackTexts[i];
+
+            if (platforms[i].textDisplayUI != null)
+                platforms[i].textDisplayUI.text = texts[i];
+        }
+    }
+
+  
+    void RandomizeAllLevels()
+    {
+        foreach (PlatformLevel level in platformLevels)
+            RandomizeLevel(level);
+    }
+
+ 
 
     public void OnPlatformClicked(GlassPlatform platform)
     {
-        if (isMoving || gameOver || isPaused) return;
-
-        // Verificar que sea del nivel actual
+        if (isMoving || gameOver) return;
         if (currentLevel >= platformLevels.Count) return;
 
-        PlatformLevel currentLevel_Level = platformLevels[currentLevel];
+        PlatformLevel level = platformLevels[currentLevel];
+        if (!level.ContainsPlatform(platform)) return;
 
-        // Verificar que sea una de las plataformas del nivel actual
-        if (!currentLevel_Level.ContainsPlatform(platform))
-            return;
-
-        // Mostrar resultado visual
         platform.ShowResult();
 
         if (platform.isCorrect)
         {
-            // Mover al jugador a la plataforma correcta
-            StartCoroutine(MovePlayerToPlatform(platform.transform.position));
+            if (playerAnimator)
+            {
+                playerAnimator.SetBool("IsJumping", true);
+                playerAnimator.SetBool("IsFalling", false);
+            }
+            StartCoroutine(MovePlayerToPlatform(platform.transform.position, true, platform));
         }
         else
         {
-            // Plataforma incorrecta - pausar pero permitir reintentar
-            StartCoroutine(HandleIncorrectChoice());
+            if (playerAnimator)
+            {
+                playerAnimator.SetBool("IsFalling", true);
+                playerAnimator.SetBool("IsJumping", false);
+            }
+            StartCoroutine(MovePlayerToPlatform(platform.transform.position, false, platform));
         }
     }
 
-    IEnumerator MovePlayerToPlatform(Vector3 targetPosition)
+    IEnumerator MovePlayerToPlatform(Vector3 targetPosition, bool isCorrect, GlassPlatform clickedPlatform)
     {
         isMoving = true;
 
@@ -98,22 +181,45 @@ public class GlassBridgeManager : MonoBehaviour
 
         player.position = endPos;
 
-        // Avanzar al siguiente nivel
-        currentLevel++;
-        UpdateUI();
-
-        // Mostrar el siguiente nivel con fade in ANTES de permitir más interacción
-        if (currentLevel < platformLevels.Count)
+        if (playerAnimator)
         {
-            yield return StartCoroutine(FadeInLevel(currentLevel));
+            playerAnimator.SetBool("IsJumping", false);
+            playerAnimator.SetBool("IsFalling", false);
         }
 
-        isMoving = false;
-
-        // Verificar si ganó
-        if (currentLevel >= totalLevels)
+        if (isCorrect)
         {
-            WinGame();
+            correctCount++;
+            currentLevel++;
+            UpdateUI();
+
+            if (currentLevel < platformLevels.Count)
+                yield return StartCoroutine(FadeInLevel(currentLevel));
+
+            isMoving = false;
+
+            if (currentLevel >= platformLevels.Count)
+                WinGame();
+        }
+        else
+        {
+            errorCount++;
+
+            yield return new WaitForSeconds(1f);
+
+            if (clickedPlatform != null)
+                clickedPlatform.BreakPlatformNow();
+
+            currentLevel++;
+            UpdateUI();
+
+            if (currentLevel < platformLevels.Count)
+                yield return StartCoroutine(FadeInLevel(currentLevel));
+
+            isMoving = false;
+
+            if (currentLevel >= platformLevels.Count)
+                WinGame();
         }
     }
 
@@ -124,117 +230,176 @@ public class GlassBridgeManager : MonoBehaviour
         PlatformLevel level = platformLevels[levelIndex];
 
         float elapsed = 0f;
-
         while (elapsed < fadeInDuration)
         {
             float alpha = Mathf.Lerp(0f, 1f, elapsed / fadeInDuration);
-
             level.SetAlphaAll(alpha);
-
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        // Asegurar alpha completo al final
         level.SetAlphaAll(1f);
-    }
-
-    IEnumerator HandleIncorrectChoice()
-    {
-        isPaused = true;
-        errorCount++; // Incrementar errores
-        UpdateUI();
-
-        // Pausar por 1 segundo
-        yield return new WaitForSeconds(pauseDuration);
-
-        // Resetear el color de las plataformas incorrectas del nivel actual
-        if (currentLevel < platformLevels.Count)
-        {
-            PlatformLevel currentLevel_Level = platformLevels[currentLevel];
-            currentLevel_Level.ResetIncorrectPlatformsColor();
-        }
-
-        // Después de la pausa, permitir que elija de nuevo
-        isPaused = false;
     }
 
     void WinGame()
     {
+        StartCoroutine(MoveToEndAndWin());
+    }
+
+    IEnumerator MoveToEndAndWin()
+    {
         gameOver = true;
-        if (winPanel)
-            winPanel.SetActive(true);
+        isMoving = true;
+
+        if (playerAnimator)
+        {
+            playerAnimator.SetBool("IsJumping", false);
+            playerAnimator.SetBool("IsFalling", false);
+        }
+
+        Vector3 startPos = player.position;
+        Vector3 endPos = new Vector3(endPoint.position.x, endPoint.position.y, startPos.z);
+
+        float elapsed = 0f;
+        float duration = Vector3.Distance(startPos, endPos) / moveSpeed;
+
+        while (elapsed < duration)
+        {
+            player.position = Vector3.Lerp(startPos, endPos, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        player.position = endPos;
+        isMoving = false;
+
+        ShowVictoryUI();
+    }
+
+    void ShowVictoryUI()
+    {
+        if (winPanel) winPanel.SetActive(true);
+
+        float percentage = GetSuccessPercentage();
+
+        correctText.text = "Aciertos: " + correctCount;
+        errorText.text = "Errores: " + errorCount;
+        percentageText.text = "Precisión: " + percentage.ToString("F1") + "%";
+
+        if (percentage >= 80f)
+        {
+            medalImage.sprite = goldMedal;
+            medalTitleText.text = "MEDALLA DE ORO";
+        }
+        else if (percentage >= 50f)
+        {
+            medalImage.sprite = silverMedal;
+            medalTitleText.text = "MEDALLA DE PLATA";
+        }
+        else
+        {
+            medalImage.sprite = bronzeMedal;
+            medalTitleText.text = "MEDALLA DE BRONCE";
+        }
+
+        correctText.transform.localScale = Vector3.zero;
+        errorText.transform.localScale = Vector3.zero;
+        percentageText.transform.localScale = Vector3.zero;
+        medalTitleText.transform.localScale = Vector3.zero;
+        medalImage.transform.localScale = Vector3.zero;
+
+        StartCoroutine(AnimateVictoryUI());
+    }
+
+    IEnumerator AnimateVictoryUI()
+    {
+        yield return new WaitForSeconds(0.2f);
+        StartCoroutine(PopUpEffect(correctText.transform, correctScale));
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(PopUpEffect(errorText.transform, errorScale));
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(PopUpEffect(percentageText.transform, percentageScale));
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(PopUpEffect(medalTitleText.transform, medalTitleScale, 1.3f));
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(PopUpEffect(medalImage.transform, medalImageScale, 1.4f));
+    }
+
+    IEnumerator PopUpEffect(Transform target, Vector3 originalScale, float scaleMultiplier = 1.2f)
+    {
+        Vector3 targetScale = originalScale * scaleMultiplier;
+        float duration = 0.3f;
+        float elapsed = 0f;
+
+        while (elapsed < duration / 2f)
+        {
+            target.localScale = Vector3.Lerp(Vector3.zero, targetScale, elapsed / (duration / 2f));
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        target.localScale = targetScale;
+
+        elapsed = 0f;
+        while (elapsed < duration / 2f)
+        {
+            target.localScale = Vector3.Lerp(targetScale, originalScale, elapsed / (duration / 2f));
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        target.localScale = originalScale;
+    }
+
+    public float GetSuccessPercentage()
+    {
+        int total = correctCount + errorCount;
+        if (total == 0) return 0;
+        return (float)correctCount / total * 100f;
     }
 
     public void ResetGame()
     {
         currentLevel = 0;
-        errorCount = 0; // Reiniciar contador de errores
         gameOver = false;
         isMoving = false;
-        isPaused = false;
+        correctCount = 0;
+        errorCount = 0;
 
-        if (winPanel)
-            winPanel.SetActive(false);
+        if (winPanel) winPanel.SetActive(false);
 
-        // Reiniciar todas las plataformas (ya las oculta ResetPlatform)
         foreach (PlatformLevel level in platformLevels)
-        {
             level.ResetAllPlatforms();
-        }
 
-        // Randomizar qué plataforma es correcta en cada nivel
-        RandomizePlatforms();
+        // Aleatorizar DESPUÉS del reset para que los textos originales
+        // estén disponibles antes del shuffle
+        RandomizeAllLevels();
 
-        // Posicionar jugador en la posición inicial guardada del editor
-        if (player)
-        {
-            player.position = initialPlayerPosition;
-        }
+        if (player) player.position = initialPlayerPosition;
 
-        // Mostrar el primer nivel con fade in
-        if (platformLevels.Count > 0)
-        {
+        if (platformLevels.Count > 0 && gameStarted)
             StartCoroutine(FadeInLevel(0));
-        }
 
         UpdateUI();
     }
 
-    void RandomizePlatforms()
+    public void StartGame()
     {
-        // Ya no randomizamos automáticamente
-        // El usuario marca manualmente qué plataformas son correctas/incorrectas en el Inspector
-        // Este método se mantiene por compatibilidad pero ya no hace nada
+        if (gameStarted) return;
 
-        // Si quieres randomización automática, descomenta esto:
-        /*
-        foreach (PlatformLevel level in platformLevels)
-        {
-            level.RandomizeCorrectPlatform();
-        }
-        */
+        gameStarted = true;
+        ResetGame();
     }
 
     void UpdateUI()
     {
         if (levelText)
-            levelText.text = $"Nivel: {currentLevel + 1} / {totalLevels}";
-
-        if (errorText)
-            errorText.text = $"Errores: {errorCount}";
+            levelText.text = $"Nivel: {currentLevel + 1} / {platformLevels.Count}";
     }
 
-    public bool IsGameOver()
-    {
-        return gameOver;
-    }
-
-    public bool IsMoving()
-    {
-        return isMoving || isPaused;
-    }
+    public bool IsGameOver() => gameOver;
+    public bool IsMoving() => isMoving;
 }
+
+
 
 [System.Serializable]
 public class PlatformLevel
@@ -243,6 +408,17 @@ public class PlatformLevel
     public GlassPlatform platform2;
     public GlassPlatform platform3;
     public GlassPlatform platform4;
+
+    
+    public List<GlassPlatform> GetPlatforms()
+    {
+        var list = new List<GlassPlatform>();
+        if (platform1) list.Add(platform1);
+        if (platform2) list.Add(platform2);
+        if (platform3) list.Add(platform3);
+        if (platform4) list.Add(platform4);
+        return list;
+    }
 
     public bool ContainsPlatform(GlassPlatform platform)
     {
@@ -264,33 +440,5 @@ public class PlatformLevel
         if (platform2) platform2.ResetPlatform();
         if (platform3) platform3.ResetPlatform();
         if (platform4) platform4.ResetPlatform();
-    }
-
-    public void ResetIncorrectPlatformsColor()
-    {
-        if (platform1 && !platform1.isCorrect) platform1.ResetColor();
-        if (platform2 && !platform2.isCorrect) platform2.ResetColor();
-        if (platform3 && !platform3.isCorrect) platform3.ResetColor();
-        if (platform4 && !platform4.isCorrect) platform4.ResetColor();
-    }
-
-    public void RandomizeCorrectPlatform()
-    {
-        // Desmarcar todas primero
-        if (platform1) platform1.isCorrect = false;
-        if (platform2) platform2.isCorrect = false;
-        if (platform3) platform3.isCorrect = false;
-        if (platform4) platform4.isCorrect = false;
-
-        // Elegir una al azar para ser correcta
-        int randomIndex = Random.Range(0, 4);
-
-        switch (randomIndex)
-        {
-            case 0: if (platform1) platform1.isCorrect = true; break;
-            case 1: if (platform2) platform2.isCorrect = true; break;
-            case 2: if (platform3) platform3.isCorrect = true; break;
-            case 3: if (platform4) platform4.isCorrect = true; break;
-        }
     }
 }

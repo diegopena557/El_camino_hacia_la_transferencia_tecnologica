@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6daffa88cf1fc4d9bfca90cd336aa2, type: 3}
+  m_Name: 4-5 Inversor
+  m_EditorClassIdentifier: Assembly-CSharp::StopQuestionData
+  questionLabel: Inversor
+  characterSprite: {fileID: -5230883858927994820, guid: 72afe2224e2eb0a41bf83f7611f403f4, type: 3}
+  questionText: "Inversionista:\n\n\xBFVale la pena invertir?"
+  optionA:
+    buttonLabel: Correcto
+    isCorrect: 0
+    feedbackText: La falta de evidencia genera desconfianza
+  optionB:
+    buttonLabel: Incorrecto
+    isCorrect: 1
+    feedbackText: "Reconoces que a\xFAn no es momento"

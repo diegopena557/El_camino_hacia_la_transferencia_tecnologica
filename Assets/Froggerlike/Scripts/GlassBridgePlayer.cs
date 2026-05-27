@@ -12,7 +12,6 @@ public class GlassBridgePlayer : MonoBehaviour
 
     private bool isWalking = false;
     private float animTimer = 0f;
-
     void Update()
     {
         // Detectar si se está moviendo

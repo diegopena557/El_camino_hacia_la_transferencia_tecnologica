@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c6d04dec173ca45bcf545fc44a9a28, type: 3}
+  m_Name: TRL6-7
+  m_EditorClassIdentifier: Assembly-CSharp::SegmentData
+  segmentLabel: TRL6-7
+  question: TRL6-7
+  options:
+  - text: Realizar piloto en entorno real
+    isCorrect: 1
+    feedbackText: El entorno real confirma la viabilidad del sistema
+  - text: "Recoger datos de desempe\xF1o"
+    isCorrect: 1
+    feedbackText: Los datos permiten mejorar la estabilidad
+  - text: "Iniciar evaluaci\xF3n regulatoria"
+    isCorrect: 1
+    feedbackText: "Anticipar regulaci\xF3n reduce fricciones futuras"
+  - text: Escalar comercialmente
+    isCorrect: 0
+    feedbackText: "El mercado exige evidencia m\xE1s s\xF3lida"
+  - text: Expandir mercado
+    isCorrect: 0
+    feedbackText: "A\xFAn no hay validaci\xF3n suficiente para expandir"
+  feedbackTimingPerfect: en el momento justo!
+  feedbackTimingEarly: muy temprano.
+  feedbackTimingLate: muy tarde.
+  feedbackNoAnswer: Sin respuesta

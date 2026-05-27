@@ -1,0 +1,352 @@
+fileFormatVersion: 2
+guid: 07ec73ba0c2351f43a54c37ba44ec9d6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6084983628843255535
+    second: Insignia_Oro_juego3_0
+  - first:
+      213: -1687418067021831651
+    second: Insignia_Oro_juego3_1
+  - first:
+      213: 2616987750249919328
+    second: Insignia_Oro_juego3_2
+  - first:
+      213: 2639393888023942317
+    second: Insignia_Oro_juego3_3
+  - first:
+      213: -8018989965394729379
+    second: Insignia_Oro_juego3_4
+  - first:
+      213: -1559441033021110077
+    second: Insignia_Oro_juego3_5
+  - first:
+      213: 4676229895223211466
+    second: Insignia_Oro_juego3_6
+  - first:
+      213: 6388432672167968262
+    second: Insignia_Oro_juego3_7
+  - first:
+      213: -4450850828334961277
+    second: Insignia_Oro_juego3_8
+  - first:
+      213: -3421405769876368692
+    second: Insignia_Oro_juego3_9
+  - first:
+      213: -7106902760762250371
+    second: Insignia_Oro_juego3_10
+  - first:
+      213: 3574588451149151111
+    second: Insignia_Oro_juego3_11
+  - first:
+      213: 6938738224857766266
+    second: Insignia_Oro_juego3_12
+  - first:
+      213: 8315504827306612042
+    second: Insignia_Oro_juego3_13
+  - first:
+      213: 1841760604397738757
+    second: Insignia_Oro_juego3_14
+  - first:
+      213: 652689954792361216
+    second: Insignia_Oro_juego3_15
+  - first:
+      213: -8631143408797481313
+    second: Insignia_Oro_juego3_16
+  - first:
+      213: -6293837947929419413
+    second: Insignia_Oro_juego3_17
+  - first:
+      213: 4259240602145328728
+    second: Insignia_Oro_juego3_18
+  - first:
+      213: -5137831542096353798
+    second: Insignia_Oro_juego3_19
+  - first:
+      213: 5409676770757574742
+    second: Insignia_Oro_juego3_20
+  - first:
+      213: -6076388940785504685
+    second: Insignia_Oro_juego3_21
+  - first:
+      213: 5109995708003706169
+    second: Insignia_Oro_juego3_22
+  - first:
+      213: -6129670199330140904
+    second: Insignia_Oro_juego3_23
+  - first:
+      213: -1157510576729419120
+    second: Insignia_Oro_juego3_24
+  - first:
+      213: -293716918576332383
+    second: Insignia_Oro_juego3_25
+  - first:
+      213: -5620744039480910811
+    second: Insignia_Oro_juego3_26
+  - first:
+      213: 417161841231588350
+    second: Insignia_Oro_juego3_27
+  - first:
+      213: -2831263357011755638
+    second: Insignia_Oro_juego3_28
+  - first:
+      213: -3703388128399636619
+    second: Insignia_Oro_juego3_29
+  - first:
+      213: 4310638834109022993
+    second: Insignia_Oro_juego3_30
+  - first:
+      213: 6514807235245702127
+    second: Insignia_Oro_juego3_31
+  - first:
+      213: -4396698908439249147
+    second: Insignia_Oro_juego3_32
+  - first:
+      213: 2106208722715821790
+    second: Insignia_Oro_juego3_33
+  - first:
+      213: 162520772830827463
+    second: Insignia_Oro_juego3_34
+  - first:
+      213: 1331051313202230717
+    second: Insignia_Oro_juego3_35
+  - first:
+      213: -2287798226368785895
+    second: Insignia_Oro_juego3_36
+  - first:
+      213: -707294529230430890
+    second: Insignia_Oro_juego3_37
+  - first:
+      213: -6880967018926954869
+    second: Insignia_Oro_juego3_38
+  - first:
+      213: -4368779302814525022
+    second: Insignia_Oro_juego3_39
+  - first:
+      213: -2594819458897902983
+    second: Insignia_Oro_juego3_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Insignia_Oro_juego3_2
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 627
+        width: 1414
+        height: 1384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 063f1335e78615420800000000000000
+      internalID: 2616987750249919328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Insignia_Oro_juego3_40
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 0
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9728e1833795dfbd0800000000000000
+      internalID: -2594819458897902983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0f1eefbe506c7b640aeccd40d18fa121
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Insignia_Oro_juego3_0: 6084983628843255535
+      Insignia_Oro_juego3_1: -1687418067021831651
+      Insignia_Oro_juego3_10: -7106902760762250371
+      Insignia_Oro_juego3_11: 3574588451149151111
+      Insignia_Oro_juego3_12: 6938738224857766266
+      Insignia_Oro_juego3_13: 8315504827306612042
+      Insignia_Oro_juego3_14: 1841760604397738757
+      Insignia_Oro_juego3_15: 652689954792361216
+      Insignia_Oro_juego3_16: -8631143408797481313
+      Insignia_Oro_juego3_17: -6293837947929419413
+      Insignia_Oro_juego3_18: 4259240602145328728
+      Insignia_Oro_juego3_19: -5137831542096353798
+      Insignia_Oro_juego3_2: 2616987750249919328
+      Insignia_Oro_juego3_20: 5409676770757574742
+      Insignia_Oro_juego3_21: -6076388940785504685
+      Insignia_Oro_juego3_22: 5109995708003706169
+      Insignia_Oro_juego3_23: -6129670199330140904
+      Insignia_Oro_juego3_24: -1157510576729419120
+      Insignia_Oro_juego3_25: -293716918576332383
+      Insignia_Oro_juego3_26: -5620744039480910811
+      Insignia_Oro_juego3_27: 417161841231588350
+      Insignia_Oro_juego3_28: -2831263357011755638
+      Insignia_Oro_juego3_29: -3703388128399636619
+      Insignia_Oro_juego3_3: 2639393888023942317
+      Insignia_Oro_juego3_30: 4310638834109022993
+      Insignia_Oro_juego3_31: 6514807235245702127
+      Insignia_Oro_juego3_32: -4396698908439249147
+      Insignia_Oro_juego3_33: 2106208722715821790
+      Insignia_Oro_juego3_34: 162520772830827463
+      Insignia_Oro_juego3_35: 1331051313202230717
+      Insignia_Oro_juego3_36: -2287798226368785895
+      Insignia_Oro_juego3_37: -707294529230430890
+      Insignia_Oro_juego3_38: -6880967018926954869
+      Insignia_Oro_juego3_39: -4368779302814525022
+      Insignia_Oro_juego3_4: -8018989965394729379
+      Insignia_Oro_juego3_40: -2594819458897902983
+      Insignia_Oro_juego3_41: 1574554108
+      Insignia_Oro_juego3_5: -1559441033021110077
+      Insignia_Oro_juego3_6: 4676229895223211466
+      Insignia_Oro_juego3_7: 6388432672167968262
+      Insignia_Oro_juego3_8: -4450850828334961277
+      Insignia_Oro_juego3_9: -3421405769876368692
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
