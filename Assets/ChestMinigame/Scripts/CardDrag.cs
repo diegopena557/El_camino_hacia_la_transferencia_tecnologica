@@ -295,7 +295,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
             rb.isKinematic = false;
-            rb.gravityScale = 1f;
+            rb.gravityScale = 0.5f;
         }
 
         // Restablecer escala y color

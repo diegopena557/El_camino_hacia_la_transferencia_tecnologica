@@ -19,7 +19,7 @@ public class GameModeManager : MonoBehaviour
     public Color mode2Color = new Color(1f, 0.5f, 0.3f); // Naranja
 
     [Header("Configuración")]
-    public bool allowModeChange = true; // Permitir cambiar modo durante el juego
+    public bool allowModeChange = true;
 
     void Awake()
     {
@@ -31,23 +31,29 @@ public class GameModeManager : MonoBehaviour
 
     void Start()
     {
-        // Esperar a que el jugador seleccione modo
-        UpdateModeIndicator();
-
-        Debug.Log("[GameModeManager] Presiona 1 o 2 para seleccionar el modo de juego");
+        // Lee el modo guardado por TimerNode5 vía PlayerPrefs
+        if (PlayerPrefs.HasKey(TimerNode5.GAME_MODE_KEY))
+        {
+            int savedMode = PlayerPrefs.GetInt(TimerNode5.GAME_MODE_KEY);
+            SetMode(savedMode);
+            Debug.Log($"[GameModeManager] Modo cargado desde selección anterior: {savedMode}");
+        }
+        else
+        {
+            // Fallback: usa el valor por defecto asignado en el Inspector
+            UpdateModeIndicator();
+            Debug.Log($"[GameModeManager] No se encontró modo guardado, usando modo por defecto: {currentMode}");
+        }
     }
 
     void Update()
     {
-        // Detectar presión de teclas 1 o 2
+        if (!allowModeChange) return;
+
         if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
-        {
             SetMode(1);
-        }
         else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
-        {
             SetMode(2);
-        }
     }
 
     public void SetMode(int mode)
@@ -72,28 +78,18 @@ public class GameModeManager : MonoBehaviour
             return;
         }
 
-        // Cambiar sprite
         if (currentMode == 1 && mode1Sprite != null)
-        {
             modeIndicator.sprite = mode1Sprite;
-        }
         else if (currentMode == 2 && mode2Sprite != null)
-        {
             modeIndicator.sprite = mode2Sprite;
-        }
 
-        // Cambiar color (opcional)
         if (useColorCoding)
-        {
             modeIndicator.color = currentMode == 1 ? mode1Color : mode2Color;
-        }
 
         Debug.Log($"[GameModeManager] Indicador actualizado para modo {currentMode}");
     }
 
-    // Getter para que otros scripts puedan consultar el modo
     public int GetCurrentMode() => currentMode;
-
     public bool IsMode1() => currentMode == 1;
     public bool IsMode2() => currentMode == 2;
 }

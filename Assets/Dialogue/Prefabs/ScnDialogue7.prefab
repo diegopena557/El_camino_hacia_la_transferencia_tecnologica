@@ -68,7 +68,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Ori\xF3n:\nExcelente, juntos construyeron una estructura que puede sostenerse,...\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 64cc9d07a3a1485448c220971ac0741b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -206,6 +206,16 @@ MonoBehaviour:
   textNode7a_2: {fileID: 6465346357683646779}
   textNode7a_3: {fileID: 4982232482597973003}
   textNode7a_4: {fileID: 8079581805324697814}
+  endPanel: {fileID: 0}
+  endPanelText: {fileID: 0}
+  fadeDuration: 2
+  fadePanel: {fileID: 0}
+  fadeInDuration: 1
+  sources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &789209478272872455
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +434,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 64cc9d07a3a1485448c220971ac0741b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -643,9 +653,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Ori\xF3n:\n...el Taller ya cumpli\xF3 su prop\xF3sito: te prepar\xF3 para
-    empezar.\n"
+    avanzar.\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 64cc9d07a3a1485448c220971ac0741b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -983,7 +993,7 @@ MonoBehaviour:
   m_text: "Aria:\nAs\xED es como las ideas se vuelven reales. Vamos Lumen. Este viaje
     apenas comienza.\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 64cc9d07a3a1485448c220971ac0741b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

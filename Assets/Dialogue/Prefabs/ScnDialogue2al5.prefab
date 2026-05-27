@@ -68,6 +68,15 @@ MonoBehaviour:
   textNode5b_1: {fileID: 3989501659482076588}
   textNode5b_2: {fileID: 8043724978609213795}
   flagOneTime: 0
+  sources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &123373078669409618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1470,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ori\xF3n:\nEmpieza cuando una tecnolog\xEDa busca impacto fuera del lugar
+  m_text: "Ori\xF3n:\nCuando empieza una tecnolog\xEDa, busca impacto fuera del lugar
     donde naci\xF3."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64cc9d07a3a1485448c220971ac0741b, type: 2}
@@ -3023,7 +3032,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8925276844412606614
 Transform:
   m_ObjectHideFlags: 0
@@ -6107,6 +6116,9 @@ MonoBehaviour:
   textNode2a_2: {fileID: 7010591599587055776}
   canvaFader: {fileID: 374899184263076250}
   GO_Node3: {fileID: 2162143278950335180}
+  sources:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2864811890668450879
 GameObject:
   m_ObjectHideFlags: 0
@@ -7904,6 +7916,49 @@ MonoBehaviour:
   textNode3j_2: {fileID: 5417335459846311483}
   textNode3j_3: {fileID: 3268610246911233887}
   flagOneTime: 0
+  sources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3900201060258562461
 GameObject:
   m_ObjectHideFlags: 0
@@ -16942,6 +16997,14 @@ MonoBehaviour:
   textNode4a_6: {fileID: 6462381163342913156}
   textNode4a_7: {fileID: 3662448139926854967}
   flagOneTime: 0
+  sources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &7988504758942491867
 GameObject:
   m_ObjectHideFlags: 0

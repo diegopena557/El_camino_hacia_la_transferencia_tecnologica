@@ -13,10 +13,11 @@ public class GlassBridgeManager : MonoBehaviour
     public float pauseDuration = 1f; // Pausa cuando falla
 
     [Header("Platforms")]
-    public List<PlatformPair> platformPairs; // Lista de pares de plataformas
+    public List<PlatformLevel> platformLevels; // Lista de niveles con 4 plataformas cada uno
 
     [Header("Game Settings")]
     public int totalLevels = 10; // Número de pares a cruzar
+    public float fadeInDuration = 0.5f; // Duración del fade in de nuevas plataformas
 
     [Header("UI")]
     public TextMeshProUGUI levelText;
@@ -44,6 +45,9 @@ public class GlassBridgeManager : MonoBehaviour
         if (player)
             initialPlayerPosition = player.position;
 
+        // Las plataformas ya inician ocultas desde su propio Start()
+        // No necesitamos ocultarlas aquí
+
         ResetGame();
     }
 
@@ -52,12 +56,12 @@ public class GlassBridgeManager : MonoBehaviour
         if (isMoving || gameOver || isPaused) return;
 
         // Verificar que sea del nivel actual
-        if (currentLevel >= platformPairs.Count) return;
+        if (currentLevel >= platformLevels.Count) return;
 
-        PlatformPair currentPair = platformPairs[currentLevel];
+        PlatformLevel currentLevel_Level = platformLevels[currentLevel];
 
-        // Verificar que sea una de las plataformas del par actual
-        if (platform != currentPair.leftPlatform && platform != currentPair.rightPlatform)
+        // Verificar que sea una de las plataformas del nivel actual
+        if (!currentLevel_Level.ContainsPlatform(platform))
             return;
 
         // Mostrar resultado visual
@@ -93,17 +97,46 @@ public class GlassBridgeManager : MonoBehaviour
         }
 
         player.position = endPos;
-        isMoving = false;
 
         // Avanzar al siguiente nivel
         currentLevel++;
         UpdateUI();
+
+        // Mostrar el siguiente nivel con fade in ANTES de permitir más interacción
+        if (currentLevel < platformLevels.Count)
+        {
+            yield return StartCoroutine(FadeInLevel(currentLevel));
+        }
+
+        isMoving = false;
 
         // Verificar si ganó
         if (currentLevel >= totalLevels)
         {
             WinGame();
         }
+    }
+
+    IEnumerator FadeInLevel(int levelIndex)
+    {
+        if (levelIndex >= platformLevels.Count) yield break;
+
+        PlatformLevel level = platformLevels[levelIndex];
+
+        float elapsed = 0f;
+
+        while (elapsed < fadeInDuration)
+        {
+            float alpha = Mathf.Lerp(0f, 1f, elapsed / fadeInDuration);
+
+            level.SetAlphaAll(alpha);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Asegurar alpha completo al final
+        level.SetAlphaAll(1f);
     }
 
     IEnumerator HandleIncorrectChoice()
@@ -116,15 +149,10 @@ public class GlassBridgeManager : MonoBehaviour
         yield return new WaitForSeconds(pauseDuration);
 
         // Resetear el color de las plataformas incorrectas del nivel actual
-        if (currentLevel < platformPairs.Count)
+        if (currentLevel < platformLevels.Count)
         {
-            PlatformPair currentPair = platformPairs[currentLevel];
-
-            // Resetear colores pero mantener las plataformas activas
-            if (currentPair.leftPlatform && !currentPair.leftPlatform.isCorrect)
-                currentPair.leftPlatform.ResetColor();
-            if (currentPair.rightPlatform && !currentPair.rightPlatform.isCorrect)
-                currentPair.rightPlatform.ResetColor();
+            PlatformLevel currentLevel_Level = platformLevels[currentLevel];
+            currentLevel_Level.ResetIncorrectPlatformsColor();
         }
 
         // Después de la pausa, permitir que elija de nuevo
@@ -149,16 +177,13 @@ public class GlassBridgeManager : MonoBehaviour
         if (winPanel)
             winPanel.SetActive(false);
 
-        // Reiniciar plataformas
-        foreach (PlatformPair pair in platformPairs)
+        // Reiniciar todas las plataformas (ya las oculta ResetPlatform)
+        foreach (PlatformLevel level in platformLevels)
         {
-            if (pair.leftPlatform)
-                pair.leftPlatform.ResetPlatform();
-            if (pair.rightPlatform)
-                pair.rightPlatform.ResetPlatform();
+            level.ResetAllPlatforms();
         }
 
-        // Randomizar qué plataforma es correcta en cada par
+        // Randomizar qué plataforma es correcta en cada nivel
         RandomizePlatforms();
 
         // Posicionar jugador en la posición inicial guardada del editor
@@ -167,20 +192,28 @@ public class GlassBridgeManager : MonoBehaviour
             player.position = initialPlayerPosition;
         }
 
+        // Mostrar el primer nivel con fade in
+        if (platformLevels.Count > 0)
+        {
+            StartCoroutine(FadeInLevel(0));
+        }
+
         UpdateUI();
     }
 
     void RandomizePlatforms()
     {
-        foreach (PlatformPair pair in platformPairs)
-        {
-            bool leftIsCorrect = Random.value > 0.5f;
+        // Ya no randomizamos automáticamente
+        // El usuario marca manualmente qué plataformas son correctas/incorrectas en el Inspector
+        // Este método se mantiene por compatibilidad pero ya no hace nada
 
-            if (pair.leftPlatform)
-                pair.leftPlatform.isCorrect = leftIsCorrect;
-            if (pair.rightPlatform)
-                pair.rightPlatform.isCorrect = !leftIsCorrect;
+        // Si quieres randomización automática, descomenta esto:
+        /*
+        foreach (PlatformLevel level in platformLevels)
+        {
+            level.RandomizeCorrectPlatform();
         }
+        */
     }
 
     void UpdateUI()
@@ -204,8 +237,60 @@ public class GlassBridgeManager : MonoBehaviour
 }
 
 [System.Serializable]
-public class PlatformPair
+public class PlatformLevel
 {
-    public GlassPlatform leftPlatform;
-    public GlassPlatform rightPlatform;
+    public GlassPlatform platform1;
+    public GlassPlatform platform2;
+    public GlassPlatform platform3;
+    public GlassPlatform platform4;
+
+    public bool ContainsPlatform(GlassPlatform platform)
+    {
+        return platform == platform1 || platform == platform2 ||
+               platform == platform3 || platform == platform4;
+    }
+
+    public void SetAlphaAll(float alpha)
+    {
+        if (platform1) platform1.SetAlpha(alpha);
+        if (platform2) platform2.SetAlpha(alpha);
+        if (platform3) platform3.SetAlpha(alpha);
+        if (platform4) platform4.SetAlpha(alpha);
+    }
+
+    public void ResetAllPlatforms()
+    {
+        if (platform1) platform1.ResetPlatform();
+        if (platform2) platform2.ResetPlatform();
+        if (platform3) platform3.ResetPlatform();
+        if (platform4) platform4.ResetPlatform();
+    }
+
+    public void ResetIncorrectPlatformsColor()
+    {
+        if (platform1 && !platform1.isCorrect) platform1.ResetColor();
+        if (platform2 && !platform2.isCorrect) platform2.ResetColor();
+        if (platform3 && !platform3.isCorrect) platform3.ResetColor();
+        if (platform4 && !platform4.isCorrect) platform4.ResetColor();
+    }
+
+    public void RandomizeCorrectPlatform()
+    {
+        // Desmarcar todas primero
+        if (platform1) platform1.isCorrect = false;
+        if (platform2) platform2.isCorrect = false;
+        if (platform3) platform3.isCorrect = false;
+        if (platform4) platform4.isCorrect = false;
+
+        // Elegir una al azar para ser correcta
+        int randomIndex = Random.Range(0, 4);
+
+        switch (randomIndex)
+        {
+            case 0: if (platform1) platform1.isCorrect = true; break;
+            case 1: if (platform2) platform2.isCorrect = true; break;
+            case 2: if (platform3) platform3.isCorrect = true; break;
+            case 3: if (platform4) platform4.isCorrect = true; break;
+        }
+    }
 }

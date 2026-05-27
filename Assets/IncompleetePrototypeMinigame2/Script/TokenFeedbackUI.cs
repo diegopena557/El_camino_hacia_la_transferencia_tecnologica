@@ -97,6 +97,12 @@ public class TokenFeedbackUI : MonoBehaviour
     {
         Debug.Log($"[TokenFeedbackUI] ShowCorrectFeedback llamado. Token: {tokenName}");
 
+        // Ocultar tooltip si está activo
+        if (TokenTooltip.Instance != null)
+        {
+            TokenTooltip.Instance.HideTooltip();
+        }
+
         string message = correctMessage;
         if (!string.IsNullOrEmpty(tokenName))
         {
@@ -115,6 +121,12 @@ public class TokenFeedbackUI : MonoBehaviour
     public void ShowWrongFeedback(string expectedCategory = "", string receivedCategory = "")
     {
         Debug.Log($"[TokenFeedbackUI] ShowWrongFeedback llamado. Esperado: {expectedCategory}, Recibido: {receivedCategory}");
+
+        // Ocultar tooltip si está activo
+        if (TokenTooltip.Instance != null)
+        {
+            TokenTooltip.Instance.HideTooltip();
+        }
 
         string message = wrongMessage;
 
@@ -136,6 +148,12 @@ public class TokenFeedbackUI : MonoBehaviour
     {
         Debug.Log("[TokenFeedbackUI] ShowSlotFullFeedback llamado");
 
+        // Ocultar tooltip si está activo
+        if (TokenTooltip.Instance != null)
+        {
+            TokenTooltip.Instance.HideTooltip();
+        }
+
         if (currentFeedback != null)
         {
             Debug.Log("[TokenFeedbackUI] Deteniendo feedback anterior");
@@ -147,10 +165,71 @@ public class TokenFeedbackUI : MonoBehaviour
 
     public void ShowCustomFeedback(string message, Color color)
     {
+        // Ocultar tooltip si está activo
+        if (TokenTooltip.Instance != null)
+        {
+            TokenTooltip.Instance.HideTooltip();
+        }
+
         if (currentFeedback != null)
             StopCoroutine(currentFeedback);
 
-        currentFeedback = StartCoroutine(ShowFeedbackCoroutine(message, color));
+        // Agregar título según el tipo de feedback
+        string fullMessage = message;
+
+        // Detectar si es correcto o incorrecto comparando con los colores configurados
+        bool isCorrect = IsColorSimilar(color, correctColor);
+        bool isWrong = IsColorSimilar(color, wrongColor);
+
+        if (isCorrect)
+        {
+            fullMessage = "MUY BIEN\n\n" + message;
+        }
+        else if (isWrong)
+        {
+            fullMessage = "UPS\n\n" + message;
+        }
+
+        currentFeedback = StartCoroutine(ShowFeedbackCoroutine(fullMessage, color));
+    }
+
+    // Métodos directos para mostrar feedback (más claros)
+    public void ShowCorrectCustomFeedback(string message)
+    {
+        // Ocultar tooltip si está activo
+        if (TokenTooltip.Instance != null)
+        {
+            TokenTooltip.Instance.HideTooltip();
+        }
+
+        if (currentFeedback != null)
+            StopCoroutine(currentFeedback);
+
+        string fullMessage = "MUY BIEN\n\n" + message;
+        currentFeedback = StartCoroutine(ShowFeedbackCoroutine(fullMessage, correctColor));
+    }
+
+    public void ShowWrongCustomFeedback(string message)
+    {
+        // Ocultar tooltip si está activo
+        if (TokenTooltip.Instance != null)
+        {
+            TokenTooltip.Instance.HideTooltip();
+        }
+
+        if (currentFeedback != null)
+            StopCoroutine(currentFeedback);
+
+        string fullMessage = "UPS\n\n" + message;
+        currentFeedback = StartCoroutine(ShowFeedbackCoroutine(fullMessage, wrongColor));
+    }
+
+    // Método para comparar colores con cierta tolerancia
+    bool IsColorSimilar(Color a, Color b, float tolerance = 0.1f)
+    {
+        return Mathf.Abs(a.r - b.r) < tolerance &&
+               Mathf.Abs(a.g - b.g) < tolerance &&
+               Mathf.Abs(a.b - b.b) < tolerance;
     }
 
     IEnumerator ShowFeedbackCoroutine(string message, Color color)
