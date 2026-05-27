@@ -28,6 +28,7 @@ public class TimerNode2 : MonoBehaviour
     public float fadeInDuration = 1.5f;
 
     //////////////////// AUDIOS ////////////////////////
+    /// Dialogos ///
     [Header("Audio Sources")]
     public AudioSource[] sources;
 
@@ -79,7 +80,7 @@ public class TimerNode2 : MonoBehaviour
 
     IEnumerator AdvancingTimerNode2()
     {
-        // Inicia el video antes del fade para que ya esté corriendo debajo
+        // Inicia el video antes del fade para que ya estï¿½ corriendo debajo
         videoPlayerNode2a.Stop();
         videoPlayerNode2a.time = 0;
         videoPlayerNode2a.frame = 0;

@@ -163,6 +163,11 @@ public class TimerNode3 : MonoBehaviour
     public bool flagRepeticionTecnologiaIncorrecta1;
 
     //////////////////// AUDIOS ////////////////////////
+    /// SFX Anim Sec ///
+    [Header("SFX Anim Sec")]
+    public AudioSource Anim1;
+    public AudioSource Anim2;
+    /// Dialogos ///
     [Header("Audio Sources")]
     public AudioSource[] sources;
 
@@ -239,6 +244,7 @@ public class TimerNode3 : MonoBehaviour
         videoPlayerNode3_0.time = 0;
         videoPlayerNode3_0.frame = 0;
         videoPlayerNode3_0.Play();
+        Anim1.Play(); // sfx animacion secundaria
 
         yield return new WaitForSeconds(4.8f);
 
@@ -758,6 +764,8 @@ public class TimerNode3 : MonoBehaviour
         videoPlayerNode3h0.time = 0;
         videoPlayerNode3h0.frame = 0;
         videoPlayerNode3h0.Play();
+        Anim2.Play(); // sfx animacion secundaria
+        
 
         videoPlayerNode3h0.playbackSpeed = 1f;
 

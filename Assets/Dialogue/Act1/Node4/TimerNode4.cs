@@ -36,6 +36,10 @@ public class TimerNode4 : MonoBehaviour
     public GameObject GO_Node4;
 
     //////////////////// AUDIOS ////////////////////////
+    /// SFX Anim Sec ///
+    [Header("SFX Anim Sec")]
+    public AudioSource Anim3;
+    /// Dialogos ///
     [Header("Audio Sources")]
     public AudioSource[] sources;
 
@@ -102,6 +106,7 @@ public class TimerNode4 : MonoBehaviour
         videoPlayerNode4_0.time = 0;        
         videoPlayerNode4_0.frame = 0;
         videoPlayerNode4_0.Play();
+        Anim3.Play(); // sfx animacion secundaria
 
         yield return new WaitForSeconds(5f);
 
