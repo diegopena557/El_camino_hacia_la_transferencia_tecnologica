@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 72afe2224e2eb0a41bf83f7611f403f4
+guid: 886045ea7cf67104aa4d6889485da2ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5230883858927994820
-    second: Inversionista_0
-  - first:
-      213: 6813091246203330054
-    second: Inversionista_1
+      213: -7045981815936179496
+    second: IMG_0524 (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -142,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Inversionista_0
+      name: IMG_0524 (1)_0
       rect:
         serializedVersion: 2
-        x: 409
-        y: 674
-        width: 622
-        height: 1123
+        x: 0
+        y: 0
+        width: 2560
+        height: 1440
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,30 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c38b54f38da2867b0800000000000000
-      internalID: -5230883858927994820
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inversionista_1
-      rect:
-        serializedVersion: 2
-        x: 662
-        y: 643
-        width: 50
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 60ed5402466fc8e50800000000000000
-      internalID: 6813091246203330054
+      spriteID: 8d2234f9ed4a73e90800000000000000
+      internalID: -7045981815936179496
       vertices: []
       indices: 
       edges: []
@@ -189,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -199,8 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Inversionista_0: -5230883858927994820
-      Inversionista_1: 6813091246203330054
+      IMG_0524 (1)_0: -7045981815936179496
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

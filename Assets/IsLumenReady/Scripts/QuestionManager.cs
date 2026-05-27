@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class QuestionManager : MonoBehaviour
 {
     [Header("UI References")]
@@ -9,8 +10,6 @@ public class QuestionManager : MonoBehaviour
     [Tooltip("Assign the 5 answer Button GameObjects here in order")]
     public Button[] answerButtons = new Button[5];
     public TMP_Text feedbackText;
-    [Tooltip("TMP_Text separado que muestra solo el resultado del timing (Perfecto / Temprano / Tarde)")]
-    public TMP_Text timingText;
     public float feedbackDuration = 1.8f;
 
     [Header("Feedback colors")]
@@ -19,12 +18,23 @@ public class QuestionManager : MonoBehaviour
     public Color colorLate = new Color(1f, 0.5f, 0f);
     public Color colorWrong = Color.red;
 
+    [Header("Sonidos")]
+    [Tooltip("AudioSource del personaje o de la UI")]
+    public AudioSource audioSource;
+    [Tooltip("Sonido al presionar cualquier boton")]
+    public AudioClip sfxClick;
+    [Tooltip("Sonido cuando la respuesta es correcta")]
+    public AudioClip sfxCorrect;
+    [Tooltip("Sonido cuando la respuesta es incorrecta")]
+    public AudioClip sfxWrong;
+
     // -- Runtime state ---------------------------------------------------------
     private bool questionActive = false;
     private SegmentData activeSegmentData = null;
 
     private WaypointMover mover;
-    private AnswerZone[] allZones;   // all AnswerZone components in the scene
+    private AnswerZone[] allZones;
+    private StopQuestionManager stopManager;
 
     // -- Unity -----------------------------------------------------------------
 
@@ -32,6 +42,7 @@ public class QuestionManager : MonoBehaviour
     {
         mover = FindObjectOfType<WaypointMover>();
         allZones = FindObjectsOfType<AnswerZone>();
+        stopManager = FindObjectOfType<StopQuestionManager>();
 
         mover.OnReachStop += HandleReachStop;
         HideQuestion();
@@ -46,6 +57,7 @@ public class QuestionManager : MonoBehaviour
 
     void HandleReachStop(int stopIndex)
     {
+
         if (questionActive)
         {
             ResolveAnswer(optionIndex: -1, autoFail: true);
@@ -58,12 +70,18 @@ public class QuestionManager : MonoBehaviour
             return;
         }
 
-        // Capture the SegmentData for THIS leg BEFORE advancing the mover
+        // Capture SegmentData for THIS leg BEFORE advancing the mover
         activeSegmentData = stopIndex < mover.segmentData.Length
             ? mover.segmentData[stopIndex]
             : null;
 
         mover.AdvanceToNextStop();
+
+        // Tell StopQuestionManager which segment just started
+        // so it can prepare its trigger independently
+        if (stopManager != null)
+            stopManager.NotifySegmentStarted(mover.CurrentSegmentIndex);
+
         ShowQuestion();
     }
 
@@ -77,24 +95,45 @@ public class QuestionManager : MonoBehaviour
         questionActive = true;
         questionText.text = data.question;
 
+        // Wire each button to its fixed option index - no shuffling of indices.
+        // isCorrect and feedbackText always match their button.
         for (int i = 0; i < answerButtons.Length; i++)
         {
             if (answerButtons[i] == null) continue;
 
             bool hasOption = i < data.options.Length;
             answerButtons[i].gameObject.SetActive(hasOption);
-
             if (!hasOption) continue;
 
             TMP_Text lbl = answerButtons[i].GetComponentInChildren<TMP_Text>();
             if (lbl != null) lbl.text = data.options[i].text;
 
-            // Remove ALL listeners including any persistent ones set in the Inspector
             answerButtons[i].onClick.RemoveAllListeners();
-
-            // Store index in a local copy so the lambda captures the right value
             int idx = i;
-            answerButtons[i].onClick.AddListener(delegate { OnButtonClicked(idx); });
+            answerButtons[i].onClick.AddListener(() => OnButtonClicked(idx));
+        }
+
+        // Shuffle button positions by randomizing sibling index inside their parent.
+        // The button identity (and its listener) never changes - only its visual position.
+        int count = 0;
+        foreach (Button btn in answerButtons)
+            if (btn != null && btn.gameObject.activeSelf) count++;
+
+        // Collect active buttons and shuffle their sibling order
+        System.Collections.Generic.List<Transform> active = new System.Collections.Generic.List<Transform>();
+        foreach (Button btn in answerButtons)
+            if (btn != null && btn.gameObject.activeSelf)
+                active.Add(btn.transform);
+
+        // Fisher-Yates on sibling indices
+        for (int i = active.Count - 1; i > 0; i--)
+        {
+            int j = UnityEngine.Random.Range(0, i + 1);
+            // Swap sibling indices
+            int si = active[i].GetSiblingIndex();
+            int sj = active[j].GetSiblingIndex();
+            active[i].SetSiblingIndex(sj);
+            active[j].SetSiblingIndex(si);
         }
 
         questionUI.SetActive(true);
@@ -115,10 +154,10 @@ public class QuestionManager : MonoBehaviour
     void OnButtonClicked(int index)
     {
         if (!questionActive) return;
+        PlaySound(sfxClick);
         ResolveAnswer(optionIndex: index, autoFail: false);
     }
 
-    // Public overload for AnswerButton compatibility
     public void Answer(int optionIndex)
     {
         if (!questionActive) return;
@@ -129,7 +168,6 @@ public class QuestionManager : MonoBehaviour
     {
         questionActive = false;
 
-        // Capture everything BEFORE HideQuestion nulls activeSegmentData
         SegmentData data = activeSegmentData;
         float rawT = mover.CurrentRawT;
         int segIdx = mover.CurrentSegmentIndex;
@@ -140,7 +178,6 @@ public class QuestionManager : MonoBehaviour
         float speedMult = 0.65f;
         string msg = "";
         Color col = colorWrong;
-
         string timingSuffix = "";
         string optionFeedback = "";
         bool isCorrect = false;
@@ -159,29 +196,26 @@ public class QuestionManager : MonoBehaviour
                 isCorrect = data.options[optionIndex].isCorrect;
             }
 
-
-            // Evaluate timing for ALL answers (correct or not)
-            // Returns: -1 Early, 0 Perfect, 1 Late, 2 past lateEnd (no answer window)
             int timing = EvaluateTiming(zone, rawT);
 
             switch (timing)
             {
-                case -1:  // Early
+                case -1:
                     timingSuffix = data != null ? data.feedbackTimingEarly : "muy temprano.";
                     col = isCorrect ? colorEarly : colorWrong;
                     speedMult = isCorrect ? 0.85f : 0.65f;
                     break;
-                case 0:   // Perfect
+                case 0:
                     timingSuffix = data != null ? data.feedbackTimingPerfect : "en el momento justo!";
                     col = isCorrect ? colorPerfect : colorWrong;
                     speedMult = isCorrect ? 1.4f : 0.65f;
                     break;
-                case 1:   // Late
+                case 1:
                     timingSuffix = data != null ? data.feedbackTimingLate : "muy tarde.";
                     col = isCorrect ? colorLate : colorWrong;
                     speedMult = isCorrect ? 0.75f : 0.65f;
                     break;
-                default:  // Past lateEnd - treat as no answer
+                default:
                     timingSuffix = data != null ? data.feedbackNoAnswer : "sin respuesta.";
                     col = colorWrong;
                     speedMult = 0.55f;
@@ -193,17 +227,33 @@ public class QuestionManager : MonoBehaviour
 
         mover.ModifySpeed(speedMult);
 
-        // feedbackText -> option-specific text ("La integracion permite...")
-        ShowFeedback(msg, col);
-
-        // timingText -> timing result ("en el momento justo!" / "muy temprano." / "muy tarde.")
+        // Play result sound
         if (!autoFail)
-            ShowTimingFeedback(timingSuffix ?? "", col);
+            PlaySound(isCorrect ? sfxCorrect : sfxWrong);
+
+        if (autoFail)
+        {
+            ShowFeedback(msg, col);
+        }
+        else if (isCorrect)
+        {
+            string combined = string.IsNullOrWhiteSpace(timingSuffix)
+                ? msg
+                : string.IsNullOrWhiteSpace(msg)
+                    ? timingSuffix
+                    : msg + "\n" + timingSuffix;
+            ShowFeedback(combined, col);
+        }
+        else
+        {
+            // Incorrect: show option feedback text without timing suffix
+            if (!string.IsNullOrWhiteSpace(msg))
+                ShowFeedback(msg, col);
+        }
     }
 
-    // -- Timing helpers --------------------------------------------------------
+    // -- Timing ----------------------------------------------------------------
 
-    // Find the AnswerZone whose segmentIndex matches the given segment
     AnswerZone FindZone(int segmentIndex)
     {
         if (allZones == null) return null;
@@ -212,24 +262,25 @@ public class QuestionManager : MonoBehaviour
         return null;
     }
 
-    // Evaluate timing: -1 Early, 0 Perfect, 1 Late
-    // rawT is mover.CurrentRawT - the raw spline-t with no conversion.
-    // AnswerZone.cachedStartT / cachedEndT are also raw spline-t values,
-    // so the comparison is direct and accurate.
     int EvaluateTiming(AnswerZone zone, float rawT)
     {
         if (zone == null)
         {
-            // No AnswerZone in scene for this segment: fallback to segment thirds
-            float progress = mover.SegmentProgress;
-            if (progress < 0.33f) return -1;  // Early
-            if (progress < 0.66f) return 0;  // Perfect
-            if (progress < 1.0f) return 1;  // Late
-            return 2;                          // Past end
+            float p = mover.SegmentProgress;
+            if (p < 0.33f) return -1;
+            if (p < 0.66f) return 0;
+            if (p < 1.0f) return 1;
+            return 2;
         }
-
-        // rawT is the raw spline-t value - passed directly, no conversion needed
         return zone.EvaluateTiming(rawT);
+    }
+
+    // -- Audio ----------------------------------------------------------------
+
+    void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+            audioSource.PlayOneShot(clip);
     }
 
     // -- Feedback --------------------------------------------------------------
@@ -244,19 +295,6 @@ public class QuestionManager : MonoBehaviour
         Invoke(nameof(HideFeedback), feedbackDuration);
     }
 
-    void HideFeedback()
-    {
-        SetFeedbackVisible(false);
-        if (timingText != null) timingText.gameObject.SetActive(false);
-    }
-
-    void ShowTimingFeedback(string msg, Color col)
-    {
-        if (timingText == null || string.IsNullOrWhiteSpace(msg)) return;
-        timingText.text = msg;
-        timingText.color = col;
-        timingText.gameObject.SetActive(true);
-    }
-
+    void HideFeedback() { SetFeedbackVisible(false); }
     void SetFeedbackVisible(bool v) { if (feedbackText != null) feedbackText.gameObject.SetActive(v); }
 }

@@ -1,17 +1,7 @@
 using UnityEngine;
 using UnityEngine.Splines;
 
-// SETUP:
-// 1. Asigna el SplineContainer al campo splineContainer.
-// 2. Asigna los 9 GameObjects de parada al array stopPoints en orden.
-// 3. Asigna los 8 SegmentData (uno por tramo) al array segmentData.
-//    segmentData[0] = tramo entre stopPoints[0] y stopPoints[1], etc.
-//
-// El timing se evalua con SegmentProgress: un float [0..1] que representa
-// que tan lejos esta el personaje dentro del tramo actual.
-// 0 = acaba de salir del stop anterior, 1 = llego al siguiente stop.
-// QuestionManager lo lee en el momento que el jugador responde y lo
-// compara contra perfectZoneStart / perfectZoneEnd del SegmentData.
+
 [RequireComponent(typeof(Animator))]
 public class WaypointMover : MonoBehaviour
 {
@@ -57,10 +47,9 @@ public class WaypointMover : MonoBehaviour
         }
 
         SetWalking(false);
-        Invoke(nameof(BeginJourney), 0.1f);
     }
 
-    void BeginJourney()
+    public void BeginJourney()
     {
         AdvanceToNextStop();
     }
@@ -122,6 +111,14 @@ public class WaypointMover : MonoBehaviour
     public void ModifySpeed(float multiplier)
     {
         speed = baseSpeed * multiplier;
+    }
+
+    // Pauses or resumes movement without resetting state.
+    // Used by StopQuestionManager to freeze the character mid-segment.
+    public void SetPaused(bool paused)
+    {
+        isMoving = !paused;
+        SetWalking(!paused);
     }
 
     // -- Segment info ----------------------------------------------------------
