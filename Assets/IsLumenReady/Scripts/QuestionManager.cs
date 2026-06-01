@@ -18,16 +18,6 @@ public class QuestionManager : MonoBehaviour
     public Color colorLate = new Color(1f, 0.5f, 0f);
     public Color colorWrong = Color.red;
 
-    [Header("Sonidos")]
-    [Tooltip("AudioSource del personaje o de la UI")]
-    public AudioSource audioSource;
-    [Tooltip("Sonido al presionar cualquier boton")]
-    public AudioClip sfxClick;
-    [Tooltip("Sonido cuando la respuesta es correcta")]
-    public AudioClip sfxCorrect;
-    [Tooltip("Sonido cuando la respuesta es incorrecta")]
-    public AudioClip sfxWrong;
-
     // -- Runtime state ---------------------------------------------------------
     private bool questionActive = false;
     private SegmentData activeSegmentData = null;
@@ -67,6 +57,7 @@ public class QuestionManager : MonoBehaviour
         if (stopIndex >= mover.stopPoints.Length - 1)
         {
             Debug.Log("Journey complete.");
+            GameResultsManager.Instance?.ShowResults();
             return;
         }
 
@@ -95,8 +86,6 @@ public class QuestionManager : MonoBehaviour
         questionActive = true;
         questionText.text = data.question;
 
-        // Wire each button to its fixed option index - no shuffling of indices.
-        // isCorrect and feedbackText always match their button.
         for (int i = 0; i < answerButtons.Length; i++)
         {
             if (answerButtons[i] == null) continue;
@@ -110,30 +99,7 @@ public class QuestionManager : MonoBehaviour
 
             answerButtons[i].onClick.RemoveAllListeners();
             int idx = i;
-            answerButtons[i].onClick.AddListener(() => OnButtonClicked(idx));
-        }
-
-        // Shuffle button positions by randomizing sibling index inside their parent.
-        // The button identity (and its listener) never changes - only its visual position.
-        int count = 0;
-        foreach (Button btn in answerButtons)
-            if (btn != null && btn.gameObject.activeSelf) count++;
-
-        // Collect active buttons and shuffle their sibling order
-        System.Collections.Generic.List<Transform> active = new System.Collections.Generic.List<Transform>();
-        foreach (Button btn in answerButtons)
-            if (btn != null && btn.gameObject.activeSelf)
-                active.Add(btn.transform);
-
-        // Fisher-Yates on sibling indices
-        for (int i = active.Count - 1; i > 0; i--)
-        {
-            int j = UnityEngine.Random.Range(0, i + 1);
-            // Swap sibling indices
-            int si = active[i].GetSiblingIndex();
-            int sj = active[j].GetSiblingIndex();
-            active[i].SetSiblingIndex(sj);
-            active[j].SetSiblingIndex(si);
+            answerButtons[i].onClick.AddListener(delegate { OnButtonClicked(idx); });
         }
 
         questionUI.SetActive(true);
@@ -154,7 +120,6 @@ public class QuestionManager : MonoBehaviour
     void OnButtonClicked(int index)
     {
         if (!questionActive) return;
-        PlaySound(sfxClick);
         ResolveAnswer(optionIndex: index, autoFail: false);
     }
 
@@ -227,9 +192,11 @@ public class QuestionManager : MonoBehaviour
 
         mover.ModifySpeed(speedMult);
 
-        // Play result sound
-        if (!autoFail)
-            PlaySound(isCorrect ? sfxCorrect : sfxWrong);
+        // Register answer in results tracker (autoFail counts as wrong)
+        if (autoFail)
+            GameResultsManager.Instance?.RegisterAnswer(false);
+        else
+            GameResultsManager.Instance?.RegisterAnswer(isCorrect);
 
         if (autoFail)
         {
@@ -244,12 +211,7 @@ public class QuestionManager : MonoBehaviour
                     : msg + "\n" + timingSuffix;
             ShowFeedback(combined, col);
         }
-        else
-        {
-            // Incorrect: show option feedback text without timing suffix
-            if (!string.IsNullOrWhiteSpace(msg))
-                ShowFeedback(msg, col);
-        }
+        // incorrect: no feedback
     }
 
     // -- Timing ----------------------------------------------------------------
@@ -273,14 +235,6 @@ public class QuestionManager : MonoBehaviour
             return 2;
         }
         return zone.EvaluateTiming(rawT);
-    }
-
-    // -- Audio ----------------------------------------------------------------
-
-    void PlaySound(AudioClip clip)
-    {
-        if (audioSource != null && clip != null)
-            audioSource.PlayOneShot(clip);
     }
 
     // -- Feedback --------------------------------------------------------------

@@ -81,6 +81,18 @@ public class WaypointMover : MonoBehaviour
 
         isMoving = false;
         SetWalking(false);
+
+        // Si es el último punto del recorrido
+        if (currentStopIndex >= stopPoints.Length - 1)
+        {
+            Debug.Log("Recorrido terminado.");
+
+            if (GameResultsManager.Instance != null)
+                GameResultsManager.Instance.ShowResults();
+
+            return;
+        }
+
         OnReachStop?.Invoke(currentStopIndex);
     }
 
