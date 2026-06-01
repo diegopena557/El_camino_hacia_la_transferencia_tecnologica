@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
+
 public class StopQuestionManager : MonoBehaviour
 {
     [Header("UI References")]
@@ -179,6 +181,9 @@ public class StopQuestionManager : MonoBehaviour
         if (!waitingForAnswer) return;
 
         waitingForAnswer = false;
+
+        // Register in results tracker
+        GameResultsManager.Instance?.RegisterAnswer(option.isCorrect);
 
         // Ocultar botones
         HideButton(cgButtonA);
