@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameResultsManager : MonoBehaviour
@@ -30,7 +31,12 @@ public class GameResultsManager : MonoBehaviour
     public float popupDuration = 0.35f;
     public float staggerDelay = 0.15f;
 
-    
+    [Header("Continue Button")]
+    public Button continueButton;
+
+    [Header("Fade Out Settings")]
+    public Image fadePanel;
+    public float fadeOutDuration = 1.5f;
 
     void Awake()
     {
@@ -41,9 +47,19 @@ public class GameResultsManager : MonoBehaviour
 
         if (resultsPanel != null)
             resultsPanel.SetActive(false);
+
+        // El panel empieza transparente
+        if (fadePanel != null)
+        {
+            Color c = fadePanel.color;
+            c.a = 0f;
+            fadePanel.color = c;
+            fadePanel.gameObject.SetActive(false);
+        }
+
+        if (continueButton != null)
+            continueButton.onClick.AddListener(OnContinuePressed);
     }
-
-
 
     public void RegisterAnswer(bool correct)
     {
@@ -52,8 +68,6 @@ public class GameResultsManager : MonoBehaviour
         else
             wrongAnswers++;
     }
-
-
 
     public void ShowResults()
     {
@@ -70,21 +84,13 @@ public class GameResultsManager : MonoBehaviour
         wrongText.text = "Errores: " + wrongAnswers;
         percentageText.text = "Precision: " + Mathf.RoundToInt(percentage) + "%";
 
-        // MEDALLA
         if (percentage >= 80f)
-        {
             medalImage.sprite = goldMedal;
-        }
         else if (percentage >= 50f)
-        {
             medalImage.sprite = silverMedal;
-        }
         else
-        {
             medalImage.sprite = bronzeMedal;
-        }
 
-        // Reset escalas
         titleText.transform.localScale = Vector3.zero;
         correctText.transform.localScale = Vector3.zero;
         wrongText.transform.localScale = Vector3.zero;
@@ -93,6 +99,39 @@ public class GameResultsManager : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(AnimateResults());
+    }
+
+    public void OnContinuePressed()
+    {
+        continueButton.interactable = false; // Evita doble clic
+        StartCoroutine(FadeOutAndLoad());
+    }
+
+    // ----------------------------------------------------
+    // FADE OUT Y CARGA DE ESCENA
+    // ----------------------------------------------------
+
+    IEnumerator FadeOutAndLoad()
+    {
+        fadePanel.gameObject.SetActive(true);
+        Color c = fadePanel.color;
+        c.a = 0f;
+        fadePanel.color = c;
+
+        float elapsed = 0f;
+
+        while (elapsed < fadeOutDuration)
+        {
+            elapsed += Time.deltaTime;
+            c.a = Mathf.Lerp(0f, 1f, elapsed / fadeOutDuration);
+            fadePanel.color = c;
+            yield return null;
+        }
+
+        c.a = 1f;
+        fadePanel.color = c;
+
+        SceneManager.LoadScene("Dialogue14");
     }
 
     // ----------------------------------------------------
@@ -135,37 +174,21 @@ public class GameResultsManager : MonoBehaviour
 
         float t = 0f;
 
-        // CRECER
         while (t < firstPhase)
         {
             t += Time.unscaledDeltaTime;
-
             float lerp = t / firstPhase;
-
-            target.localScale = Vector3.Lerp(
-                startScale,
-                overshootScale,
-                EaseOutBack(lerp)
-            );
-
+            target.localScale = Vector3.Lerp(startScale, overshootScale, EaseOutBack(lerp));
             yield return null;
         }
 
-        // REBOTE
         t = 0f;
 
         while (t < secondPhase)
         {
             t += Time.unscaledDeltaTime;
-
             float lerp = t / secondPhase;
-
-            target.localScale = Vector3.Lerp(
-                overshootScale,
-                finalScale,
-                lerp
-            );
-
+            target.localScale = Vector3.Lerp(overshootScale, finalScale, lerp);
             yield return null;
         }
 
@@ -180,7 +203,6 @@ public class GameResultsManager : MonoBehaviour
     {
         float c1 = 1.70158f;
         float c3 = c1 + 1f;
-
         return 1 + c3 * Mathf.Pow(x - 1, 3) + c1 * Mathf.Pow(x - 1, 2);
     }
 }

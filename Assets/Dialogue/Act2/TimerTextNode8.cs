@@ -3,7 +3,8 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Video;
 using UnityEngine.UI;
-using System.Collections.Generic; //Necesario para los audios
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class TimerTextNode8 : MonoBehaviour
 {
@@ -36,12 +37,16 @@ public class TimerTextNode8 : MonoBehaviour
     public TypewriterTMP textNode8_7;
     public TypewriterTMP textNode8_8;
 
+    //////////////////// FADE IN ////////////////////////
+    [Header("Fade In Settings")]
+    public Image fadePanel;
+    public float fadeInDuration = 1.5f;
+
+    //////////////////// FADE OUT ////////////////////////
+    [Header("Fade Out Settings")]
+    public float fadeOutDuration = 1.5f;
+
     //////////////////// AUDIOS ////////////////////////
-    /// SFX Anim Sec ///
-    //[Header("SFX Anim Sec")]
-    //public AudioSource Anim1;
-    //public AudioSource Anim2;
-    /// Dialogos ///
     [Header("Audio Sources")]
     public AudioSource[] sources;
 
@@ -53,42 +58,39 @@ public class TimerTextNode8 : MonoBehaviour
         foreach (AudioSource src in sources)
         {
             if (src != null)
-            {
                 audioDict[src.gameObject.name] = src;
-            }
+        }
+
+        
+        if (fadePanel != null)
+        {
+            Color c = fadePanel.color;
+            c.a = 1f;
+            fadePanel.color = c;
+            fadePanel.gameObject.SetActive(true);
         }
     }
 
     public void PlayByName(string name)
     {
         if (audioDict.ContainsKey(name))
-        {
             audioDict[name].Play();
-        }
         else
-        {
             Debug.LogWarning("No AudioSource found with name: " + name);
-        }
     }
 
     public void StopByName(string name)
     {
         if (audioDict.ContainsKey(name))
-        {
             audioDict[name].Stop();
-        }
-    }
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
     }
 
-    // Update is called once per frame
+    void Start() { }
+
     void Update()
     {
-        if(flagJustOneTime == false){
+        if (flagJustOneTime == false)
+        {
             StartCoroutine(AdvancingTimerNode8_0());
             flagJustOneTime = true;
         }
@@ -100,9 +102,13 @@ public class TimerTextNode8 : MonoBehaviour
         GO_Node8_1.SetActive(false);
 
         videoPlayerNode8_0.Stop();
-        videoPlayerNode8_0.time = 0;        
+        videoPlayerNode8_0.time = 0;
         videoPlayerNode8_0.frame = 0;
         videoPlayerNode8_0.Play();
+
+        // Fade in de entrada
+        if (fadePanel != null)
+            yield return StartCoroutine(FadeInEntrance());
 
         yield return new WaitForSeconds(18f);
 
@@ -113,7 +119,7 @@ public class TimerTextNode8 : MonoBehaviour
         GO_Node8_0.SetActive(false);
 
         videoPlayerNode8_1.Stop();
-        videoPlayerNode8_1.time = 0;        
+        videoPlayerNode8_1.time = 0;
         videoPlayerNode8_1.frame = 0;
         videoPlayerNode8_1.Play();
 
@@ -121,7 +127,7 @@ public class TimerTextNode8 : MonoBehaviour
         myTextNode8_1.gameObject.SetActive(true);
         textNode8_1.StartTyping();
         PlayByName("8_1_1");
-        
+
         yield return new WaitForSeconds(5.35f);
         myTextNode8_1.gameObject.SetActive(false);
         myTextNode8_2.gameObject.SetActive(true);
@@ -164,5 +170,57 @@ public class TimerTextNode8 : MonoBehaviour
         textNode8_8.StartTyping();
         PlayByName("8_1_8");
 
+        yield return new WaitForSeconds(10f); // Espera a que termine el último diálogo
+        myTextNode8_8.gameObject.SetActive(false);
+
+        // Fade out y carga de escena
+        yield return StartCoroutine(FadeOutToBlack());
+        LoadNextScene();
+    }
+
+    // Fade in de entrada: negro a transparente
+    IEnumerator FadeInEntrance()
+    {
+        float elapsed = 0f;
+        Color c = fadePanel.color;
+
+        while (elapsed < fadeInDuration)
+        {
+            elapsed += Time.deltaTime;
+            c.a = Mathf.Lerp(1f, 0f, elapsed / fadeInDuration);
+            fadePanel.color = c;
+            yield return null;
+        }
+
+        c.a = 0f;
+        fadePanel.color = c;
+        fadePanel.gameObject.SetActive(false);
+    }
+
+    // Fade out de salida: transparente a negro
+    IEnumerator FadeOutToBlack()
+    {
+        fadePanel.gameObject.SetActive(true);
+        Color c = fadePanel.color;
+        c.a = 0f;
+        fadePanel.color = c;
+
+        float elapsed = 0f;
+
+        while (elapsed < fadeOutDuration)
+        {
+            elapsed += Time.deltaTime;
+            c.a = Mathf.Lerp(0f, 1f, elapsed / fadeOutDuration);
+            fadePanel.color = c;
+            yield return null;
+        }
+
+        c.a = 1f;
+        fadePanel.color = c;
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene("Dialogo9");
     }
 }
