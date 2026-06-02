@@ -11,8 +11,10 @@ public class TimerTextNode14 : MonoBehaviour
     private bool flagJustOneTime;
 
     public GameObject GO_CanvaNode14_1;
+    public GameObject GO_CanvaNode14_2;
 
     public GameObject GO_Node14_1;
+    public GameObject GO_Node14_2;
 
     public VideoPlayer videoPlayerNode14_1;
 
@@ -118,6 +120,17 @@ public class TimerTextNode14 : MonoBehaviour
         PlayByName("14a_4");
 
         yield return new WaitForSeconds(4.1f);
-        //StartCoroutine(AdvancingTimerNode12_2());
+        StartCoroutine(AdvancingTimerNode14_2());
+    }
+
+    IEnumerator AdvancingTimerNode14_2()
+    {
+        GO_Node14_2.SetActive(true);
+        GO_CanvaNode14_2.SetActive(true);
+
+        GO_Node14_1.SetActive(true);
+        GO_CanvaNode14_1.SetActive(true);
+
+        yield return new WaitForSeconds(1.0f);
     }
 }
