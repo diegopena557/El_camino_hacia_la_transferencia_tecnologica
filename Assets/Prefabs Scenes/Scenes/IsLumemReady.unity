@@ -823,7 +823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5352832200247942429, guid: a505bf54752c4594eb6bc609e6d3f00c, type: 3}
       propertyPath: speed
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5352832200247942429, guid: a505bf54752c4594eb6bc609e6d3f00c, type: 3}
       propertyPath: splineContainer
