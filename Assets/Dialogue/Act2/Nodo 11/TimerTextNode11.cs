@@ -11,10 +11,12 @@ public class TimerTextNode11 : MonoBehaviour
     private bool flagJustOneTime;
 
     public GameObject GO_Node11_1;
+    public GameObject GO_Node11_2;
     public GameObject GO_Node11_3;
     public GameObject GO_Node11_5;
 
     public GameObject GO_CanvaNode11_1;
+    public GameObject GO_CanvaNode11_2;
     public GameObject GO_CanvaNode11_3;
     public GameObject GO_CanvaNode11_5;
 
@@ -45,6 +47,12 @@ public class TimerTextNode11 : MonoBehaviour
     public TypewriterTMP textNode11_5_3;
     public TypewriterTMP textNode11_5_4;
     public TypewriterTMP textNode11_5_5;
+
+    public bool flagContinue3;
+    public bool flagBoton1;
+    public bool flagBoton2;
+    public bool flagBoton3;
+    public bool flagBoton4;
 
     //////////////////// FADE IN ////////////////////////
     [Header("Fade In Settings")]
@@ -93,7 +101,31 @@ public class TimerTextNode11 : MonoBehaviour
             audioDict[name].Stop();
     }
 
-    void Start() { }
+    void Start() 
+    { 
+        flagContinue3 = false;
+
+        flagBoton1 = false;
+        flagBoton2 = false;
+        flagBoton3 = false;
+        flagBoton4 = false;
+    }
+
+    public void SetValueBoton1(){
+        flagBoton1 = true;
+    }
+
+    public void SetValueBoton2(){
+        flagBoton2 = true;
+    }
+
+    public void SetValueBoton3(){
+        flagBoton3 = true;
+    }
+
+    public void SetValueBoton4(){
+        flagBoton4 = true;
+    }
 
     void Update()
     {
@@ -101,6 +133,20 @@ public class TimerTextNode11 : MonoBehaviour
         {
             StartCoroutine(AdvancingTimerNode11_1());
             flagJustOneTime = true;
+        }
+
+        if(flagBoton1 == true && flagBoton2 == true && flagBoton3 == true && flagBoton4 == true){
+            flagContinue3 = true;
+        }
+
+        if(flagContinue3 == true){
+            flagContinue3 = false;
+            flagBoton1 = false;
+            flagBoton2 = false;
+            flagBoton3 = false;
+            flagBoton4 = false;
+
+            StartCoroutine(AdvancingTimerNode11_3());
         }
     }
 
@@ -119,7 +165,20 @@ public class TimerTextNode11 : MonoBehaviour
             yield return StartCoroutine(FadeInEntrance());
 
         yield return new WaitForSeconds(10f);
-        yield return StartCoroutine(AdvancingTimerNode11_3());
+        yield return StartCoroutine(AdvancingTimerNode11_2());
+    }
+
+    IEnumerator AdvancingTimerNode11_2()
+    {
+        GO_Node11_2.SetActive(true);
+        GO_CanvaNode11_2.SetActive(true);
+
+        GO_Node11_1.SetActive(false);
+        GO_CanvaNode11_1.SetActive(false);
+
+        videoPlayerNode11_1.Stop();
+
+        yield return new WaitForSeconds(1f);
     }
 
     IEnumerator AdvancingTimerNode11_3()
@@ -127,8 +186,8 @@ public class TimerTextNode11 : MonoBehaviour
         GO_Node11_3.SetActive(true);
         GO_CanvaNode11_3.SetActive(true);
 
-        GO_Node11_1.SetActive(false);
-        GO_CanvaNode11_1.SetActive(false);
+        GO_Node11_2.SetActive(false);
+        GO_CanvaNode11_2.SetActive(false);
 
         videoPlayerNode11_1.Stop();
 
