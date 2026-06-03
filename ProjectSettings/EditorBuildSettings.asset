@@ -5,19 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prefabs Scenes/Scenes/Dialogue.unity
     guid: 02defb8142a29dd438896b8675f64027
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prefabs Scenes/Scenes/ChestMinigameIngenieria.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prefabs Scenes/Scenes/Dialogue2al5.unity
     guid: b740a9a2b2852494b9df8f30d4a5b51e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prefabs Scenes/Scenes/Incompleteprototypeminigame2.unity
     guid: abffe7547df68ad4dbb56154705fa492
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prefabs Scenes/Scenes/Dialogue7.unity
     guid: 8e3e8c90f9a86420c93995f1b2295e7a
   - enabled: 1
