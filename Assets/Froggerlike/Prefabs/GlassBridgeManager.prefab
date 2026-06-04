@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5518583856897374087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8882326248059517467}
+  - component: {fileID: 1826205527770222178}
+  m_Layer: 0
+  m_Name: GlassBridgeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8882326248059517467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5518583856897374087}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1826205527770222178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5518583856897374087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3986db48ba6ab4bb1669a0bea14b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlassBridgeManager
+  player: {fileID: 0}
+  playerAnimator: {fileID: 0}
+  moveSpeed: 5
+  platformLevels:
+  - platform1: {fileID: 0}
+    platform2: {fileID: 0}
+    platform3: {fileID: 0}
+    platform4: {fileID: 0}
+  - platform1: {fileID: 0}
+    platform2: {fileID: 0}
+    platform3: {fileID: 0}
+    platform4: {fileID: 0}
+  - platform1: {fileID: 0}
+    platform2: {fileID: 0}
+    platform3: {fileID: 0}
+    platform4: {fileID: 0}
+  - platform1: {fileID: 0}
+    platform2: {fileID: 0}
+    platform3: {fileID: 0}
+    platform4: {fileID: 0}
+  - platform1: {fileID: 0}
+    platform2: {fileID: 0}
+    platform3: {fileID: 0}
+    platform4: {fileID: 0}
+  totalLevels: 5
+  fadeInDuration: 1
+  levelText: {fileID: 0}
+  winPanel: {fileID: 0}
+  correctText: {fileID: 0}
+  errorText: {fileID: 0}
+  percentageText: {fileID: 0}
+  medalTitleText: {fileID: 0}
+  medalImage: {fileID: 0}
+  bronzeMedal: {fileID: 1909372932373494216, guid: 4631e24eb6b9d754590e1ec777cd7357, type: 3}
+  silverMedal: {fileID: -7981399905412357058, guid: f2db74d455700cc47a086f89a0ce6c68, type: 3}
+  goldMedal: {fileID: 2616987750249919328, guid: 07ec73ba0c2351f43a54c37ba44ec9d6, type: 3}
+  correctCount: 0
+  errorCount: 0
+  endPoint: {fileID: 0}

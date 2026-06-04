@@ -1,0 +1,353 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &964170159774585597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6591851430251011274}
+  - component: {fileID: 7420092974220256167}
+  m_Layer: 0
+  m_Name: Question7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6591851430251011274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964170159774585597}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4099843204370169118}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7420092974220256167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964170159774585597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopQuestionTrigger
+  segmentIndex: 4
+  questions:
+  - {fileID: 11400000, guid: 143d18bd67f3528469c4ef6d1237fab5, type: 2}
+  - {fileID: 11400000, guid: 304bbb604fb67e147bc9cc936212677c, type: 2}
+  - {fileID: 11400000, guid: a5541d691b54db848b1cca32fc9fabb7, type: 2}
+  windowMin: 0.093
+  windowMax: 0.8
+  triggerAtProgress: -1
+  alreadyFired: 0
+--- !u!1 &964879944921936867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 794033493767148978}
+  - component: {fileID: 9059082020004773926}
+  m_Layer: 0
+  m_Name: Question6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &794033493767148978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964879944921936867}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4099843204370169118}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9059082020004773926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964879944921936867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopQuestionTrigger
+  segmentIndex: 3
+  questions:
+  - {fileID: 11400000, guid: 143d18bd67f3528469c4ef6d1237fab5, type: 2}
+  - {fileID: 11400000, guid: 1feeedb2a42578440bb93cbe95971a3f, type: 2}
+  windowMin: 0.093
+  windowMax: 0.8
+  triggerAtProgress: -1
+  alreadyFired: 0
+--- !u!1 &2602128550840595236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8191123086334327429}
+  - component: {fileID: 3483551066024776256}
+  m_Layer: 0
+  m_Name: Question8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8191123086334327429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602128550840595236}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4099843204370169118}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3483551066024776256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602128550840595236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopQuestionTrigger
+  segmentIndex: 5
+  questions:
+  - {fileID: 11400000, guid: a5541d691b54db848b1cca32fc9fabb7, type: 2}
+  - {fileID: 11400000, guid: 304bbb604fb67e147bc9cc936212677c, type: 2}
+  windowMin: 0.093
+  windowMax: 0.8
+  triggerAtProgress: -1
+  alreadyFired: 0
+--- !u!1 &3775760379784493003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8223487379137267589}
+  - component: {fileID: 1518040509648647818}
+  m_Layer: 0
+  m_Name: "QuestionCRL Validaci\xF3n"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8223487379137267589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3775760379784493003}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4099843204370169118}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1518040509648647818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3775760379784493003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopQuestionTrigger
+  segmentIndex: 7
+  questions:
+  - {fileID: 11400000, guid: 4c42bb08c34596b4ba343d9ecc40e2db, type: 2}
+  - {fileID: 11400000, guid: e0a8375a9eb5a1743ba258d2cca16d07, type: 2}
+  - {fileID: 11400000, guid: 3bc07fcc729d1004c854bfed7539d3a1, type: 2}
+  windowMin: 0.093
+  windowMax: 0.8
+  triggerAtProgress: -1
+  alreadyFired: 0
+--- !u!1 &5895046765427171943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4099843204370169118}
+  m_Layer: 0
+  m_Name: 6-7 Questions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4099843204370169118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5895046765427171943}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 794033493767148978}
+  - {fileID: 6591851430251011274}
+  - {fileID: 8191123086334327429}
+  - {fileID: 6376229669483984711}
+  - {fileID: 8223487379137267589}
+  - {fileID: 7159310739127002920}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8311337523224584396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6376229669483984711}
+  - component: {fileID: 5374851056578407505}
+  m_Layer: 0
+  m_Name: Question9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6376229669483984711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8311337523224584396}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4099843204370169118}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5374851056578407505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8311337523224584396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopQuestionTrigger
+  segmentIndex: 6
+  questions:
+  - {fileID: 11400000, guid: 4c42bb08c34596b4ba343d9ecc40e2db, type: 2}
+  windowMin: 0.093
+  windowMax: 0.8
+  triggerAtProgress: -1
+  alreadyFired: 0
+--- !u!1 &8881956204496679513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7159310739127002920}
+  - component: {fileID: 6993246547210546668}
+  m_Layer: 0
+  m_Name: QuestionCRL Escalamiento
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7159310739127002920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881956204496679513}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4099843204370169118}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6993246547210546668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881956204496679513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopQuestionTrigger
+  segmentIndex: 8
+  questions:
+  - {fileID: 11400000, guid: c26e2cea1771874489cc0923d6dda2da, type: 2}
+  - {fileID: 11400000, guid: 3bc07fcc729d1004c854bfed7539d3a1, type: 2}
+  - {fileID: 11400000, guid: 4b7ff914256fc7240a9b1cb2990eecc6, type: 2}
+  windowMin: 0.093
+  windowMax: 0.8
+  triggerAtProgress: -1
+  alreadyFired: 0
