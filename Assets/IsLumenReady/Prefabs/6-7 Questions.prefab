@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1706236014435662653
+--- !u!1 &964170159774585597
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,112 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1972141386744161361}
-  - component: {fileID: 777943611023883872}
-  m_Layer: 0
-  m_Name: Question6
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1972141386744161361
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1706236014435662653}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7012580901699554832}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &777943611023883872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1706236014435662653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StopQuestionTrigger
-  segmentIndex: 3
-  questions:
-  - {fileID: 11400000, guid: 143d18bd67f3528469c4ef6d1237fab5, type: 2}
-  - {fileID: 11400000, guid: 1feeedb2a42578440bb93cbe95971a3f, type: 2}
-  windowMin: 0.093
-  windowMax: 0.8
-  triggerAtProgress: -1
-  alreadyFired: 0
---- !u!1 &2733339240416760496
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3742745558146888195}
-  - component: {fileID: 366286872427410744}
-  m_Layer: 0
-  m_Name: Question8
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3742745558146888195
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2733339240416760496}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7012580901699554832}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &366286872427410744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2733339240416760496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StopQuestionTrigger
-  segmentIndex: 5
-  questions:
-  - {fileID: 11400000, guid: a5541d691b54db848b1cca32fc9fabb7, type: 2}
-  - {fileID: 11400000, guid: 304bbb604fb67e147bc9cc936212677c, type: 2}
-  windowMin: 0.093
-  windowMax: 0.8
-  triggerAtProgress: -1
-  alreadyFired: 0
---- !u!1 &5101242314131123647
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4222652970082215501}
-  - component: {fileID: 8011601791496397550}
+  - component: {fileID: 6591851430251011274}
+  - component: {fileID: 7420092974220256167}
   m_Layer: 0
   m_Name: Question7
   m_TagString: Untagged
@@ -121,28 +17,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4222652970082215501
+--- !u!4 &6591851430251011274
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5101242314131123647}
+  m_GameObject: {fileID: 964170159774585597}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7012580901699554832}
+  m_Father: {fileID: 4099843204370169118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8011601791496397550
+--- !u!114 &7420092974220256167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5101242314131123647}
+  m_GameObject: {fileID: 964170159774585597}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
@@ -157,7 +53,7 @@ MonoBehaviour:
   windowMax: 0.8
   triggerAtProgress: -1
   alreadyFired: 0
---- !u!1 &5317432894534283999
+--- !u!1 &964879944921936867
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,36 +61,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7012580901699554832}
+  - component: {fileID: 794033493767148978}
+  - component: {fileID: 9059082020004773926}
   m_Layer: 0
-  m_Name: 6-7 Questions
+  m_Name: Question6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7012580901699554832
+--- !u!4 &794033493767148978
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5317432894534283999}
+  m_GameObject: {fileID: 964879944921936867}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1972141386744161361}
-  - {fileID: 4222652970082215501}
-  - {fileID: 3742745558146888195}
-  - {fileID: 2933195383222892786}
-  - {fileID: 4139403276023984406}
-  - {fileID: 231519758061840899}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 4099843204370169118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7894597805259775179
+--- !u!114 &9059082020004773926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964879944921936867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopQuestionTrigger
+  segmentIndex: 3
+  questions:
+  - {fileID: 11400000, guid: 143d18bd67f3528469c4ef6d1237fab5, type: 2}
+  - {fileID: 11400000, guid: 1feeedb2a42578440bb93cbe95971a3f, type: 2}
+  windowMin: 0.093
+  windowMax: 0.8
+  triggerAtProgress: -1
+  alreadyFired: 0
+--- !u!1 &2602128550840595236
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,8 +113,60 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4139403276023984406}
-  - component: {fileID: 978183712366842266}
+  - component: {fileID: 8191123086334327429}
+  - component: {fileID: 3483551066024776256}
+  m_Layer: 0
+  m_Name: Question8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8191123086334327429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602128550840595236}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4099843204370169118}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3483551066024776256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602128550840595236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopQuestionTrigger
+  segmentIndex: 5
+  questions:
+  - {fileID: 11400000, guid: a5541d691b54db848b1cca32fc9fabb7, type: 2}
+  - {fileID: 11400000, guid: 304bbb604fb67e147bc9cc936212677c, type: 2}
+  windowMin: 0.093
+  windowMax: 0.8
+  triggerAtProgress: -1
+  alreadyFired: 0
+--- !u!1 &3775760379784493003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8223487379137267589}
+  - component: {fileID: 1518040509648647818}
   m_Layer: 0
   m_Name: "QuestionCRL Validaci\xF3n"
   m_TagString: Untagged
@@ -211,28 +174,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4139403276023984406
+--- !u!4 &8223487379137267589
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7894597805259775179}
+  m_GameObject: {fileID: 3775760379784493003}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7012580901699554832}
+  m_Father: {fileID: 4099843204370169118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &978183712366842266
+--- !u!114 &1518040509648647818
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7894597805259775179}
+  m_GameObject: {fileID: 3775760379784493003}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
@@ -247,7 +210,7 @@ MonoBehaviour:
   windowMax: 0.8
   triggerAtProgress: -1
   alreadyFired: 0
---- !u!1 &8075684254974027808
+--- !u!1 &5895046765427171943
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,8 +218,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2933195383222892786}
-  - component: {fileID: 7919275394570153655}
+  - component: {fileID: 4099843204370169118}
+  m_Layer: 0
+  m_Name: 6-7 Questions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4099843204370169118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5895046765427171943}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 794033493767148978}
+  - {fileID: 6591851430251011274}
+  - {fileID: 8191123086334327429}
+  - {fileID: 6376229669483984711}
+  - {fileID: 8223487379137267589}
+  - {fileID: 7159310739127002920}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8311337523224584396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6376229669483984711}
+  - component: {fileID: 5374851056578407505}
   m_Layer: 0
   m_Name: Question9
   m_TagString: Untagged
@@ -264,28 +264,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2933195383222892786
+--- !u!4 &6376229669483984711
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8075684254974027808}
+  m_GameObject: {fileID: 8311337523224584396}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7012580901699554832}
+  m_Father: {fileID: 4099843204370169118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7919275394570153655
+--- !u!114 &5374851056578407505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8075684254974027808}
+  m_GameObject: {fileID: 8311337523224584396}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}
@@ -298,7 +298,7 @@ MonoBehaviour:
   windowMax: 0.8
   triggerAtProgress: -1
   alreadyFired: 0
---- !u!1 &8431749505914154999
+--- !u!1 &8881956204496679513
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,8 +306,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 231519758061840899}
-  - component: {fileID: 2311625529882571214}
+  - component: {fileID: 7159310739127002920}
+  - component: {fileID: 6993246547210546668}
   m_Layer: 0
   m_Name: QuestionCRL Escalamiento
   m_TagString: Untagged
@@ -315,28 +315,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &231519758061840899
+--- !u!4 &7159310739127002920
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8431749505914154999}
+  m_GameObject: {fileID: 8881956204496679513}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7012580901699554832}
+  m_Father: {fileID: 4099843204370169118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2311625529882571214
+--- !u!114 &6993246547210546668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8431749505914154999}
+  m_GameObject: {fileID: 8881956204496679513}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6bc64637859dfc4fae3ef216bfd2532, type: 3}

@@ -12,16 +12,18 @@ public class InstructionsPanelmini3 : MonoBehaviour
     public Button startButton;
     public TextMeshProUGUI buttonText;
 
-    [Header("Animación")]
+    [Header("Animaciï¿½n")]
     public float fadeInDuration = 0.8f;
     public float fadeOutDuration = 0.6f;
 
-    [Header("Escala del botón")]
+    [Header("Escala del botï¿½n")]
     public float buttonPopScale = 1.05f;
     public float buttonPopSpeed = 2f;
 
+    [Header("Audio Sources")]
     public AudioSource audioSource;
     public AudioClip Continuesound;
+    public AudioSource IntroMinJuego;
 
     private bool isShowing = true;
     private Color originalBgColor;
@@ -50,7 +52,7 @@ public class InstructionsPanelmini3 : MonoBehaviour
         if (buttonText != null)
             originalButtonTextColor = buttonText.color;
 
-        // Configurar el botón
+        // Configurar el botï¿½n
         if (startButton != null)
             startButton.onClick.AddListener(OnStartButtonClicked);
 
