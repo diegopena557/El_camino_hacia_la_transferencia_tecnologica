@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine.Video;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class TimerNode7 : MonoBehaviour
 {
@@ -30,8 +31,12 @@ public class TimerNode7 : MonoBehaviour
 
     //////////////////// FADE IN ////////////////////////
     [Header("Fade In Settings")]
-    public Image fadePanel;          // Panel negro (Image) que cubre toda la pantalla
+    public Image fadePanel;
     public float fadeInDuration = 1.5f;
+
+    //////////////////// FADE OUT ////////////////////////
+    [Header("Fade Out Settings")]
+    public float fadeOutDuration = 1.5f;
 
     //////////////////// AUDIOS ////////////////////////
     [Header("Audio Sources")]
@@ -49,7 +54,6 @@ public class TimerNode7 : MonoBehaviour
                 audioDict[src.gameObject.name] = src;
         }
 
-        // Prepara el CanvasGroup para el fade del panel final
         if (endPanel != null)
         {
             endPanelCanvasGroup = endPanel.GetComponent<CanvasGroup>();
@@ -62,7 +66,6 @@ public class TimerNode7 : MonoBehaviour
             endPanel.SetActive(false);
         }
 
-        // El panel de fade in empieza completamente opaco (negro)
         if (fadePanel != null)
         {
             Color c = fadePanel.color;
@@ -99,14 +102,12 @@ public class TimerNode7 : MonoBehaviour
 
     IEnumerator AdvancingTimerNode7()
     {
-        // Inicia el video antes del fade para que ya esté corriendo debajo
         videoPlayerNode7a.Stop();
         videoPlayerNode7a.time = 0;
         videoPlayerNode7a.frame = 0;
         videoPlayerNode7a.Play();
         videoPlayerNode7a.playbackSpeed = 1f;
 
-        // Fade in: el panel pasa de opaco a transparente
         if (fadePanel != null)
             yield return StartCoroutine(FadeInEntrance());
 
@@ -140,10 +141,14 @@ public class TimerNode7 : MonoBehaviour
         myTextNode7a_4.gameObject.SetActive(false);
 
         if (endPanel != null)
-            StartCoroutine(FadeInPanel());
+            yield return StartCoroutine(FadeInPanel());
+
+        yield return StartCoroutine(FadeOutToBlack());
+
+        LoadNextScene();
     }
 
-    // Fade in de entrada: negro  transparente
+    // Fade in de entrada: negro a transparente
     IEnumerator FadeInEntrance()
     {
         float elapsed = 0f;
@@ -182,12 +187,30 @@ public class TimerNode7 : MonoBehaviour
         endPanelCanvasGroup.blocksRaycasts = true;
     }
 
-    public void QuitGame()
+    // Fade out de salida: transparente a negro
+    IEnumerator FadeOutToBlack()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        fadePanel.gameObject.SetActive(true);
+        Color c = fadePanel.color;
+        c.a = 0f;
+        fadePanel.color = c;
+
+        float elapsed = 0f;
+
+        while (elapsed < fadeOutDuration)
+        {
+            elapsed += Time.deltaTime;
+            c.a = Mathf.Lerp(0f, 1f, elapsed / fadeOutDuration);
+            fadePanel.color = c;
+            yield return null;
+        }
+
+        c.a = 1f;
+        fadePanel.color = c;
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene("Dialogo8");
     }
 }
