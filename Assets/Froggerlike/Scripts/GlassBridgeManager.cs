@@ -13,6 +13,12 @@ public class GlassBridgeManager : MonoBehaviour
     public Animator playerAnimator;
     public float moveSpeed = 2f;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip jumpSound;
+    public AudioClip correctSound;
+    public AudioClip incorrectSound;
+
     [Header("Platforms")]
     public List<PlatformLevel> platformLevels;
 
@@ -42,7 +48,7 @@ public class GlassBridgeManager : MonoBehaviour
     private int currentLevel = 0;
     private bool isMoving = false;
     private bool gameOver = false;
-    private bool gameStarted = false; 
+    private bool gameStarted = false;
     private Vector3 initialPlayerPosition;
 
     [Header("End Game")]
@@ -73,8 +79,8 @@ public class GlassBridgeManager : MonoBehaviour
         medalTitleScale = medalTitleText.transform.localScale;
         medalImageScale = medalImage.transform.localScale;
 
-        // NO iniciar el juego automáticamente
-        // El panel de instrucciones llamará a StartGame() cuando el jugador esté listo
+        // NO iniciar el juego automaticamente
+        // El panel de instrucciones llamara a StartGame() cuando el jugador este listo
     }
 
     void RandomizeLevel(PlatformLevel level)
@@ -93,7 +99,7 @@ public class GlassBridgeManager : MonoBehaviour
             feedbackTexts.Add(p.feedbackText);
         }
 
-        // Fisher-Yates shuffle — todos los datos se mueven juntos
+        // Fisher-Yates shuffle - todos los datos se mueven juntos
         for (int i = texts.Count - 1; i > 0; i--)
         {
             int j = Random.Range(0, i + 1);
@@ -111,7 +117,7 @@ public class GlassBridgeManager : MonoBehaviour
             feedbackTexts[j] = tmpFeedback;
         }
 
-        // Reasignar datos a cada plataforma (posición en escena no cambia)
+        // Reasignar datos a cada plataforma (posicion en escena no cambia)
         for (int i = 0; i < platforms.Count; i++)
         {
             platforms[i].platformText = texts[i];
@@ -123,14 +129,14 @@ public class GlassBridgeManager : MonoBehaviour
         }
     }
 
-  
+
     void RandomizeAllLevels()
     {
         foreach (PlatformLevel level in platformLevels)
             RandomizeLevel(level);
     }
 
- 
+
 
     public void OnPlatformClicked(GlassPlatform platform)
     {
@@ -149,6 +155,7 @@ public class GlassBridgeManager : MonoBehaviour
                 playerAnimator.SetBool("IsJumping", true);
                 playerAnimator.SetBool("IsFalling", false);
             }
+            PlaySound(jumpSound);
             StartCoroutine(MovePlayerToPlatform(platform.transform.position, true, platform));
         }
         else
@@ -158,6 +165,7 @@ public class GlassBridgeManager : MonoBehaviour
                 playerAnimator.SetBool("IsFalling", true);
                 playerAnimator.SetBool("IsJumping", false);
             }
+            PlaySound(jumpSound);
             StartCoroutine(MovePlayerToPlatform(platform.transform.position, false, platform));
         }
     }
@@ -191,6 +199,7 @@ public class GlassBridgeManager : MonoBehaviour
         {
             correctCount++;
             currentLevel++;
+            PlaySound(correctSound);
             UpdateUI();
 
             if (currentLevel < platformLevels.Count)
@@ -204,6 +213,7 @@ public class GlassBridgeManager : MonoBehaviour
         else
         {
             errorCount++;
+            PlaySound(incorrectSound);
 
             yield return new WaitForSeconds(1f);
 
@@ -284,7 +294,7 @@ public class GlassBridgeManager : MonoBehaviour
 
         correctText.text = "Aciertos: " + correctCount;
         errorText.text = "Errores: " + errorCount;
-        percentageText.text = "Precisión: " + percentage.ToString("F1") + "%";
+        percentageText.text = "Precision: " + percentage.ToString("F1") + "%";
 
         if (percentage >= 80f)
         {
@@ -349,6 +359,12 @@ public class GlassBridgeManager : MonoBehaviour
         target.localScale = originalScale;
     }
 
+    void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+            audioSource.PlayOneShot(clip);
+    }
+
     public float GetSuccessPercentage()
     {
         int total = correctCount + errorCount;
@@ -369,8 +385,8 @@ public class GlassBridgeManager : MonoBehaviour
         foreach (PlatformLevel level in platformLevels)
             level.ResetAllPlatforms();
 
-        // Aleatorizar DESPUÉS del reset para que los textos originales
-        // estén disponibles antes del shuffle
+        // Aleatorizar DESPUES del reset para que los textos originales
+        // esten disponibles antes del shuffle
         RandomizeAllLevels();
 
         if (player) player.position = initialPlayerPosition;
@@ -409,7 +425,7 @@ public class PlatformLevel
     public GlassPlatform platform3;
     public GlassPlatform platform4;
 
-    
+
     public List<GlassPlatform> GetPlatforms()
     {
         var list = new List<GlassPlatform>();

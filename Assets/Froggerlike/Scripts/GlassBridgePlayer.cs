@@ -14,7 +14,7 @@ public class GlassBridgePlayer : MonoBehaviour
     private float animTimer = 0f;
     void Update()
     {
-        // Detectar si se está moviendo
+        // Detectar si se esta moviendo
         Vector3 velocity = GetComponent<Rigidbody2D>() ?
             GetComponent<Rigidbody2D>().linearVelocity : Vector3.zero;
 

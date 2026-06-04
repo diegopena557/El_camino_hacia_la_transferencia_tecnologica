@@ -20,6 +20,12 @@ public class QuestionManager : MonoBehaviour
     public Color colorLate = new Color(1f, 0.5f, 0f);
     public Color colorWrong = Color.red;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip buttonClickSound;
+    public AudioClip correctAnswerSound;
+    public AudioClip incorrectAnswerSound;
+
     // -- Runtime state ---------------------------------------------------------
 
     private bool questionActive = false;
@@ -152,6 +158,7 @@ public class QuestionManager : MonoBehaviour
         if (!questionActive)
             return;
 
+        PlaySound(buttonClickSound);
         ResolveAnswer(optionIndex: index, autoFail: false);
     }
 
@@ -160,6 +167,7 @@ public class QuestionManager : MonoBehaviour
         if (!questionActive)
             return;
 
+        PlaySound(buttonClickSound);
         ResolveAnswer(optionIndex: optionIndex, autoFail: false);
     }
 
@@ -212,7 +220,7 @@ public class QuestionManager : MonoBehaviour
 
             int timing;
 
-            // Si llegó al final sin responder,
+            // Si llego al final sin responder,
             // SIEMPRE cuenta como VERY LATE
             if (forcedLateAnswer)
             {
@@ -295,6 +303,12 @@ public class QuestionManager : MonoBehaviour
         // Reanudar movimiento si estaba pausado
         mover.SetPaused(false);
 
+        // Reproducir sonido de resultado
+        if (!autoFail)
+            PlaySound(isCorrect ? correctAnswerSound : incorrectAnswerSound);
+        else
+            PlaySound(incorrectAnswerSound);
+
         // Registrar resultado
         if (autoFail)
             GameResultsManager.Instance?.RegisterAnswer(false);
@@ -348,6 +362,14 @@ public class QuestionManager : MonoBehaviour
         }
 
         return zone.EvaluateTiming(rawT);
+    }
+
+    // -- Audio -----------------------------------------------------------------
+
+    void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+            audioSource.PlayOneShot(clip);
     }
 
     // -- Feedback --------------------------------------------------------------

@@ -29,6 +29,12 @@ public class StopQuestionManager : MonoBehaviour
     public Color colorCorrect = Color.green;
     public Color colorIncorrect = Color.red;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip buttonClickSound;
+    public AudioClip correctAnswerSound;
+    public AudioClip incorrectAnswerSound;
+
     // -- Runtime ---------------------------------------------------------------
 
     private WaypointMover mover;
@@ -182,6 +188,9 @@ public class StopQuestionManager : MonoBehaviour
 
         waitingForAnswer = false;
 
+        PlaySound(buttonClickSound);
+        PlaySound(option.isCorrect ? correctAnswerSound : incorrectAnswerSound);
+
         // Register in results tracker
         GameResultsManager.Instance?.RegisterAnswer(option.isCorrect);
 
@@ -212,6 +221,14 @@ public class StopQuestionManager : MonoBehaviour
 
         // Reanudar movimiento
         mover.SetPaused(false);
+    }
+
+    // -- Audio -----------------------------------------------------------------
+
+    void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+            audioSource.PlayOneShot(clip);
     }
 
     // -- Helpers ---------------------------------------------------------------
