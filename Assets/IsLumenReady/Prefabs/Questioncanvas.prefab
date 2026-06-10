@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6088005209765732354, guid: 2188fb628f1057145a4d78c678fd32f2, type: 3}
+  m_Sprite: {fileID: -1677503334357097324, guid: fd1f8ad507273be48a332621470afb93, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -323,15 +323,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Si
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4284547150
+  m_fontColor: {r: 0.30588236, g: 0, b: 0.38039216, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -427,8 +427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 177.22717, y: -408}
-  m_SizeDelta: {x: 117.2966, y: 0}
+  m_AnchoredPosition: {x: 177.22717, y: -423.62476}
+  m_SizeDelta: {x: 117.2966, y: 202.2167}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3553133869353428035
 CanvasRenderer:
@@ -451,15 +451,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.93333334}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 648576870231430561, guid: 81d98e1dc3a9fe242b172a3c54f13e48, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -652,8 +652,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17, y: -388}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 17, y: -392.51}
+  m_SizeDelta: {x: 200, y: 40.979}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8799145207449537322
 CanvasRenderer:
@@ -685,8 +685,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Feedback
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -749,7 +749,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -26.802185, z: -323.31702, w: -57.870148}
+  m_margin: {x: 17.945679, y: -8.546921, z: -314.85693, w: -70.37751}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -822,15 +822,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: No
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4284547150
+  m_fontColor: {r: 0.30588236, g: 0, b: 0.38039216, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6088005209765732354, guid: 2188fb628f1057145a4d78c678fd32f2, type: 3}
+  m_Sprite: {fileID: -1677503334357097324, guid: fd1f8ad507273be48a332621470afb93, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1147,8 +1147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -89, y: 95}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -150.47552, y: 130.41382}
+  m_SizeDelta: {x: 104.8878, y: 120.8979}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6726155150461155350
 CanvasRenderer:
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6088005209765732354, guid: 2188fb628f1057145a4d78c678fd32f2, type: 3}
+  m_Sprite: {fileID: -1087918489850883677, guid: b2678d5a30c0fdd4b8aec3ddca149a9c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1255,8 +1255,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pregunta
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
+  m_sharedMaterial: {fileID: -2568092172916817015, guid: 6e1c928253c2faa47888c94e43ee3744, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1319,7 +1319,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -26.802185, z: -842.64014, w: -122.1095}
+  m_margin: {x: 0, y: -26.802185, z: -724.916, w: -92.32379}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

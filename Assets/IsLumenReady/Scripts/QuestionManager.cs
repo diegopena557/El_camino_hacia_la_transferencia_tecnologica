@@ -315,18 +315,24 @@ public class QuestionManager : MonoBehaviour
         else
             GameResultsManager.Instance?.RegisterAnswer(isCorrect);
 
+        // -------------------------------------------------------------------
+        // FIX: mostrar feedback en todos los casos (correcto, incorrecto y
+        // autoFail). Antes, el bloque "else if (isCorrect)" dejaba sin
+        // feedback las respuestas incorrectas.
+        // -------------------------------------------------------------------
         if (autoFail)
         {
             ShowFeedback(msg, col);
         }
-        else if (isCorrect)
+        else
         {
-            string combined =
-                string.IsNullOrWhiteSpace(timingSuffix)
-                ? msg
-                : string.IsNullOrWhiteSpace(msg)
-                    ? timingSuffix
-                    : msg + "\n" + timingSuffix;
+            string combined = isCorrect
+                ? (string.IsNullOrWhiteSpace(timingSuffix)
+                    ? msg
+                    : string.IsNullOrWhiteSpace(msg)
+                        ? timingSuffix
+                        : msg + "\n" + timingSuffix)
+                : msg; // incorrecto: solo el texto de la opción, sin sufijo de timing
 
             ShowFeedback(combined, col);
         }
