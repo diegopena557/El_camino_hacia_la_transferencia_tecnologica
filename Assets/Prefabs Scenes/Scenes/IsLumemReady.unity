@@ -1214,6 +1214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResultsScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 7592124777032295160, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9189267156093073946, guid: 867acac0d68735e48985d9845441339f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
