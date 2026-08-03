@@ -3120,6 +3120,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2683000817027872752, guid: 2ec8864c2195dbb41a9011a12a75dbf1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433492266676901623, guid: 2ec8864c2195dbb41a9011a12a75dbf1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5482253079881240965, guid: 2ec8864c2195dbb41a9011a12a75dbf1, type: 3}
       propertyPath: spawnDelay
       value: 3
@@ -3135,6 +3143,10 @@ PrefabInstance:
     - target: {fileID: 7668476228951425169, guid: 2ec8864c2195dbb41a9011a12a75dbf1, type: 3}
       propertyPath: m_Name
       value: ChestMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034175386511268395, guid: 2ec8864c2195dbb41a9011a12a75dbf1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8720263929008180945, guid: 2ec8864c2195dbb41a9011a12a75dbf1, type: 3}
       propertyPath: m_LocalScale.y
