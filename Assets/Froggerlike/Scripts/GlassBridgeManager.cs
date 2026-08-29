@@ -1,12 +1,14 @@
-using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GlassBridgeManager : MonoBehaviour
 {
     public static GlassBridgeManager Instance;
+    public event Action<int> OnLevelCompleted;
 
     [Header("Player")]
     public Transform player;
@@ -102,7 +104,7 @@ public class GlassBridgeManager : MonoBehaviour
         // Fisher-Yates shuffle - todos los datos se mueven juntos
         for (int i = texts.Count - 1; i > 0; i--)
         {
-            int j = Random.Range(0, i + 1);
+            int j = UnityEngine.Random.Range(0, i + 1);
 
             string tmpText = texts[i];
             texts[i] = texts[j];
@@ -409,6 +411,8 @@ public class GlassBridgeManager : MonoBehaviour
     {
         if (levelText)
             levelText.text = $"Nivel: {currentLevel + 1} / {platformLevels.Count}";
+
+            OnLevelCompleted?.Invoke(currentLevel);
     }
 
     public bool IsGameOver() => gameOver;
