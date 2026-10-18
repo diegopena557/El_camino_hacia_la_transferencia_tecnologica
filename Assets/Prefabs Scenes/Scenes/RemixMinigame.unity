@@ -5909,7 +5909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6421898807137927863, guid: e72c2ebeaadac7a4dbc6fc7b8a168b99, type: 3}
       propertyPath: orthographic size
-      value: 6.5
+      value: 7.28
       objectReference: {fileID: 0}
     - target: {fileID: 6421898807137927863, guid: e72c2ebeaadac7a4dbc6fc7b8a168b99, type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -5917,11 +5917,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8124374138384347529, guid: e72c2ebeaadac7a4dbc6fc7b8a168b99, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.8479438
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8124374138384347529, guid: e72c2ebeaadac7a4dbc6fc7b8a168b99, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5287114
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8124374138384347529, guid: e72c2ebeaadac7a4dbc6fc7b8a168b99, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6781,7 +6781,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1383427725
 Transform:
   m_ObjectHideFlags: 0
@@ -7782,7 +7782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1501835176
 Transform:
   m_ObjectHideFlags: 0

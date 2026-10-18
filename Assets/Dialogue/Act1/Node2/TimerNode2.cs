@@ -67,7 +67,13 @@ public class TimerNode2 : MonoBehaviour
             audioDict[name].Stop();
     }
 
-    void Start() { }
+    void Start()
+    {
+        // Prepara el video con anticipacion para que el primer cuadro
+        // ya este decodificado cuando se necesite (evita el flash azul).
+        if (videoPlayerNode2a != null)
+            videoPlayerNode2a.Prepare();
+    }
 
     void Update()
     {
@@ -78,14 +84,28 @@ public class TimerNode2 : MonoBehaviour
         }
     }
 
+    // Espera a que el video tenga su primer cuadro listo.
+    private IEnumerator WaitUntilPrepared(VideoPlayer vp)
+    {
+        if (vp == null) yield break;
+
+        // Por si aun no se habia llamado a Prepare()
+        if (!vp.isPrepared && !vp.isPlaying)
+            vp.Prepare();
+
+        while (!vp.isPrepared)
+            yield return null;
+    }
+
     IEnumerator AdvancingTimerNode2()
     {
-        // Inicia el video antes del fade para que ya est� corriendo debajo
-        videoPlayerNode2a.Stop();
-        videoPlayerNode2a.time = 0;
-        videoPlayerNode2a.frame = 0;
-        videoPlayerNode2a.Play();
+        // Espera a que el video este listo. Mientras tanto el panel negro
+        // sigue opaco, asi que no se ve nada raro en pantalla.
+        yield return WaitUntilPrepared(videoPlayerNode2a);
+
+        // Inicia el video antes del fade para que ya este corriendo debajo
         videoPlayerNode2a.playbackSpeed = 1.0f;
+        videoPlayerNode2a.Play();
 
         // Fade in: el panel pasa de opaco a transparente
         if (fadePanel != null)

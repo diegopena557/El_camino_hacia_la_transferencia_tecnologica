@@ -49,10 +49,10 @@ public class TimerTextNode0 : MonoBehaviour
 
     void Start()
     {
-        /*videoPlayerNode0a.Stop();
-        videoPlayerNode0a.time = 0;        
-        videoPlayerNode0a.frame = 0;
-        videoPlayerNode0a.Play();*/
+        // Prepara los videos con anticipacion para que el primer cuadro
+        // ya este decodificado cuando se necesiten (evita el flash azul).
+        if (videoPlayerNode0a != null) videoPlayerNode0a.Prepare();
+        if (videoPlayerNode0b != null) videoPlayerNode0b.Prepare();
     }
 
     void Update()
@@ -74,13 +74,25 @@ public class TimerTextNode0 : MonoBehaviour
         timerNode1.StartTimerNode1();
     }
 
+    // Espera a que el video tenga su primer cuadro listo.
+    private IEnumerator WaitUntilPrepared(VideoPlayer vp)
+    {
+        if (vp == null) yield break;
+
+        // Por si aun no se habia llamado a Prepare()
+        if (!vp.isPrepared && !vp.isPlaying)
+            vp.Prepare();
+
+        while (!vp.isPrepared)
+            yield return null;
+    }
+
     IEnumerator AdvancingTimerNode0()
     {
-        videoPlayerNode0a.Stop();
-        videoPlayerNode0a.time = 0;
-        videoPlayerNode0a.frame = 0;
+        // Video A: se espera a que este preparado y se reproduce desde el inicio.
+        yield return WaitUntilPrepared(videoPlayerNode0a);
         videoPlayerNode0a.Play();
-        Music.Play(); // Inicio Música de Fondo 
+        Music.Play(); // Inicio Musica de Fondo
 
         yield return new WaitForSeconds(4f);
         myText.gameObject.SetActive(true);
@@ -92,12 +104,11 @@ public class TimerTextNode0 : MonoBehaviour
         //GO_CanvaNode0a.SetActive(false);
         //GO_CanvaNode0b.SetActive(true)
 
+        // Video B: se asegura de que tenga cuadro listo ANTES de iniciar el fundido.
+        yield return WaitUntilPrepared(videoPlayerNode0b);
         canvasFader.FadeAToB();
-        videoPlayerNode0b.Stop();
-        videoPlayerNode0b.time = 0;
-        videoPlayerNode0b.frame = 0;
 
-        Music.Stop(); // Fin música de Fondo Música de Fondo 
+        Music.Stop(); // Fin musica de Fondo
         videoPlayerNode0b.Play();
 
         yield return new WaitForSeconds(9f);

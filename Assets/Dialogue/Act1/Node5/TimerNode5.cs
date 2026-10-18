@@ -85,6 +85,33 @@ public class TimerNode5 : MonoBehaviour
             audioDict[name].Stop();
     }
 
+    // Prepara el video (si hace falta), espera su primer cuadro y lo reproduce.
+    // Si se indica canvasToHide, ese canvas anterior se oculta DESPUES de que el
+    // nuevo video ya tiene imagen, para que nunca quede la pantalla vacia (flash azul).
+    private IEnumerator PlayVideoWhenReady(VideoPlayer vp, GameObject canvasToHide = null)
+    {
+        if (vp != null)
+        {
+            if (!vp.isPrepared)
+            {
+                vp.Prepare();
+                while (!vp.isPrepared)
+                    yield return null;
+            }
+            else
+            {
+                // Ya estaba preparado (repeticiones): se reinicia sin Stop()
+                // para no limpiar la textura.
+                vp.time = 0;
+            }
+
+            vp.Play();
+        }
+
+        if (canvasToHide != null)
+            canvasToHide.SetActive(false);
+    }
+
     void Start() { }
 
     void Update()
@@ -104,10 +131,7 @@ public class TimerNode5 : MonoBehaviour
     {
         GO_CanvaNode5a.SetActive(true);
 
-        videoPlayerNode5a.Stop();
-        videoPlayerNode5a.time = 0;
-        videoPlayerNode5a.frame = 0;
-        videoPlayerNode5a.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode5a);
         videoPlayerNode5a.playbackSpeed = 1f;
 
         myTextNode5a_1.gameObject.SetActive(true);
@@ -167,7 +191,7 @@ public class TimerNode5 : MonoBehaviour
         if (optTecnologia == 0)
         {
             OptionTecnology = 0;
-            // Opción 0  Modo 1
+            // Opcion 0 -> Modo 1
             PlayerPrefs.SetInt(GAME_MODE_KEY, 2);
             PlayerPrefs.Save();
             StartCoroutine(AdvancingTimerNode5_2());
@@ -175,7 +199,7 @@ public class TimerNode5 : MonoBehaviour
         else if (optTecnologia == 1)
         {
             OptionTecnology = 1;
-            // Opción 1  Modo 2
+            // Opcion 1 -> Modo 2
             PlayerPrefs.SetInt(GAME_MODE_KEY, 1);
             PlayerPrefs.Save();
             StartCoroutine(AdvancingTimerNode5_2());
@@ -188,13 +212,9 @@ public class TimerNode5 : MonoBehaviour
 
     IEnumerator AdvancingTimerNode5_2()
     {
-        GO_CanvaNode5D1.SetActive(false);
         GO_CanvaNode5b.SetActive(true);
 
-        videoPlayerNode5b.Stop();
-        videoPlayerNode5b.time = 0;
-        videoPlayerNode5b.frame = 0;
-        videoPlayerNode5b.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode5b, GO_CanvaNode5D1);
         videoPlayerNode5b.playbackSpeed = 1f;
 
         myTextNode5b_1.gameObject.SetActive(true);
