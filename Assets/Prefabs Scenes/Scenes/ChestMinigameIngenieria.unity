@@ -2971,9 +2971,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3173716907162708837, guid: a6630e69964fe964c87b630de08d8efe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3308449148530891792, guid: a6630e69964fe964c87b630de08d8efe, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3441398690253683656, guid: a6630e69964fe964c87b630de08d8efe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3017,7 +3021,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5375389533896275610, guid: a6630e69964fe964c87b630de08d8efe, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572864769158215847, guid: a6630e69964fe964c87b630de08d8efe, type: 3}
+      propertyPath: scenesWherePauseIsDisabled.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

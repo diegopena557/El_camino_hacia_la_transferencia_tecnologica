@@ -12,11 +12,11 @@ public class InstructionsPanelmini3 : MonoBehaviour
     public Button startButton;
     public TextMeshProUGUI buttonText;
 
-    [Header("Animaci�n")]
+    [Header("Animación")]
     public float fadeInDuration = 0.8f;
     public float fadeOutDuration = 0.6f;
 
-    [Header("Escala del bot�n")]
+    [Header("Escala del botón")]
     public float buttonPopScale = 1.05f;
     public float buttonPopSpeed = 2f;
 
@@ -24,6 +24,10 @@ public class InstructionsPanelmini3 : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip Continuesound;
     public AudioSource IntroMinJuego;
+
+    [Header("Audio de introducción")]
+    [Tooltip("Si está activo, la música de intro se desvanece junto con el panel. Si no, se corta de golpe.")]
+    public bool fadeOutIntroAudio = true;
 
     private bool isShowing = true;
     private Color originalBgColor;
@@ -52,7 +56,7 @@ public class InstructionsPanelmini3 : MonoBehaviour
         if (buttonText != null)
             originalButtonTextColor = buttonText.color;
 
-        // Configurar el bot�n
+        // Configurar el botón
         if (startButton != null)
             startButton.onClick.AddListener(OnStartButtonClicked);
 
@@ -71,9 +75,21 @@ public class InstructionsPanelmini3 : MonoBehaviour
         if (!isShowing) return;
 
         isShowing = false;
+
+        // Si no hay fade de audio, cortar la música de intro de inmediato
+        if (!fadeOutIntroAudio)
+            StopIntroAudio();
+
         StartCoroutine(FadeOutAndStart());
-        audioSource.PlayOneShot(Continuesound);
-        
+
+        if (audioSource != null && Continuesound != null)
+            audioSource.PlayOneShot(Continuesound);
+    }
+
+    void StopIntroAudio()
+    {
+        if (IntroMinJuego != null && IntroMinJuego.isPlaying)
+            IntroMinJuego.Stop();
     }
 
     IEnumerator FadeIn()
@@ -93,9 +109,11 @@ public class InstructionsPanelmini3 : MonoBehaviour
 
     IEnumerator FadeOutAndStart()
     {
-        
         if (startButton != null)
             startButton.interactable = false;
+
+        // Volumen inicial de la intro (para el fade y para restaurarlo después)
+        float introStartVolume = IntroMinJuego != null ? IntroMinJuego.volume : 1f;
 
         float elapsed = 0f;
 
@@ -103,11 +121,24 @@ public class InstructionsPanelmini3 : MonoBehaviour
         {
             float t = elapsed / fadeOutDuration;
             SetAlpha(Mathf.Lerp(1f, 0f, t));
+
+            // El fade del audio va dentro del mismo bucle para que no se corte
+            // cuando el panel se desactive
+            if (fadeOutIntroAudio && IntroMinJuego != null)
+                IntroMinJuego.volume = Mathf.Lerp(introStartVolume, 0f, t);
+
             elapsed += Time.deltaTime;
             yield return null;
         }
 
         SetAlpha(0f);
+
+        // Asegurar que la música de intro termine y restaurar su volumen
+        if (IntroMinJuego != null)
+        {
+            IntroMinJuego.Stop();
+            IntroMinJuego.volume = introStartVolume;
+        }
 
         // Ocultar el panel completamente
         gameObject.SetActive(false);
