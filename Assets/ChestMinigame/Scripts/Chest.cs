@@ -12,7 +12,7 @@ public class Chest : MonoBehaviour
             //  ACIERTO
             feedback?.PlayCorrectFeedback();
 
-            // Mostrar solo retroalimentación de texto corta
+            // Mostrar solo retroalimentacin de texto corta
             if (FeedbackTextManager.Instance != null)
                 FeedbackTextManager.Instance.ShowFeedback(card.cardType);
 
@@ -30,7 +30,7 @@ public class Chest : MonoBehaviour
             //  ERROR
             feedback?.PlayWrongFeedback();
 
-            // Mostrar información detallada de la carta para educar al usuario
+            // Mostrar informacin detallada de la carta para educar al usuario
             if (CardInfoDisplay.Instance != null && card.cardInfo != null)
                 CardInfoDisplay.Instance.ShowCardInfoOnError(card.cardInfo);
 

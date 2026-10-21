@@ -93,6 +93,33 @@ public class TimerTextNode14 : MonoBehaviour
             audioDict[name].Stop();
     }
 
+    // Prepara el video (si hace falta), espera su primer cuadro y lo reproduce.
+    // Si se indica canvasToHide, ese canvas anterior se oculta DESPUES de que el
+    // nuevo video ya tiene imagen, para que nunca quede la pantalla vacia (flash azul).
+    private IEnumerator PlayVideoWhenReady(VideoPlayer vp, GameObject canvasToHide = null)
+    {
+        if (vp != null)
+        {
+            if (!vp.isPrepared)
+            {
+                vp.Prepare();
+                while (!vp.isPrepared)
+                    yield return null;
+            }
+            else
+            {
+                // Ya estaba preparado (repeticiones): se reinicia sin Stop()
+                // para no limpiar la textura.
+                vp.time = 0;
+            }
+
+            vp.Play();
+        }
+
+        if (canvasToHide != null)
+            canvasToHide.SetActive(false);
+    }
+
     void Start() { }
 
     void Update()
@@ -109,10 +136,7 @@ public class TimerTextNode14 : MonoBehaviour
         GO_Node14_1.SetActive(true);
         GO_CanvaNode14_1.SetActive(true);
 
-        videoPlayerNode14_1.Stop();
-        videoPlayerNode14_1.time = 0;
-        videoPlayerNode14_1.frame = 0;
-        videoPlayerNode14_1.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode14_1);
 
         if (fadePanel != null)
             yield return StartCoroutine(FadeInEntrance());
@@ -155,11 +179,11 @@ public class TimerTextNode14 : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         myTextNode14_1_4.gameObject.SetActive(false);
 
-        // El end panel ya NO se dispara aquí,
-        // sino cuando el jugador elige una opción (OpenCanvasOnClick)
+        // El end panel ya NO se dispara aqui,
+        // sino cuando el jugador elige una opcion (OpenCanvasOnClick)
     }
 
-    // Llamado desde OpenCanvasOnClick al elegir una opción
+    // Llamado desde OpenCanvasOnClick al elegir una opcion
     public void TriggerEndPanel()
     {
         StartCoroutine(FadeInEndPanel());

@@ -61,7 +61,7 @@ public class TimerTextNode8 : MonoBehaviour
                 audioDict[src.gameObject.name] = src;
         }
 
-        
+
         if (fadePanel != null)
         {
             Color c = fadePanel.color;
@@ -85,6 +85,39 @@ public class TimerTextNode8 : MonoBehaviour
             audioDict[name].Stop();
     }
 
+    // Prepara el video (si hace falta), espera su primer cuadro y lo reproduce.
+    // Los objetos de objectsToHide (canvas/nodo anterior) se ocultan DESPUES de que el
+    // nuevo video ya tiene imagen, para que nunca quede la pantalla vacia (flash azul).
+    private IEnumerator PlayVideoWhenReady(VideoPlayer vp, params GameObject[] objectsToHide)
+    {
+        if (vp != null)
+        {
+            if (!vp.isPrepared)
+            {
+                vp.Prepare();
+                while (!vp.isPrepared)
+                    yield return null;
+            }
+            else
+            {
+                // Ya estaba preparado (repeticiones): se reinicia sin Stop()
+                // para no limpiar la textura.
+                vp.time = 0;
+            }
+
+            vp.Play();
+        }
+
+        if (objectsToHide != null)
+        {
+            foreach (GameObject go in objectsToHide)
+            {
+                if (go != null)
+                    go.SetActive(false);
+            }
+        }
+    }
+
     void Start() { }
 
     void Update()
@@ -101,10 +134,7 @@ public class TimerTextNode8 : MonoBehaviour
         GO_Node8_0.SetActive(true);
         GO_Node8_1.SetActive(false);
 
-        videoPlayerNode8_0.Stop();
-        videoPlayerNode8_0.time = 0;
-        videoPlayerNode8_0.frame = 0;
-        videoPlayerNode8_0.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode8_0);
 
         // Fade in de entrada
         if (fadePanel != null)
@@ -115,13 +145,7 @@ public class TimerTextNode8 : MonoBehaviour
         GO_CanvaNode8_1.SetActive(true);
         GO_Node8_1.SetActive(true);
 
-        GO_CanvaNode8_0.SetActive(false);
-        GO_Node8_0.SetActive(false);
-
-        videoPlayerNode8_1.Stop();
-        videoPlayerNode8_1.time = 0;
-        videoPlayerNode8_1.frame = 0;
-        videoPlayerNode8_1.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode8_1, GO_CanvaNode8_0, GO_Node8_0);
 
         yield return new WaitForSeconds(4f);
         myTextNode8_1.gameObject.SetActive(true);
@@ -170,7 +194,7 @@ public class TimerTextNode8 : MonoBehaviour
         textNode8_8.StartTyping();
         PlayByName("8_1_8");
 
-        yield return new WaitForSeconds(10f); // Espera a que termine el último diálogo
+        yield return new WaitForSeconds(10f); // Espera a que termine el ultimo dialogo
         myTextNode8_8.gameObject.SetActive(false);
 
         // Fade out y carga de escena

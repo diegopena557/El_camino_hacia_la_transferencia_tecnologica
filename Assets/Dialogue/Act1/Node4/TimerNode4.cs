@@ -77,10 +77,37 @@ public class TimerNode4 : MonoBehaviour
         }
     }
 
+    // Prepara el video (si hace falta), espera su primer cuadro y lo reproduce.
+    // Si se indica canvasToHide, ese canvas anterior se oculta DESPUES de que el
+    // nuevo video ya tiene imagen, para que nunca quede la pantalla vacia (flash azul).
+    private IEnumerator PlayVideoWhenReady(VideoPlayer vp, GameObject canvasToHide = null)
+    {
+        if (vp != null)
+        {
+            if (!vp.isPrepared)
+            {
+                vp.Prepare();
+                while (!vp.isPrepared)
+                    yield return null;
+            }
+            else
+            {
+                // Ya estaba preparado (repeticiones): se reinicia sin Stop()
+                // para no limpiar la textura.
+                vp.time = 0;
+            }
+
+            vp.Play();
+        }
+
+        if (canvasToHide != null)
+            canvasToHide.SetActive(false);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -94,7 +121,8 @@ public class TimerNode4 : MonoBehaviour
         }*/
     }
 
-    public void StartTimerNode4(){
+    public void StartTimerNode4()
+    {
         StartCoroutine(AdvancingTimerNode4());
     }
 
@@ -102,21 +130,14 @@ public class TimerNode4 : MonoBehaviour
     {
         GO_CanvaNode4_0.SetActive(true);
 
-        videoPlayerNode4_0.Stop();
-        videoPlayerNode4_0.time = 0;        
-        videoPlayerNode4_0.frame = 0;
-        videoPlayerNode4_0.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode4_0);
         Anim3.Play(); // sfx animacion secundaria
 
         yield return new WaitForSeconds(5f);
 
-        GO_CanvaNode4_0.SetActive(false);
         GO_CanvaNode4a.SetActive(true);
 
-        videoPlayerNode4a.Stop();
-        videoPlayerNode4a.time = 0;        
-        videoPlayerNode4a.frame = 0;
-        videoPlayerNode4a.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode4a, GO_CanvaNode4_0);
 
         videoPlayerNode4a.playbackSpeed = 1f;
 

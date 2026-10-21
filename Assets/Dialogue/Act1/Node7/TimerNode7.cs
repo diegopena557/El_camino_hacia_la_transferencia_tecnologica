@@ -89,6 +89,33 @@ public class TimerNode7 : MonoBehaviour
             audioDict[name].Stop();
     }
 
+    // Prepara el video (si hace falta), espera su primer cuadro y lo reproduce.
+    // Si se indica canvasToHide, ese canvas anterior se oculta DESPUES de que el
+    // nuevo video ya tiene imagen, para que nunca quede la pantalla vacia (flash azul).
+    private IEnumerator PlayVideoWhenReady(VideoPlayer vp, GameObject canvasToHide = null)
+    {
+        if (vp != null)
+        {
+            if (!vp.isPrepared)
+            {
+                vp.Prepare();
+                while (!vp.isPrepared)
+                    yield return null;
+            }
+            else
+            {
+                // Ya estaba preparado (repeticiones): se reinicia sin Stop()
+                // para no limpiar la textura.
+                vp.time = 0;
+            }
+
+            vp.Play();
+        }
+
+        if (canvasToHide != null)
+            canvasToHide.SetActive(false);
+    }
+
     void Start() { }
 
     void Update()
@@ -102,10 +129,7 @@ public class TimerNode7 : MonoBehaviour
 
     IEnumerator AdvancingTimerNode7()
     {
-        videoPlayerNode7a.Stop();
-        videoPlayerNode7a.time = 0;
-        videoPlayerNode7a.frame = 0;
-        videoPlayerNode7a.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode7a);
         videoPlayerNode7a.playbackSpeed = 1f;
 
         if (fadePanel != null)
@@ -167,7 +191,7 @@ public class TimerNode7 : MonoBehaviour
         fadePanel.gameObject.SetActive(false);
     }
 
-    // Fade in del panel final al terminar el último diálogo
+    // Fade in del panel final al terminar el ultimo dialogo
     IEnumerator FadeInPanel()
     {
         endPanel.SetActive(true);

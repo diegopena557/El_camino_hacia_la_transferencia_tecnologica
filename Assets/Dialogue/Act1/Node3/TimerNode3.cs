@@ -213,6 +213,33 @@ public class TimerNode3 : MonoBehaviour
         }
     }
 
+    // Prepara el video (si hace falta), espera su primer cuadro y lo reproduce.
+    // Si se indica canvasToHide, ese canvas anterior se oculta DESPUES de que el
+    // nuevo video ya tiene imagen, para que nunca quede la pantalla vacia (flash azul).
+    private IEnumerator PlayVideoWhenReady(VideoPlayer vp, GameObject canvasToHide = null)
+    {
+        if (vp != null)
+        {
+            if (!vp.isPrepared)
+            {
+                vp.Prepare();
+                while (!vp.isPrepared)
+                    yield return null;
+            }
+            else
+            {
+                // Ya estaba preparado (repeticiones): se reinicia sin Stop()
+                // para no limpiar la textura.
+                vp.time = 0;
+            }
+
+            vp.Play();
+        }
+
+        if (canvasToHide != null)
+            canvasToHide.SetActive(false);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -240,21 +267,14 @@ public class TimerNode3 : MonoBehaviour
     {
         GO_CanvaNode3_0.SetActive(true);
 
-        videoPlayerNode3_0.Stop();
-        videoPlayerNode3_0.time = 0;
-        videoPlayerNode3_0.frame = 0;
-        videoPlayerNode3_0.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3_0);
         Anim1.Play(); // sfx animacion secundaria
 
         yield return new WaitForSeconds(4.8f);
 
-        GO_CanvaNode3_0.SetActive(false);
         GO_CanvaNode3a.SetActive(true);
 
-        videoPlayerNode3a.Stop();
-        videoPlayerNode3a.time = 0;
-        videoPlayerNode3a.frame = 0;
-        videoPlayerNode3a.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3a, GO_CanvaNode3_0);
 
         videoPlayerNode3a.playbackSpeed = 1f;
         PlayByName("3a_1");
@@ -278,13 +298,9 @@ public class TimerNode3 : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        GO_CanvaNode3a.SetActive(false);
         GO_CanvaNode3b.SetActive(true);
 
-        videoPlayerNode3b.Stop();
-        videoPlayerNode3b.time = 0;
-        videoPlayerNode3b.frame = 0;
-        videoPlayerNode3b.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3b, GO_CanvaNode3a);
 
         videoPlayerNode3b.playbackSpeed = 1f;
 
@@ -308,13 +324,9 @@ public class TimerNode3 : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
 
-        GO_CanvaNode3b.SetActive(false);
         GO_CanvaNode3c.SetActive(true);
 
-        videoPlayerNode3c.Stop();
-        videoPlayerNode3c.time = 0;
-        videoPlayerNode3c.frame = 0;
-        videoPlayerNode3c.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3c, GO_CanvaNode3b);
 
         videoPlayerNode3c.playbackSpeed = 1f;
 
@@ -366,7 +378,7 @@ public class TimerNode3 : MonoBehaviour
         }
         else
         {
-            Debug.Log("Esta opción no existe");
+            Debug.Log("Esta opcion no existe");
         }
 
     }
@@ -380,13 +392,9 @@ public class TimerNode3 : MonoBehaviour
             textNode3d_3.RestartText();
         }
 
-        GO_CanvaNode3D1.SetActive(false);
         GO_CanvaNode3d.SetActive(true);
 
-        videoPlayerNode3d.Stop();
-        videoPlayerNode3d.time = 0;
-        videoPlayerNode3d.frame = 0;
-        videoPlayerNode3d.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3d, GO_CanvaNode3D1);
 
         videoPlayerNode3d.playbackSpeed = 1f;
 
@@ -435,7 +443,7 @@ public class TimerNode3 : MonoBehaviour
         }
         else
         {
-            Debug.Log("Esta opción no existe");
+            Debug.Log("Esta opcion no existe");
         }
     }
 
@@ -452,10 +460,7 @@ public class TimerNode3 : MonoBehaviour
 
         GO_CanvaNode3d.SetActive(true);
 
-        videoPlayerNode3d.Stop();
-        videoPlayerNode3d.time = 0;
-        videoPlayerNode3d.frame = 0;
-        videoPlayerNode3d.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3d);
 
         videoPlayerNode3d.playbackSpeed = 1f;
 
@@ -501,10 +506,7 @@ public class TimerNode3 : MonoBehaviour
         GO_PanelPreguntaCiencia.SetActive(false);
         GO_CanvaNode3d.SetActive(true);
 
-        videoPlayerNode3d.Stop();
-        videoPlayerNode3d.time = 0;
-        videoPlayerNode3d.frame = 0;
-        videoPlayerNode3d.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3d);
 
         videoPlayerNode3d.playbackSpeed = 1f;
 
@@ -529,13 +531,9 @@ public class TimerNode3 : MonoBehaviour
         yield return new WaitForSeconds(5.5f);
 
         myTextNode3d_C3.gameObject.SetActive(false);
-        GO_CanvaNode3d.SetActive(false);
         GO_CanvaNode3e.SetActive(true);
 
-        videoPlayerNode3e.Stop();
-        videoPlayerNode3e.time = 0;
-        videoPlayerNode3e.frame = 0;
-        videoPlayerNode3e.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3e, GO_CanvaNode3d);
 
         videoPlayerNode3e.playbackSpeed = 1f;
 
@@ -586,7 +584,7 @@ public class TimerNode3 : MonoBehaviour
         }
         else
         {
-            Debug.Log("Esta opción no existe");
+            Debug.Log("Esta opcion no existe");
         }
     }
 
@@ -599,12 +597,8 @@ public class TimerNode3 : MonoBehaviour
         }
 
         GO_CanvaNode3f.SetActive(true);
-        GO_CanvaNode3D1.SetActive(false);
 
-        videoPlayerNode3f.Stop();
-        videoPlayerNode3f.time = 0;
-        videoPlayerNode3f.frame = 0;
-        videoPlayerNode3f.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3f, GO_CanvaNode3D1);
 
         videoPlayerNode3f.playbackSpeed = 1f;
 
@@ -640,10 +634,7 @@ public class TimerNode3 : MonoBehaviour
         GO_CanvaNode3f.SetActive(true);
         GO_PanelPreguntaTecnologia.SetActive(false);
 
-        videoPlayerNode3f.Stop();
-        videoPlayerNode3f.time = 0;
-        videoPlayerNode3f.frame = 0;
-        videoPlayerNode3f.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3f);
 
         videoPlayerNode3f.playbackSpeed = 1f;
 
@@ -689,10 +680,7 @@ public class TimerNode3 : MonoBehaviour
         GO_CanvaNode3f.SetActive(true);
         GO_PanelPreguntaTecnologia.SetActive(false);
 
-        videoPlayerNode3f.Stop();
-        videoPlayerNode3f.time = 0;
-        videoPlayerNode3f.frame = 0;
-        videoPlayerNode3f.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3f);
 
         videoPlayerNode3f.playbackSpeed = 1f;
 
@@ -718,12 +706,8 @@ public class TimerNode3 : MonoBehaviour
         myTextNode3f_C3.gameObject.SetActive(false);
 
         GO_CanvaNode3g.SetActive(true);
-        GO_CanvaNode3f.SetActive(false);
 
-        videoPlayerNode3g.Stop();
-        videoPlayerNode3g.time = 0;
-        videoPlayerNode3g.frame = 0;
-        videoPlayerNode3g.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3g, GO_CanvaNode3f);
 
         videoPlayerNode3g.playbackSpeed = 1f;
 
@@ -758,26 +742,18 @@ public class TimerNode3 : MonoBehaviour
     IEnumerator AdvancingTimerInnovacion()
     {
         GO_CanvaNode3h0.SetActive(true);
-        GO_CanvaNode3D1.SetActive(false);
 
-        videoPlayerNode3h0.Stop();
-        videoPlayerNode3h0.time = 0;
-        videoPlayerNode3h0.frame = 0;
-        videoPlayerNode3h0.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3h0, GO_CanvaNode3D1);
         Anim2.Play(); // sfx animacion secundaria
-        
+
 
         videoPlayerNode3h0.playbackSpeed = 1f;
 
         yield return new WaitForSeconds(5f);
 
         GO_CanvaNode3h.SetActive(true);
-        GO_CanvaNode3h0.SetActive(false);
 
-        videoPlayerNode3h.Stop();
-        videoPlayerNode3h.time = 0;
-        videoPlayerNode3h.frame = 0;
-        videoPlayerNode3h.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3h, GO_CanvaNode3h0);
 
         videoPlayerNode3h.playbackSpeed = 1f;
 
@@ -795,12 +771,8 @@ public class TimerNode3 : MonoBehaviour
         yield return new WaitForSeconds(5.5f);
 
         GO_CanvaNode3i.SetActive(true);
-        GO_CanvaNode3h.SetActive(false);
 
-        videoPlayerNode3i.Stop();
-        videoPlayerNode3i.time = 0;
-        videoPlayerNode3i.frame = 0;
-        videoPlayerNode3i.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3i, GO_CanvaNode3h);
 
         videoPlayerNode3i.playbackSpeed = 1f;
 
@@ -825,12 +797,8 @@ public class TimerNode3 : MonoBehaviour
         yield return new WaitForSeconds(4.4f);
 
         GO_CanvaNode3j.SetActive(true);
-        GO_CanvaNode3i.SetActive(false);
 
-        videoPlayerNode3j.Stop();
-        videoPlayerNode3j.time = 0;
-        videoPlayerNode3j.frame = 0;
-        videoPlayerNode3j.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode3j, GO_CanvaNode3i);
 
         videoPlayerNode3j.playbackSpeed = 1f;
 

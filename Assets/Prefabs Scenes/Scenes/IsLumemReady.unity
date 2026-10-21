@@ -1206,10 +1206,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 337743036367504951, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -259.87207
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384826801005798041, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -177
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215024815730422410, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 423
+      objectReference: {fileID: 0}
     - target: {fileID: 2697001759894519544, guid: 867acac0d68735e48985d9845441339f, type: 3}
       propertyPath: fadePanel
       value: 
       objectReference: {fileID: 1298288500}
+    - target: {fileID: 2737873915329445374, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -344.21082
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976865080954601909, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976865080954601909, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_margin.x
+      value: -243.99509
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976865080954601909, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_margin.z
+      value: -666.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976865080954601909, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
+    - target: {fileID: 6976865080954601909, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976865080954601909, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6813058039446217884, guid: 09e18bc1020ca074aa9e2db1f7153dd5, type: 2}
+    - target: {fileID: 6976865080954601909, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976865080954601909, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7592124777032295160, guid: 867acac0d68735e48985d9845441339f, type: 3}
       propertyPath: m_Name
       value: ResultsScreen
@@ -1217,6 +1265,14 @@ PrefabInstance:
     - target: {fileID: 7592124777032295160, guid: 867acac0d68735e48985d9845441339f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737539748404592146, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -272
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737539748404592146, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 217
       objectReference: {fileID: 0}
     - target: {fileID: 9189267156093073946, guid: 867acac0d68735e48985d9845441339f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1838,6 +1894,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7e184058069bb849840843a24647b63, type: 3}
+--- !u!82 &6114237752441028926 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6197744131678469330, guid: b7e184058069bb849840843a24647b63, type: 3}
+  m_PrefabInstance: {fileID: 6114237752441028925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7278159386325346377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2166,6 +2227,10 @@ PrefabInstance:
       propertyPath: mover
       value: 
       objectReference: {fileID: 1036709356}
+    - target: {fileID: 2318646814472057454, guid: 4e307aed2aab0cd40a84799fbdc2dd07, type: 3}
+      propertyPath: introAudio
+      value: 
+      objectReference: {fileID: 6114237752441028926}
     - target: {fileID: 2318646814472057454, guid: 4e307aed2aab0cd40a84799fbdc2dd07, type: 3}
       propertyPath: audioSource
       value: 
