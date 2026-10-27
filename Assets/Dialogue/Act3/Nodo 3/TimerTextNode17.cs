@@ -8,20 +8,35 @@ public class TimerTextNode17 : MonoBehaviour
 {
     private bool flagJustOneTime;
 
-    public GameObject GO_CanvaNode17_1;
-    public GameObject GO_CanvaNode17_2;
-    public GameObject GO_CanvaNode17_3;
-    public GameObject GO_CanvaNode17_4;
+    public GameObject GO_CanvaNode17_1b;
+    public GameObject GO_CanvaNode17_2b;
+    public GameObject GO_CanvaNode17_3b;
+    public GameObject GO_CanvaNode17_4b;
+
+    public GameObject GO_CanvaNode17_1a;
+    public GameObject GO_CanvaNode17_2a;
+    public GameObject GO_CanvaNode17_3a;
+    public GameObject GO_CanvaNode17_4a;
     
-    public GameObject GO_Node17_1;
-    public GameObject GO_Node17_2;
-    public GameObject GO_Node17_3;
-    public GameObject GO_Node17_4;
+    public GameObject GO_Node17_1b;
+    public GameObject GO_Node17_2b;
+    public GameObject GO_Node17_3b;
+    public GameObject GO_Node17_4b;
+
+    public GameObject GO_Node17_1a;
+    public GameObject GO_Node17_2a;
+    public GameObject GO_Node17_3a;
+    public GameObject GO_Node17_4a;
     
-    public VideoPlayer videoPlayerNode17_1;
-    public VideoPlayer videoPlayerNode17_2;
-    public VideoPlayer videoPlayerNode17_3;
-    public VideoPlayer videoPlayerNode17_4;
+    public VideoPlayer videoPlayerNode17_1b;
+    public VideoPlayer videoPlayerNode17_2b;
+    public VideoPlayer videoPlayerNode17_3b;
+    public VideoPlayer videoPlayerNode17_4b;
+
+    public VideoPlayer videoPlayerNode17_1a;
+    public VideoPlayer videoPlayerNode17_2a;
+    public VideoPlayer videoPlayerNode17_3a;
+    public VideoPlayer videoPlayerNode17_4a;
     
     public TextMeshProUGUI myTextNode17_1_1;
     public TextMeshProUGUI myTextNode17_1_2;
@@ -89,15 +104,29 @@ public class TimerTextNode17 : MonoBehaviour
 
     IEnumerator AdvancingTimerNode17_1()
     {
-        videoPlayerNode17_1.Stop();
-        //GO_Node17_1.SetActive(false);
-        GO_Node17_1.SetActive(true);
-        GO_CanvaNode17_1.SetActive(true);
+        videoPlayerNode17_1a.Stop();
+        GO_Node17_1a.SetActive(true);
+        GO_CanvaNode17_1a.SetActive(true);
 
-        videoPlayerNode17_1.Stop();
-        videoPlayerNode17_1.time = 0;        
-        videoPlayerNode17_1.frame = 0;
-        videoPlayerNode17_1.Play();
+        videoPlayerNode17_1a.Stop();
+        videoPlayerNode17_1a.time = 0;        
+        videoPlayerNode17_1a.frame = 0;
+        videoPlayerNode17_1a.Play();
+
+        yield return new WaitForSeconds(3f);
+
+        videoPlayerNode17_1a.Stop();
+        GO_Node17_1a.SetActive(false);
+        GO_CanvaNode17_1a.SetActive(false);
+
+        videoPlayerNode17_1b.Stop();
+        GO_Node17_1b.SetActive(true);
+        GO_CanvaNode17_1b.SetActive(true);
+
+        videoPlayerNode17_1b.Stop();
+        videoPlayerNode17_1b.time = 0;        
+        videoPlayerNode17_1b.frame = 0;
+        videoPlayerNode17_1b.Play();
 
         myTextNode17_1_1.gameObject.SetActive(true);
         textNode17_1_1.StartTyping();
@@ -133,15 +162,31 @@ public class TimerTextNode17 : MonoBehaviour
 
     IEnumerator AdvancingTimerNode17_2()
     {
-        videoPlayerNode17_1.Stop();
-        GO_Node17_1.SetActive(false);
-        GO_Node17_2.SetActive(true);
-        GO_CanvaNode17_2.SetActive(true);
+        videoPlayerNode17_1b.Stop();
+        GO_Node17_1b.SetActive(false);
+        GO_Node17_2a.SetActive(true);
+        GO_CanvaNode17_2a.SetActive(true);
 
-        videoPlayerNode17_2.Stop();
-        videoPlayerNode17_2.time = 0;        
-        videoPlayerNode17_2.frame = 0;
-        videoPlayerNode17_2.Play();
+        videoPlayerNode17_2a.Stop();
+        videoPlayerNode17_2a.time = 0;        
+        videoPlayerNode17_2a.frame = 0;
+        videoPlayerNode17_2a.Play();
+
+        yield return new WaitForSeconds(3f);
+
+        videoPlayerNode17_2a.Stop();
+        GO_Node17_2a.SetActive(false);
+        GO_CanvaNode17_2a.SetActive(false);
+
+        videoPlayerNode17_1b.Stop();
+        GO_Node17_1b.SetActive(false);
+        GO_Node17_2b.SetActive(true);
+        GO_CanvaNode17_2b.SetActive(true);
+
+        videoPlayerNode17_2b.Stop();
+        videoPlayerNode17_2b.time = 0;        
+        videoPlayerNode17_2b.frame = 0;
+        videoPlayerNode17_2b.Play();
 
         myTextNode17_2_1.gameObject.SetActive(true);
         textNode17_2_1.StartTyping();
@@ -183,15 +228,29 @@ public class TimerTextNode17 : MonoBehaviour
 
     IEnumerator AdvancingTimerNode17_3()
     {
-        videoPlayerNode17_2.Stop();
-        GO_Node17_2.SetActive(false);
-        GO_Node17_3.SetActive(true);
-        GO_CanvaNode17_3.SetActive(true);
+        videoPlayerNode17_2b.Stop();
+        GO_Node17_2b.SetActive(false);
+        GO_Node17_3a.SetActive(true);
+        GO_CanvaNode17_3a.SetActive(true);
 
-        videoPlayerNode17_3.Stop();
-        videoPlayerNode17_3.time = 0;        
-        videoPlayerNode17_3.frame = 0;
-        videoPlayerNode17_3.Play();
+        videoPlayerNode17_3a.Stop();
+        videoPlayerNode17_3a.time = 0;        
+        videoPlayerNode17_3a.frame = 0;
+        videoPlayerNode17_3a.Play();
+
+        yield return new WaitForSeconds(3f);
+
+        videoPlayerNode17_3a.Stop();
+        GO_Node17_3a.SetActive(false);
+        GO_CanvaNode17_3a.SetActive(false);
+
+        GO_Node17_3b.SetActive(true);
+        GO_CanvaNode17_3b.SetActive(true);
+
+        videoPlayerNode17_3b.Stop();
+        videoPlayerNode17_3b.time = 0;        
+        videoPlayerNode17_3b.frame = 0;
+        videoPlayerNode17_3b.Play();
 
         myTextNode17_3_1.gameObject.SetActive(true);
         textNode17_3_1.StartTyping();
@@ -227,15 +286,27 @@ public class TimerTextNode17 : MonoBehaviour
 
     IEnumerator AdvancingTimerNode17_4()
     {
-        videoPlayerNode17_3.Stop();
-        GO_Node17_3.SetActive(false);
-        GO_Node17_4.SetActive(true);
-        GO_CanvaNode17_4.SetActive(true);
+        videoPlayerNode17_3b.Stop();
+        GO_Node17_3b.SetActive(false);
+        GO_Node17_4a.SetActive(true);
+        GO_CanvaNode17_4a.SetActive(true);
 
-        videoPlayerNode17_4.Stop();
-        videoPlayerNode17_4.time = 0;        
-        videoPlayerNode17_4.frame = 0;
-        videoPlayerNode17_4.Play();
+        videoPlayerNode17_4a.Stop();
+        videoPlayerNode17_4a.time = 0;        
+        videoPlayerNode17_4a.frame = 0;
+        videoPlayerNode17_4a.Play();
+
+        yield return new WaitForSeconds(3f);
+
+        videoPlayerNode17_4a.Stop();
+        GO_Node17_4a.SetActive(false);
+        GO_Node17_4b.SetActive(true);
+        GO_CanvaNode17_4b.SetActive(true);
+
+        videoPlayerNode17_4b.Stop();
+        videoPlayerNode17_4b.time = 0;        
+        videoPlayerNode17_4b.frame = 0;
+        videoPlayerNode17_4b.Play();
 
         myTextNode17_4_1.gameObject.SetActive(true);
         textNode17_4_1.StartTyping();
