@@ -120,6 +120,39 @@ public class TimerTextNode9 : MonoBehaviour
             audioDict[name].Stop();
     }
 
+    // Prepara el video (si hace falta), espera su primer cuadro y lo reproduce.
+    // Los objetos de objectsToHide (canvas/nodo anterior) se ocultan DESPUES de que el
+    // nuevo video ya tiene imagen, para que nunca quede la pantalla vacia (flash azul).
+    private IEnumerator PlayVideoWhenReady(VideoPlayer vp, params GameObject[] objectsToHide)
+    {
+        if (vp != null)
+        {
+            if (!vp.isPrepared)
+            {
+                vp.Prepare();
+                while (!vp.isPrepared)
+                    yield return null;
+            }
+            else
+            {
+                // Ya estaba preparado (repeticiones): se reinicia sin Stop()
+                // para no limpiar la textura.
+                vp.time = 0;
+            }
+
+            vp.Play();
+        }
+
+        if (objectsToHide != null)
+        {
+            foreach (GameObject go in objectsToHide)
+            {
+                if (go != null)
+                    go.SetActive(false);
+            }
+        }
+    }
+
     void Start() { }
 
     void Update()
@@ -136,10 +169,7 @@ public class TimerTextNode9 : MonoBehaviour
         GO_Node9_1.SetActive(true);
         GO_CanvaNode9_1.SetActive(true);
 
-        videoPlayerNode9_1.Stop();
-        videoPlayerNode9_1.time = 0;
-        videoPlayerNode9_1.frame = 0;
-        videoPlayerNode9_1.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode9_1);
 
         // Fade in de entrada
         if (fadePanel != null)
@@ -183,15 +213,8 @@ public class TimerTextNode9 : MonoBehaviour
         GO_Node9_2.SetActive(true);
         GO_CanvaNode9_2.SetActive(true);
 
-        GO_Node9_1.SetActive(false);
-        GO_CanvaNode9_1.SetActive(false);
-
+        yield return PlayVideoWhenReady(videoPlayerNode9_2, GO_CanvaNode9_1, GO_Node9_1);
         videoPlayerNode9_1.Stop();
-
-        videoPlayerNode9_2.Stop();
-        videoPlayerNode9_2.time = 0;
-        videoPlayerNode9_2.frame = 0;
-        videoPlayerNode9_2.Play();
 
         yield return new WaitForSeconds(1f);
         myTextNode9_2_1.gameObject.SetActive(true);
@@ -219,15 +242,8 @@ public class TimerTextNode9 : MonoBehaviour
         GO_Node9_3.SetActive(true);
         GO_CanvaNode9_3.SetActive(true);
 
-        GO_Node9_2.SetActive(false);
-        GO_CanvaNode9_2.SetActive(false);
-
+        yield return PlayVideoWhenReady(videoPlayerNode9_3, GO_CanvaNode9_2, GO_Node9_2);
         videoPlayerNode9_2.Stop();
-
-        videoPlayerNode9_3.Stop();
-        videoPlayerNode9_3.time = 0;
-        videoPlayerNode9_3.frame = 0;
-        videoPlayerNode9_3.Play();
 
         yield return new WaitForSeconds(1f);
         myTextNode9_3_1.gameObject.SetActive(true);
@@ -261,15 +277,8 @@ public class TimerTextNode9 : MonoBehaviour
         GO_Node9_4.SetActive(true);
         GO_CanvaNode9_4.SetActive(true);
 
-        GO_Node9_3.SetActive(false);
-        GO_CanvaNode9_3.SetActive(false);
-
+        yield return PlayVideoWhenReady(videoPlayerNode9_4, GO_CanvaNode9_3, GO_Node9_3);
         videoPlayerNode9_3.Stop();
-
-        videoPlayerNode9_4.Stop();
-        videoPlayerNode9_4.time = 0;
-        videoPlayerNode9_4.frame = 0;
-        videoPlayerNode9_4.Play();
 
         yield return new WaitForSeconds(1f);
         myTextNode9_4_1.gameObject.SetActive(true);
@@ -285,15 +294,8 @@ public class TimerTextNode9 : MonoBehaviour
         GO_Node9_5.SetActive(true);
         GO_CanvaNode9_5.SetActive(true);
 
-        GO_Node9_4.SetActive(false);
-        GO_CanvaNode9_4.SetActive(false);
-
+        yield return PlayVideoWhenReady(videoPlayerNode9_5, GO_CanvaNode9_4, GO_Node9_4);
         videoPlayerNode9_4.Stop();
-
-        videoPlayerNode9_5.Stop();
-        videoPlayerNode9_5.time = 0;
-        videoPlayerNode9_5.frame = 0;
-        videoPlayerNode9_5.Play();
 
         yield return new WaitForSeconds(1f);
         myTextNode9_5_1.gameObject.SetActive(true);
@@ -318,7 +320,7 @@ public class TimerTextNode9 : MonoBehaviour
         textNode9_5_4.StartTyping();
         PlayByName("9_5_4");
 
-        yield return new WaitForSeconds(10f); // Ajusta al tiempo real del último audio
+        yield return new WaitForSeconds(10f); // Ajusta al tiempo real del ultimo audio
         myTextNode9_5_4.gameObject.SetActive(false);
 
         // Fade out y carga de escena

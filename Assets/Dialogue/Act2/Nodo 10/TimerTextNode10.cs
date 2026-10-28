@@ -81,6 +81,33 @@ public class TimerNode10 : MonoBehaviour
             audioDict[name].Stop();
     }
 
+    // Prepara el video (si hace falta), espera su primer cuadro y lo reproduce.
+    // Si se indica canvasToHide, ese canvas anterior se oculta DESPUES de que el
+    // nuevo video ya tiene imagen, para que nunca quede la pantalla vacia (flash azul).
+    private IEnumerator PlayVideoWhenReady(VideoPlayer vp, GameObject canvasToHide = null)
+    {
+        if (vp != null)
+        {
+            if (!vp.isPrepared)
+            {
+                vp.Prepare();
+                while (!vp.isPrepared)
+                    yield return null;
+            }
+            else
+            {
+                // Ya estaba preparado (repeticiones): se reinicia sin Stop()
+                // para no limpiar la textura.
+                vp.time = 0;
+            }
+
+            vp.Play();
+        }
+
+        if (canvasToHide != null)
+            canvasToHide.SetActive(false);
+    }
+
     void Start() { }
 
     void Update()
@@ -97,10 +124,7 @@ public class TimerNode10 : MonoBehaviour
         GO_Node10_1.SetActive(true);
         GO_CanvaNode10_1.SetActive(true);
 
-        videoPlayerNode10_1.Stop();
-        videoPlayerNode10_1.time = 0;
-        videoPlayerNode10_1.frame = 0;
-        videoPlayerNode10_1.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode10_1);
 
         // Fade in de entrada
         if (fadePanel != null)
@@ -153,7 +177,7 @@ public class TimerNode10 : MonoBehaviour
         textNode10_1_8.StartTyping();
         PlayByName("10_1_8");
 
-        yield return new WaitForSeconds(5f); // Espera al final del último diálogo
+        yield return new WaitForSeconds(5f); // Espera al final del ultimo dialogo
         myTextNode10_1_8.gameObject.SetActive(false);
 
         // Fade out y carga de escena

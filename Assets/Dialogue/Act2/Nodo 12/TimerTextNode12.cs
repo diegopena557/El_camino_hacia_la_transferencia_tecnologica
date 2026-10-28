@@ -126,6 +126,39 @@ public class TimerTextNode12 : MonoBehaviour
             audioDict[name].Stop();
     }
 
+    // Prepara el video (si hace falta), espera su primer cuadro y lo reproduce.
+    // Los objetos de objectsToHide (canvas/nodo anterior) se ocultan DESPUES de que el
+    // nuevo video ya tiene imagen, para que nunca quede la pantalla vacia (flash azul).
+    private IEnumerator PlayVideoWhenReady(VideoPlayer vp, params GameObject[] objectsToHide)
+    {
+        if (vp != null)
+        {
+            if (!vp.isPrepared)
+            {
+                vp.Prepare();
+                while (!vp.isPrepared)
+                    yield return null;
+            }
+            else
+            {
+                // Ya estaba preparado (repeticiones): se reinicia sin Stop()
+                // para no limpiar la textura.
+                vp.time = 0;
+            }
+
+            vp.Play();
+        }
+
+        if (objectsToHide != null)
+        {
+            foreach (GameObject go in objectsToHide)
+            {
+                if (go != null)
+                    go.SetActive(false);
+            }
+        }
+    }
+
     void Start() { }
 
     void Update()
@@ -142,10 +175,7 @@ public class TimerTextNode12 : MonoBehaviour
         GO_Node12_1.SetActive(true);
         GO_CanvaNode12_1.SetActive(true);
 
-        videoPlayerNode12_1.Stop();
-        videoPlayerNode12_1.time = 0;
-        videoPlayerNode12_1.frame = 0;
-        videoPlayerNode12_1.Play();
+        yield return PlayVideoWhenReady(videoPlayerNode12_1);
 
         // Fade in de entrada
         if (fadePanel != null)
@@ -183,15 +213,8 @@ public class TimerTextNode12 : MonoBehaviour
         GO_Node12_2.SetActive(true);
         GO_CanvaNode12_2.SetActive(true);
 
-        GO_Node12_1.SetActive(false);
-        GO_CanvaNode12_1.SetActive(false);
-
+        yield return PlayVideoWhenReady(videoPlayerNode12_2, GO_CanvaNode12_1, GO_Node12_1);
         videoPlayerNode12_1.Stop();
-
-        videoPlayerNode12_2.Stop();
-        videoPlayerNode12_2.time = 0;
-        videoPlayerNode12_2.frame = 0;
-        videoPlayerNode12_2.Play();
 
         yield return new WaitForSeconds(10f);
         yield return StartCoroutine(AdvancingTimerNode12_3());
@@ -202,15 +225,8 @@ public class TimerTextNode12 : MonoBehaviour
         GO_Node12_3.SetActive(true);
         GO_CanvaNode12_3.SetActive(true);
 
-        GO_Node12_2.SetActive(false);
-        GO_CanvaNode12_2.SetActive(false);
-
+        yield return PlayVideoWhenReady(videoPlayerNode12_3, GO_CanvaNode12_2, GO_Node12_2);
         videoPlayerNode12_2.Stop();
-
-        videoPlayerNode12_3.Stop();
-        videoPlayerNode12_3.time = 0;
-        videoPlayerNode12_3.frame = 0;
-        videoPlayerNode12_3.Play();
 
         yield return new WaitForSeconds(1f);
         myTextNode12_3_1.gameObject.SetActive(true);
@@ -244,15 +260,8 @@ public class TimerTextNode12 : MonoBehaviour
         GO_Node12_4.SetActive(true);
         GO_CanvaNode12_4.SetActive(true);
 
-        GO_Node12_3.SetActive(false);
-        GO_CanvaNode12_3.SetActive(false);
-
+        yield return PlayVideoWhenReady(videoPlayerNode12_4, GO_CanvaNode12_3, GO_Node12_3);
         videoPlayerNode12_3.Stop();
-
-        videoPlayerNode12_4.Stop();
-        videoPlayerNode12_4.time = 0;
-        videoPlayerNode12_4.frame = 0;
-        videoPlayerNode12_4.Play();
 
         yield return new WaitForSeconds(1f);
         myTextNode12_4_1.gameObject.SetActive(true);
@@ -286,15 +295,8 @@ public class TimerTextNode12 : MonoBehaviour
         GO_Node12_5.SetActive(true);
         GO_CanvaNode12_5.SetActive(true);
 
-        GO_Node12_4.SetActive(false);
-        GO_CanvaNode12_4.SetActive(false);
-
+        yield return PlayVideoWhenReady(videoPlayerNode12_5, GO_CanvaNode12_4, GO_Node12_4);
         videoPlayerNode12_4.Stop();
-
-        videoPlayerNode12_5.Stop();
-        videoPlayerNode12_5.time = 0;
-        videoPlayerNode12_5.frame = 0;
-        videoPlayerNode12_5.Play();
 
         yield return new WaitForSeconds(1f);
         myTextNode12_5_1.gameObject.SetActive(true);
@@ -328,15 +330,8 @@ public class TimerTextNode12 : MonoBehaviour
         GO_Node12_6.SetActive(true);
         GO_CanvaNode12_6.SetActive(true);
 
-        GO_Node12_5.SetActive(false);
-        GO_CanvaNode12_5.SetActive(false);
-
+        yield return PlayVideoWhenReady(videoPlayerNode12_6, GO_CanvaNode12_5, GO_Node12_5);
         videoPlayerNode12_5.Stop();
-
-        videoPlayerNode12_6.Stop();
-        videoPlayerNode12_6.time = 0;
-        videoPlayerNode12_6.frame = 0;
-        videoPlayerNode12_6.Play();
 
         yield return new WaitForSeconds(1f);
         myTextNode12_6_1.gameObject.SetActive(true);
