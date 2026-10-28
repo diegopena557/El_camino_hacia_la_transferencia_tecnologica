@@ -45,6 +45,9 @@ public class StopQuestionManager : MonoBehaviour
 
     private bool waitingForAnswer = false;
 
+    // Remix: se activa con StopAll() cuando el minijuego termina
+    private bool stopped = false;
+
     // -- Unity -----------------------------------------------------------------
 
     void Awake()
@@ -84,6 +87,8 @@ public class StopQuestionManager : MonoBehaviour
 
     void Update()
     {
+        if (stopped) return;
+
         if (waitingForAnswer) return;
 
         if (activeTrigger == null) return;
@@ -102,6 +107,8 @@ public class StopQuestionManager : MonoBehaviour
 
     public void NotifySegmentStarted(int segmentIndex)
     {
+        if (stopped) return;
+
         activeTrigger = FindTrigger(segmentIndex);
 
         if (activeTrigger != null)
@@ -117,6 +124,21 @@ public class StopQuestionManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    // -- Remix: cancelar todo --------------------------------------------------
+
+    // Cancela preguntas pendientes, corrutinas y oculta el panel.
+    // Lo llama QuestionManager cuando el minijuego termina antes de tiempo.
+    public void StopAll()
+    {
+        stopped = true;
+
+        waitingForAnswer = false;
+
+        StopAllCoroutines();
+
+        HideAll();
     }
 
     // -- Question --------------------------------------------------------------

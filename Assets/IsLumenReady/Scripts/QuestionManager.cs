@@ -26,10 +26,18 @@ public class QuestionManager : MonoBehaviour
     public AudioClip correctAnswerSound;
     public AudioClip incorrectAnswerSound;
 
+    [Header("Remix: final anticipado")]
+    [Tooltip("Desactivado = comportamiento original (termina en el ultimo punto)")]
+    public bool enableEarlyEnd = false;
+
+    [Tooltip("Indice de stopPoints donde termina el minijuego. -1 = mitad del recorrido")]
+    public int earlyEndStopIndex = -1;
+
     // -- Runtime state ---------------------------------------------------------
 
     private bool questionActive = false;
     private bool forcedLateAnswer = false;
+    private bool journeyEnded = false;
 
     private SegmentData activeSegmentData = null;
 
@@ -60,12 +68,23 @@ public class QuestionManager : MonoBehaviour
 
     void HandleReachStop(int stopIndex)
     {
+        // Remix: si el recorrido ya termino, ignorar cualquier llegada
+        if (journeyEnded)
+            return;
+
         // Si la pregunta sigue activa al llegar al final del tramo,
         // detener el personaje pero mantener la pregunta visible.
         if (questionActive)
         {
             forcedLateAnswer = true;
             mover.SetPaused(true);
+            return;
+        }
+
+        // Remix: final anticipado (solo si esta activado)
+        if (enableEarlyEnd && stopIndex >= GetEarlyEndStopIndex())
+        {
+            EndJourneyEarly();
             return;
         }
 
@@ -89,6 +108,34 @@ public class QuestionManager : MonoBehaviour
             stopManager.NotifySegmentStarted(mover.CurrentSegmentIndex);
 
         ShowQuestion();
+    }
+
+    // -- Remix: final anticipado -----------------------------------------------
+
+    int GetEarlyEndStopIndex()
+    {
+        if (earlyEndStopIndex >= 0)
+            return earlyEndStopIndex;
+
+        // Mitad del recorrido (minimo la parada 1)
+        return Mathf.Max(1, (mover.stopPoints.Length - 1) / 2);
+    }
+
+    void EndJourneyEarly()
+    {
+        journeyEnded = true;
+
+        Debug.Log("Journey ended early (remix).");
+
+        mover.SetPaused(true);
+
+        // Cancela preguntas a mitad de tramo pendientes
+        if (stopManager != null)
+            stopManager.StopAll();
+
+        HideQuestion();
+
+        GameResultsManager.Instance?.ShowResults();
     }
 
     // -- Show question ---------------------------------------------------------
@@ -315,11 +362,7 @@ public class QuestionManager : MonoBehaviour
         else
             GameResultsManager.Instance?.RegisterAnswer(isCorrect);
 
-        // -------------------------------------------------------------------
-        // FIX: mostrar feedback en todos los casos (correcto, incorrecto y
-        // autoFail). Antes, el bloque "else if (isCorrect)" dejaba sin
-        // feedback las respuestas incorrectas.
-        // -------------------------------------------------------------------
+        // Mostrar feedback en todos los casos (correcto, incorrecto y autoFail)
         if (autoFail)
         {
             ShowFeedback(msg, col);
@@ -332,7 +375,7 @@ public class QuestionManager : MonoBehaviour
                     : string.IsNullOrWhiteSpace(msg)
                         ? timingSuffix
                         : msg + "\n" + timingSuffix)
-                : msg; // incorrecto: solo el texto de la opción, sin sufijo de timing
+                : msg; // incorrecto: solo el texto de la opcion, sin sufijo de timing
 
             ShowFeedback(combined, col);
         }

@@ -8,9 +8,14 @@ public class GameResultsManager : MonoBehaviour
 {
     public static GameResultsManager Instance;
 
-    [Header("Resultados")]
+    [Header("Resultados (este minijuego)")]
     public int correctAnswers = 0;
     public int wrongAnswers = 0;
+
+    [Header("Suma de minijuegos")]
+    [Tooltip("Incluir los aciertos/errores registrados con RegisterAnswer en este manager. " +
+             "Desactivar si RegisterAnswer ya se llama junto con GameStatsManager (evita doble conteo).")]
+    public bool includeOwnAnswers = true;
 
     [Header("UI Final")]
     public GameObject resultsPanel;
@@ -27,6 +32,16 @@ public class GameResultsManager : MonoBehaviour
     public Sprite silverMedal;
     public Sprite goldMedal;
 
+    [Header("Titulo y umbrales de medalla")]
+    [Tooltip("Porcentaje minimo para medalla de oro")]
+    public float goldThreshold = 80f;
+    [Tooltip("Porcentaje minimo para medalla de plata")]
+    public float silverThreshold = 50f;
+
+    public string goldTitle = "¡MEDALLA DE ORO!";
+    public string silverTitle = "¡MEDALLA DE PLATA!";
+    public string bronzeTitle = "¡MEDALLA DE BRONCE!";
+
     [Header("Animacion")]
     public float popupDuration = 0.35f;
     public float staggerDelay = 0.15f;
@@ -38,9 +53,16 @@ public class GameResultsManager : MonoBehaviour
     public Image fadePanel;
     public float fadeOutDuration = 1.5f;
 
+    [Header("Remix")]
+    [Tooltip("Desactivado = comportamiento original (singleton estricto)")]
+    public bool overrideInstance = false;
+
+    [Tooltip("Escena a cargar al presionar Continuar")]
+    public string nextSceneName = "Dialogue14";
+
     void Awake()
     {
-        if (Instance == null)
+        if (Instance == null || overrideInstance)
             Instance = this;
         else
             Destroy(gameObject);
@@ -69,27 +91,72 @@ public class GameResultsManager : MonoBehaviour
             wrongAnswers++;
     }
 
+    // ----------------------------------------------------
+    // SUMA DE LOS MINIJUEGOS
+    // ----------------------------------------------------
+
+    int GetTotalCorrect()
+    {
+        int total = includeOwnAnswers ? correctAnswers : 0;
+
+        // Minijuego 1
+        if (GameStatsManager.Instance != null)
+            total += GameStatsManager.Instance.GetCorrect();
+
+        // Minijuego 2 (varias etapas)
+        if (TokenResultsScreen.Instance != null)
+            total += TokenResultsScreen.Instance.GetTotalCorrect();
+
+        return total;
+    }
+
+    int GetTotalWrong()
+    {
+        int total = includeOwnAnswers ? wrongAnswers : 0;
+
+        // Minijuego 1
+        if (GameStatsManager.Instance != null)
+            total += GameStatsManager.Instance.GetErrors();
+
+        // Minijuego 2 (varias etapas)
+        if (TokenResultsScreen.Instance != null)
+            total += TokenResultsScreen.Instance.GetTotalWrong();
+
+        return total;
+    }
+
     public void ShowResults()
     {
         resultsPanel.SetActive(true);
 
-        int total = correctAnswers + wrongAnswers;
+        int totalCorrect = GetTotalCorrect();
+        int totalWrong = GetTotalWrong();
+        int total = totalCorrect + totalWrong;
 
         float percentage = 0f;
 
         if (total > 0)
-            percentage = ((float)correctAnswers / total) * 100f;
+            percentage = ((float)totalCorrect / total) * 100f;
 
-        correctText.text = "Aciertos: " + correctAnswers;
-        wrongText.text = "Errores: " + wrongAnswers;
+        correctText.text = "Aciertos: " + totalCorrect;
+        wrongText.text = "Errores: " + totalWrong;
         percentageText.text = "Precision: " + Mathf.RoundToInt(percentage) + "%";
 
-        if (percentage >= 80f)
+        if (percentage >= goldThreshold)
+        {
             medalImage.sprite = goldMedal;
-        else if (percentage >= 50f)
+            titleText.text = goldTitle;
+        }
+        else if (percentage >= silverThreshold)
+        {
             medalImage.sprite = silverMedal;
+            titleText.text = silverTitle;
+        }
         else
+        {
             medalImage.sprite = bronzeMedal;
+            titleText.text = bronzeTitle;
+        }
 
         titleText.transform.localScale = Vector3.zero;
         correctText.transform.localScale = Vector3.zero;
@@ -131,7 +198,7 @@ public class GameResultsManager : MonoBehaviour
         c.a = 1f;
         fadePanel.color = c;
 
-        SceneManager.LoadScene("Dialogue14");
+        SceneManager.LoadScene(nextSceneName);
     }
 
     // ----------------------------------------------------
