@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class TimerTextNode18 : MonoBehaviour
 {
@@ -56,6 +57,40 @@ public class TimerTextNode18 : MonoBehaviour
     public TypewriterTMP textNode18_2_6;
     public TypewriterTMP textNode18_2_7;
     
+    //////////////////// AUDIOS ////////////////////////
+    [Header("Audio Sources")]
+    public AudioSource[] sources;
+
+    private Dictionary<string, AudioSource> audioDict;
+
+
+    void Awake()
+    {
+        audioDict = new Dictionary<string, AudioSource>();
+        if (sources != null)
+        {
+            foreach (AudioSource src in sources)
+            {
+                if (src != null)
+                    audioDict[src.gameObject.name] = src;
+            }
+        }
+
+    }
+    
+    public void PlayByName(string name)
+    {
+        if (audioDict.ContainsKey(name))
+            audioDict[name].Play();
+        else
+            Debug.LogWarning("No AudioSource found with name: " + name);
+    }
+
+    public void StopByName(string name)
+    {
+        if (audioDict.ContainsKey(name))
+            audioDict[name].Stop();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -85,56 +120,67 @@ public class TimerTextNode18 : MonoBehaviour
 
         myTextNode18_1_1.gameObject.SetActive(true);
         textNode18_1_1.StartTyping();
+        PlayByName("18_1_1");
         
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2.6f);
         
         myTextNode18_1_1.gameObject.SetActive(false);
         myTextNode18_1_2.gameObject.SetActive(true);
         textNode18_1_2.StartTyping();
+        PlayByName("18_1_2");
         
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.8f);
         
         myTextNode18_1_2.gameObject.SetActive(false);
         myTextNode18_1_3.gameObject.SetActive(true);
         textNode18_1_3.StartTyping();
+        PlayByName("18_1_3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.7f);
         
         myTextNode18_1_3.gameObject.SetActive(false);
         myTextNode18_1_4.gameObject.SetActive(true);
         textNode18_1_4.StartTyping();
+        PlayByName("18_1_4");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3.9f);
         
         myTextNode18_1_4.gameObject.SetActive(false);
         myTextNode18_1_5.gameObject.SetActive(true);
         textNode18_1_5.StartTyping();
+        PlayByName("18_1_5");
 
         yield return new WaitForSeconds(5f);
 
         myTextNode18_1_5.gameObject.SetActive(false);
         myTextNode18_1_6.gameObject.SetActive(true);
         textNode18_1_6.StartTyping();
+        PlayByName("18_1_6");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3.2f);
 
         myTextNode18_1_6.gameObject.SetActive(false);
         myTextNode18_1_7.gameObject.SetActive(true);
         textNode18_1_7.StartTyping();
+        PlayByName("18_1_7");
 
         yield return new WaitForSeconds(5f);
 
         myTextNode18_1_7.gameObject.SetActive(false);
         myTextNode18_1_8.gameObject.SetActive(true);
         textNode18_1_8.StartTyping();
+        PlayByName("18_1_8");
 
-        yield return new WaitForSeconds(5f);
+
+        yield return new WaitForSeconds(2.6f);
 
         myTextNode18_1_8.gameObject.SetActive(false);
         myTextNode18_1_9.gameObject.SetActive(true);
         textNode18_1_9.StartTyping();
+        PlayByName("18_1_9");
 
-        yield return new WaitForSeconds(5f);
+
+        yield return new WaitForSeconds(2.7f);
 
         StartCoroutine(AdvancingTimerNode18_2());
     }
@@ -153,44 +199,57 @@ public class TimerTextNode18 : MonoBehaviour
 
         myTextNode18_2_1.gameObject.SetActive(true);
         textNode18_2_1.StartTyping();
+        PlayByName("18_2_1");
+
         
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5.1f);
         
         myTextNode18_2_1.gameObject.SetActive(false);
         myTextNode18_2_2.gameObject.SetActive(true);
         textNode18_2_2.StartTyping();
+        PlayByName("18_2_2");
+
         
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6.75f);
         
         myTextNode18_2_2.gameObject.SetActive(false);
         myTextNode18_2_3.gameObject.SetActive(true);
         textNode18_2_3.StartTyping();
+        PlayByName("18_2_3");
 
-        yield return new WaitForSeconds(5f);
+
+        yield return new WaitForSeconds(3.4f);
         
         myTextNode18_2_3.gameObject.SetActive(false);
         myTextNode18_2_4.gameObject.SetActive(true);
         textNode18_2_4.StartTyping();
+        PlayByName("18_2_4");
 
-        yield return new WaitForSeconds(5f);
+
+        yield return new WaitForSeconds(3.4f);
         
         myTextNode18_2_4.gameObject.SetActive(false);
         myTextNode18_2_5.gameObject.SetActive(true);
         textNode18_2_5.StartTyping();
+        PlayByName("18_2_5");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.7f);
 
         myTextNode18_2_5.gameObject.SetActive(false);
         myTextNode18_2_6.gameObject.SetActive(true);
         textNode18_2_6.StartTyping();
+        PlayByName("18_2_6");
 
-        yield return new WaitForSeconds(5f);
+
+        yield return new WaitForSeconds(4.44f);
 
         myTextNode18_2_6.gameObject.SetActive(false);
         myTextNode18_2_7.gameObject.SetActive(true);
         textNode18_2_7.StartTyping();
+        PlayByName("18_2_7");
 
-        yield return new WaitForSeconds(5f);
+
+        yield return new WaitForSeconds(4f);
 
         StartCoroutine(AdvancingTimerNode18_3());
     }
