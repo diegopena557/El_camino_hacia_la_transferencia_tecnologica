@@ -64,7 +64,7 @@ public class TimerTextNode16_1 : MonoBehaviour
         myTextNode16_1_1.gameObject.SetActive(true);
         textNode16_1_1.StartTyping();
         
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
 
         myTextNode16_1_1.gameObject.SetActive(false);
         myTextNode16_1_2.gameObject.SetActive(true);

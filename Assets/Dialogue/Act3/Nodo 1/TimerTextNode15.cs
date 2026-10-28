@@ -143,6 +143,16 @@ public class TimerTextNode15 : MonoBehaviour
 
     IEnumerator AdvancingTimerNode15_5()
     {
+        videoPlayerNode15_4.Stop();
+        GO_Node15_4.SetActive(false);
+        GO_Node15_5.SetActive(true);
+        GO_CanvaNode15_5.SetActive(true);
+
+        videoPlayerNode15_5.Stop();
+        videoPlayerNode15_5.time = 0;        
+        videoPlayerNode15_5.frame = 0;
+        videoPlayerNode15_5.Play();
+
         myTextNode15_5_1.gameObject.SetActive(true);
         textNode15_5_1.StartTyping();
         
