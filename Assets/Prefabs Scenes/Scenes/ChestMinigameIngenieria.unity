@@ -642,6 +642,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1001 &1813598102
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 394097496534632292, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+      propertyPath: m_Name
+      value: IntroMinJuegoAudio chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374591299313086734, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 728d9f7cacedced4bbf0036b68bb5927, type: 3}
+    - target: {fileID: 5058817005321487751, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058817005321487751, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058817005321487751, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058817005321487751, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058817005321487751, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058817005321487751, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058817005321487751, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058817005321487751, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058817005321487751, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058817005321487751, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
 --- !u!114 &1860006381 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2226709558126418984, guid: 2ec8864c2195dbb41a9011a12a75dbf1, type: 3}
@@ -3129,3 +3190,4 @@ SceneRoots:
   - {fileID: 5556226518564004988}
   - {fileID: 777081279631028953}
   - {fileID: 6712319975529126337}
+  - {fileID: 1813598102}
