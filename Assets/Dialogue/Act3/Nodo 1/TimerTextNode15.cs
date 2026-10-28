@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class TimerTextNode15 : MonoBehaviour
 {
@@ -48,6 +49,66 @@ public class TimerTextNode15 : MonoBehaviour
     //1 -- Des2
     //2 -- Des3
     public int flagDecisionChoosen;
+
+    [Header("Panel Final")]
+    public GameObject endPanel;
+
+    [Header("Fade In Settings")]
+    public Image fadePanel;
+
+        //////////////////// AUDIOS ////////////////////////
+    [Header("Audio Sources")]
+    public AudioSource[] sources;
+
+    private Dictionary<string, AudioSource> audioDict;
+    private CanvasGroup endPanelCanvasGroup;
+
+    void Awake()
+    {
+        audioDict = new Dictionary<string, AudioSource>();
+        if (sources != null)
+        {
+            foreach (AudioSource src in sources)
+            {
+                if (src != null)
+                    audioDict[src.gameObject.name] = src;
+            }
+        }
+
+        if (endPanel != null)
+        {
+            endPanelCanvasGroup = endPanel.GetComponent<CanvasGroup>();
+            if (endPanelCanvasGroup == null)
+                endPanelCanvasGroup = endPanel.AddComponent<CanvasGroup>();
+
+            endPanelCanvasGroup.alpha = 0f;
+            endPanelCanvasGroup.interactable = false;
+            endPanelCanvasGroup.blocksRaycasts = false;
+            endPanel.SetActive(false);
+        }
+
+        if (fadePanel != null)
+        {
+            Color c = fadePanel.color;
+            c.a = 1f;
+            fadePanel.color = c;
+            fadePanel.gameObject.SetActive(true);
+        }
+    }
+
+    public void PlayByName(string name)
+    {
+        if (audioDict.ContainsKey(name))
+            audioDict[name].Play();
+        else
+            Debug.LogWarning("No AudioSource found with name: " + name);
+    }
+
+    public void StopByName(string name)
+    {
+        if (audioDict.ContainsKey(name))
+            audioDict[name].Stop();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -155,49 +216,57 @@ public class TimerTextNode15 : MonoBehaviour
 
         myTextNode15_5_1.gameObject.SetActive(true);
         textNode15_5_1.StartTyping();
+        PlayByName("15_5_1");
         
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2.2f);
         
         myTextNode15_5_1.gameObject.SetActive(false);
         myTextNode15_5_2.gameObject.SetActive(true);
         textNode15_5_2.StartTyping();
+        PlayByName("15_5_2");
         
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1.6f);
         
         myTextNode15_5_2.gameObject.SetActive(false);
         myTextNode15_5_3.gameObject.SetActive(true);
         textNode15_5_3.StartTyping();
+        PlayByName("15_5_3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7.5f);
         
         myTextNode15_5_3.gameObject.SetActive(false);
         myTextNode15_5_4.gameObject.SetActive(true);
         textNode15_5_4.StartTyping();
+        PlayByName("15_5_4");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1.1f);
         
         myTextNode15_5_4.gameObject.SetActive(false);
         myTextNode15_5_5.gameObject.SetActive(true);
         textNode15_5_5.StartTyping();
+        PlayByName("15_5_5");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         
         myTextNode15_5_5.gameObject.SetActive(false);
         myTextNode15_5_6.gameObject.SetActive(true);
         textNode15_5_6.StartTyping();
+        PlayByName("15_5_6");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.8f);
         
         myTextNode15_5_6.gameObject.SetActive(false);
         myTextNode15_5_7.gameObject.SetActive(true);
         textNode15_5_7.StartTyping();
+        PlayByName("15_5_7");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1.3f);
         
         myTextNode15_5_7.gameObject.SetActive(false);
         myTextNode15_5_8.gameObject.SetActive(true);
         textNode15_5_8.StartTyping();
+        PlayByName("15_5_8");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6f);
     }
 }

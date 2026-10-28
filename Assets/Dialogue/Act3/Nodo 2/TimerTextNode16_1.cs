@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class TimerTextNode16_1 : MonoBehaviour
 {
@@ -34,7 +35,40 @@ public class TimerTextNode16_1 : MonoBehaviour
     public TypewriterTMP textNode16_2_1;
     public TypewriterTMP textNode16_3_1;
     
+            //////////////////// AUDIOS ////////////////////////
+    [Header("Audio Sources")]
+    public AudioSource[] sources;
+
+    private Dictionary<string, AudioSource> audioDict;
+
+
+    void Awake()
+    {
+        audioDict = new Dictionary<string, AudioSource>();
+        if (sources != null)
+        {
+            foreach (AudioSource src in sources)
+            {
+                if (src != null)
+                    audioDict[src.gameObject.name] = src;
+            }
+        }
+
+    }
     
+    public void PlayByName(string name)
+    {
+        if (audioDict.ContainsKey(name))
+            audioDict[name].Play();
+        else
+            Debug.LogWarning("No AudioSource found with name: " + name);
+    }
+
+    public void StopByName(string name)
+    {
+        if (audioDict.ContainsKey(name))
+            audioDict[name].Stop();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -63,20 +97,23 @@ public class TimerTextNode16_1 : MonoBehaviour
 
         myTextNode16_1_1.gameObject.SetActive(true);
         textNode16_1_1.StartTyping();
-        
-        yield return new WaitForSeconds(5f);
+        PlayByName("16_1_1");
+
+        yield return new WaitForSeconds(6.4f);
 
         myTextNode16_1_1.gameObject.SetActive(false);
         myTextNode16_1_2.gameObject.SetActive(true);
         textNode16_1_2.StartTyping();
+        PlayByName("16_1_2");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5.7f);
 
         myTextNode16_1_2.gameObject.SetActive(false);
         myTextNode16_1_3.gameObject.SetActive(true);
         textNode16_1_3.StartTyping();
+        PlayByName("16_1_3");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5.3f);
 
         StartCoroutine(AdvancingTimerNode16_2());
     }
@@ -95,8 +132,9 @@ public class TimerTextNode16_1 : MonoBehaviour
 
         myTextNode16_2_1.gameObject.SetActive(true);
         textNode16_2_1.StartTyping();
+        PlayByName("16_1_4");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
 
         StartCoroutine(AdvancingTimerNode16_3());
     }
@@ -115,7 +153,8 @@ public class TimerTextNode16_1 : MonoBehaviour
 
         myTextNode16_3_1.gameObject.SetActive(true);
         textNode16_3_1.StartTyping();
+        PlayByName("16_1_5");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7.7f);
     }
 }
