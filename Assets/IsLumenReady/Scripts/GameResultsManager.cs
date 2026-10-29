@@ -45,7 +45,11 @@ public class GameResultsManager : MonoBehaviour
     [Header("Animacion")]
     public float popupDuration = 0.35f;
     public float staggerDelay = 0.15f;
+    [Header("Fade del Panel de Resultados")]
+    public float resultsFadeInDuration = 0.5f;
+    public float resultsFadeOutDuration = 0.5f;
 
+    private CanvasGroup resultsGroup;
     [Header("Continue Button")]
     public Button continueButton;
 
@@ -66,7 +70,16 @@ public class GameResultsManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+        if (resultsPanel != null)
+        {
+            // Usa el CanvasGroup existente o lo crea automáticamente
+            resultsGroup = resultsPanel.GetComponent<CanvasGroup>();
+            if (resultsGroup == null)
+                resultsGroup = resultsPanel.AddComponent<CanvasGroup>();
 
+            resultsGroup.alpha = 0f;
+            resultsPanel.SetActive(false);
+        }
         if (resultsPanel != null)
             resultsPanel.SetActive(false);
 
@@ -127,6 +140,9 @@ public class GameResultsManager : MonoBehaviour
 
     public void ShowResults()
     {
+        // Fade in: empieza invisible y no interactuable
+        resultsGroup.alpha = 0f;
+        resultsGroup.interactable = false;
         resultsPanel.SetActive(true);
 
         int totalCorrect = GetTotalCorrect();
@@ -165,6 +181,7 @@ public class GameResultsManager : MonoBehaviour
         medalImage.transform.localScale = Vector3.zero;
 
         StopAllCoroutines();
+        StartCoroutine(FadeGroup(resultsGroup, 0f, 1f, resultsFadeInDuration));
         StartCoroutine(AnimateResults());
     }
 
@@ -180,23 +197,45 @@ public class GameResultsManager : MonoBehaviour
 
     IEnumerator FadeOutAndLoad()
     {
-        fadePanel.gameObject.SetActive(true);
-        Color c = fadePanel.color;
-        c.a = 0f;
-        fadePanel.color = c;
+        resultsGroup.interactable = false;
 
+        if (fadePanel != null)
+        {
+            fadePanel.gameObject.SetActive(true);
+            Color c = fadePanel.color;
+            c.a = 0f;
+            fadePanel.color = c;
+        }
+
+        float duration = Mathf.Max(resultsFadeOutDuration, fadeOutDuration);
         float elapsed = 0f;
 
-        while (elapsed < fadeOutDuration)
+        while (elapsed < duration)
         {
-            elapsed += Time.deltaTime;
-            c.a = Mathf.Lerp(0f, 1f, elapsed / fadeOutDuration);
-            fadePanel.color = c;
+            elapsed += Time.unscaledDeltaTime;
+
+            // El panel de resultados se desvanece
+            resultsGroup.alpha = 1f - Mathf.Clamp01(elapsed / resultsFadeOutDuration);
+
+            // La pantalla se oscurece
+            if (fadePanel != null)
+            {
+                Color c = fadePanel.color;
+                c.a = Mathf.Clamp01(elapsed / fadeOutDuration);
+                fadePanel.color = c;
+            }
+
             yield return null;
         }
 
-        c.a = 1f;
-        fadePanel.color = c;
+        resultsGroup.alpha = 0f;
+
+        if (fadePanel != null)
+        {
+            Color c = fadePanel.color;
+            c.a = 1f;
+            fadePanel.color = c;
+        }
 
         SceneManager.LoadScene(nextSceneName);
     }
@@ -204,7 +243,21 @@ public class GameResultsManager : MonoBehaviour
     // ----------------------------------------------------
     // ANIMACION SECUENCIAL
     // ----------------------------------------------------
+    IEnumerator FadeGroup(CanvasGroup group, float from, float to, float duration)
+    {
+        float t = 0f;
+        group.alpha = from;
 
+        while (t < duration)
+        {
+            t += Time.unscaledDeltaTime;
+            group.alpha = Mathf.Lerp(from, to, t / duration);
+            yield return null;
+        }
+
+        group.alpha = to;
+        group.interactable = true;
+    }
     IEnumerator AnimateResults()
     {
         yield return AnimatePopup(titleText.transform, 1.15f);

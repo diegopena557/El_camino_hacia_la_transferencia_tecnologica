@@ -7663,12 +7663,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 4f9b5e8f26e0f76438daef212609b09f, type: 3}
     - target: {fileID: 2697001759894519544, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: nextSceneName
+      value: Dialogue16_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2697001759894519544, guid: 867acac0d68735e48985d9845441339f, type: 3}
       propertyPath: percentageText
       value: 
       objectReference: {fileID: 1026878706}
     - target: {fileID: 2697001759894519544, guid: 867acac0d68735e48985d9845441339f, type: 3}
       propertyPath: overrideInstance
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2873157991629607478, guid: 867acac0d68735e48985d9845441339f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -311
       objectReference: {fileID: 0}
     - target: {fileID: 6976865080954601909, guid: 867acac0d68735e48985d9845441339f, type: 3}
       propertyPath: m_fontSize
@@ -7752,7 +7760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7737539748404592146, guid: 867acac0d68735e48985d9845441339f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -283
+      value: -249
       objectReference: {fileID: 0}
     - target: {fileID: 7737539748404592146, guid: 867acac0d68735e48985d9845441339f, type: 3}
       propertyPath: m_AnchoredPosition.y
