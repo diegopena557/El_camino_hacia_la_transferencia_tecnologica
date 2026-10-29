@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
 using UnityEngine.Video;
@@ -16,6 +17,7 @@ public class TimerTextNode14 : MonoBehaviour
     public GameObject GO_Node14_2;
 
     public VideoPlayer videoPlayerNode14_1;
+    public VideoPlayer videoPlayerNode14_2;
 
     public TextMeshProUGUI myTextNode14_1_1;
     public TextMeshProUGUI myTextNode14_1_2;
@@ -32,13 +34,12 @@ public class TimerTextNode14 : MonoBehaviour
     public Image fadePanel;
     public float fadeInDuration = 1.5f;
 
-    //////////////////// PANEL FINAL ////////////////////////
-    [Header("End Panel")]
-    public GameObject endPanel;
-    public Button quitButton;
-    public float fadeDuration = 1f;
+    //////////////////// FADE OUT + CAMBIO DE ESCENA ////////////////////////
+    [Header("Fade Out Settings")]
+    public float fadeOutDuration = 1.5f;
+    public string nextSceneName = "Dialogue15";
 
-    private CanvasGroup endPanelCanvasGroup;
+    private bool isFadingOut;
 
     //////////////////// AUDIOS ////////////////////////
     [Header("Audio Sources")]
@@ -62,21 +63,6 @@ public class TimerTextNode14 : MonoBehaviour
             fadePanel.color = c;
             fadePanel.gameObject.SetActive(true);
         }
-
-        if (endPanel != null)
-        {
-            endPanelCanvasGroup = endPanel.GetComponent<CanvasGroup>();
-            if (endPanelCanvasGroup == null)
-                endPanelCanvasGroup = endPanel.AddComponent<CanvasGroup>();
-
-            endPanelCanvasGroup.alpha = 0f;
-            endPanelCanvasGroup.interactable = false;
-            endPanelCanvasGroup.blocksRaycasts = false;
-            endPanel.SetActive(false);
-        }
-
-        if (quitButton != null)
-            quitButton.onClick.AddListener(QuitGame);
     }
 
     public void PlayByName(string name)
@@ -119,7 +105,25 @@ public class TimerTextNode14 : MonoBehaviour
         if (canvasToHide != null)
             canvasToHide.SetActive(false);
     }
+    private IEnumerator PlayVideoAndWaitFirstFrame(VideoPlayer vp)
+    {
+        if (!vp.isPrepared)
+        {
+            vp.Prepare();
+            while (!vp.isPrepared)
+                yield return null;
+        }
 
+        vp.Play();
+
+        // Espera a que se dibuje realmente el primer cuadro (con tope de 2 s por seguridad)
+        float timeout = 2f;
+        while (vp.frame < 1 && timeout > 0f)
+        {
+            timeout -= Time.deltaTime;
+            yield return null;
+        }
+    }
     void Start() { }
 
     void Update()
@@ -170,23 +174,43 @@ public class TimerTextNode14 : MonoBehaviour
 
     IEnumerator AdvancingTimerNode14_2()
     {
+        // 1) Activa SOLO el nodo del video (sin mostrar aún el canvas de decisión)
         GO_Node14_2.SetActive(true);
+
+        // 2) Prepara, reproduce y espera a que el primer cuadro esté dibujado.
+        //    Mientras tanto el 14_1 sigue visible, así que nunca hay pantalla vacía.
+        if (videoPlayerNode14_2 != null)
+            yield return PlayVideoAndWaitFirstFrame(videoPlayerNode14_2);
+
+        // 3) Recién ahora se muestra el canvas del 14_2
         GO_CanvaNode14_2.SetActive(true);
 
-        GO_Node14_1.SetActive(true);
-        GO_CanvaNode14_1.SetActive(true);
+        // Un frame para que el canvas se dibuje antes de quitar lo anterior
+        yield return null;
 
         yield return new WaitForSeconds(1.0f);
         myTextNode14_1_4.gameObject.SetActive(false);
 
-        // El end panel ya NO se dispara aqui,
-        // sino cuando el jugador elige una opcion (OpenCanvasOnClick)
+        // 4) Ahora sí se apaga el 14_1
+        if (videoPlayerNode14_1 != null)
+            videoPlayerNode14_1.Stop();
+
+        GO_CanvaNode14_1.SetActive(false);
+        GO_Node14_1.SetActive(false);
+    }
+
+    // Se mantiene el nombre original para no romper la llamada desde OpenCanvasOnClick
+    public void TriggerEndPanel()
+    {
+        TriggerFadeOut();
     }
 
     // Llamado desde OpenCanvasOnClick al elegir una opcion
-    public void TriggerEndPanel()
+    public void TriggerFadeOut()
     {
-        StartCoroutine(FadeInEndPanel());
+        if (isFadingOut) return;
+        isFadingOut = true;
+        StartCoroutine(FadeOutAndLoadScene());
     }
 
     IEnumerator FadeInEntrance()
@@ -207,31 +231,31 @@ public class TimerTextNode14 : MonoBehaviour
         fadePanel.gameObject.SetActive(false);
     }
 
-    IEnumerator FadeInEndPanel()
+    IEnumerator FadeOutAndLoadScene()
     {
-        endPanel.SetActive(true);
-        endPanelCanvasGroup.alpha = 0f;
-
-        float elapsed = 0f;
-
-        while (elapsed < fadeDuration)
+        if (fadePanel != null)
         {
-            elapsed += Time.deltaTime;
-            endPanelCanvasGroup.alpha = Mathf.Clamp01(elapsed / fadeDuration);
-            yield return null;
+            // Reactiva el panel negro (estaba desactivado tras el fade in)
+            fadePanel.gameObject.SetActive(true);
+            fadePanel.transform.SetAsLastSibling(); // asegura que quede por encima de todo
+
+            float elapsed = 0f;
+            Color c = fadePanel.color;
+            c.a = 0f;
+            fadePanel.color = c;
+
+            while (elapsed < fadeOutDuration)
+            {
+                elapsed += Time.deltaTime;
+                c.a = Mathf.Lerp(0f, 1f, elapsed / fadeOutDuration);
+                fadePanel.color = c;
+                yield return null;
+            }
+
+            c.a = 1f;
+            fadePanel.color = c;
         }
 
-        endPanelCanvasGroup.alpha = 1f;
-        endPanelCanvasGroup.interactable = true;
-        endPanelCanvasGroup.blocksRaycasts = true;
-    }
-
-    public void QuitGame()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        SceneManager.LoadScene(nextSceneName);
     }
 }

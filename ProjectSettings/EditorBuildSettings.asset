@@ -47,5 +47,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Prefabs Scenes/Scenes/Dialogue14.unity
     guid: 363a6926ffa6f46b995f46c5d7fd60b4
+  - enabled: 1
+    path: Assets/Prefabs Scenes/Scenes/Dialogue15.unity
+    guid: 98dcc2ab7dc1849e3a017a28dfd7fdc7
+  - enabled: 1
+    path: Assets/Dialogue16_1.unity
+    guid: c6e021cc6f8084878925f48b5a0d9c75
+  - enabled: 1
+    path: Assets/Prefabs Scenes/Scenes/RemixMinigame.unity
+    guid: c02f2b0bdd3d61049a9e60d5eb53d40a
+  - enabled: 1
+    path: Assets/Dialogue16_2.unity
+    guid: 2522d4b6009034d1e887f0b9c422dfed
+  - enabled: 1
+    path: Assets/Dialogue17.unity
+    guid: 52692cb0740ea491c8fe0e3dcdb0d6fc
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
