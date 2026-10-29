@@ -39,6 +39,10 @@ public class InstructionsPanel : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip buttonClickSound;
 
+    [Header("Musica de Intro")]
+    public AudioSource introMusicSource;        // Musica de intro (Play On Awake)
+    public float musicFadeOutDuration = 0.5f;   // 0 = corte inmediato
+
     private bool isFading = false;
     private Action onLevelIntroComplete;
     private Action onInstructionsClosedCallback;
@@ -124,6 +128,7 @@ public class InstructionsPanel : MonoBehaviour
     {
         if (isFading) return;
         PlayClickSound();
+        StopIntroMusic(); // fade out de la musica de intro al cerrar las instrucciones
         StartCoroutine(FadeOutPanel(instructionsCanvasGroup, instructionsPanel, OnInstructionsClosed));
     }
 
@@ -267,6 +272,36 @@ public class InstructionsPanel : MonoBehaviour
     {
         if (audioSource != null && buttonClickSound != null)
             audioSource.PlayOneShot(buttonClickSound);
+    }
+
+    // Detiene la musica de intro (con fade out opcional)
+    void StopIntroMusic()
+    {
+        if (introMusicSource == null || !introMusicSource.isPlaying) return;
+
+        Debug.Log("[InstructionsPanel] Deteniendo musica de intro");
+
+        if (musicFadeOutDuration > 0f)
+            StartCoroutine(FadeOutMusic());
+        else
+            introMusicSource.Stop();
+    }
+
+    // Usa unscaledDeltaTime porque el juego esta pausado (timeScale = 0) mientras se muestran las instrucciones
+    IEnumerator FadeOutMusic()
+    {
+        float startVolume = introMusicSource.volume;
+        float elapsed = 0f;
+
+        while (elapsed < musicFadeOutDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            introMusicSource.volume = Mathf.Lerp(startVolume, 0f, Mathf.Clamp01(elapsed / musicFadeOutDuration));
+            yield return null;
+        }
+
+        introMusicSource.Stop();
+        introMusicSource.volume = startVolume; // restaura el volumen por si se vuelve a usar
     }
 
     string GetCategoryName(TokenCategory category)

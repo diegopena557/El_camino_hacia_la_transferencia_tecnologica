@@ -42,6 +42,16 @@ public class TimerTextNode8 : MonoBehaviour
     public Image fadePanel;
     public float fadeInDuration = 1.5f;
 
+    [Header("Act Title (se muestra sobre el panel negro al inicio)")]
+    [Tooltip("Primer texto TMP del titulo (por ejemplo, 'ACTO II'). Debe dibujarse encima del panel (por ejemplo, hijo de fadePanel).")]
+    public TextMeshProUGUI actTitleText1;
+    [Tooltip("Segundo texto TMP del titulo (por ejemplo, el nombre del acto). Debe dibujarse encima del panel.")]
+    public TextMeshProUGUI actTitleText2;
+    [Tooltip("Segundos totales que el panel permanece negro mostrando el titulo (incluye el fade in/out del texto).")]
+    public float actTitleDuration = 4f;
+    [Tooltip("Segundos que tarda el texto en aparecer y en desaparecer.")]
+    public float actTitleFadeDuration = 0.5f;
+
     //////////////////// FADE OUT ////////////////////////
     [Header("Fade Out Settings")]
     public float fadeOutDuration = 1.5f;
@@ -69,6 +79,9 @@ public class TimerTextNode8 : MonoBehaviour
             fadePanel.color = c;
             fadePanel.gameObject.SetActive(true);
         }
+
+        // El titulo del acto empieza invisible; se muestra en ShowActTitle()
+        SetActTitleAlpha(0f);
     }
 
     public void PlayByName(string name)
@@ -133,6 +146,13 @@ public class TimerTextNode8 : MonoBehaviour
     {
         GO_Node8_0.SetActive(true);
         GO_Node8_1.SetActive(false);
+
+        // Prepara el video mientras se muestra el titulo del acto
+        if (videoPlayerNode8_0 != null)
+            videoPlayerNode8_0.Prepare();
+
+        // Titulo del acto sobre el panel negro (el video arranca despues)
+        yield return StartCoroutine(ShowActTitle());
 
         yield return PlayVideoWhenReady(videoPlayerNode8_0);
 
@@ -200,6 +220,61 @@ public class TimerTextNode8 : MonoBehaviour
         // Fade out y carga de escena
         yield return StartCoroutine(FadeOutToBlack());
         LoadNextScene();
+    }
+
+    // Muestra el titulo del acto (los dos textos) sobre el panel negro durante actTitleDuration segundos
+    IEnumerator ShowActTitle()
+    {
+        if (actTitleText1 == null && actTitleText2 == null) yield break;
+
+        SetActTitleActive(true);
+
+        // Aparecen
+        yield return StartCoroutine(FadeActTitle(0f, 1f, actTitleFadeDuration));
+
+        // Se mantienen (el total incluye el fade in y el fade out del texto)
+        float hold = Mathf.Max(0f, actTitleDuration - 2f * actTitleFadeDuration);
+        yield return new WaitForSeconds(hold);
+
+        // Desaparecen
+        yield return StartCoroutine(FadeActTitle(1f, 0f, actTitleFadeDuration));
+
+        // Quedan ocultos para que no se vean en el fade out final
+        SetActTitleActive(false);
+    }
+
+    IEnumerator FadeActTitle(float from, float to, float duration)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            SetActTitleAlpha(Mathf.Lerp(from, to, elapsed / duration));
+            yield return null;
+        }
+
+        SetActTitleAlpha(to);
+    }
+
+    private void SetActTitleActive(bool active)
+    {
+        if (actTitleText1 != null) actTitleText1.gameObject.SetActive(active);
+        if (actTitleText2 != null) actTitleText2.gameObject.SetActive(active);
+    }
+
+    private void SetActTitleAlpha(float alpha)
+    {
+        SetTextAlpha(actTitleText1, alpha);
+        SetTextAlpha(actTitleText2, alpha);
+    }
+
+    private static void SetTextAlpha(TextMeshProUGUI tmp, float alpha)
+    {
+        if (tmp == null) return;
+        Color c = tmp.color;
+        c.a = alpha;
+        tmp.color = c;
     }
 
     // Fade in de entrada: negro a transparente

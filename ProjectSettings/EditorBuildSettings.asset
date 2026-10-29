@@ -62,5 +62,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Dialogue17.unity
     guid: 52692cb0740ea491c8fe0e3dcdb0d6fc
+  - enabled: 1
+    path: Assets/Dialogue18.unity
+    guid: db64f1838cef849a586e7bce3d4740b5
+  - enabled: 1
+    path: Assets/ENDING.unity
+    guid: f2060dd53b099494c8bdd9dd8bdae6c7
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

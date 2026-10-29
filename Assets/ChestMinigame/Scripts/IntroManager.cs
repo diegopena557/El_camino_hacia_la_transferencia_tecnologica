@@ -24,7 +24,9 @@ public class IntroManager : MonoBehaviour
     public CanvasGroup instructionsCanvasGroup;
 
     [Header("Audio")]
-    public AudioSource audioSource;   // 🔹 ahora solo el AudioSource
+    public AudioSource audioSource;             // Sonido del botón
+    public AudioSource introMusicSource;        // Música de intro (Play On Awake)
+    public float musicFadeOutDuration = 0.5f;   // 0 = corte inmediato
 
     [Header("Managers")]
     public MusicManager musicManager; // 🔹 referencia al MusicManager
@@ -149,6 +151,7 @@ public class IntroManager : MonoBehaviour
     {
         Debug.Log("=== OnContinueFromInstructions llamado ===");
         PlayButtonSound();
+        StopIntroMusic(); // 🔹 detiene la música de intro al cerrar las instrucciones
         StartCoroutine(TransitionToGameplay());
     }
 
@@ -229,6 +232,35 @@ public class IntroManager : MonoBehaviour
         }
     }
 
+    // 🔹 Detiene la música de intro (con fade out opcional)
+    void StopIntroMusic()
+    {
+        if (introMusicSource == null || !introMusicSource.isPlaying) return;
+
+        Debug.Log("[IntroManager] Deteniendo música de intro");
+
+        if (musicFadeOutDuration > 0f)
+            StartCoroutine(FadeOutMusic());
+        else
+            introMusicSource.Stop();
+    }
+
+    IEnumerator FadeOutMusic()
+    {
+        float startVolume = introMusicSource.volume;
+        float elapsed = 0f;
+
+        while (elapsed < musicFadeOutDuration)
+        {
+            introMusicSource.volume = Mathf.Lerp(startVolume, 0f, elapsed / musicFadeOutDuration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        introMusicSource.Stop();
+        introMusicSource.volume = startVolume; // restaura el volumen por si se vuelve a usar
+    }
+
     public SchoolData GetSelectedSchool() => selectedSchool;
 
     // Método para saltar directamente al juego (útil para testing)
@@ -243,6 +275,9 @@ public class IntroManager : MonoBehaviour
 
         if (gameplayPanel != null)
             gameplayPanel.SetActive(true);
+
+        // 🔹 También detiene la música de intro en skip
+        StopIntroMusic();
 
         // 🔹 Señal al MusicManager también en skip
         if (musicManager != null)

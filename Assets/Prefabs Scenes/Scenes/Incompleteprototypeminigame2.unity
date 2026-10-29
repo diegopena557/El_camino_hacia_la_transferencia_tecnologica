@@ -1126,6 +1126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!82 &2112931859 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4374591299313086734, guid: 281b33e2cf4b35c40943ccca9928ddbd, type: 3}
+  m_PrefabInstance: {fileID: 1146436609}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &593310673793733437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1271,6 +1276,10 @@ PrefabInstance:
       propertyPath: levelNumberText
       value: 
       objectReference: {fileID: 917091859}
+    - target: {fileID: 1409835618824469560, guid: 279cef5154c74934a991b0f3cb39143b, type: 3}
+      propertyPath: introMusicSource
+      value: 
+      objectReference: {fileID: 2112931859}
     - target: {fileID: 1409835618824469560, guid: 279cef5154c74934a991b0f3cb39143b, type: 3}
       propertyPath: levelDescriptionText
       value: 

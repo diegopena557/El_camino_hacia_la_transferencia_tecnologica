@@ -594,6 +594,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff48c05c8d568f488af4e798146e50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!82 &1637146751 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4374591299313086734, guid: e0b0bef78bb306d479e3a48af38b1815, type: 3}
+  m_PrefabInstance: {fileID: 1813598102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1667031423 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6247193049434613284, guid: e39d8cff3c7df004b85ade34dbc414b6, type: 3}
@@ -1172,6 +1177,10 @@ PrefabInstance:
       propertyPath: gameplayPanel
       value: 
       objectReference: {fileID: 1549872947}
+    - target: {fileID: 130293727473300223, guid: 8c8708474c6dcba48b8fd647dbab9957, type: 3}
+      propertyPath: introMusicSource
+      value: 
+      objectReference: {fileID: 1637146751}
     - target: {fileID: 130293727473300223, guid: 8c8708474c6dcba48b8fd647dbab9957, type: 3}
       propertyPath: instructionsScreen
       value: 
